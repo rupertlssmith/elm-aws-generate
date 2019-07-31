@@ -126,8 +126,8 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
     queryEncoderType: 'Date.Extra.toUtcIsoString',
     queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "${base}"`,
     extraImports: [
-      'import Date exposing (Date)',
-      'import Date.Extra',
+      'import Time exposing (Posix)',
+      'import Iso8601',
       'import Json.Decode.Extra as JDX',
     ],
   });

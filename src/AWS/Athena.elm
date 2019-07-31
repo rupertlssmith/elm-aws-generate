@@ -124,12 +124,12 @@ import AWS.Core.Encode
 import AWS.Core.Enum
 import AWS.Core.Http
 import AWS.Core.Service
-import Date exposing (Date)
-import Date.Extra
+import Iso8601
 import Json.Decode as JD
 import Json.Decode.Extra as JDX
 import Json.Decode.Pipeline as JDP
 import Json.Encode as JE
+import Time exposing (Posix)
 
 
 {-| Configuration for this service.
