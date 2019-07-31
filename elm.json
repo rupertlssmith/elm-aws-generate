@@ -1,7 +1,7 @@
 {
     "type": "package",
-    "name": "ktonon/elm-aws-iam",
-    "summary": "AWS Identity and Access Management (IAM)",
+    "name": "rupertlssmith/elm-aws-generate",
+    "summary": "Generator for AWS service APIs.",
     "license": "Apache-2.0",
     "version": "1.0.0",
     "exposed-modules": [
