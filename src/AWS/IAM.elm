@@ -12957,7 +12957,7 @@ getAccountSummaryResponseEncoder data =
     []
         |> (case data.summaryMap of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs intToString "SummaryMap" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "SummaryMap" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
