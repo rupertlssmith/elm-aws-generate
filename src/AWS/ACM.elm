@@ -2439,13 +2439,13 @@ filtersEncoder : Filters -> JE.Value
 filtersEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (JE.list extendedKeyUsageNameToString >> JE.string)
+            (JE.list (extendedKeyUsageNameToString >> JE.string))
             ( "extendedKeyUsage", data.extendedKeyUsage )
         |> AWS.Core.Encode.optionalMember
-            (JE.list keyUsageNameToString >> JE.string)
+            (JE.list (keyUsageNameToString >> JE.string))
             ( "keyUsage", data.keyUsage )
         |> AWS.Core.Encode.optionalMember
-            (JE.list keyAlgorithmToString >> JE.string)
+            (JE.list (keyAlgorithmToString >> JE.string))
             ( "keyTypes", data.keyTypes )
         |> JE.object
 
@@ -2505,7 +2505,7 @@ listCertificatesRequestEncoder : ListCertificatesRequest -> JE.Value
 listCertificatesRequestEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (JE.list certificateStatusToString >> JE.string)
+            (JE.list (certificateStatusToString >> JE.string))
             ( "CertificateStatuses", data.certificateStatuses )
         |> AWS.Core.Encode.optionalMember
             filtersEncoder
