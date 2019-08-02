@@ -2337,7 +2337,7 @@ type alias UpdateWorkGroupInput =
 batchGetNamedQueryInputEncoder : BatchGetNamedQueryInput -> JE.Value
 batchGetNamedQueryInputEncoder data =
     []
-        |> (::) ( "NamedQueryIds", data.namedQueryIds |> (List.map JE.string >> JE.list) )
+        |> (::) ( "NamedQueryIds", data.namedQueryIds |> JE.list JE.string )
         |> JE.object
 
 
@@ -2345,10 +2345,10 @@ batchGetNamedQueryOutputEncoder : BatchGetNamedQueryOutput -> JE.Value
 batchGetNamedQueryOutputEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (List.map namedQueryEncoder >> JE.list)
+            (JE.list namedQueryEncoder)
             ( "NamedQueries", data.namedQueries )
         |> AWS.Core.Encode.optionalMember
-            (List.map unprocessedNamedQueryIdEncoder >> JE.list)
+            (JE.list unprocessedNamedQueryIdEncoder)
             ( "UnprocessedNamedQueryIds", data.unprocessedNamedQueryIds )
         |> JE.object
 
@@ -2356,7 +2356,7 @@ batchGetNamedQueryOutputEncoder data =
 batchGetQueryExecutionInputEncoder : BatchGetQueryExecutionInput -> JE.Value
 batchGetQueryExecutionInputEncoder data =
     []
-        |> (::) ( "QueryExecutionIds", data.queryExecutionIds |> (List.map JE.string >> JE.list) )
+        |> (::) ( "QueryExecutionIds", data.queryExecutionIds |> JE.list JE.string )
         |> JE.object
 
 
@@ -2364,10 +2364,10 @@ batchGetQueryExecutionOutputEncoder : BatchGetQueryExecutionOutput -> JE.Value
 batchGetQueryExecutionOutputEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (List.map queryExecutionEncoder >> JE.list)
+            (JE.list queryExecutionEncoder)
             ( "QueryExecutions", data.queryExecutions )
         |> AWS.Core.Encode.optionalMember
-            (List.map unprocessedQueryExecutionIdEncoder >> JE.list)
+            (JE.list unprocessedQueryExecutionIdEncoder)
             ( "UnprocessedQueryExecutionIds", data.unprocessedQueryExecutionIds )
         |> JE.object
 
@@ -2442,7 +2442,7 @@ createWorkGroupInputEncoder data =
             JE.string
             ( "Description", data.description )
         |> AWS.Core.Encode.optionalMember
-            (List.map tagEncoder >> JE.list)
+            (JE.list tagEncoder)
             ( "Tags", data.tags )
         |> JE.object
 
@@ -2596,7 +2596,7 @@ listNamedQueriesOutputEncoder : ListNamedQueriesOutput -> JE.Value
 listNamedQueriesOutputEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (List.map JE.string >> JE.list)
+            (JE.list JE.string)
             ( "NamedQueryIds", data.namedQueryIds )
         |> AWS.Core.Encode.optionalMember
             JE.string
@@ -2623,7 +2623,7 @@ listQueryExecutionsOutputEncoder : ListQueryExecutionsOutput -> JE.Value
 listQueryExecutionsOutputEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (List.map JE.string >> JE.list)
+            (JE.list JE.string)
             ( "QueryExecutionIds", data.queryExecutionIds )
         |> AWS.Core.Encode.optionalMember
             JE.string
@@ -2648,7 +2648,7 @@ listTagsForResourceOutputEncoder : ListTagsForResourceOutput -> JE.Value
 listTagsForResourceOutputEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (List.map tagEncoder >> JE.list)
+            (JE.list tagEncoder)
             ( "Tags", data.tags )
         |> AWS.Core.Encode.optionalMember
             JE.string
@@ -2672,7 +2672,7 @@ listWorkGroupsOutputEncoder : ListWorkGroupsOutput -> JE.Value
 listWorkGroupsOutputEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (List.map workGroupSummaryEncoder >> JE.list)
+            (JE.list workGroupSummaryEncoder)
             ( "WorkGroups", data.workGroups )
         |> AWS.Core.Encode.optionalMember
             JE.string
@@ -2801,7 +2801,7 @@ resultSetEncoder : ResultSet -> JE.Value
 resultSetEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (List.map rowEncoder >> JE.list)
+            (JE.list rowEncoder)
             ( "Rows", data.rows )
         |> AWS.Core.Encode.optionalMember
             resultSetMetadataEncoder
@@ -2813,7 +2813,7 @@ resultSetMetadataEncoder : ResultSetMetadata -> JE.Value
 resultSetMetadataEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (List.map columnInfoEncoder >> JE.list)
+            (JE.list columnInfoEncoder)
             ( "ColumnInfo", data.columnInfo )
         |> JE.object
 
@@ -2822,7 +2822,7 @@ rowEncoder : Row -> JE.Value
 rowEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (List.map datumEncoder >> JE.list)
+            (JE.list datumEncoder)
             ( "Data", data.data )
         |> JE.object
 
@@ -2884,7 +2884,7 @@ tagResourceInputEncoder : TagResourceInput -> JE.Value
 tagResourceInputEncoder data =
     []
         |> (::) ( "ResourceARN", data.resourceARN |> JE.string )
-        |> (::) ( "Tags", data.tags |> (List.map tagEncoder >> JE.list) )
+        |> (::) ( "Tags", data.tags |> JE.list tagEncoder )
         |> JE.object
 
 
@@ -2928,7 +2928,7 @@ untagResourceInputEncoder : UntagResourceInput -> JE.Value
 untagResourceInputEncoder data =
     []
         |> (::) ( "ResourceARN", data.resourceARN |> JE.string )
-        |> (::) ( "TagKeys", data.tagKeys |> (List.map JE.string >> JE.list) )
+        |> (::) ( "TagKeys", data.tagKeys |> JE.list JE.string )
         |> JE.object
 
 

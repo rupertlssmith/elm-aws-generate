@@ -57,7 +57,7 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
     return render.nothing({
       type: `(List ${child.type})`,
       decoder: `(${jsonDecode}.list ${child.decoder})`,
-      jsonEncoder: `(List.map (${child.jsonEncoder})) >> ${jsonEncode}.list`,
+      jsonEncoder: `${jsonEncode}.list ${child.jsonEncoder}`,
       queryEncoderType: child.queryEncoderType,
       queryEncoder: base => `AWS.Core.Encode.addListToQueryArgs ${sh.flattened ? 'True' : 'False'} (${child.queryEncoder('')}) "${base}"`,
     });
