@@ -917,7 +917,7 @@ type alias BatchGetNamedQueryOutput =
 
 batchGetNamedQueryOutputDecoder : JD.Decoder BatchGetNamedQueryOutput
 batchGetNamedQueryOutputDecoder =
-    JDP.decode BatchGetNamedQueryOutput
+    JD.succeed BatchGetNamedQueryOutput
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "NamedQueries", "namedQueries" ]
@@ -940,7 +940,7 @@ type alias BatchGetQueryExecutionOutput =
 
 batchGetQueryExecutionOutputDecoder : JD.Decoder BatchGetQueryExecutionOutput
 batchGetQueryExecutionOutputDecoder =
-    JDP.decode BatchGetQueryExecutionOutput
+    JD.succeed BatchGetQueryExecutionOutput
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "QueryExecutions", "queryExecutions" ]
@@ -974,7 +974,7 @@ type alias ColumnInfo =
 
 columnInfoDecoder : JD.Decoder ColumnInfo
 columnInfoDecoder =
-    JDP.decode ColumnInfo
+    JD.succeed ColumnInfo
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CatalogName", "catalogName" ]
@@ -1069,7 +1069,7 @@ type alias CreateNamedQueryOutput =
 
 createNamedQueryOutputDecoder : JD.Decoder CreateNamedQueryOutput
 createNamedQueryOutputDecoder =
-    JDP.decode CreateNamedQueryOutput
+    JD.succeed CreateNamedQueryOutput
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "NamedQueryId", "namedQueryId" ]
@@ -1085,7 +1085,7 @@ type alias CreateWorkGroupOutput =
 
 createWorkGroupOutputDecoder : JD.Decoder CreateWorkGroupOutput
 createWorkGroupOutputDecoder =
-    JDP.decode CreateWorkGroupOutput
+    JD.succeed CreateWorkGroupOutput
 
 
 {-|
@@ -1100,7 +1100,7 @@ type alias Datum =
 
 datumDecoder : JD.Decoder Datum
 datumDecoder =
-    JDP.decode Datum
+    JD.succeed Datum
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "VarCharValue", "varCharValue" ]
@@ -1116,7 +1116,7 @@ type alias DeleteNamedQueryOutput =
 
 deleteNamedQueryOutputDecoder : JD.Decoder DeleteNamedQueryOutput
 deleteNamedQueryOutputDecoder =
-    JDP.decode DeleteNamedQueryOutput
+    JD.succeed DeleteNamedQueryOutput
 
 
 {-| Type of HTTP response from deleteWorkGro
@@ -1127,7 +1127,7 @@ type alias DeleteWorkGroupOutput =
 
 deleteWorkGroupOutputDecoder : JD.Decoder DeleteWorkGroupOutput
 deleteWorkGroupOutputDecoder =
-    JDP.decode DeleteWorkGroupOutput
+    JD.succeed DeleteWorkGroupOutput
 
 
 {-|
@@ -1143,7 +1143,7 @@ type alias EncryptionConfiguration =
 
 encryptionConfigurationDecoder : JD.Decoder EncryptionConfiguration
 encryptionConfigurationDecoder =
-    JDP.decode EncryptionConfiguration
+    JD.succeed EncryptionConfiguration
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "EncryptionOption", "encryptionOption" ]
@@ -1198,7 +1198,7 @@ type alias GetNamedQueryOutput =
 
 getNamedQueryOutputDecoder : JD.Decoder GetNamedQueryOutput
 getNamedQueryOutputDecoder =
-    JDP.decode GetNamedQueryOutput
+    JD.succeed GetNamedQueryOutput
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "NamedQuery", "namedQuery" ]
@@ -1215,7 +1215,7 @@ type alias GetQueryExecutionOutput =
 
 getQueryExecutionOutputDecoder : JD.Decoder GetQueryExecutionOutput
 getQueryExecutionOutputDecoder =
-    JDP.decode GetQueryExecutionOutput
+    JD.succeed GetQueryExecutionOutput
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "QueryExecution", "queryExecution" ]
@@ -1234,7 +1234,7 @@ type alias GetQueryResultsOutput =
 
 getQueryResultsOutputDecoder : JD.Decoder GetQueryResultsOutput
 getQueryResultsOutputDecoder =
-    JDP.decode GetQueryResultsOutput
+    JD.succeed GetQueryResultsOutput
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "UpdateCount", "updateCount" ]
@@ -1261,7 +1261,7 @@ type alias GetWorkGroupOutput =
 
 getWorkGroupOutputDecoder : JD.Decoder GetWorkGroupOutput
 getWorkGroupOutputDecoder =
-    JDP.decode GetWorkGroupOutput
+    JD.succeed GetWorkGroupOutput
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "WorkGroup", "workGroup" ]
@@ -1279,7 +1279,7 @@ type alias ListNamedQueriesOutput =
 
 listNamedQueriesOutputDecoder : JD.Decoder ListNamedQueriesOutput
 listNamedQueriesOutputDecoder =
-    JDP.decode ListNamedQueriesOutput
+    JD.succeed ListNamedQueriesOutput
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "NamedQueryIds", "namedQueryIds" ]
@@ -1302,7 +1302,7 @@ type alias ListQueryExecutionsOutput =
 
 listQueryExecutionsOutputDecoder : JD.Decoder ListQueryExecutionsOutput
 listQueryExecutionsOutputDecoder =
-    JDP.decode ListQueryExecutionsOutput
+    JD.succeed ListQueryExecutionsOutput
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "QueryExecutionIds", "queryExecutionIds" ]
@@ -1325,7 +1325,7 @@ type alias ListTagsForResourceOutput =
 
 listTagsForResourceOutputDecoder : JD.Decoder ListTagsForResourceOutput
 listTagsForResourceOutputDecoder =
-    JDP.decode ListTagsForResourceOutput
+    JD.succeed ListTagsForResourceOutput
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Tags", "tags" ]
@@ -1348,7 +1348,7 @@ type alias ListWorkGroupsOutput =
 
 listWorkGroupsOutputDecoder : JD.Decoder ListWorkGroupsOutput
 listWorkGroupsOutputDecoder =
-    JDP.decode ListWorkGroupsOutput
+    JD.succeed ListWorkGroupsOutput
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "WorkGroups", "workGroups" ]
@@ -1378,7 +1378,7 @@ type alias NamedQuery =
 
 namedQueryDecoder : JD.Decoder NamedQuery
 namedQueryDecoder =
-    JDP.decode NamedQuery
+    JD.succeed NamedQuery
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Name", "name" ]
@@ -1430,7 +1430,7 @@ type alias QueryExecution =
 
 queryExecutionDecoder : JD.Decoder QueryExecution
 queryExecutionDecoder =
-    JDP.decode QueryExecution
+    JD.succeed QueryExecution
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "QueryExecutionId", "queryExecutionId" ]
@@ -1485,7 +1485,7 @@ type alias QueryExecutionContext =
 
 queryExecutionContextDecoder : JD.Decoder QueryExecutionContext
 queryExecutionContextDecoder =
-    JDP.decode QueryExecutionContext
+    JD.succeed QueryExecutionContext
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Database", "database" ]
@@ -1549,7 +1549,7 @@ type alias QueryExecutionStatistics =
 
 queryExecutionStatisticsDecoder : JD.Decoder QueryExecutionStatistics
 queryExecutionStatisticsDecoder =
-    JDP.decode QueryExecutionStatistics
+    JD.succeed QueryExecutionStatistics
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "EngineExecutionTimeInMillis", "engineExecutionTimeInMillis" ]
@@ -1577,7 +1577,7 @@ type alias QueryExecutionStatus =
 
 queryExecutionStatusDecoder : JD.Decoder QueryExecutionStatus
 queryExecutionStatusDecoder =
-    JDP.decode QueryExecutionStatus
+    JD.succeed QueryExecutionStatus
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "State", "state" ]
@@ -1613,7 +1613,7 @@ type alias ResultConfiguration =
 
 resultConfigurationDecoder : JD.Decoder ResultConfiguration
 resultConfigurationDecoder =
-    JDP.decode ResultConfiguration
+    JD.succeed ResultConfiguration
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "OutputLocation", "outputLocation" ]
@@ -1641,7 +1641,7 @@ type alias ResultConfigurationUpdates =
 
 resultConfigurationUpdatesDecoder : JD.Decoder ResultConfigurationUpdates
 resultConfigurationUpdatesDecoder =
-    JDP.decode ResultConfigurationUpdates
+    JD.succeed ResultConfigurationUpdates
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "OutputLocation", "outputLocation" ]
@@ -1677,7 +1677,7 @@ type alias ResultSet =
 
 resultSetDecoder : JD.Decoder ResultSet
 resultSetDecoder =
-    JDP.decode ResultSet
+    JD.succeed ResultSet
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Rows", "rows" ]
@@ -1702,7 +1702,7 @@ type alias ResultSetMetadata =
 
 resultSetMetadataDecoder : JD.Decoder ResultSetMetadata
 resultSetMetadataDecoder =
-    JDP.decode ResultSetMetadata
+    JD.succeed ResultSetMetadata
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "ColumnInfo", "columnInfo" ]
@@ -1722,7 +1722,7 @@ type alias Row =
 
 rowDecoder : JD.Decoder Row
 rowDecoder =
-    JDP.decode Row
+    JD.succeed Row
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Data", "data" ]
@@ -1739,7 +1739,7 @@ type alias StartQueryExecutionOutput =
 
 startQueryExecutionOutputDecoder : JD.Decoder StartQueryExecutionOutput
 startQueryExecutionOutputDecoder =
-    JDP.decode StartQueryExecutionOutput
+    JD.succeed StartQueryExecutionOutput
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "QueryExecutionId", "queryExecutionId" ]
@@ -1788,7 +1788,7 @@ type alias StopQueryExecutionOutput =
 
 stopQueryExecutionOutputDecoder : JD.Decoder StopQueryExecutionOutput
 stopQueryExecutionOutputDecoder =
-    JDP.decode StopQueryExecutionOutput
+    JD.succeed StopQueryExecutionOutput
 
 
 {-|
@@ -1804,7 +1804,7 @@ type alias Tag =
 
 tagDecoder : JD.Decoder Tag
 tagDecoder =
-    JDP.decode Tag
+    JD.succeed Tag
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Key", "key" ]
@@ -1825,7 +1825,7 @@ type alias TagResourceOutput =
 
 tagResourceOutputDecoder : JD.Decoder TagResourceOutput
 tagResourceOutputDecoder =
-    JDP.decode TagResourceOutput
+    JD.succeed TagResourceOutput
 
 
 {-|
@@ -1842,7 +1842,7 @@ type alias UnprocessedNamedQueryId =
 
 unprocessedNamedQueryIdDecoder : JD.Decoder UnprocessedNamedQueryId
 unprocessedNamedQueryIdDecoder =
-    JDP.decode UnprocessedNamedQueryId
+    JD.succeed UnprocessedNamedQueryId
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "NamedQueryId", "namedQueryId" ]
@@ -1874,7 +1874,7 @@ type alias UnprocessedQueryExecutionId =
 
 unprocessedQueryExecutionIdDecoder : JD.Decoder UnprocessedQueryExecutionId
 unprocessedQueryExecutionIdDecoder =
-    JDP.decode UnprocessedQueryExecutionId
+    JD.succeed UnprocessedQueryExecutionId
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "QueryExecutionId", "queryExecutionId" ]
@@ -1900,7 +1900,7 @@ type alias UntagResourceOutput =
 
 untagResourceOutputDecoder : JD.Decoder UntagResourceOutput
 untagResourceOutputDecoder =
-    JDP.decode UntagResourceOutput
+    JD.succeed UntagResourceOutput
 
 
 {-| Type of HTTP response from updateWorkGro
@@ -1911,7 +1911,7 @@ type alias UpdateWorkGroupOutput =
 
 updateWorkGroupOutputDecoder : JD.Decoder UpdateWorkGroupOutput
 updateWorkGroupOutputDecoder =
-    JDP.decode UpdateWorkGroupOutput
+    JD.succeed UpdateWorkGroupOutput
 
 
 {-|
@@ -1930,7 +1930,7 @@ type alias WorkGroup =
 
 workGroupDecoder : JD.Decoder WorkGroup
 workGroupDecoder =
-    JDP.decode WorkGroup
+    JD.succeed WorkGroup
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Name", "name" ]
@@ -1973,7 +1973,7 @@ type alias WorkGroupConfiguration =
 
 workGroupConfigurationDecoder : JD.Decoder WorkGroupConfiguration
 workGroupConfigurationDecoder =
-    JDP.decode WorkGroupConfiguration
+    JD.succeed WorkGroupConfiguration
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "ResultConfiguration", "resultConfiguration" ]
@@ -2012,7 +2012,7 @@ type alias WorkGroupConfigurationUpdates =
 
 workGroupConfigurationUpdatesDecoder : JD.Decoder WorkGroupConfigurationUpdates
 workGroupConfigurationUpdatesDecoder =
-    JDP.decode WorkGroupConfigurationUpdates
+    JD.succeed WorkGroupConfigurationUpdates
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "EnforceWorkGroupConfiguration", "enforceWorkGroupConfiguration" ]
@@ -2083,7 +2083,7 @@ type alias WorkGroupSummary =
 
 workGroupSummaryDecoder : JD.Decoder WorkGroupSummary
 workGroupSummaryDecoder =
-    JDP.decode WorkGroupSummary
+    JD.succeed WorkGroupSummary
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Name", "name" ]

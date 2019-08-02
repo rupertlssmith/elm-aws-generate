@@ -5765,7 +5765,7 @@ type alias AccessDetail =
 
 accessDetailDecoder : JD.Decoder AccessDetail
 accessDetailDecoder =
-    JDP.decode AccessDetail
+    JD.succeed AccessDetail
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "ServiceName", "serviceName" ]
@@ -5814,7 +5814,7 @@ type alias AccessKey =
 
 accessKeyDecoder : JD.Decoder AccessKey
 accessKeyDecoder =
-    JDP.decode AccessKey
+    JD.succeed AccessKey
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "UserName", "userName" ]
@@ -5856,7 +5856,7 @@ type alias AccessKeyLastUsed =
 
 accessKeyLastUsedDecoder : JD.Decoder AccessKeyLastUsed
 accessKeyLastUsedDecoder =
-    JDP.decode AccessKeyLastUsed
+    JD.succeed AccessKeyLastUsed
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "LastUsedDate", "lastUsedDate" ]
@@ -5889,7 +5889,7 @@ type alias AccessKeyMetadata =
 
 accessKeyMetadataDecoder : JD.Decoder AccessKeyMetadata
 accessKeyMetadataDecoder =
-    JDP.decode AccessKeyMetadata
+    JD.succeed AccessKeyMetadata
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "UserName", "userName" ]
@@ -5925,7 +5925,7 @@ type alias AttachedPermissionsBoundary =
 
 attachedPermissionsBoundaryDecoder : JD.Decoder AttachedPermissionsBoundary
 attachedPermissionsBoundaryDecoder =
-    JDP.decode AttachedPermissionsBoundary
+    JD.succeed AttachedPermissionsBoundary
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "PermissionsBoundaryType", "permissionsBoundaryType" ]
@@ -5951,7 +5951,7 @@ type alias AttachedPolicy =
 
 attachedPolicyDecoder : JD.Decoder AttachedPolicy
 attachedPolicyDecoder =
-    JDP.decode AttachedPolicy
+    JD.succeed AttachedPolicy
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "PolicyName", "policyName" ]
@@ -5978,7 +5978,7 @@ type alias ContextEntry =
 
 contextEntryDecoder : JD.Decoder ContextEntry
 contextEntryDecoder =
-    JDP.decode ContextEntry
+    JD.succeed ContextEntry
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "ContextKeyName", "contextKeyName" ]
@@ -6083,7 +6083,7 @@ type alias CreateAccessKeyResponse =
 
 createAccessKeyResponseDecoder : JD.Decoder CreateAccessKeyResponse
 createAccessKeyResponseDecoder =
-    JDP.decode CreateAccessKeyResponse
+    JD.succeed CreateAccessKeyResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "AccessKey", "accessKey" ]
@@ -6100,7 +6100,7 @@ type alias CreateGroupResponse =
 
 createGroupResponseDecoder : JD.Decoder CreateGroupResponse
 createGroupResponseDecoder =
-    JDP.decode CreateGroupResponse
+    JD.succeed CreateGroupResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Group", "group" ]
@@ -6117,7 +6117,7 @@ type alias CreateInstanceProfileResponse =
 
 createInstanceProfileResponseDecoder : JD.Decoder CreateInstanceProfileResponse
 createInstanceProfileResponseDecoder =
-    JDP.decode CreateInstanceProfileResponse
+    JD.succeed CreateInstanceProfileResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "InstanceProfile", "instanceProfile" ]
@@ -6134,7 +6134,7 @@ type alias CreateLoginProfileResponse =
 
 createLoginProfileResponseDecoder : JD.Decoder CreateLoginProfileResponse
 createLoginProfileResponseDecoder =
-    JDP.decode CreateLoginProfileResponse
+    JD.succeed CreateLoginProfileResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "LoginProfile", "loginProfile" ]
@@ -6151,7 +6151,7 @@ type alias CreateOpenIDConnectProviderResponse =
 
 createOpenIDConnectProviderResponseDecoder : JD.Decoder CreateOpenIDConnectProviderResponse
 createOpenIDConnectProviderResponseDecoder =
-    JDP.decode CreateOpenIDConnectProviderResponse
+    JD.succeed CreateOpenIDConnectProviderResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "OpenIDConnectProviderArn", "openIDConnectProviderArn" ]
@@ -6168,7 +6168,7 @@ type alias CreatePolicyResponse =
 
 createPolicyResponseDecoder : JD.Decoder CreatePolicyResponse
 createPolicyResponseDecoder =
-    JDP.decode CreatePolicyResponse
+    JD.succeed CreatePolicyResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Policy", "policy" ]
@@ -6185,7 +6185,7 @@ type alias CreatePolicyVersionResponse =
 
 createPolicyVersionResponseDecoder : JD.Decoder CreatePolicyVersionResponse
 createPolicyVersionResponseDecoder =
-    JDP.decode CreatePolicyVersionResponse
+    JD.succeed CreatePolicyVersionResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "PolicyVersion", "policyVersion" ]
@@ -6202,7 +6202,7 @@ type alias CreateRoleResponse =
 
 createRoleResponseDecoder : JD.Decoder CreateRoleResponse
 createRoleResponseDecoder =
-    JDP.decode CreateRoleResponse
+    JD.succeed CreateRoleResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Role", "role" ]
@@ -6219,7 +6219,7 @@ type alias CreateSAMLProviderResponse =
 
 createSAMLProviderResponseDecoder : JD.Decoder CreateSAMLProviderResponse
 createSAMLProviderResponseDecoder =
-    JDP.decode CreateSAMLProviderResponse
+    JD.succeed CreateSAMLProviderResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "SAMLProviderArn", "sAMLProviderArn" ]
@@ -6236,7 +6236,7 @@ type alias CreateServiceLinkedRoleResponse =
 
 createServiceLinkedRoleResponseDecoder : JD.Decoder CreateServiceLinkedRoleResponse
 createServiceLinkedRoleResponseDecoder =
-    JDP.decode CreateServiceLinkedRoleResponse
+    JD.succeed CreateServiceLinkedRoleResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Role", "role" ]
@@ -6253,7 +6253,7 @@ type alias CreateServiceSpecificCredentialResponse =
 
 createServiceSpecificCredentialResponseDecoder : JD.Decoder CreateServiceSpecificCredentialResponse
 createServiceSpecificCredentialResponseDecoder =
-    JDP.decode CreateServiceSpecificCredentialResponse
+    JD.succeed CreateServiceSpecificCredentialResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "ServiceSpecificCredential", "serviceSpecificCredential" ]
@@ -6270,7 +6270,7 @@ type alias CreateUserResponse =
 
 createUserResponseDecoder : JD.Decoder CreateUserResponse
 createUserResponseDecoder =
-    JDP.decode CreateUserResponse
+    JD.succeed CreateUserResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "User", "user" ]
@@ -6287,7 +6287,7 @@ type alias CreateVirtualMFADeviceResponse =
 
 createVirtualMFADeviceResponseDecoder : JD.Decoder CreateVirtualMFADeviceResponse
 createVirtualMFADeviceResponseDecoder =
-    JDP.decode CreateVirtualMFADeviceResponse
+    JD.succeed CreateVirtualMFADeviceResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "VirtualMFADevice", "virtualMFADevice" ]
@@ -6304,7 +6304,7 @@ type alias DeleteServiceLinkedRoleResponse =
 
 deleteServiceLinkedRoleResponseDecoder : JD.Decoder DeleteServiceLinkedRoleResponse
 deleteServiceLinkedRoleResponseDecoder =
-    JDP.decode DeleteServiceLinkedRoleResponse
+    JD.succeed DeleteServiceLinkedRoleResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "DeletionTaskId", "deletionTaskId" ]
@@ -6325,7 +6325,7 @@ type alias DeletionTaskFailureReasonType =
 
 deletionTaskFailureReasonTypeDecoder : JD.Decoder DeletionTaskFailureReasonType
 deletionTaskFailureReasonTypeDecoder =
-    JDP.decode DeletionTaskFailureReasonType
+    JD.succeed DeletionTaskFailureReasonType
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Reason", "reason" ]
@@ -6389,7 +6389,7 @@ type alias EntityDetails =
 
 entityDetailsDecoder : JD.Decoder EntityDetails
 entityDetailsDecoder =
-    JDP.decode EntityDetails
+    JD.succeed EntityDetails
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "EntityInfo", "entityInfo" ]
@@ -6418,7 +6418,7 @@ type alias EntityInfo =
 
 entityInfoDecoder : JD.Decoder EntityInfo
 entityInfoDecoder =
-    JDP.decode EntityInfo
+    JD.succeed EntityInfo
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Arn", "arn" ]
@@ -6502,7 +6502,7 @@ type alias ErrorDetails =
 
 errorDetailsDecoder : JD.Decoder ErrorDetails
 errorDetailsDecoder =
-    JDP.decode ErrorDetails
+    JD.succeed ErrorDetails
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Message", "message" ]
@@ -6534,7 +6534,7 @@ type alias EvaluationResult =
 
 evaluationResultDecoder : JD.Decoder EvaluationResult
 evaluationResultDecoder =
-    JDP.decode EvaluationResult
+    JD.succeed EvaluationResult
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "EvalActionName", "evalActionName" ]
@@ -6587,7 +6587,7 @@ type alias GenerateCredentialReportResponse =
 
 generateCredentialReportResponseDecoder : JD.Decoder GenerateCredentialReportResponse
 generateCredentialReportResponseDecoder =
-    JDP.decode GenerateCredentialReportResponse
+    JD.succeed GenerateCredentialReportResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "State", "state" ]
@@ -6609,7 +6609,7 @@ type alias GenerateOrganizationsAccessReportResponse =
 
 generateOrganizationsAccessReportResponseDecoder : JD.Decoder GenerateOrganizationsAccessReportResponse
 generateOrganizationsAccessReportResponseDecoder =
-    JDP.decode GenerateOrganizationsAccessReportResponse
+    JD.succeed GenerateOrganizationsAccessReportResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "JobId", "jobId" ]
@@ -6626,7 +6626,7 @@ type alias GenerateServiceLastAccessedDetailsResponse =
 
 generateServiceLastAccessedDetailsResponseDecoder : JD.Decoder GenerateServiceLastAccessedDetailsResponse
 generateServiceLastAccessedDetailsResponseDecoder =
-    JDP.decode GenerateServiceLastAccessedDetailsResponse
+    JD.succeed GenerateServiceLastAccessedDetailsResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "JobId", "jobId" ]
@@ -6644,7 +6644,7 @@ type alias GetAccessKeyLastUsedResponse =
 
 getAccessKeyLastUsedResponseDecoder : JD.Decoder GetAccessKeyLastUsedResponse
 getAccessKeyLastUsedResponseDecoder =
-    JDP.decode GetAccessKeyLastUsedResponse
+    JD.succeed GetAccessKeyLastUsedResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "UserName", "userName" ]
@@ -6671,7 +6671,7 @@ type alias GetAccountAuthorizationDetailsResponse =
 
 getAccountAuthorizationDetailsResponseDecoder : JD.Decoder GetAccountAuthorizationDetailsResponse
 getAccountAuthorizationDetailsResponseDecoder =
-    JDP.decode GetAccountAuthorizationDetailsResponse
+    JD.succeed GetAccountAuthorizationDetailsResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "UserDetailList", "userDetailList" ]
@@ -6713,7 +6713,7 @@ type alias GetAccountPasswordPolicyResponse =
 
 getAccountPasswordPolicyResponseDecoder : JD.Decoder GetAccountPasswordPolicyResponse
 getAccountPasswordPolicyResponseDecoder =
-    JDP.decode GetAccountPasswordPolicyResponse
+    JD.succeed GetAccountPasswordPolicyResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "PasswordPolicy", "passwordPolicy" ]
@@ -6730,7 +6730,7 @@ type alias GetAccountSummaryResponse =
 
 getAccountSummaryResponseDecoder : JD.Decoder GetAccountSummaryResponse
 getAccountSummaryResponseDecoder =
-    JDP.decode GetAccountSummaryResponse
+    JD.succeed GetAccountSummaryResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "SummaryMap", "summaryMap" ]
@@ -6747,7 +6747,7 @@ type alias GetContextKeysForPolicyResponse =
 
 getContextKeysForPolicyResponseDecoder : JD.Decoder GetContextKeysForPolicyResponse
 getContextKeysForPolicyResponseDecoder =
-    JDP.decode GetContextKeysForPolicyResponse
+    JD.succeed GetContextKeysForPolicyResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "ContextKeyNames", "contextKeyNames" ]
@@ -6766,7 +6766,7 @@ type alias GetCredentialReportResponse =
 
 getCredentialReportResponseDecoder : JD.Decoder GetCredentialReportResponse
 getCredentialReportResponseDecoder =
-    JDP.decode GetCredentialReportResponse
+    JD.succeed GetCredentialReportResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Content", "content" ]
@@ -6795,7 +6795,7 @@ type alias GetGroupPolicyResponse =
 
 getGroupPolicyResponseDecoder : JD.Decoder GetGroupPolicyResponse
 getGroupPolicyResponseDecoder =
-    JDP.decode GetGroupPolicyResponse
+    JD.succeed GetGroupPolicyResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "GroupName", "groupName" ]
@@ -6825,7 +6825,7 @@ type alias GetGroupResponse =
 
 getGroupResponseDecoder : JD.Decoder GetGroupResponse
 getGroupResponseDecoder =
-    JDP.decode GetGroupResponse
+    JD.succeed GetGroupResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Group", "group" ]
@@ -6857,7 +6857,7 @@ type alias GetInstanceProfileResponse =
 
 getInstanceProfileResponseDecoder : JD.Decoder GetInstanceProfileResponse
 getInstanceProfileResponseDecoder =
-    JDP.decode GetInstanceProfileResponse
+    JD.succeed GetInstanceProfileResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "InstanceProfile", "instanceProfile" ]
@@ -6874,7 +6874,7 @@ type alias GetLoginProfileResponse =
 
 getLoginProfileResponseDecoder : JD.Decoder GetLoginProfileResponse
 getLoginProfileResponseDecoder =
-    JDP.decode GetLoginProfileResponse
+    JD.succeed GetLoginProfileResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "LoginProfile", "loginProfile" ]
@@ -6894,7 +6894,7 @@ type alias GetOpenIDConnectProviderResponse =
 
 getOpenIDConnectProviderResponseDecoder : JD.Decoder GetOpenIDConnectProviderResponse
 getOpenIDConnectProviderResponseDecoder =
-    JDP.decode GetOpenIDConnectProviderResponse
+    JD.succeed GetOpenIDConnectProviderResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Url", "url" ]
@@ -6934,7 +6934,7 @@ type alias GetOrganizationsAccessReportResponse =
 
 getOrganizationsAccessReportResponseDecoder : JD.Decoder GetOrganizationsAccessReportResponse
 getOrganizationsAccessReportResponseDecoder =
-    JDP.decode GetOrganizationsAccessReportResponse
+    JD.succeed GetOrganizationsAccessReportResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "JobStatus", "jobStatus" ]
@@ -6991,7 +6991,7 @@ type alias GetPolicyResponse =
 
 getPolicyResponseDecoder : JD.Decoder GetPolicyResponse
 getPolicyResponseDecoder =
-    JDP.decode GetPolicyResponse
+    JD.succeed GetPolicyResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Policy", "policy" ]
@@ -7008,7 +7008,7 @@ type alias GetPolicyVersionResponse =
 
 getPolicyVersionResponseDecoder : JD.Decoder GetPolicyVersionResponse
 getPolicyVersionResponseDecoder =
-    JDP.decode GetPolicyVersionResponse
+    JD.succeed GetPolicyVersionResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "PolicyVersion", "policyVersion" ]
@@ -7027,7 +7027,7 @@ type alias GetRolePolicyResponse =
 
 getRolePolicyResponseDecoder : JD.Decoder GetRolePolicyResponse
 getRolePolicyResponseDecoder =
-    JDP.decode GetRolePolicyResponse
+    JD.succeed GetRolePolicyResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "RoleName", "roleName" ]
@@ -7054,7 +7054,7 @@ type alias GetRoleResponse =
 
 getRoleResponseDecoder : JD.Decoder GetRoleResponse
 getRoleResponseDecoder =
-    JDP.decode GetRoleResponse
+    JD.succeed GetRoleResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Role", "role" ]
@@ -7073,7 +7073,7 @@ type alias GetSAMLProviderResponse =
 
 getSAMLProviderResponseDecoder : JD.Decoder GetSAMLProviderResponse
 getSAMLProviderResponseDecoder =
-    JDP.decode GetSAMLProviderResponse
+    JD.succeed GetSAMLProviderResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "SAMLMetadataDocument", "sAMLMetadataDocument" ]
@@ -7100,7 +7100,7 @@ type alias GetSSHPublicKeyResponse =
 
 getSSHPublicKeyResponseDecoder : JD.Decoder GetSSHPublicKeyResponse
 getSSHPublicKeyResponseDecoder =
-    JDP.decode GetSSHPublicKeyResponse
+    JD.succeed GetSSHPublicKeyResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "SSHPublicKey", "sSHPublicKey" ]
@@ -7117,7 +7117,7 @@ type alias GetServerCertificateResponse =
 
 getServerCertificateResponseDecoder : JD.Decoder GetServerCertificateResponse
 getServerCertificateResponseDecoder =
-    JDP.decode GetServerCertificateResponse
+    JD.succeed GetServerCertificateResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "ServerCertificate", "serverCertificate" ]
@@ -7140,7 +7140,7 @@ type alias GetServiceLastAccessedDetailsResponse =
 
 getServiceLastAccessedDetailsResponseDecoder : JD.Decoder GetServiceLastAccessedDetailsResponse
 getServiceLastAccessedDetailsResponseDecoder =
-    JDP.decode GetServiceLastAccessedDetailsResponse
+    JD.succeed GetServiceLastAccessedDetailsResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "JobStatus", "jobStatus" ]
@@ -7193,7 +7193,7 @@ type alias GetServiceLastAccessedDetailsWithEntitiesResponse =
 
 getServiceLastAccessedDetailsWithEntitiesResponseDecoder : JD.Decoder GetServiceLastAccessedDetailsWithEntitiesResponse
 getServiceLastAccessedDetailsWithEntitiesResponseDecoder =
-    JDP.decode GetServiceLastAccessedDetailsWithEntitiesResponse
+    JD.succeed GetServiceLastAccessedDetailsWithEntitiesResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "JobStatus", "jobStatus" ]
@@ -7241,7 +7241,7 @@ type alias GetServiceLinkedRoleDeletionStatusResponse =
 
 getServiceLinkedRoleDeletionStatusResponseDecoder : JD.Decoder GetServiceLinkedRoleDeletionStatusResponse
 getServiceLinkedRoleDeletionStatusResponseDecoder =
-    JDP.decode GetServiceLinkedRoleDeletionStatusResponse
+    JD.succeed GetServiceLinkedRoleDeletionStatusResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Status", "status" ]
@@ -7265,7 +7265,7 @@ type alias GetUserPolicyResponse =
 
 getUserPolicyResponseDecoder : JD.Decoder GetUserPolicyResponse
 getUserPolicyResponseDecoder =
-    JDP.decode GetUserPolicyResponse
+    JD.succeed GetUserPolicyResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "UserName", "userName" ]
@@ -7292,7 +7292,7 @@ type alias GetUserResponse =
 
 getUserResponseDecoder : JD.Decoder GetUserResponse
 getUserResponseDecoder =
-    JDP.decode GetUserResponse
+    JD.succeed GetUserResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "User", "user" ]
@@ -7316,7 +7316,7 @@ type alias Group =
 
 groupDecoder : JD.Decoder Group
 groupDecoder =
-    JDP.decode Group
+    JD.succeed Group
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Path", "path" ]
@@ -7362,7 +7362,7 @@ type alias GroupDetail =
 
 groupDetailDecoder : JD.Decoder GroupDetail
 groupDetailDecoder =
-    JDP.decode GroupDetail
+    JD.succeed GroupDetail
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Path", "path" ]
@@ -7417,7 +7417,7 @@ type alias InstanceProfile =
 
 instanceProfileDecoder : JD.Decoder InstanceProfile
 instanceProfileDecoder =
-    JDP.decode InstanceProfile
+    JD.succeed InstanceProfile
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Path", "path" ]
@@ -7461,7 +7461,7 @@ type alias ListAccessKeysResponse =
 
 listAccessKeysResponseDecoder : JD.Decoder ListAccessKeysResponse
 listAccessKeysResponseDecoder =
-    JDP.decode ListAccessKeysResponse
+    JD.succeed ListAccessKeysResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "AccessKeyMetadata", "accessKeyMetadata" ]
@@ -7490,7 +7490,7 @@ type alias ListAccountAliasesResponse =
 
 listAccountAliasesResponseDecoder : JD.Decoder ListAccountAliasesResponse
 listAccountAliasesResponseDecoder =
-    JDP.decode ListAccountAliasesResponse
+    JD.succeed ListAccountAliasesResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "AccountAliases", "accountAliases" ]
@@ -7519,7 +7519,7 @@ type alias ListAttachedGroupPoliciesResponse =
 
 listAttachedGroupPoliciesResponseDecoder : JD.Decoder ListAttachedGroupPoliciesResponse
 listAttachedGroupPoliciesResponseDecoder =
-    JDP.decode ListAttachedGroupPoliciesResponse
+    JD.succeed ListAttachedGroupPoliciesResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "AttachedPolicies", "attachedPolicies" ]
@@ -7548,7 +7548,7 @@ type alias ListAttachedRolePoliciesResponse =
 
 listAttachedRolePoliciesResponseDecoder : JD.Decoder ListAttachedRolePoliciesResponse
 listAttachedRolePoliciesResponseDecoder =
-    JDP.decode ListAttachedRolePoliciesResponse
+    JD.succeed ListAttachedRolePoliciesResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "AttachedPolicies", "attachedPolicies" ]
@@ -7577,7 +7577,7 @@ type alias ListAttachedUserPoliciesResponse =
 
 listAttachedUserPoliciesResponseDecoder : JD.Decoder ListAttachedUserPoliciesResponse
 listAttachedUserPoliciesResponseDecoder =
-    JDP.decode ListAttachedUserPoliciesResponse
+    JD.succeed ListAttachedUserPoliciesResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "AttachedPolicies", "attachedPolicies" ]
@@ -7608,7 +7608,7 @@ type alias ListEntitiesForPolicyResponse =
 
 listEntitiesForPolicyResponseDecoder : JD.Decoder ListEntitiesForPolicyResponse
 listEntitiesForPolicyResponseDecoder =
-    JDP.decode ListEntitiesForPolicyResponse
+    JD.succeed ListEntitiesForPolicyResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "PolicyGroups", "policyGroups" ]
@@ -7647,7 +7647,7 @@ type alias ListGroupPoliciesResponse =
 
 listGroupPoliciesResponseDecoder : JD.Decoder ListGroupPoliciesResponse
 listGroupPoliciesResponseDecoder =
-    JDP.decode ListGroupPoliciesResponse
+    JD.succeed ListGroupPoliciesResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "PolicyNames", "policyNames" ]
@@ -7676,7 +7676,7 @@ type alias ListGroupsForUserResponse =
 
 listGroupsForUserResponseDecoder : JD.Decoder ListGroupsForUserResponse
 listGroupsForUserResponseDecoder =
-    JDP.decode ListGroupsForUserResponse
+    JD.succeed ListGroupsForUserResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Groups", "groups" ]
@@ -7705,7 +7705,7 @@ type alias ListGroupsResponse =
 
 listGroupsResponseDecoder : JD.Decoder ListGroupsResponse
 listGroupsResponseDecoder =
-    JDP.decode ListGroupsResponse
+    JD.succeed ListGroupsResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Groups", "groups" ]
@@ -7734,7 +7734,7 @@ type alias ListInstanceProfilesForRoleResponse =
 
 listInstanceProfilesForRoleResponseDecoder : JD.Decoder ListInstanceProfilesForRoleResponse
 listInstanceProfilesForRoleResponseDecoder =
-    JDP.decode ListInstanceProfilesForRoleResponse
+    JD.succeed ListInstanceProfilesForRoleResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "InstanceProfiles", "instanceProfiles" ]
@@ -7763,7 +7763,7 @@ type alias ListInstanceProfilesResponse =
 
 listInstanceProfilesResponseDecoder : JD.Decoder ListInstanceProfilesResponse
 listInstanceProfilesResponseDecoder =
-    JDP.decode ListInstanceProfilesResponse
+    JD.succeed ListInstanceProfilesResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "InstanceProfiles", "instanceProfiles" ]
@@ -7792,7 +7792,7 @@ type alias ListMFADevicesResponse =
 
 listMFADevicesResponseDecoder : JD.Decoder ListMFADevicesResponse
 listMFADevicesResponseDecoder =
-    JDP.decode ListMFADevicesResponse
+    JD.succeed ListMFADevicesResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "MFADevices", "mFADevices" ]
@@ -7819,7 +7819,7 @@ type alias ListOpenIDConnectProvidersResponse =
 
 listOpenIDConnectProvidersResponseDecoder : JD.Decoder ListOpenIDConnectProvidersResponse
 listOpenIDConnectProvidersResponseDecoder =
-    JDP.decode ListOpenIDConnectProvidersResponse
+    JD.succeed ListOpenIDConnectProvidersResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "OpenIDConnectProviderList", "openIDConnectProviderList" ]
@@ -7840,7 +7840,7 @@ type alias ListPoliciesGrantingServiceAccessEntry =
 
 listPoliciesGrantingServiceAccessEntryDecoder : JD.Decoder ListPoliciesGrantingServiceAccessEntry
 listPoliciesGrantingServiceAccessEntryDecoder =
-    JDP.decode ListPoliciesGrantingServiceAccessEntry
+    JD.succeed ListPoliciesGrantingServiceAccessEntry
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "ServiceNamespace", "serviceNamespace" ]
@@ -7864,7 +7864,7 @@ type alias ListPoliciesGrantingServiceAccessResponse =
 
 listPoliciesGrantingServiceAccessResponseDecoder : JD.Decoder ListPoliciesGrantingServiceAccessResponse
 listPoliciesGrantingServiceAccessResponseDecoder =
-    JDP.decode ListPoliciesGrantingServiceAccessResponse
+    JD.succeed ListPoliciesGrantingServiceAccessResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "PoliciesGrantingServiceAccess", "policiesGrantingServiceAccess" ]
@@ -7893,7 +7893,7 @@ type alias ListPoliciesResponse =
 
 listPoliciesResponseDecoder : JD.Decoder ListPoliciesResponse
 listPoliciesResponseDecoder =
-    JDP.decode ListPoliciesResponse
+    JD.succeed ListPoliciesResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Policies", "policies" ]
@@ -7922,7 +7922,7 @@ type alias ListPolicyVersionsResponse =
 
 listPolicyVersionsResponseDecoder : JD.Decoder ListPolicyVersionsResponse
 listPolicyVersionsResponseDecoder =
-    JDP.decode ListPolicyVersionsResponse
+    JD.succeed ListPolicyVersionsResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Versions", "versions" ]
@@ -7951,7 +7951,7 @@ type alias ListRolePoliciesResponse =
 
 listRolePoliciesResponseDecoder : JD.Decoder ListRolePoliciesResponse
 listRolePoliciesResponseDecoder =
-    JDP.decode ListRolePoliciesResponse
+    JD.succeed ListRolePoliciesResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "PolicyNames", "policyNames" ]
@@ -7980,7 +7980,7 @@ type alias ListRoleTagsResponse =
 
 listRoleTagsResponseDecoder : JD.Decoder ListRoleTagsResponse
 listRoleTagsResponseDecoder =
-    JDP.decode ListRoleTagsResponse
+    JD.succeed ListRoleTagsResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Tags", "tags" ]
@@ -8009,7 +8009,7 @@ type alias ListRolesResponse =
 
 listRolesResponseDecoder : JD.Decoder ListRolesResponse
 listRolesResponseDecoder =
-    JDP.decode ListRolesResponse
+    JD.succeed ListRolesResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Roles", "roles" ]
@@ -8036,7 +8036,7 @@ type alias ListSAMLProvidersResponse =
 
 listSAMLProvidersResponseDecoder : JD.Decoder ListSAMLProvidersResponse
 listSAMLProvidersResponseDecoder =
-    JDP.decode ListSAMLProvidersResponse
+    JD.succeed ListSAMLProvidersResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "SAMLProviderList", "sAMLProviderList" ]
@@ -8055,7 +8055,7 @@ type alias ListSSHPublicKeysResponse =
 
 listSSHPublicKeysResponseDecoder : JD.Decoder ListSSHPublicKeysResponse
 listSSHPublicKeysResponseDecoder =
-    JDP.decode ListSSHPublicKeysResponse
+    JD.succeed ListSSHPublicKeysResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "SSHPublicKeys", "sSHPublicKeys" ]
@@ -8084,7 +8084,7 @@ type alias ListServerCertificatesResponse =
 
 listServerCertificatesResponseDecoder : JD.Decoder ListServerCertificatesResponse
 listServerCertificatesResponseDecoder =
-    JDP.decode ListServerCertificatesResponse
+    JD.succeed ListServerCertificatesResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "ServerCertificateMetadataList", "serverCertificateMetadataList" ]
@@ -8111,7 +8111,7 @@ type alias ListServiceSpecificCredentialsResponse =
 
 listServiceSpecificCredentialsResponseDecoder : JD.Decoder ListServiceSpecificCredentialsResponse
 listServiceSpecificCredentialsResponseDecoder =
-    JDP.decode ListServiceSpecificCredentialsResponse
+    JD.succeed ListServiceSpecificCredentialsResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "ServiceSpecificCredentials", "serviceSpecificCredentials" ]
@@ -8130,7 +8130,7 @@ type alias ListSigningCertificatesResponse =
 
 listSigningCertificatesResponseDecoder : JD.Decoder ListSigningCertificatesResponse
 listSigningCertificatesResponseDecoder =
-    JDP.decode ListSigningCertificatesResponse
+    JD.succeed ListSigningCertificatesResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Certificates", "certificates" ]
@@ -8159,7 +8159,7 @@ type alias ListUserPoliciesResponse =
 
 listUserPoliciesResponseDecoder : JD.Decoder ListUserPoliciesResponse
 listUserPoliciesResponseDecoder =
-    JDP.decode ListUserPoliciesResponse
+    JD.succeed ListUserPoliciesResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "PolicyNames", "policyNames" ]
@@ -8188,7 +8188,7 @@ type alias ListUserTagsResponse =
 
 listUserTagsResponseDecoder : JD.Decoder ListUserTagsResponse
 listUserTagsResponseDecoder =
-    JDP.decode ListUserTagsResponse
+    JD.succeed ListUserTagsResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Tags", "tags" ]
@@ -8217,7 +8217,7 @@ type alias ListUsersResponse =
 
 listUsersResponseDecoder : JD.Decoder ListUsersResponse
 listUsersResponseDecoder =
-    JDP.decode ListUsersResponse
+    JD.succeed ListUsersResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Users", "users" ]
@@ -8246,7 +8246,7 @@ type alias ListVirtualMFADevicesResponse =
 
 listVirtualMFADevicesResponseDecoder : JD.Decoder ListVirtualMFADevicesResponse
 listVirtualMFADevicesResponseDecoder =
-    JDP.decode ListVirtualMFADevicesResponse
+    JD.succeed ListVirtualMFADevicesResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "VirtualMFADevices", "virtualMFADevices" ]
@@ -8278,7 +8278,7 @@ type alias LoginProfile =
 
 loginProfileDecoder : JD.Decoder LoginProfile
 loginProfileDecoder =
-    JDP.decode LoginProfile
+    JD.succeed LoginProfile
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "UserName", "userName" ]
@@ -8310,7 +8310,7 @@ type alias MFADevice =
 
 mFADeviceDecoder : JD.Decoder MFADevice
 mFADeviceDecoder =
-    JDP.decode MFADevice
+    JD.succeed MFADevice
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "UserName", "userName" ]
@@ -8351,7 +8351,7 @@ type alias ManagedPolicyDetail =
 
 managedPolicyDetailDecoder : JD.Decoder ManagedPolicyDetail
 managedPolicyDetailDecoder =
-    JDP.decode ManagedPolicyDetail
+    JD.succeed ManagedPolicyDetail
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "PolicyName", "policyName" ]
@@ -8426,7 +8426,7 @@ type alias OpenIDConnectProviderListEntry =
 
 openIDConnectProviderListEntryDecoder : JD.Decoder OpenIDConnectProviderListEntry
 openIDConnectProviderListEntryDecoder =
-    JDP.decode OpenIDConnectProviderListEntry
+    JD.succeed OpenIDConnectProviderListEntry
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Arn", "arn" ]
@@ -8446,7 +8446,7 @@ type alias OrganizationsDecisionDetail =
 
 organizationsDecisionDetailDecoder : JD.Decoder OrganizationsDecisionDetail
 organizationsDecisionDetailDecoder =
-    JDP.decode OrganizationsDecisionDetail
+    JD.succeed OrganizationsDecisionDetail
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "AllowedByOrganizations", "allowedByOrganizations" ]
@@ -8475,7 +8475,7 @@ type alias PasswordPolicy =
 
 passwordPolicyDecoder : JD.Decoder PasswordPolicy
 passwordPolicyDecoder =
-    JDP.decode PasswordPolicy
+    JD.succeed PasswordPolicy
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "MinimumPasswordLength", "minimumPasswordLength" ]
@@ -8573,7 +8573,7 @@ type alias Policy =
 
 policyDecoder : JD.Decoder Policy
 policyDecoder =
-    JDP.decode Policy
+    JD.succeed Policy
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "PolicyName", "policyName" ]
@@ -8644,7 +8644,7 @@ type alias PolicyDetail =
 
 policyDetailDecoder : JD.Decoder PolicyDetail
 policyDetailDecoder =
-    JDP.decode PolicyDetail
+    JD.succeed PolicyDetail
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "PolicyName", "policyName" ]
@@ -8706,7 +8706,7 @@ type alias PolicyGrantingServiceAccess =
 
 policyGrantingServiceAccessDecoder : JD.Decoder PolicyGrantingServiceAccess
 policyGrantingServiceAccessDecoder =
-    JDP.decode PolicyGrantingServiceAccess
+    JD.succeed PolicyGrantingServiceAccess
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "PolicyName", "policyName" ]
@@ -8747,7 +8747,7 @@ type alias PolicyGroup =
 
 policyGroupDecoder : JD.Decoder PolicyGroup
 policyGroupDecoder =
-    JDP.decode PolicyGroup
+    JD.succeed PolicyGroup
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "GroupName", "groupName" ]
@@ -8773,7 +8773,7 @@ type alias PolicyRole =
 
 policyRoleDecoder : JD.Decoder PolicyRole
 policyRoleDecoder =
-    JDP.decode PolicyRole
+    JD.succeed PolicyRole
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "RoleName", "roleName" ]
@@ -8880,7 +8880,7 @@ type alias PolicyUser =
 
 policyUserDecoder : JD.Decoder PolicyUser
 policyUserDecoder =
-    JDP.decode PolicyUser
+    JD.succeed PolicyUser
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "UserName", "userName" ]
@@ -8908,7 +8908,7 @@ type alias PolicyVersion =
 
 policyVersionDecoder : JD.Decoder PolicyVersion
 policyVersionDecoder =
-    JDP.decode PolicyVersion
+    JD.succeed PolicyVersion
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Document", "document" ]
@@ -8944,7 +8944,7 @@ type alias Position =
 
 positionDecoder : JD.Decoder Position
 positionDecoder =
-    JDP.decode Position
+    JD.succeed Position
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Line", "line" ]
@@ -9022,7 +9022,7 @@ type alias ResetServiceSpecificCredentialResponse =
 
 resetServiceSpecificCredentialResponseDecoder : JD.Decoder ResetServiceSpecificCredentialResponse
 resetServiceSpecificCredentialResponseDecoder =
-    JDP.decode ResetServiceSpecificCredentialResponse
+    JD.succeed ResetServiceSpecificCredentialResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "ServiceSpecificCredential", "serviceSpecificCredential" ]
@@ -9046,7 +9046,7 @@ type alias ResourceSpecificResult =
 
 resourceSpecificResultDecoder : JD.Decoder ResourceSpecificResult
 resourceSpecificResultDecoder =
-    JDP.decode ResourceSpecificResult
+    JD.succeed ResourceSpecificResult
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "EvalResourceName", "evalResourceName" ]
@@ -9095,7 +9095,7 @@ type alias Role =
 
 roleDecoder : JD.Decoder Role
 roleDecoder =
-    JDP.decode Role
+    JD.succeed Role
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Path", "path" ]
@@ -9170,7 +9170,7 @@ type alias RoleDetail =
 
 roleDetailDecoder : JD.Decoder RoleDetail
 roleDetailDecoder =
-    JDP.decode RoleDetail
+    JD.succeed RoleDetail
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Path", "path" ]
@@ -9241,7 +9241,7 @@ type alias RoleUsageType =
 
 roleUsageTypeDecoder : JD.Decoder RoleUsageType
 roleUsageTypeDecoder =
-    JDP.decode RoleUsageType
+    JD.succeed RoleUsageType
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Region", "region" ]
@@ -9268,7 +9268,7 @@ type alias SAMLProviderListEntry =
 
 sAMLProviderListEntryDecoder : JD.Decoder SAMLProviderListEntry
 sAMLProviderListEntryDecoder =
-    JDP.decode SAMLProviderListEntry
+    JD.succeed SAMLProviderListEntry
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Arn", "arn" ]
@@ -9303,7 +9303,7 @@ type alias SSHPublicKey =
 
 sSHPublicKeyDecoder : JD.Decoder SSHPublicKey
 sSHPublicKeyDecoder =
-    JDP.decode SSHPublicKey
+    JD.succeed SSHPublicKey
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "UserName", "userName" ]
@@ -9351,7 +9351,7 @@ type alias SSHPublicKeyMetadata =
 
 sSHPublicKeyMetadataDecoder : JD.Decoder SSHPublicKeyMetadata
 sSHPublicKeyMetadataDecoder =
-    JDP.decode SSHPublicKeyMetadata
+    JD.succeed SSHPublicKeyMetadata
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "UserName", "userName" ]
@@ -9388,7 +9388,7 @@ type alias ServerCertificate =
 
 serverCertificateDecoder : JD.Decoder ServerCertificate
 serverCertificateDecoder =
-    JDP.decode ServerCertificate
+    JD.succeed ServerCertificate
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "ServerCertificateMetadata", "serverCertificateMetadata" ]
@@ -9423,7 +9423,7 @@ type alias ServerCertificateMetadata =
 
 serverCertificateMetadataDecoder : JD.Decoder ServerCertificateMetadata
 serverCertificateMetadataDecoder =
-    JDP.decode ServerCertificateMetadata
+    JD.succeed ServerCertificateMetadata
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Path", "path" ]
@@ -9472,7 +9472,7 @@ type alias ServiceLastAccessed =
 
 serviceLastAccessedDecoder : JD.Decoder ServiceLastAccessed
 serviceLastAccessedDecoder =
-    JDP.decode ServiceLastAccessed
+    JD.succeed ServiceLastAccessed
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "ServiceName", "serviceName" ]
@@ -9518,7 +9518,7 @@ type alias ServiceSpecificCredential =
 
 serviceSpecificCredentialDecoder : JD.Decoder ServiceSpecificCredential
 serviceSpecificCredentialDecoder =
-    JDP.decode ServiceSpecificCredential
+    JD.succeed ServiceSpecificCredential
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "CreateDate", "createDate" ]
@@ -9573,7 +9573,7 @@ type alias ServiceSpecificCredentialMetadata =
 
 serviceSpecificCredentialMetadataDecoder : JD.Decoder ServiceSpecificCredentialMetadata
 serviceSpecificCredentialMetadataDecoder =
-    JDP.decode ServiceSpecificCredentialMetadata
+    JD.succeed ServiceSpecificCredentialMetadata
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "UserName", "userName" ]
@@ -9622,7 +9622,7 @@ type alias SigningCertificate =
 
 signingCertificateDecoder : JD.Decoder SigningCertificate
 signingCertificateDecoder =
-    JDP.decode SigningCertificate
+    JD.succeed SigningCertificate
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "UserName", "userName" ]
@@ -9661,7 +9661,7 @@ type alias SimulatePolicyResponse =
 
 simulatePolicyResponseDecoder : JD.Decoder SimulatePolicyResponse
 simulatePolicyResponseDecoder =
-    JDP.decode SimulatePolicyResponse
+    JD.succeed SimulatePolicyResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "EvaluationResults", "evaluationResults" ]
@@ -9694,7 +9694,7 @@ type alias Statement =
 
 statementDecoder : JD.Decoder Statement
 statementDecoder =
-    JDP.decode Statement
+    JD.succeed Statement
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "SourcePolicyId", "sourcePolicyId" ]
@@ -9730,7 +9730,7 @@ type alias Tag =
 
 tagDecoder : JD.Decoder Tag
 tagDecoder =
-    JDP.decode Tag
+    JD.succeed Tag
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Key", "key" ]
@@ -9752,7 +9752,7 @@ type alias UpdateRoleDescriptionResponse =
 
 updateRoleDescriptionResponseDecoder : JD.Decoder UpdateRoleDescriptionResponse
 updateRoleDescriptionResponseDecoder =
-    JDP.decode UpdateRoleDescriptionResponse
+    JD.succeed UpdateRoleDescriptionResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Role", "role" ]
@@ -9768,7 +9768,7 @@ type alias UpdateRoleResponse =
 
 updateRoleResponseDecoder : JD.Decoder UpdateRoleResponse
 updateRoleResponseDecoder =
-    JDP.decode UpdateRoleResponse
+    JD.succeed UpdateRoleResponse
 
 
 {-| Type of HTTP response from updateSAMLProvider
@@ -9780,7 +9780,7 @@ type alias UpdateSAMLProviderResponse =
 
 updateSAMLProviderResponseDecoder : JD.Decoder UpdateSAMLProviderResponse
 updateSAMLProviderResponseDecoder =
-    JDP.decode UpdateSAMLProviderResponse
+    JD.succeed UpdateSAMLProviderResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "SAMLProviderArn", "sAMLProviderArn" ]
@@ -9797,7 +9797,7 @@ type alias UploadSSHPublicKeyResponse =
 
 uploadSSHPublicKeyResponseDecoder : JD.Decoder UploadSSHPublicKeyResponse
 uploadSSHPublicKeyResponseDecoder =
-    JDP.decode UploadSSHPublicKeyResponse
+    JD.succeed UploadSSHPublicKeyResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "SSHPublicKey", "sSHPublicKey" ]
@@ -9814,7 +9814,7 @@ type alias UploadServerCertificateResponse =
 
 uploadServerCertificateResponseDecoder : JD.Decoder UploadServerCertificateResponse
 uploadServerCertificateResponseDecoder =
-    JDP.decode UploadServerCertificateResponse
+    JD.succeed UploadServerCertificateResponse
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "ServerCertificateMetadata", "serverCertificateMetadata" ]
@@ -9831,7 +9831,7 @@ type alias UploadSigningCertificateResponse =
 
 uploadSigningCertificateResponseDecoder : JD.Decoder UploadSigningCertificateResponse
 uploadSigningCertificateResponseDecoder =
-    JDP.decode UploadSigningCertificateResponse
+    JD.succeed UploadSigningCertificateResponse
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Certificate", "certificate" ]
@@ -9858,7 +9858,7 @@ type alias User =
 
 userDecoder : JD.Decoder User
 userDecoder =
-    JDP.decode User
+    JD.succeed User
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "Path", "path" ]
@@ -9922,7 +9922,7 @@ type alias UserDetail =
 
 userDetailDecoder : JD.Decoder UserDetail
 userDetailDecoder =
-    JDP.decode UserDetail
+    JD.succeed UserDetail
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Path", "path" ]
@@ -9991,7 +9991,7 @@ type alias VirtualMFADevice =
 
 virtualMFADeviceDecoder : JD.Decoder VirtualMFADevice
 virtualMFADeviceDecoder =
-    JDP.decode VirtualMFADevice
+    JD.succeed VirtualMFADevice
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "SerialNumber", "serialNumber" ]

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+./bin/elm-aws-generate.js --name athena
+./bin/elm-aws-generate.js --name iam
