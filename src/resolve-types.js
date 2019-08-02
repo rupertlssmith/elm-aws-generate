@@ -80,7 +80,9 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
       ? 'AWS.Core.Enum.toFloat >> Result.withDefault 0.0 >> String.fromFloat'
       : (value.type == 'Int')
         ? 'String.fromInt'
-        : `${lowCam(value.type)}ToString`;
+        : (value.type == 'String')
+          ? 'identity'
+          : `${lowCam(value.type)}ToString`;
     const queryEncoder = base => `AWS.Core.Encode.addDictToQueryArgs (${queryEncoderType}) "${base}"`;
 
     return isEnumOfFloats(key) ?

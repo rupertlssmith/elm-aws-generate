@@ -4641,7 +4641,7 @@ listDomainNamesResponseEncoder data =
     []
         |> (case data.domainNames of
                 Just value ->
-                    AWS.Core.Encode.addDictToQueryArgs stringToString "DomainNames" value
+                    AWS.Core.Encode.addDictToQueryArgs identity "DomainNames" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
