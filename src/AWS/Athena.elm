@@ -158,7 +158,7 @@ service =
 -}
 batchGetNamedQuery :
     List String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response BatchGetNamedQueryOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response BatchGetNamedQueryOutput)
 batchGetNamedQuery namedQueryIds =
     let
         requestInput =
@@ -190,7 +190,7 @@ batchGetNamedQuery namedQueryIds =
 -}
 batchGetQueryExecution :
     List String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response BatchGetQueryExecutionOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response BatchGetQueryExecutionOutput)
 batchGetQueryExecution queryExecutionIds =
     let
         requestInput =
@@ -227,7 +227,7 @@ createNamedQuery :
     -> String
     -> String
     -> (CreateNamedQueryOptions -> CreateNamedQueryOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreateNamedQueryOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateNamedQueryOutput)
 createNamedQuery name database queryString setOptions =
     let
         requestInput =
@@ -277,7 +277,7 @@ type alias CreateNamedQueryOptions =
 createWorkGroup :
     String
     -> (CreateWorkGroupOptions -> CreateWorkGroupOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreateWorkGroupOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateWorkGroupOutput)
 createWorkGroup name setOptions =
     let
         requestInput =
@@ -324,7 +324,7 @@ type alias CreateWorkGroupOptions =
 -}
 deleteNamedQuery :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response DeleteNamedQueryOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response DeleteNamedQueryOutput)
 deleteNamedQuery namedQueryId =
     let
         requestInput =
@@ -357,7 +357,7 @@ deleteNamedQuery namedQueryId =
 deleteWorkGroup :
     String
     -> (DeleteWorkGroupOptions -> DeleteWorkGroupOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response DeleteWorkGroupOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response DeleteWorkGroupOutput)
 deleteWorkGroup workGroup setOptions =
     let
         requestInput =
@@ -400,7 +400,7 @@ type alias DeleteWorkGroupOptions =
 -}
 getNamedQuery :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetNamedQueryOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetNamedQueryOutput)
 getNamedQuery namedQueryId =
     let
         requestInput =
@@ -432,7 +432,7 @@ getNamedQuery namedQueryId =
 -}
 getQueryExecution :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetQueryExecutionOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetQueryExecutionOutput)
 getQueryExecution queryExecutionId =
     let
         requestInput =
@@ -465,7 +465,7 @@ getQueryExecution queryExecutionId =
 getQueryResults :
     String
     -> (GetQueryResultsOptions -> GetQueryResultsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetQueryResultsOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetQueryResultsOutput)
 getQueryResults queryExecutionId setOptions =
     let
         requestInput =
@@ -510,7 +510,7 @@ type alias GetQueryResultsOptions =
 -}
 getWorkGroup :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetWorkGroupOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetWorkGroupOutput)
 getWorkGroup workGroup =
     let
         requestInput =
@@ -540,7 +540,7 @@ getWorkGroup workGroup =
 -}
 listNamedQueries :
     (ListNamedQueriesOptions -> ListNamedQueriesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListNamedQueriesOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListNamedQueriesOutput)
 listNamedQueries setOptions =
     let
         requestInput =
@@ -584,7 +584,7 @@ type alias ListNamedQueriesOptions =
 -}
 listQueryExecutions :
     (ListQueryExecutionsOptions -> ListQueryExecutionsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListQueryExecutionsOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListQueryExecutionsOutput)
 listQueryExecutions setOptions =
     let
         requestInput =
@@ -631,7 +631,7 @@ type alias ListQueryExecutionsOptions =
 listTagsForResource :
     String
     -> (ListTagsForResourceOptions -> ListTagsForResourceOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListTagsForResourceOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListTagsForResourceOutput)
 listTagsForResource resourceARN setOptions =
     let
         requestInput =
@@ -674,7 +674,7 @@ type alias ListTagsForResourceOptions =
 -}
 listWorkGroups :
     (ListWorkGroupsOptions -> ListWorkGroupsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListWorkGroupsOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListWorkGroupsOutput)
 listWorkGroups setOptions =
     let
         requestInput =
@@ -719,7 +719,7 @@ type alias ListWorkGroupsOptions =
 startQueryExecution :
     String
     -> (StartQueryExecutionOptions -> StartQueryExecutionOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response StartQueryExecutionOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response StartQueryExecutionOutput)
 startQueryExecution queryString setOptions =
     let
         requestInput =
@@ -768,7 +768,7 @@ type alias StartQueryExecutionOptions =
 -}
 stopQueryExecution :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response StopQueryExecutionOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response StopQueryExecutionOutput)
 stopQueryExecution queryExecutionId =
     let
         requestInput =
@@ -802,7 +802,7 @@ stopQueryExecution queryExecutionId =
 tagResource :
     String
     -> List Tag
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response TagResourceOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response TagResourceOutput)
 tagResource resourceARN tags =
     let
         requestInput =
@@ -837,7 +837,7 @@ tagResource resourceARN tags =
 untagResource :
     String
     -> List String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response UntagResourceOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UntagResourceOutput)
 untagResource resourceARN tagKeys =
     let
         requestInput =
@@ -871,7 +871,7 @@ untagResource resourceARN tagKeys =
 updateWorkGroup :
     String
     -> (UpdateWorkGroupOptions -> UpdateWorkGroupOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response UpdateWorkGroupOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UpdateWorkGroupOutput)
 updateWorkGroup workGroup setOptions =
     let
         requestInput =

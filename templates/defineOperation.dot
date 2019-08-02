@@ -14,7 +14,7 @@ __Required Parameters__
   {{? it.optionalParams.length }}
     ( {{= it.optionsName }} -> {{= it.optionsName }} ) ->
   {{?}}
-    AWS.Core.Http.Request (AWS.Core.Http.Response {{= it.output.type }})
+    AWS.Core.Http.Request (AWS.Core.Decode.Response {{= it.output.type }})
 
 {{= it.name }} {{~ it.requiredParams :p }}{{= p.key }} {{~}}{{? it.optionalParams.length }}setOptions {{?}}=
     {{? it.input }}

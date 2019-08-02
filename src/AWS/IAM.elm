@@ -431,7 +431,7 @@ service =
 addClientIDToOpenIDConnectProvider :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 addClientIDToOpenIDConnectProvider openIDConnectProviderArn clientID =
     let
         requestInput =
@@ -465,7 +465,7 @@ addClientIDToOpenIDConnectProvider openIDConnectProviderArn clientID =
 addRoleToInstanceProfile :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 addRoleToInstanceProfile instanceProfileName roleName =
     let
         requestInput =
@@ -499,7 +499,7 @@ addRoleToInstanceProfile instanceProfileName roleName =
 addUserToGroup :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 addUserToGroup groupName userName =
     let
         requestInput =
@@ -533,7 +533,7 @@ addUserToGroup groupName userName =
 attachGroupPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 attachGroupPolicy groupName policyArn =
     let
         requestInput =
@@ -567,7 +567,7 @@ attachGroupPolicy groupName policyArn =
 attachRolePolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 attachRolePolicy roleName policyArn =
     let
         requestInput =
@@ -601,7 +601,7 @@ attachRolePolicy roleName policyArn =
 attachUserPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 attachUserPolicy userName policyArn =
     let
         requestInput =
@@ -635,7 +635,7 @@ attachUserPolicy userName policyArn =
 changePassword :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 changePassword oldPassword newPassword =
     let
         requestInput =
@@ -665,7 +665,7 @@ changePassword oldPassword newPassword =
 -}
 createAccessKey :
     (CreateAccessKeyOptions -> CreateAccessKeyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreateAccessKeyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateAccessKeyResponse)
 createAccessKey setOptions =
     let
         requestInput =
@@ -706,7 +706,7 @@ type alias CreateAccessKeyOptions =
 -}
 createAccountAlias :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 createAccountAlias accountAlias =
     let
         requestInput =
@@ -738,7 +738,7 @@ createAccountAlias accountAlias =
 createGroup :
     String
     -> (CreateGroupOptions -> CreateGroupOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreateGroupResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateGroupResponse)
 createGroup groupName setOptions =
     let
         requestInput =
@@ -781,7 +781,7 @@ type alias CreateGroupOptions =
 createInstanceProfile :
     String
     -> (CreateInstanceProfileOptions -> CreateInstanceProfileOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreateInstanceProfileResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateInstanceProfileResponse)
 createInstanceProfile instanceProfileName setOptions =
     let
         requestInput =
@@ -826,7 +826,7 @@ createLoginProfile :
     String
     -> String
     -> (CreateLoginProfileOptions -> CreateLoginProfileOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreateLoginProfileResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateLoginProfileResponse)
 createLoginProfile userName password setOptions =
     let
         requestInput =
@@ -872,7 +872,7 @@ createOpenIDConnectProvider :
     String
     -> List String
     -> (CreateOpenIDConnectProviderOptions -> CreateOpenIDConnectProviderOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreateOpenIDConnectProviderResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateOpenIDConnectProviderResponse)
 createOpenIDConnectProvider url thumbprintList setOptions =
     let
         requestInput =
@@ -918,7 +918,7 @@ createPolicy :
     String
     -> String
     -> (CreatePolicyOptions -> CreatePolicyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreatePolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreatePolicyResponse)
 createPolicy policyName policyDocument setOptions =
     let
         requestInput =
@@ -966,7 +966,7 @@ createPolicyVersion :
     String
     -> String
     -> (CreatePolicyVersionOptions -> CreatePolicyVersionOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreatePolicyVersionResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreatePolicyVersionResponse)
 createPolicyVersion policyArn policyDocument setOptions =
     let
         requestInput =
@@ -1012,7 +1012,7 @@ createRole :
     String
     -> String
     -> (CreateRoleOptions -> CreateRoleOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreateRoleResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateRoleResponse)
 createRole roleName assumeRolePolicyDocument setOptions =
     let
         requestInput =
@@ -1065,7 +1065,7 @@ type alias CreateRoleOptions =
 createSAMLProvider :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreateSAMLProviderResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateSAMLProviderResponse)
 createSAMLProvider sAMLMetadataDocument name =
     let
         requestInput =
@@ -1098,7 +1098,7 @@ createSAMLProvider sAMLMetadataDocument name =
 createServiceLinkedRole :
     String
     -> (CreateServiceLinkedRoleOptions -> CreateServiceLinkedRoleOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreateServiceLinkedRoleResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateServiceLinkedRoleResponse)
 createServiceLinkedRole aWSServiceName setOptions =
     let
         requestInput =
@@ -1144,7 +1144,7 @@ type alias CreateServiceLinkedRoleOptions =
 createServiceSpecificCredential :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreateServiceSpecificCredentialResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateServiceSpecificCredentialResponse)
 createServiceSpecificCredential userName serviceName =
     let
         requestInput =
@@ -1177,7 +1177,7 @@ createServiceSpecificCredential userName serviceName =
 createUser :
     String
     -> (CreateUserOptions -> CreateUserOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreateUserResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateUserResponse)
 createUser userName setOptions =
     let
         requestInput =
@@ -1224,7 +1224,7 @@ type alias CreateUserOptions =
 createVirtualMFADevice :
     String
     -> (CreateVirtualMFADeviceOptions -> CreateVirtualMFADeviceOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response CreateVirtualMFADeviceResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateVirtualMFADeviceResponse)
 createVirtualMFADevice virtualMFADeviceName setOptions =
     let
         requestInput =
@@ -1268,7 +1268,7 @@ type alias CreateVirtualMFADeviceOptions =
 deactivateMFADevice :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deactivateMFADevice userName serialNumber =
     let
         requestInput =
@@ -1301,7 +1301,7 @@ deactivateMFADevice userName serialNumber =
 deleteAccessKey :
     String
     -> (DeleteAccessKeyOptions -> DeleteAccessKeyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteAccessKey accessKeyId setOptions =
     let
         requestInput =
@@ -1343,7 +1343,7 @@ type alias DeleteAccessKeyOptions =
 -}
 deleteAccountAlias :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteAccountAlias accountAlias =
     let
         requestInput =
@@ -1370,7 +1370,7 @@ deleteAccountAlias accountAlias =
 **Required Parameters**
 
 -}
-deleteAccountPasswordPolicy : AWS.Core.Http.Request (AWS.Core.Http.Response ())
+deleteAccountPasswordPolicy : AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteAccountPasswordPolicy =
     AWS.Core.Http.request
         AWS.Core.Http.POST
@@ -1394,7 +1394,7 @@ deleteAccountPasswordPolicy =
 -}
 deleteGroup :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteGroup groupName =
     let
         requestInput =
@@ -1427,7 +1427,7 @@ deleteGroup groupName =
 deleteGroupPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteGroupPolicy groupName policyName =
     let
         requestInput =
@@ -1459,7 +1459,7 @@ deleteGroupPolicy groupName policyName =
 -}
 deleteInstanceProfile :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteInstanceProfile instanceProfileName =
     let
         requestInput =
@@ -1490,7 +1490,7 @@ deleteInstanceProfile instanceProfileName =
 -}
 deleteLoginProfile :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteLoginProfile userName =
     let
         requestInput =
@@ -1521,7 +1521,7 @@ deleteLoginProfile userName =
 -}
 deleteOpenIDConnectProvider :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteOpenIDConnectProvider openIDConnectProviderArn =
     let
         requestInput =
@@ -1552,7 +1552,7 @@ deleteOpenIDConnectProvider openIDConnectProviderArn =
 -}
 deletePolicy :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deletePolicy policyArn =
     let
         requestInput =
@@ -1585,7 +1585,7 @@ deletePolicy policyArn =
 deletePolicyVersion :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deletePolicyVersion policyArn versionId =
     let
         requestInput =
@@ -1617,7 +1617,7 @@ deletePolicyVersion policyArn versionId =
 -}
 deleteRole :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteRole roleName =
     let
         requestInput =
@@ -1648,7 +1648,7 @@ deleteRole roleName =
 -}
 deleteRolePermissionsBoundary :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteRolePermissionsBoundary roleName =
     let
         requestInput =
@@ -1681,7 +1681,7 @@ deleteRolePermissionsBoundary roleName =
 deleteRolePolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteRolePolicy roleName policyName =
     let
         requestInput =
@@ -1713,7 +1713,7 @@ deleteRolePolicy roleName policyName =
 -}
 deleteSAMLProvider :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteSAMLProvider sAMLProviderArn =
     let
         requestInput =
@@ -1746,7 +1746,7 @@ deleteSAMLProvider sAMLProviderArn =
 deleteSSHPublicKey :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteSSHPublicKey userName sSHPublicKeyId =
     let
         requestInput =
@@ -1778,7 +1778,7 @@ deleteSSHPublicKey userName sSHPublicKeyId =
 -}
 deleteServerCertificate :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteServerCertificate serverCertificateName =
     let
         requestInput =
@@ -1809,7 +1809,7 @@ deleteServerCertificate serverCertificateName =
 -}
 deleteServiceLinkedRole :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response DeleteServiceLinkedRoleResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response DeleteServiceLinkedRoleResponse)
 deleteServiceLinkedRole roleName =
     let
         requestInput =
@@ -1841,7 +1841,7 @@ deleteServiceLinkedRole roleName =
 deleteServiceSpecificCredential :
     String
     -> (DeleteServiceSpecificCredentialOptions -> DeleteServiceSpecificCredentialOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteServiceSpecificCredential serviceSpecificCredentialId setOptions =
     let
         requestInput =
@@ -1884,7 +1884,7 @@ type alias DeleteServiceSpecificCredentialOptions =
 deleteSigningCertificate :
     String
     -> (DeleteSigningCertificateOptions -> DeleteSigningCertificateOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteSigningCertificate certificateId setOptions =
     let
         requestInput =
@@ -1926,7 +1926,7 @@ type alias DeleteSigningCertificateOptions =
 -}
 deleteUser :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteUser userName =
     let
         requestInput =
@@ -1957,7 +1957,7 @@ deleteUser userName =
 -}
 deleteUserPermissionsBoundary :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteUserPermissionsBoundary userName =
     let
         requestInput =
@@ -1990,7 +1990,7 @@ deleteUserPermissionsBoundary userName =
 deleteUserPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteUserPolicy userName policyName =
     let
         requestInput =
@@ -2022,7 +2022,7 @@ deleteUserPolicy userName policyName =
 -}
 deleteVirtualMFADevice :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 deleteVirtualMFADevice serialNumber =
     let
         requestInput =
@@ -2055,7 +2055,7 @@ deleteVirtualMFADevice serialNumber =
 detachGroupPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 detachGroupPolicy groupName policyArn =
     let
         requestInput =
@@ -2089,7 +2089,7 @@ detachGroupPolicy groupName policyArn =
 detachRolePolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 detachRolePolicy roleName policyArn =
     let
         requestInput =
@@ -2123,7 +2123,7 @@ detachRolePolicy roleName policyArn =
 detachUserPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 detachUserPolicy userName policyArn =
     let
         requestInput =
@@ -2161,7 +2161,7 @@ enableMFADevice :
     -> String
     -> String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 enableMFADevice userName serialNumber authenticationCode1 authenticationCode2 =
     let
         requestInput =
@@ -2191,7 +2191,7 @@ enableMFADevice userName serialNumber authenticationCode1 authenticationCode2 =
 **Required Parameters**
 
 -}
-generateCredentialReport : AWS.Core.Http.Request (AWS.Core.Http.Response GenerateCredentialReportResponse)
+generateCredentialReport : AWS.Core.Http.Request (AWS.Core.Decode.Response GenerateCredentialReportResponse)
 generateCredentialReport =
     AWS.Core.Http.request
         AWS.Core.Http.POST
@@ -2216,7 +2216,7 @@ generateCredentialReport =
 generateOrganizationsAccessReport :
     String
     -> (GenerateOrganizationsAccessReportOptions -> GenerateOrganizationsAccessReportOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GenerateOrganizationsAccessReportResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GenerateOrganizationsAccessReportResponse)
 generateOrganizationsAccessReport entityPath setOptions =
     let
         requestInput =
@@ -2258,7 +2258,7 @@ type alias GenerateOrganizationsAccessReportOptions =
 -}
 generateServiceLastAccessedDetails :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GenerateServiceLastAccessedDetailsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GenerateServiceLastAccessedDetailsResponse)
 generateServiceLastAccessedDetails arn =
     let
         requestInput =
@@ -2289,7 +2289,7 @@ generateServiceLastAccessedDetails arn =
 -}
 getAccessKeyLastUsed :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetAccessKeyLastUsedResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetAccessKeyLastUsedResponse)
 getAccessKeyLastUsed accessKeyId =
     let
         requestInput =
@@ -2318,7 +2318,7 @@ getAccessKeyLastUsed accessKeyId =
 -}
 getAccountAuthorizationDetails :
     (GetAccountAuthorizationDetailsOptions -> GetAccountAuthorizationDetailsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetAccountAuthorizationDetailsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetAccountAuthorizationDetailsResponse)
 getAccountAuthorizationDetails setOptions =
     let
         requestInput =
@@ -2359,7 +2359,7 @@ type alias GetAccountAuthorizationDetailsOptions =
 **Required Parameters**
 
 -}
-getAccountPasswordPolicy : AWS.Core.Http.Request (AWS.Core.Http.Response GetAccountPasswordPolicyResponse)
+getAccountPasswordPolicy : AWS.Core.Http.Request (AWS.Core.Decode.Response GetAccountPasswordPolicyResponse)
 getAccountPasswordPolicy =
     AWS.Core.Http.request
         AWS.Core.Http.POST
@@ -2379,7 +2379,7 @@ getAccountPasswordPolicy =
 **Required Parameters**
 
 -}
-getAccountSummary : AWS.Core.Http.Request (AWS.Core.Http.Response GetAccountSummaryResponse)
+getAccountSummary : AWS.Core.Http.Request (AWS.Core.Decode.Response GetAccountSummaryResponse)
 getAccountSummary =
     AWS.Core.Http.request
         AWS.Core.Http.POST
@@ -2403,7 +2403,7 @@ getAccountSummary =
 -}
 getContextKeysForCustomPolicy :
     List String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetContextKeysForPolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetContextKeysForPolicyResponse)
 getContextKeysForCustomPolicy policyInputList =
     let
         requestInput =
@@ -2435,7 +2435,7 @@ getContextKeysForCustomPolicy policyInputList =
 getContextKeysForPrincipalPolicy :
     String
     -> (GetContextKeysForPrincipalPolicyOptions -> GetContextKeysForPrincipalPolicyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetContextKeysForPolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetContextKeysForPolicyResponse)
 getContextKeysForPrincipalPolicy policySourceArn setOptions =
     let
         requestInput =
@@ -2473,7 +2473,7 @@ type alias GetContextKeysForPrincipalPolicyOptions =
 **Required Parameters**
 
 -}
-getCredentialReport : AWS.Core.Http.Request (AWS.Core.Http.Response GetCredentialReportResponse)
+getCredentialReport : AWS.Core.Http.Request (AWS.Core.Decode.Response GetCredentialReportResponse)
 getCredentialReport =
     AWS.Core.Http.request
         AWS.Core.Http.POST
@@ -2498,7 +2498,7 @@ getCredentialReport =
 getGroup :
     String
     -> (GetGroupOptions -> GetGroupOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetGroupResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetGroupResponse)
 getGroup groupName setOptions =
     let
         requestInput =
@@ -2544,7 +2544,7 @@ type alias GetGroupOptions =
 getGroupPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetGroupPolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetGroupPolicyResponse)
 getGroupPolicy groupName policyName =
     let
         requestInput =
@@ -2576,7 +2576,7 @@ getGroupPolicy groupName policyName =
 -}
 getInstanceProfile :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetInstanceProfileResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetInstanceProfileResponse)
 getInstanceProfile instanceProfileName =
     let
         requestInput =
@@ -2607,7 +2607,7 @@ getInstanceProfile instanceProfileName =
 -}
 getLoginProfile :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetLoginProfileResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetLoginProfileResponse)
 getLoginProfile userName =
     let
         requestInput =
@@ -2638,7 +2638,7 @@ getLoginProfile userName =
 -}
 getOpenIDConnectProvider :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetOpenIDConnectProviderResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetOpenIDConnectProviderResponse)
 getOpenIDConnectProvider openIDConnectProviderArn =
     let
         requestInput =
@@ -2670,7 +2670,7 @@ getOpenIDConnectProvider openIDConnectProviderArn =
 getOrganizationsAccessReport :
     String
     -> (GetOrganizationsAccessReportOptions -> GetOrganizationsAccessReportOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetOrganizationsAccessReportResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetOrganizationsAccessReportResponse)
 getOrganizationsAccessReport jobId setOptions =
     let
         requestInput =
@@ -2716,7 +2716,7 @@ type alias GetOrganizationsAccessReportOptions =
 -}
 getPolicy :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetPolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetPolicyResponse)
 getPolicy policyArn =
     let
         requestInput =
@@ -2749,7 +2749,7 @@ getPolicy policyArn =
 getPolicyVersion :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetPolicyVersionResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetPolicyVersionResponse)
 getPolicyVersion policyArn versionId =
     let
         requestInput =
@@ -2781,7 +2781,7 @@ getPolicyVersion policyArn versionId =
 -}
 getRole :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetRoleResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetRoleResponse)
 getRole roleName =
     let
         requestInput =
@@ -2814,7 +2814,7 @@ getRole roleName =
 getRolePolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetRolePolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetRolePolicyResponse)
 getRolePolicy roleName policyName =
     let
         requestInput =
@@ -2846,7 +2846,7 @@ getRolePolicy roleName policyName =
 -}
 getSAMLProvider :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetSAMLProviderResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetSAMLProviderResponse)
 getSAMLProvider sAMLProviderArn =
     let
         requestInput =
@@ -2881,7 +2881,7 @@ getSSHPublicKey :
     String
     -> String
     -> EncodingType
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetSSHPublicKeyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetSSHPublicKeyResponse)
 getSSHPublicKey userName sSHPublicKeyId encoding =
     let
         requestInput =
@@ -2914,7 +2914,7 @@ getSSHPublicKey userName sSHPublicKeyId encoding =
 -}
 getServerCertificate :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetServerCertificateResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetServerCertificateResponse)
 getServerCertificate serverCertificateName =
     let
         requestInput =
@@ -2946,7 +2946,7 @@ getServerCertificate serverCertificateName =
 getServiceLastAccessedDetails :
     String
     -> (GetServiceLastAccessedDetailsOptions -> GetServiceLastAccessedDetailsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetServiceLastAccessedDetailsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetServiceLastAccessedDetailsResponse)
 getServiceLastAccessedDetails jobId setOptions =
     let
         requestInput =
@@ -2993,7 +2993,7 @@ getServiceLastAccessedDetailsWithEntities :
     String
     -> String
     -> (GetServiceLastAccessedDetailsWithEntitiesOptions -> GetServiceLastAccessedDetailsWithEntitiesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetServiceLastAccessedDetailsWithEntitiesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetServiceLastAccessedDetailsWithEntitiesResponse)
 getServiceLastAccessedDetailsWithEntities jobId serviceNamespace setOptions =
     let
         requestInput =
@@ -3038,7 +3038,7 @@ type alias GetServiceLastAccessedDetailsWithEntitiesOptions =
 -}
 getServiceLinkedRoleDeletionStatus :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetServiceLinkedRoleDeletionStatusResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetServiceLinkedRoleDeletionStatusResponse)
 getServiceLinkedRoleDeletionStatus deletionTaskId =
     let
         requestInput =
@@ -3067,7 +3067,7 @@ getServiceLinkedRoleDeletionStatus deletionTaskId =
 -}
 getUser :
     (GetUserOptions -> GetUserOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetUserResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetUserResponse)
 getUser setOptions =
     let
         requestInput =
@@ -3110,7 +3110,7 @@ type alias GetUserOptions =
 getUserPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response GetUserPolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetUserPolicyResponse)
 getUserPolicy userName policyName =
     let
         requestInput =
@@ -3140,7 +3140,7 @@ getUserPolicy userName policyName =
 -}
 listAccessKeys :
     (ListAccessKeysOptions -> ListAccessKeysOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListAccessKeysResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListAccessKeysResponse)
 listAccessKeys setOptions =
     let
         requestInput =
@@ -3183,7 +3183,7 @@ type alias ListAccessKeysOptions =
 -}
 listAccountAliases :
     (ListAccountAliasesOptions -> ListAccountAliasesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListAccountAliasesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListAccountAliasesResponse)
 listAccountAliases setOptions =
     let
         requestInput =
@@ -3227,7 +3227,7 @@ type alias ListAccountAliasesOptions =
 listAttachedGroupPolicies :
     String
     -> (ListAttachedGroupPoliciesOptions -> ListAttachedGroupPoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListAttachedGroupPoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListAttachedGroupPoliciesResponse)
 listAttachedGroupPolicies groupName setOptions =
     let
         requestInput =
@@ -3274,7 +3274,7 @@ type alias ListAttachedGroupPoliciesOptions =
 listAttachedRolePolicies :
     String
     -> (ListAttachedRolePoliciesOptions -> ListAttachedRolePoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListAttachedRolePoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListAttachedRolePoliciesResponse)
 listAttachedRolePolicies roleName setOptions =
     let
         requestInput =
@@ -3321,7 +3321,7 @@ type alias ListAttachedRolePoliciesOptions =
 listAttachedUserPolicies :
     String
     -> (ListAttachedUserPoliciesOptions -> ListAttachedUserPoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListAttachedUserPoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListAttachedUserPoliciesResponse)
 listAttachedUserPolicies userName setOptions =
     let
         requestInput =
@@ -3368,7 +3368,7 @@ type alias ListAttachedUserPoliciesOptions =
 listEntitiesForPolicy :
     String
     -> (ListEntitiesForPolicyOptions -> ListEntitiesForPolicyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListEntitiesForPolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListEntitiesForPolicyResponse)
 listEntitiesForPolicy policyArn setOptions =
     let
         requestInput =
@@ -3419,7 +3419,7 @@ type alias ListEntitiesForPolicyOptions =
 listGroupPolicies :
     String
     -> (ListGroupPoliciesOptions -> ListGroupPoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListGroupPoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListGroupPoliciesResponse)
 listGroupPolicies groupName setOptions =
     let
         requestInput =
@@ -3461,7 +3461,7 @@ type alias ListGroupPoliciesOptions =
 -}
 listGroups :
     (ListGroupsOptions -> ListGroupsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListGroupsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListGroupsResponse)
 listGroups setOptions =
     let
         requestInput =
@@ -3507,7 +3507,7 @@ type alias ListGroupsOptions =
 listGroupsForUser :
     String
     -> (ListGroupsForUserOptions -> ListGroupsForUserOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListGroupsForUserResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListGroupsForUserResponse)
 listGroupsForUser userName setOptions =
     let
         requestInput =
@@ -3549,7 +3549,7 @@ type alias ListGroupsForUserOptions =
 -}
 listInstanceProfiles :
     (ListInstanceProfilesOptions -> ListInstanceProfilesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListInstanceProfilesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListInstanceProfilesResponse)
 listInstanceProfiles setOptions =
     let
         requestInput =
@@ -3595,7 +3595,7 @@ type alias ListInstanceProfilesOptions =
 listInstanceProfilesForRole :
     String
     -> (ListInstanceProfilesForRoleOptions -> ListInstanceProfilesForRoleOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListInstanceProfilesForRoleResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListInstanceProfilesForRoleResponse)
 listInstanceProfilesForRole roleName setOptions =
     let
         requestInput =
@@ -3637,7 +3637,7 @@ type alias ListInstanceProfilesForRoleOptions =
 -}
 listMFADevices :
     (ListMFADevicesOptions -> ListMFADevicesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListMFADevicesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListMFADevicesResponse)
 listMFADevices setOptions =
     let
         requestInput =
@@ -3678,7 +3678,7 @@ type alias ListMFADevicesOptions =
 **Required Parameters**
 
 -}
-listOpenIDConnectProviders : AWS.Core.Http.Request (AWS.Core.Http.Response ListOpenIDConnectProvidersResponse)
+listOpenIDConnectProviders : AWS.Core.Http.Request (AWS.Core.Decode.Response ListOpenIDConnectProvidersResponse)
 listOpenIDConnectProviders =
     let
         requestInput =
@@ -3706,7 +3706,7 @@ listOpenIDConnectProviders =
 -}
 listPolicies :
     (ListPoliciesOptions -> ListPoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListPoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListPoliciesResponse)
 listPolicies setOptions =
     let
         requestInput =
@@ -3760,7 +3760,7 @@ listPoliciesGrantingServiceAccess :
     String
     -> List String
     -> (ListPoliciesGrantingServiceAccessOptions -> ListPoliciesGrantingServiceAccessOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListPoliciesGrantingServiceAccessResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListPoliciesGrantingServiceAccessResponse)
 listPoliciesGrantingServiceAccess arn serviceNamespaces setOptions =
     let
         requestInput =
@@ -3804,7 +3804,7 @@ type alias ListPoliciesGrantingServiceAccessOptions =
 listPolicyVersions :
     String
     -> (ListPolicyVersionsOptions -> ListPolicyVersionsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListPolicyVersionsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListPolicyVersionsResponse)
 listPolicyVersions policyArn setOptions =
     let
         requestInput =
@@ -3849,7 +3849,7 @@ type alias ListPolicyVersionsOptions =
 listRolePolicies :
     String
     -> (ListRolePoliciesOptions -> ListRolePoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListRolePoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListRolePoliciesResponse)
 listRolePolicies roleName setOptions =
     let
         requestInput =
@@ -3894,7 +3894,7 @@ type alias ListRolePoliciesOptions =
 listRoleTags :
     String
     -> (ListRoleTagsOptions -> ListRoleTagsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListRoleTagsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListRoleTagsResponse)
 listRoleTags roleName setOptions =
     let
         requestInput =
@@ -3936,7 +3936,7 @@ type alias ListRoleTagsOptions =
 -}
 listRoles :
     (ListRolesOptions -> ListRolesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListRolesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListRolesResponse)
 listRoles setOptions =
     let
         requestInput =
@@ -3977,7 +3977,7 @@ type alias ListRolesOptions =
 **Required Parameters**
 
 -}
-listSAMLProviders : AWS.Core.Http.Request (AWS.Core.Http.Response ListSAMLProvidersResponse)
+listSAMLProviders : AWS.Core.Http.Request (AWS.Core.Decode.Response ListSAMLProvidersResponse)
 listSAMLProviders =
     let
         requestInput =
@@ -4005,7 +4005,7 @@ listSAMLProviders =
 -}
 listSSHPublicKeys :
     (ListSSHPublicKeysOptions -> ListSSHPublicKeysOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListSSHPublicKeysResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListSSHPublicKeysResponse)
 listSSHPublicKeys setOptions =
     let
         requestInput =
@@ -4048,7 +4048,7 @@ type alias ListSSHPublicKeysOptions =
 -}
 listServerCertificates :
     (ListServerCertificatesOptions -> ListServerCertificatesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListServerCertificatesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListServerCertificatesResponse)
 listServerCertificates setOptions =
     let
         requestInput =
@@ -4091,7 +4091,7 @@ type alias ListServerCertificatesOptions =
 -}
 listServiceSpecificCredentials :
     (ListServiceSpecificCredentialsOptions -> ListServiceSpecificCredentialsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListServiceSpecificCredentialsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListServiceSpecificCredentialsResponse)
 listServiceSpecificCredentials setOptions =
     let
         requestInput =
@@ -4132,7 +4132,7 @@ type alias ListServiceSpecificCredentialsOptions =
 -}
 listSigningCertificates :
     (ListSigningCertificatesOptions -> ListSigningCertificatesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListSigningCertificatesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListSigningCertificatesResponse)
 listSigningCertificates setOptions =
     let
         requestInput =
@@ -4178,7 +4178,7 @@ type alias ListSigningCertificatesOptions =
 listUserPolicies :
     String
     -> (ListUserPoliciesOptions -> ListUserPoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListUserPoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListUserPoliciesResponse)
 listUserPolicies userName setOptions =
     let
         requestInput =
@@ -4223,7 +4223,7 @@ type alias ListUserPoliciesOptions =
 listUserTags :
     String
     -> (ListUserTagsOptions -> ListUserTagsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListUserTagsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListUserTagsResponse)
 listUserTags userName setOptions =
     let
         requestInput =
@@ -4265,7 +4265,7 @@ type alias ListUserTagsOptions =
 -}
 listUsers :
     (ListUsersOptions -> ListUsersOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListUsersResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListUsersResponse)
 listUsers setOptions =
     let
         requestInput =
@@ -4308,7 +4308,7 @@ type alias ListUsersOptions =
 -}
 listVirtualMFADevices :
     (ListVirtualMFADevicesOptions -> ListVirtualMFADevicesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ListVirtualMFADevicesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListVirtualMFADevicesResponse)
 listVirtualMFADevices setOptions =
     let
         requestInput =
@@ -4357,7 +4357,7 @@ putGroupPolicy :
     String
     -> String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 putGroupPolicy groupName policyName policyDocument =
     let
         requestInput =
@@ -4392,7 +4392,7 @@ putGroupPolicy groupName policyName policyDocument =
 putRolePermissionsBoundary :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 putRolePermissionsBoundary roleName permissionsBoundary =
     let
         requestInput =
@@ -4428,7 +4428,7 @@ putRolePolicy :
     String
     -> String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 putRolePolicy roleName policyName policyDocument =
     let
         requestInput =
@@ -4463,7 +4463,7 @@ putRolePolicy roleName policyName policyDocument =
 putUserPermissionsBoundary :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 putUserPermissionsBoundary userName permissionsBoundary =
     let
         requestInput =
@@ -4499,7 +4499,7 @@ putUserPolicy :
     String
     -> String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 putUserPolicy userName policyName policyDocument =
     let
         requestInput =
@@ -4534,7 +4534,7 @@ putUserPolicy userName policyName policyDocument =
 removeClientIDFromOpenIDConnectProvider :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 removeClientIDFromOpenIDConnectProvider openIDConnectProviderArn clientID =
     let
         requestInput =
@@ -4568,7 +4568,7 @@ removeClientIDFromOpenIDConnectProvider openIDConnectProviderArn clientID =
 removeRoleFromInstanceProfile :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 removeRoleFromInstanceProfile instanceProfileName roleName =
     let
         requestInput =
@@ -4602,7 +4602,7 @@ removeRoleFromInstanceProfile instanceProfileName roleName =
 removeUserFromGroup :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 removeUserFromGroup groupName userName =
     let
         requestInput =
@@ -4635,7 +4635,7 @@ removeUserFromGroup groupName userName =
 resetServiceSpecificCredential :
     String
     -> (ResetServiceSpecificCredentialOptions -> ResetServiceSpecificCredentialOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ResetServiceSpecificCredentialResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ResetServiceSpecificCredentialResponse)
 resetServiceSpecificCredential serviceSpecificCredentialId setOptions =
     let
         requestInput =
@@ -4683,7 +4683,7 @@ resyncMFADevice :
     -> String
     -> String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 resyncMFADevice userName serialNumber authenticationCode1 authenticationCode2 =
     let
         requestInput =
@@ -4719,7 +4719,7 @@ resyncMFADevice userName serialNumber authenticationCode1 authenticationCode2 =
 setDefaultPolicyVersion :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 setDefaultPolicyVersion policyArn versionId =
     let
         requestInput =
@@ -4751,7 +4751,7 @@ setDefaultPolicyVersion policyArn versionId =
 -}
 setSecurityTokenServicePreferences :
     GlobalEndpointTokenVersion
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 setSecurityTokenServicePreferences globalEndpointTokenVersion =
     let
         requestInput =
@@ -4785,7 +4785,7 @@ simulateCustomPolicy :
     List String
     -> List String
     -> (SimulateCustomPolicyOptions -> SimulateCustomPolicyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response SimulatePolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response SimulatePolicyResponse)
 simulateCustomPolicy policyInputList actionNames setOptions =
     let
         requestInput =
@@ -4845,7 +4845,7 @@ simulatePrincipalPolicy :
     String
     -> List String
     -> (SimulatePrincipalPolicyOptions -> SimulatePrincipalPolicyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response SimulatePolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response SimulatePolicyResponse)
 simulatePrincipalPolicy policySourceArn actionNames setOptions =
     let
         requestInput =
@@ -4906,7 +4906,7 @@ type alias SimulatePrincipalPolicyOptions =
 tagRole :
     String
     -> List Tag
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 tagRole roleName tags =
     let
         requestInput =
@@ -4940,7 +4940,7 @@ tagRole roleName tags =
 tagUser :
     String
     -> List Tag
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 tagUser userName tags =
     let
         requestInput =
@@ -4974,7 +4974,7 @@ tagUser userName tags =
 untagRole :
     String
     -> List String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 untagRole roleName tagKeys =
     let
         requestInput =
@@ -5008,7 +5008,7 @@ untagRole roleName tagKeys =
 untagUser :
     String
     -> List String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 untagUser userName tagKeys =
     let
         requestInput =
@@ -5043,7 +5043,7 @@ updateAccessKey :
     String
     -> StatusType
     -> (UpdateAccessKeyOptions -> UpdateAccessKeyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 updateAccessKey accessKeyId status setOptions =
     let
         requestInput =
@@ -5084,7 +5084,7 @@ type alias UpdateAccessKeyOptions =
 -}
 updateAccountPasswordPolicy :
     (UpdateAccountPasswordPolicyOptions -> UpdateAccountPasswordPolicyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 updateAccountPasswordPolicy setOptions =
     let
         requestInput =
@@ -5143,7 +5143,7 @@ type alias UpdateAccountPasswordPolicyOptions =
 updateAssumeRolePolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 updateAssumeRolePolicy roleName policyDocument =
     let
         requestInput =
@@ -5176,7 +5176,7 @@ updateAssumeRolePolicy roleName policyDocument =
 updateGroup :
     String
     -> (UpdateGroupOptions -> UpdateGroupOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 updateGroup groupName setOptions =
     let
         requestInput =
@@ -5221,7 +5221,7 @@ type alias UpdateGroupOptions =
 updateLoginProfile :
     String
     -> (UpdateLoginProfileOptions -> UpdateLoginProfileOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 updateLoginProfile userName setOptions =
     let
         requestInput =
@@ -5267,7 +5267,7 @@ type alias UpdateLoginProfileOptions =
 updateOpenIDConnectProviderThumbprint :
     String
     -> List String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 updateOpenIDConnectProviderThumbprint openIDConnectProviderArn thumbprintList =
     let
         requestInput =
@@ -5300,7 +5300,7 @@ updateOpenIDConnectProviderThumbprint openIDConnectProviderArn thumbprintList =
 updateRole :
     String
     -> (UpdateRoleOptions -> UpdateRoleOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response UpdateRoleResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UpdateRoleResponse)
 updateRole roleName setOptions =
     let
         requestInput =
@@ -5346,7 +5346,7 @@ type alias UpdateRoleOptions =
 updateRoleDescription :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response UpdateRoleDescriptionResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UpdateRoleDescriptionResponse)
 updateRoleDescription roleName description =
     let
         requestInput =
@@ -5380,7 +5380,7 @@ updateRoleDescription roleName description =
 updateSAMLProvider :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response UpdateSAMLProviderResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UpdateSAMLProviderResponse)
 updateSAMLProvider sAMLMetadataDocument sAMLProviderArn =
     let
         requestInput =
@@ -5416,7 +5416,7 @@ updateSSHPublicKey :
     String
     -> String
     -> StatusType
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 updateSSHPublicKey userName sSHPublicKeyId status =
     let
         requestInput =
@@ -5450,7 +5450,7 @@ updateSSHPublicKey userName sSHPublicKeyId status =
 updateServerCertificate :
     String
     -> (UpdateServerCertificateOptions -> UpdateServerCertificateOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 updateServerCertificate serverCertificateName setOptions =
     let
         requestInput =
@@ -5497,7 +5497,7 @@ updateServiceSpecificCredential :
     String
     -> StatusType
     -> (UpdateServiceSpecificCredentialOptions -> UpdateServiceSpecificCredentialOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 updateServiceSpecificCredential serviceSpecificCredentialId status setOptions =
     let
         requestInput =
@@ -5543,7 +5543,7 @@ updateSigningCertificate :
     String
     -> StatusType
     -> (UpdateSigningCertificateOptions -> UpdateSigningCertificateOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 updateSigningCertificate certificateId status setOptions =
     let
         requestInput =
@@ -5587,7 +5587,7 @@ type alias UpdateSigningCertificateOptions =
 updateUser :
     String
     -> (UpdateUserOptions -> UpdateUserOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
 updateUser userName setOptions =
     let
         requestInput =
@@ -5633,7 +5633,7 @@ type alias UpdateUserOptions =
 uploadSSHPublicKey :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response UploadSSHPublicKeyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UploadSSHPublicKeyResponse)
 uploadSSHPublicKey userName sSHPublicKeyBody =
     let
         requestInput =
@@ -5670,7 +5670,7 @@ uploadServerCertificate :
     -> String
     -> String
     -> (UploadServerCertificateOptions -> UploadServerCertificateOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response UploadServerCertificateResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UploadServerCertificateResponse)
 uploadServerCertificate serverCertificateName certificateBody privateKey setOptions =
     let
         requestInput =
@@ -5717,7 +5717,7 @@ type alias UploadServerCertificateOptions =
 uploadSigningCertificate :
     String
     -> (UploadSigningCertificateOptions -> UploadSigningCertificateOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Http.Response UploadSigningCertificateResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UploadSigningCertificateResponse)
 uploadSigningCertificate certificateBody setOptions =
     let
         requestInput =

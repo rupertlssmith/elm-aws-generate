@@ -5,3 +5,4 @@ node_modules/
 sandbox/
 docs.json
 *.log
+elm-package.json
