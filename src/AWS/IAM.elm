@@ -11961,7 +11961,7 @@ accessDetailEncoder data =
            )
         |> (case data.totalAuthenticatedEntities of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "TotalAuthenticatedEntities" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "TotalAuthenticatedEntities" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -11973,7 +11973,7 @@ accessKeyEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AccessKeyId" data.accessKeyId
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
+        |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SecretAccessKey" data.secretAccessKey
         |> (case data.createDate of
                 Just value ->
@@ -12011,7 +12011,7 @@ accessKeyMetadataEncoder data =
            )
         |> (case data.status of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" value
+                    AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12072,7 +12072,7 @@ attachedPermissionsBoundaryEncoder data =
     []
         |> (case data.permissionsBoundaryType of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "PermissionsBoundaryType" value
+                    AWS.Core.Encode.addOneToQueryArgs permissionsBoundaryAttachmentTypeToString "PermissionsBoundaryType" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12131,7 +12131,7 @@ contextEntryEncoder data =
            )
         |> (case data.contextKeyType of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "ContextKeyType" value
+                    AWS.Core.Encode.addOneToQueryArgs contextKeyTypeEnumToString "ContextKeyType" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12326,7 +12326,7 @@ createRoleRequestEncoder data =
            )
         |> (case data.maxSessionDuration of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxSessionDuration" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxSessionDuration" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12719,7 +12719,7 @@ entityInfoEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Name" data.name
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Type" data.type_
+        |> AWS.Core.Encode.addOneToQueryArgs policyOwnerEntityTypeToString "Type" data.type_
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Id" data.id
         |> (case data.path of
                 Just value ->
@@ -12748,7 +12748,7 @@ evaluationResultEncoder data =
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "EvalDecision" data.evalDecision
+        |> AWS.Core.Encode.addOneToQueryArgs policyEvaluationDecisionTypeToString "EvalDecision" data.evalDecision
         |> (case data.matchedStatements of
                 Just value ->
                     AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addRecordToQueryArgs statementEncoder "") "MatchedStatements" value
@@ -12772,7 +12772,7 @@ evaluationResultEncoder data =
            )
         |> (case data.evalDecisionDetails of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "EvalDecisionDetails" value
+                    AWS.Core.Encode.addOneToQueryArgs policyEvaluationDecisionTypeToString "EvalDecisionDetails" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12791,7 +12791,7 @@ generateCredentialReportResponseEncoder data =
     []
         |> (case data.state of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "State" value
+                    AWS.Core.Encode.addOneToQueryArgs reportStateTypeToString "State" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12878,14 +12878,14 @@ getAccountAuthorizationDetailsRequestEncoder data =
     []
         |> (case data.filter of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "") "Filter" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs entityTypeToString "") "Filter" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12957,7 +12957,7 @@ getAccountSummaryResponseEncoder data =
     []
         |> (case data.summaryMap of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "SummaryMap" value
+                    AWS.Core.Encode.addOneToQueryArgs intToString "SummaryMap" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13007,7 +13007,7 @@ getCredentialReportResponseEncoder data =
            )
         |> (case data.reportFormat of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "ReportFormat" value
+                    AWS.Core.Encode.addOneToQueryArgs reportFormatTypeToString "ReportFormat" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13049,7 +13049,7 @@ getGroupRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13146,7 +13146,7 @@ getOrganizationsAccessReportRequestEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "JobId" data.jobId
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13160,7 +13160,7 @@ getOrganizationsAccessReportRequestEncoder data =
            )
         |> (case data.sortKey of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "SortKey" value
+                    AWS.Core.Encode.addOneToQueryArgs sortKeyTypeToString "SortKey" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13170,7 +13170,7 @@ getOrganizationsAccessReportRequestEncoder data =
 getOrganizationsAccessReportResponseEncoder : GetOrganizationsAccessReportResponse -> List ( String, String )
 getOrganizationsAccessReportResponseEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "JobStatus" data.jobStatus
+        |> AWS.Core.Encode.addOneToQueryArgs jobStatusTypeToString "JobStatus" data.jobStatus
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "JobCreationDate" data.jobCreationDate
         |> (case data.jobCompletionDate of
                 Just value ->
@@ -13181,14 +13181,14 @@ getOrganizationsAccessReportResponseEncoder data =
            )
         |> (case data.numberOfServicesAccessible of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "NumberOfServicesAccessible" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "NumberOfServicesAccessible" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.numberOfServicesNotAccessed of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "NumberOfServicesNotAccessed" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "NumberOfServicesNotAccessed" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13324,7 +13324,7 @@ getSSHPublicKeyRequestEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SSHPublicKeyId" data.sSHPublicKeyId
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Encoding" data.encoding
+        |> AWS.Core.Encode.addOneToQueryArgs encodingTypeToString "Encoding" data.encoding
 
 
 getSSHPublicKeyResponseEncoder : GetSSHPublicKeyResponse -> List ( String, String )
@@ -13357,7 +13357,7 @@ getServiceLastAccessedDetailsRequestEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "JobId" data.jobId
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13374,7 +13374,7 @@ getServiceLastAccessedDetailsRequestEncoder data =
 getServiceLastAccessedDetailsResponseEncoder : GetServiceLastAccessedDetailsResponse -> List ( String, String )
 getServiceLastAccessedDetailsResponseEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "JobStatus" data.jobStatus
+        |> AWS.Core.Encode.addOneToQueryArgs jobStatusTypeToString "JobStatus" data.jobStatus
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "JobCreationDate" data.jobCreationDate
         |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addRecordToQueryArgs serviceLastAccessedEncoder "") "ServicesLastAccessed" data.servicesLastAccessed
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "JobCompletionDate" data.jobCompletionDate
@@ -13408,7 +13408,7 @@ getServiceLastAccessedDetailsWithEntitiesRequestEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceNamespace" data.serviceNamespace
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13425,7 +13425,7 @@ getServiceLastAccessedDetailsWithEntitiesRequestEncoder data =
 getServiceLastAccessedDetailsWithEntitiesResponseEncoder : GetServiceLastAccessedDetailsWithEntitiesResponse -> List ( String, String )
 getServiceLastAccessedDetailsWithEntitiesResponseEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "JobStatus" data.jobStatus
+        |> AWS.Core.Encode.addOneToQueryArgs jobStatusTypeToString "JobStatus" data.jobStatus
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "JobCreationDate" data.jobCreationDate
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "JobCompletionDate" data.jobCompletionDate
         |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addRecordToQueryArgs entityDetailsEncoder "") "EntityDetailsList" data.entityDetailsList
@@ -13461,7 +13461,7 @@ getServiceLinkedRoleDeletionStatusRequestEncoder data =
 getServiceLinkedRoleDeletionStatusResponseEncoder : GetServiceLinkedRoleDeletionStatusResponse -> List ( String, String )
 getServiceLinkedRoleDeletionStatusResponseEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
+        |> AWS.Core.Encode.addOneToQueryArgs deletionTaskStatusTypeToString "Status" data.status
         |> (case data.reason of
                 Just value ->
                     AWS.Core.Encode.addRecordToQueryArgs deletionTaskFailureReasonTypeEncoder "Reason" value
@@ -13598,7 +13598,7 @@ listAccessKeysRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13637,7 +13637,7 @@ listAccountAliasesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13684,7 +13684,7 @@ listAttachedGroupPoliciesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13737,7 +13737,7 @@ listAttachedRolePoliciesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13790,7 +13790,7 @@ listAttachedUserPoliciesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13829,7 +13829,7 @@ listEntitiesForPolicyRequestEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
         |> (case data.entityFilter of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "EntityFilter" value
+                    AWS.Core.Encode.addOneToQueryArgs entityTypeToString "EntityFilter" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13843,7 +13843,7 @@ listEntitiesForPolicyRequestEncoder data =
            )
         |> (case data.policyUsageFilter of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "PolicyUsageFilter" value
+                    AWS.Core.Encode.addOneToQueryArgs policyUsageTypeToString "PolicyUsageFilter" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13857,7 +13857,7 @@ listEntitiesForPolicyRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13917,7 +13917,7 @@ listGroupPoliciesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13957,7 +13957,7 @@ listGroupsForUserRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14003,7 +14003,7 @@ listGroupsRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14043,7 +14043,7 @@ listInstanceProfilesForRoleRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14089,7 +14089,7 @@ listInstanceProfilesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14135,7 +14135,7 @@ listMFADevicesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14237,7 +14237,7 @@ listPoliciesRequestEncoder data =
     []
         |> (case data.scope of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Scope" value
+                    AWS.Core.Encode.addOneToQueryArgs policyScopeTypeToString "Scope" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14258,7 +14258,7 @@ listPoliciesRequestEncoder data =
            )
         |> (case data.policyUsageFilter of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "PolicyUsageFilter" value
+                    AWS.Core.Encode.addOneToQueryArgs policyUsageTypeToString "PolicyUsageFilter" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14272,7 +14272,7 @@ listPoliciesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14318,7 +14318,7 @@ listPolicyVersionsRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14364,7 +14364,7 @@ listRolePoliciesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14404,7 +14404,7 @@ listRoleTagsRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14450,7 +14450,7 @@ listRolesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14513,7 +14513,7 @@ listSSHPublicKeysRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14565,7 +14565,7 @@ listServerCertificatesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14642,7 +14642,7 @@ listSigningCertificatesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14682,7 +14682,7 @@ listUserPoliciesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14722,7 +14722,7 @@ listUserTagsRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14768,7 +14768,7 @@ listUsersRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14800,7 +14800,7 @@ listVirtualMFADevicesRequestEncoder data =
     []
         |> (case data.assignmentStatus of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "AssignmentStatus" value
+                    AWS.Core.Encode.addOneToQueryArgs assignmentStatusTypeToString "AssignmentStatus" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14814,7 +14814,7 @@ listVirtualMFADevicesRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14903,14 +14903,14 @@ managedPolicyDetailEncoder data =
            )
         |> (case data.attachmentCount of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "AttachmentCount" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "AttachmentCount" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.permissionsBoundaryUsageCount of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "PermissionsBoundaryUsageCount" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "PermissionsBoundaryUsageCount" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14981,7 +14981,7 @@ passwordPolicyEncoder data =
     []
         |> (case data.minimumPasswordLength of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MinimumPasswordLength" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MinimumPasswordLength" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15030,14 +15030,14 @@ passwordPolicyEncoder data =
            )
         |> (case data.maxPasswordAge of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxPasswordAge" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxPasswordAge" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.passwordReusePrevention of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "PasswordReusePrevention" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "PasswordReusePrevention" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15091,14 +15091,14 @@ policyEncoder data =
            )
         |> (case data.attachmentCount of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "AttachmentCount" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "AttachmentCount" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.permissionsBoundaryUsageCount of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "PermissionsBoundaryUsageCount" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "PermissionsBoundaryUsageCount" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15156,7 +15156,7 @@ policyGrantingServiceAccessEncoder : PolicyGrantingServiceAccess -> List ( Strin
 policyGrantingServiceAccessEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "PolicyType" data.policyType
+        |> AWS.Core.Encode.addOneToQueryArgs policyTypeToString "PolicyType" data.policyType
         |> (case data.policyArn of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" value
@@ -15166,7 +15166,7 @@ policyGrantingServiceAccessEncoder data =
            )
         |> (case data.entityType of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "EntityType" value
+                    AWS.Core.Encode.addOneToQueryArgs policyOwnerEntityTypeToString "EntityType" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15275,14 +15275,14 @@ positionEncoder data =
     []
         |> (case data.line of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "Line" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "Line" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.column of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "Column" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "Column" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15377,7 +15377,7 @@ resourceSpecificResultEncoder : ResourceSpecificResult -> List ( String, String 
 resourceSpecificResultEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "EvalResourceName" data.evalResourceName
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "EvalResourceDecision" data.evalResourceDecision
+        |> AWS.Core.Encode.addOneToQueryArgs policyEvaluationDecisionTypeToString "EvalResourceDecision" data.evalResourceDecision
         |> (case data.matchedStatements of
                 Just value ->
                     AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addRecordToQueryArgs statementEncoder "") "MatchedStatements" value
@@ -15394,7 +15394,7 @@ resourceSpecificResultEncoder data =
            )
         |> (case data.evalDecisionDetails of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "EvalDecisionDetails" value
+                    AWS.Core.Encode.addOneToQueryArgs policyEvaluationDecisionTypeToString "EvalDecisionDetails" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15434,7 +15434,7 @@ roleEncoder data =
            )
         |> (case data.maxSessionDuration of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxSessionDuration" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxSessionDuration" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15589,7 +15589,7 @@ sSHPublicKeyEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SSHPublicKeyId" data.sSHPublicKeyId
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Fingerprint" data.fingerprint
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SSHPublicKeyBody" data.sSHPublicKeyBody
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
+        |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
         |> (case data.uploadDate of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "UploadDate" value
@@ -15604,7 +15604,7 @@ sSHPublicKeyMetadataEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SSHPublicKeyId" data.sSHPublicKeyId
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
+        |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "UploadDate" data.uploadDate
 
 
@@ -15666,7 +15666,7 @@ serviceLastAccessedEncoder data =
            )
         |> (case data.totalAuthenticatedEntities of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "TotalAuthenticatedEntities" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "TotalAuthenticatedEntities" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15682,14 +15682,14 @@ serviceSpecificCredentialEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServicePassword" data.servicePassword
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
+        |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
 
 
 serviceSpecificCredentialMetadataEncoder : ServiceSpecificCredentialMetadata -> List ( String, String )
 serviceSpecificCredentialMetadataEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
+        |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceUserName" data.serviceUserName
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
@@ -15706,7 +15706,7 @@ setDefaultPolicyVersionRequestEncoder data =
 setSecurityTokenServicePreferencesRequestEncoder : SetSecurityTokenServicePreferencesRequest -> List ( String, String )
 setSecurityTokenServicePreferencesRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "GlobalEndpointTokenVersion" data.globalEndpointTokenVersion
+        |> AWS.Core.Encode.addOneToQueryArgs globalEndpointTokenVersionToString "GlobalEndpointTokenVersion" data.globalEndpointTokenVersion
 
 
 signingCertificateEncoder : SigningCertificate -> List ( String, String )
@@ -15715,7 +15715,7 @@ signingCertificateEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CertificateId" data.certificateId
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CertificateBody" data.certificateBody
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
+        |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
         |> (case data.uploadDate of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "UploadDate" value
@@ -15774,7 +15774,7 @@ simulateCustomPolicyRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15870,7 +15870,7 @@ simulatePrincipalPolicyRequestEncoder data =
            )
         |> (case data.maxItems of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxItems" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15896,7 +15896,7 @@ statementEncoder data =
            )
         |> (case data.sourcePolicyType of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "SourcePolicyType" value
+                    AWS.Core.Encode.addOneToQueryArgs policySourceTypeToString "SourcePolicyType" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15963,7 +15963,7 @@ updateAccessKeyRequestEncoder data =
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AccessKeyId" data.accessKeyId
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
+        |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
 
 
 updateAccountPasswordPolicyRequestEncoder : UpdateAccountPasswordPolicyRequest -> List ( String, String )
@@ -15971,7 +15971,7 @@ updateAccountPasswordPolicyRequestEncoder data =
     []
         |> (case data.minimumPasswordLength of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MinimumPasswordLength" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MinimumPasswordLength" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16013,14 +16013,14 @@ updateAccountPasswordPolicyRequestEncoder data =
            )
         |> (case data.maxPasswordAge of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxPasswordAge" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxPasswordAge" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.passwordReusePrevention of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "PasswordReusePrevention" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "PasswordReusePrevention" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16120,7 +16120,7 @@ updateRoleRequestEncoder data =
            )
         |> (case data.maxSessionDuration of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs toString "MaxSessionDuration" value
+                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxSessionDuration" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16156,7 +16156,7 @@ updateSSHPublicKeyRequestEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SSHPublicKeyId" data.sSHPublicKeyId
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
+        |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
 
 
 updateServerCertificateRequestEncoder : UpdateServerCertificateRequest -> List ( String, String )
@@ -16190,7 +16190,7 @@ updateServiceSpecificCredentialRequestEncoder data =
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
+        |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
 
 
 updateSigningCertificateRequestEncoder : UpdateSigningCertificateRequest -> List ( String, String )
@@ -16204,7 +16204,7 @@ updateSigningCertificateRequestEncoder data =
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CertificateId" data.certificateId
-        |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
+        |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
 
 
 updateUserRequestEncoder : UpdateUserRequest -> List ( String, String )

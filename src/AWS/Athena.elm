@@ -2396,7 +2396,7 @@ columnInfoEncoder data =
             JE.int
             ( "Scale", data.scale )
         |> AWS.Core.Encode.optionalMember
-            (AWS.Core.Enum.toString >> Result.withDefault "" >> JE.string)
+            (columnNullableToString >> JE.string)
             ( "Nullable", data.nullable )
         |> AWS.Core.Encode.optionalMember
             JE.bool
@@ -2494,7 +2494,7 @@ deleteWorkGroupOutputEncoder data =
 encryptionConfigurationEncoder : EncryptionConfiguration -> JE.Value
 encryptionConfigurationEncoder data =
     []
-        |> (::) ( "EncryptionOption", data.encryptionOption |> (AWS.Core.Enum.toString >> Result.withDefault "" >> JE.string) )
+        |> (::) ( "EncryptionOption", data.encryptionOption |> (encryptionOptionToString >> JE.string) )
         |> AWS.Core.Encode.optionalMember
             JE.string
             ( "KmsKey", data.kmsKey )
@@ -2708,7 +2708,7 @@ queryExecutionEncoder data =
             JE.string
             ( "Query", data.query )
         |> AWS.Core.Encode.optionalMember
-            (AWS.Core.Enum.toString >> Result.withDefault "" >> JE.string)
+            (statementTypeToString >> JE.string)
             ( "StatementType", data.statementType )
         |> AWS.Core.Encode.optionalMember
             resultConfigurationEncoder
@@ -2753,7 +2753,7 @@ queryExecutionStatusEncoder : QueryExecutionStatus -> JE.Value
 queryExecutionStatusEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (AWS.Core.Enum.toString >> Result.withDefault "" >> JE.string)
+            (queryExecutionStateToString >> JE.string)
             ( "State", data.state )
         |> AWS.Core.Encode.optionalMember
             JE.string
@@ -2949,7 +2949,7 @@ updateWorkGroupInputEncoder data =
             workGroupConfigurationUpdatesEncoder
             ( "ConfigurationUpdates", data.configurationUpdates )
         |> AWS.Core.Encode.optionalMember
-            (AWS.Core.Enum.toString >> Result.withDefault "" >> JE.string)
+            (workGroupStateToString >> JE.string)
             ( "State", data.state )
         |> JE.object
 
@@ -2965,7 +2965,7 @@ workGroupEncoder data =
     []
         |> (::) ( "Name", data.name |> JE.string )
         |> AWS.Core.Encode.optionalMember
-            (AWS.Core.Enum.toString >> Result.withDefault "" >> JE.string)
+            (workGroupStateToString >> JE.string)
             ( "State", data.state )
         |> AWS.Core.Encode.optionalMember
             workGroupConfigurationEncoder
@@ -3025,7 +3025,7 @@ workGroupSummaryEncoder data =
             JE.string
             ( "Name", data.name )
         |> AWS.Core.Encode.optionalMember
-            (AWS.Core.Enum.toString >> Result.withDefault "" >> JE.string)
+            (workGroupStateToString >> JE.string)
             ( "State", data.state )
         |> AWS.Core.Encode.optionalMember
             JE.string

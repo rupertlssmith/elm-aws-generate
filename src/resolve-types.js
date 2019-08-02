@@ -36,8 +36,8 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
     type: 'Float',
     decoder: `${jsonDecode}.float`,
     jsonEncoder: `${jsonEncode}.float`,
-    queryEncoderType: 'toString',
-    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs toString "${base}"`,
+    queryEncoderType: 'String.fromFloat',
+    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs String.fromFloat "${base}"`,
   });
 
   resolve.double = resolve.float;
@@ -46,8 +46,8 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
     type: 'Int',
     decoder: `${jsonDecode}.int`,
     jsonEncoder: `${jsonEncode}.int`,
-    queryEncoderType: 'toString',
-    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs toString "${base}"`,
+    queryEncoderType: 'String.fromInt',
+    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs String.fromInt "${base}"`,
   });
 
   resolve.long = resolve.integer;
@@ -77,8 +77,8 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
     }
     const value = resolve.shape(sh.value);
     const queryEncoderType = isEnumOfFloats(key)
-      ? 'AWS.Core.Enum.toFloat >> Result.withDefault 0.0 >> toString'
-      : 'AWS.Core.Enum.toString >> Result.withDefault ""';
+      ? 'AWS.Core.Enum.toFloat >> Result.withDefault 0.0 >> String.fromFloat'
+      : `${lowCam(value.type)}ToString`;
     const queryEncoder = base => `AWS.Core.Encode.addOneToQueryArgs (${queryEncoderType}) "${base}"`;
 
     return isEnumOfFloats(key) ?
@@ -96,7 +96,7 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
       render.nothing({
         type: `(Dict String ${value.type})`,
         decoder: `(AWS.Core.Decode.dict ${value.decoder})`,
-        jsonEncoder: `AWS.Core.Enum.toString >> Result.withDefault "" >> ${jsonEncode}.string`,
+        jsonEncoder: `${lowCam(sh.name)}ToString >> ${jsonEncode}.string`,
         queryEncoderType,
         queryEncoder,
         extraImports: [
@@ -133,9 +133,9 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
   resolve.enum = sh => render.enum({
     type: sh.name,
     decoder: `${lowCam(sh.name)}Decoder`,
-    jsonEncoder: `AWS.Core.Enum.toString >> Result.withDefault "" >> ${jsonEncode}.string`,
-    queryEncoderType: 'AWS.Core.Enum.toString >> Result.withDefault ""',
-    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "${base}"`,
+    jsonEncoder: `${lowCam(sh.name)}ToString >> ${jsonEncode}.string`,
+    queryEncoderType: '${lowCam(sh.name)}ToString',
+    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs ${lowCam(sh.name)}ToString "${base}"`,
     extraImports: [
     ],
     enum: sh.enum.map(safeIdentifier),
