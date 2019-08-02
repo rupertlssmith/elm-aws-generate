@@ -1,4 +1,130 @@
 #!/bin/sh
+GEN="./bin/elm-aws-generate.js --name"
 
-./bin/elm-aws-generate.js --name athena
-./bin/elm-aws-generate.js --name iam
+# ==== protocol query
+# Working
+# $GEN autoscaling
+# $GEN cloudformation
+# $GEN elasticache
+# $GEN elasticbeanstalk
+# $GEN elasticloadbalancing
+# $GEN iam
+# $GEN rds
+# $GEN redshift
+# $GEN sts
+
+# Compilation error
+$GEN cloudsearch
+# $GEN elasticloadbalancingv2
+# $GEN email
+# $GEN monitoring
+# $GEN sns
+# $GEN sqs
+
+# Harder problems
+# $GEN importexport # signatureVersion=v2
+# $GEN sdb version=undefined
+
+
+# ==== protocol json
+# Working
+# $GEN application-autoscaling
+# $GEN athena
+# $GEN AWSMigrationHub
+# $GEN cloudhsm
+# $GEN cloudtrail
+# $GEN dax
+# $GEN directconnect
+# $GEN ecr
+# $GEN meteringmarketplace
+# $GEN opsworks
+# $GEN route53domains
+# $GEN shield
+# $GEN storagegateway
+# $GEN support
+# $GEN swf
+# $GEN waf
+# $GEN waf-regional
+# $GEN workspaces
+
+# Compilation errors
+$GEN acm
+# $GEN appstream
+# $GEN budgets
+# $GEN cloudhsmv2
+# $GEN codebuild
+# $GEN codecommit
+# $GEN codedeploy
+# $GEN codepipeline
+# $GEN codestar
+# $GEN cognito-identity
+# $GEN cognito-idp
+# $GEN config
+# $GEN cur
+# $GEN datapipeline
+# $GEN devicefarm
+# $GEN discovery
+# $GEN dms
+# $GEN ds
+# $GEN ecs
+# $GEN entitlement.marketplace
+# $GEN events
+# $GEN firehose
+# $GEN gamelift
+# $GEN glue
+# $GEN health
+# $GEN inspector
+# $GEN kinesis
+# $GEN kinesisanalytics
+# $GEN kms
+# $GEN lightsail
+# $GEN logs
+# $GEN machinelearning
+# $GEN marketplacecommerceanalytics
+# $GEN mturk-requester
+# $GEN opsworkscm
+# $GEN rekognition
+# $GEN resourcegroupstaggingapi
+# $GEN servicecatalog
+# $GEN sms
+# $GEN snowball
+# $GEN ssm
+# $GEN states
+
+# Harder problems
+# $GEN dynamodb # recursive type
+# $GEN elasticmapreduce # recursive types
+# $GEN organizations # recursive types
+# $GEN streams.dynamodb # recursive types
+
+# ==== protocol rest-json
+# $GEN apigateway
+# $GEN batch
+# $GEN clouddirectory
+# $GEN cloudsearchdomain
+# $GEN cognito-sync
+# $GEN elasticfilesystem
+# $GEN elastictranscoder
+# $GEN es
+# $GEN glacier
+# $GEN greengrass # version=undefined
+# $GEN iot
+# $GEN iot-data
+# $GEN lambda
+# $GEN lex-models
+# $GEN mobileanalytics
+# $GEN pinpoint # version=undefined
+# $GEN polly
+# $GEN runtime.lex
+# $GEN workdocs
+# $GEN xray
+
+# ==== protocol rest-xml
+# $GEN cloudfront
+# $GEN route53
+# $GEN s3 # signatureVersion s3
+
+# protocol ec2
+# $GEN ec2
+
+elm make

@@ -5,11 +5,13 @@
   "license": "Apache-2.0",
   "version": "1.0.0",
   "exposed-modules": [
+    "AWS.ACM",
     "AWS.ApplicationAutoScaling",
     "AWS.Athena",
     "AWS.AutoScaling",
     "AWS.CloudFormation",
     "AWS.CloudHSM",
+    "AWS.CloudSearch",
     "AWS.CloudTrail",
     "AWS.DatabaseMigrationService",
     "AWS.DAX",
