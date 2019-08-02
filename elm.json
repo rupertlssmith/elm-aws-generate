@@ -7,6 +7,7 @@
   "exposed-modules": [
     "AWS.ACM",
     "AWS.ApplicationAutoScaling",
+    "AWS.AppStream",
     "AWS.Athena",
     "AWS.AutoScaling",
     "AWS.CloudFormation",
@@ -21,6 +22,7 @@
     "AWS.ElastiCache",
     "AWS.ElasticBeanstalk",
     "AWS.ElasticLoadBalancing",
+    "AWS.ElasticLoadBalancingv2",
     "AWS.IAM",
     "AWS.MarketplaceMetering",
     "AWS.MigrationHub",

@@ -5,6 +5,7 @@ GEN="./bin/elm-aws-generate.js --name"
 # Working
 # $GEN autoscaling
 # $GEN cloudformation
+# $GEN cloudsearch
 # $GEN elasticache
 # $GEN elasticbeanstalk
 # $GEN elasticloadbalancing
@@ -14,8 +15,7 @@ GEN="./bin/elm-aws-generate.js --name"
 # $GEN sts
 
 # Compilation error
-$GEN cloudsearch
-# $GEN elasticloadbalancingv2
+$GEN elasticloadbalancingv2
 # $GEN email
 # $GEN monitoring
 # $GEN sns
@@ -28,6 +28,7 @@ $GEN cloudsearch
 
 # ==== protocol json
 # Working
+# $GEN acm
 # $GEN application-autoscaling
 # $GEN athena
 # $GEN AWSMigrationHub
@@ -48,8 +49,7 @@ $GEN cloudsearch
 # $GEN workspaces
 
 # Compilation errors
-$GEN acm
-# $GEN appstream
+$GEN appstream
 # $GEN budgets
 # $GEN cloudhsmv2
 # $GEN codebuild
