@@ -81,7 +81,7 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
       : (value.type == 'Int')
         ? 'String.fromInt'
         : `${lowCam(value.type)}ToString`;
-    const queryEncoder = base => `AWS.Core.Encode.addOneToQueryArgs (${queryEncoderType}) "${base}"`;
+    const queryEncoder = base => `AWS.Core.Encode.addOneToQueryArgs problem (${queryEncoderType}) "${base}"`;
 
     return isEnumOfFloats(key) ?
       render.nothing({
@@ -113,8 +113,8 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
       type: 'String',
       decoder: `${jsonDecode}.string`,
       jsonEncoder: `${jsonEncode}.string`,
-      queryEncoderType: '(\\x -> x)',
-      queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs (\\x -> x) "${base}"`,
+      queryEncoderType: 'identity',
+      queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs identity "${base}"`,
     }));
 
   resolve.blob = resolve.string; // TODO:

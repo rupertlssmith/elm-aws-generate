@@ -12216,18 +12216,18 @@ type alias UploadSigningCertificateRequest =
 accessDetailEncoder : AccessDetail -> List ( String, String )
 accessDetailEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceName" data.serviceName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceNamespace" data.serviceNamespace
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceName" data.serviceName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceNamespace" data.serviceNamespace
         |> (case data.region of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Region" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Region" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.entityPath of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "EntityPath" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "EntityPath" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12251,10 +12251,10 @@ accessDetailEncoder data =
 accessKeyEncoder : AccessKey -> List ( String, String )
 accessKeyEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AccessKeyId" data.accessKeyId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "AccessKeyId" data.accessKeyId
         |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SecretAccessKey" data.secretAccessKey
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SecretAccessKey" data.secretAccessKey
         |> (case data.createDate of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" value
@@ -12268,8 +12268,8 @@ accessKeyLastUsedEncoder : AccessKeyLastUsed -> List ( String, String )
 accessKeyLastUsedEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "LastUsedDate" data.lastUsedDate
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceName" data.serviceName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Region" data.region
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceName" data.serviceName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Region" data.region
 
 
 accessKeyMetadataEncoder : AccessKeyMetadata -> List ( String, String )
@@ -12277,14 +12277,14 @@ accessKeyMetadataEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.accessKeyId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AccessKeyId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "AccessKeyId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12308,43 +12308,43 @@ accessKeyMetadataEncoder data =
 addClientIDToOpenIDConnectProviderRequestEncoder : AddClientIDToOpenIDConnectProviderRequest -> List ( String, String )
 addClientIDToOpenIDConnectProviderRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "OpenIDConnectProviderArn" data.openIDConnectProviderArn
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ClientID" data.clientID
+        |> AWS.Core.Encode.addOneToQueryArgs identity "OpenIDConnectProviderArn" data.openIDConnectProviderArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ClientID" data.clientID
 
 
 addRoleToInstanceProfileRequestEncoder : AddRoleToInstanceProfileRequest -> List ( String, String )
 addRoleToInstanceProfileRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "InstanceProfileName" data.instanceProfileName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "InstanceProfileName" data.instanceProfileName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
 
 
 addUserToGroupRequestEncoder : AddUserToGroupRequest -> List ( String, String )
 addUserToGroupRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
 
 
 attachGroupPolicyRequestEncoder : AttachGroupPolicyRequest -> List ( String, String )
 attachGroupPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
 
 
 attachRolePolicyRequestEncoder : AttachRolePolicyRequest -> List ( String, String )
 attachRolePolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
 
 
 attachUserPolicyRequestEncoder : AttachUserPolicyRequest -> List ( String, String )
 attachUserPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
 
 
 attachedPermissionsBoundaryEncoder : AttachedPermissionsBoundary -> List ( String, String )
@@ -12359,7 +12359,7 @@ attachedPermissionsBoundaryEncoder data =
            )
         |> (case data.permissionsBoundaryArn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PermissionsBoundaryArn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PermissionsBoundaryArn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12371,14 +12371,14 @@ attachedPolicyEncoder data =
     []
         |> (case data.policyName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.policyArn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12388,8 +12388,8 @@ attachedPolicyEncoder data =
 changePasswordRequestEncoder : ChangePasswordRequest -> List ( String, String )
 changePasswordRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "OldPassword" data.oldPassword
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "NewPassword" data.newPassword
+        |> AWS.Core.Encode.addOneToQueryArgs identity "OldPassword" data.oldPassword
+        |> AWS.Core.Encode.addOneToQueryArgs identity "NewPassword" data.newPassword
 
 
 contextEntryEncoder : ContextEntry -> List ( String, String )
@@ -12397,14 +12397,14 @@ contextEntryEncoder data =
     []
         |> (case data.contextKeyName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ContextKeyName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "ContextKeyName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.contextKeyValues of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "ContextKeyValues" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "ContextKeyValues" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12423,7 +12423,7 @@ createAccessKeyRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12439,7 +12439,7 @@ createAccessKeyResponseEncoder data =
 createAccountAliasRequestEncoder : CreateAccountAliasRequest -> List ( String, String )
 createAccountAliasRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AccountAlias" data.accountAlias
+        |> AWS.Core.Encode.addOneToQueryArgs identity "AccountAlias" data.accountAlias
 
 
 createGroupRequestEncoder : CreateGroupRequest -> List ( String, String )
@@ -12447,12 +12447,12 @@ createGroupRequestEncoder data =
     []
         |> (case data.path of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Path" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
 
 
 createGroupResponseEncoder : CreateGroupResponse -> List ( String, String )
@@ -12464,10 +12464,10 @@ createGroupResponseEncoder data =
 createInstanceProfileRequestEncoder : CreateInstanceProfileRequest -> List ( String, String )
 createInstanceProfileRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "InstanceProfileName" data.instanceProfileName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "InstanceProfileName" data.instanceProfileName
         |> (case data.path of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Path" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12483,8 +12483,8 @@ createInstanceProfileResponseEncoder data =
 createLoginProfileRequestEncoder : CreateLoginProfileRequest -> List ( String, String )
 createLoginProfileRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Password" data.password
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Password" data.password
         |> (case data.passwordResetRequired of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs AWS.Core.Encode.bool "PasswordResetRequired" value
@@ -12503,15 +12503,15 @@ createLoginProfileResponseEncoder data =
 createOpenIDConnectProviderRequestEncoder : CreateOpenIDConnectProviderRequest -> List ( String, String )
 createOpenIDConnectProviderRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Url" data.url
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Url" data.url
         |> (case data.clientIDList of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "ClientIDList" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "ClientIDList" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "ThumbprintList" data.thumbprintList
+        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "ThumbprintList" data.thumbprintList
 
 
 createOpenIDConnectProviderResponseEncoder : CreateOpenIDConnectProviderResponse -> List ( String, String )
@@ -12519,7 +12519,7 @@ createOpenIDConnectProviderResponseEncoder data =
     []
         |> (case data.openIDConnectProviderArn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "OpenIDConnectProviderArn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "OpenIDConnectProviderArn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12529,18 +12529,18 @@ createOpenIDConnectProviderResponseEncoder data =
 createPolicyRequestEncoder : CreatePolicyRequest -> List ( String, String )
 createPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
         |> (case data.path of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Path" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyDocument" data.policyDocument
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyDocument" data.policyDocument
         |> (case data.description of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Description" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Description" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12562,8 +12562,8 @@ createPolicyResponseEncoder data =
 createPolicyVersionRequestEncoder : CreatePolicyVersionRequest -> List ( String, String )
 createPolicyVersionRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyDocument" data.policyDocument
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyDocument" data.policyDocument
         |> (case data.setAsDefault of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs AWS.Core.Encode.bool "SetAsDefault" value
@@ -12590,16 +12590,16 @@ createRoleRequestEncoder data =
     []
         |> (case data.path of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Path" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AssumeRolePolicyDocument" data.assumeRolePolicyDocument
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "AssumeRolePolicyDocument" data.assumeRolePolicyDocument
         |> (case data.description of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Description" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Description" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12613,7 +12613,7 @@ createRoleRequestEncoder data =
            )
         |> (case data.permissionsBoundary of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PermissionsBoundary" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PermissionsBoundary" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12636,8 +12636,8 @@ createRoleResponseEncoder data =
 createSAMLProviderRequestEncoder : CreateSAMLProviderRequest -> List ( String, String )
 createSAMLProviderRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SAMLMetadataDocument" data.sAMLMetadataDocument
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Name" data.name
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SAMLMetadataDocument" data.sAMLMetadataDocument
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Name" data.name
 
 
 createSAMLProviderResponseEncoder : CreateSAMLProviderResponse -> List ( String, String )
@@ -12645,7 +12645,7 @@ createSAMLProviderResponseEncoder data =
     []
         |> (case data.sAMLProviderArn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SAMLProviderArn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "SAMLProviderArn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12655,17 +12655,17 @@ createSAMLProviderResponseEncoder data =
 createServiceLinkedRoleRequestEncoder : CreateServiceLinkedRoleRequest -> List ( String, String )
 createServiceLinkedRoleRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AWSServiceName" data.aWSServiceName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "AWSServiceName" data.aWSServiceName
         |> (case data.description of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Description" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Description" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.customSuffix of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CustomSuffix" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "CustomSuffix" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12687,8 +12687,8 @@ createServiceLinkedRoleResponseEncoder data =
 createServiceSpecificCredentialRequestEncoder : CreateServiceSpecificCredentialRequest -> List ( String, String )
 createServiceSpecificCredentialRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceName" data.serviceName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceName" data.serviceName
 
 
 createServiceSpecificCredentialResponseEncoder : CreateServiceSpecificCredentialResponse -> List ( String, String )
@@ -12708,15 +12708,15 @@ createUserRequestEncoder data =
     []
         |> (case data.path of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Path" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
         |> (case data.permissionsBoundary of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PermissionsBoundary" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PermissionsBoundary" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12747,12 +12747,12 @@ createVirtualMFADeviceRequestEncoder data =
     []
         |> (case data.path of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Path" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "VirtualMFADeviceName" data.virtualMFADeviceName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "VirtualMFADeviceName" data.virtualMFADeviceName
 
 
 createVirtualMFADeviceResponseEncoder : CreateVirtualMFADeviceResponse -> List ( String, String )
@@ -12764,8 +12764,8 @@ createVirtualMFADeviceResponseEncoder data =
 deactivateMFADeviceRequestEncoder : DeactivateMFADeviceRequest -> List ( String, String )
 deactivateMFADeviceRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SerialNumber" data.serialNumber
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SerialNumber" data.serialNumber
 
 
 deleteAccessKeyRequestEncoder : DeleteAccessKeyRequest -> List ( String, String )
@@ -12773,112 +12773,112 @@ deleteAccessKeyRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AccessKeyId" data.accessKeyId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "AccessKeyId" data.accessKeyId
 
 
 deleteAccountAliasRequestEncoder : DeleteAccountAliasRequest -> List ( String, String )
 deleteAccountAliasRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AccountAlias" data.accountAlias
+        |> AWS.Core.Encode.addOneToQueryArgs identity "AccountAlias" data.accountAlias
 
 
 deleteGroupPolicyRequestEncoder : DeleteGroupPolicyRequest -> List ( String, String )
 deleteGroupPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
 
 
 deleteGroupRequestEncoder : DeleteGroupRequest -> List ( String, String )
 deleteGroupRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
 
 
 deleteInstanceProfileRequestEncoder : DeleteInstanceProfileRequest -> List ( String, String )
 deleteInstanceProfileRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "InstanceProfileName" data.instanceProfileName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "InstanceProfileName" data.instanceProfileName
 
 
 deleteLoginProfileRequestEncoder : DeleteLoginProfileRequest -> List ( String, String )
 deleteLoginProfileRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
 
 
 deleteOpenIDConnectProviderRequestEncoder : DeleteOpenIDConnectProviderRequest -> List ( String, String )
 deleteOpenIDConnectProviderRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "OpenIDConnectProviderArn" data.openIDConnectProviderArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "OpenIDConnectProviderArn" data.openIDConnectProviderArn
 
 
 deletePolicyRequestEncoder : DeletePolicyRequest -> List ( String, String )
 deletePolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
 
 
 deletePolicyVersionRequestEncoder : DeletePolicyVersionRequest -> List ( String, String )
 deletePolicyVersionRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "VersionId" data.versionId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "VersionId" data.versionId
 
 
 deleteRolePermissionsBoundaryRequestEncoder : DeleteRolePermissionsBoundaryRequest -> List ( String, String )
 deleteRolePermissionsBoundaryRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
 
 
 deleteRolePolicyRequestEncoder : DeleteRolePolicyRequest -> List ( String, String )
 deleteRolePolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
 
 
 deleteRoleRequestEncoder : DeleteRoleRequest -> List ( String, String )
 deleteRoleRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
 
 
 deleteSAMLProviderRequestEncoder : DeleteSAMLProviderRequest -> List ( String, String )
 deleteSAMLProviderRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SAMLProviderArn" data.sAMLProviderArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SAMLProviderArn" data.sAMLProviderArn
 
 
 deleteSSHPublicKeyRequestEncoder : DeleteSSHPublicKeyRequest -> List ( String, String )
 deleteSSHPublicKeyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SSHPublicKeyId" data.sSHPublicKeyId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SSHPublicKeyId" data.sSHPublicKeyId
 
 
 deleteServerCertificateRequestEncoder : DeleteServerCertificateRequest -> List ( String, String )
 deleteServerCertificateRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServerCertificateName" data.serverCertificateName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServerCertificateName" data.serverCertificateName
 
 
 deleteServiceLinkedRoleRequestEncoder : DeleteServiceLinkedRoleRequest -> List ( String, String )
 deleteServiceLinkedRoleRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
 
 
 deleteServiceLinkedRoleResponseEncoder : DeleteServiceLinkedRoleResponse -> List ( String, String )
 deleteServiceLinkedRoleResponseEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "DeletionTaskId" data.deletionTaskId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "DeletionTaskId" data.deletionTaskId
 
 
 deleteServiceSpecificCredentialRequestEncoder : DeleteServiceSpecificCredentialRequest -> List ( String, String )
@@ -12886,12 +12886,12 @@ deleteServiceSpecificCredentialRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
 
 
 deleteSigningCertificateRequestEncoder : DeleteSigningCertificateRequest -> List ( String, String )
@@ -12899,37 +12899,37 @@ deleteSigningCertificateRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CertificateId" data.certificateId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "CertificateId" data.certificateId
 
 
 deleteUserPermissionsBoundaryRequestEncoder : DeleteUserPermissionsBoundaryRequest -> List ( String, String )
 deleteUserPermissionsBoundaryRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
 
 
 deleteUserPolicyRequestEncoder : DeleteUserPolicyRequest -> List ( String, String )
 deleteUserPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
 
 
 deleteUserRequestEncoder : DeleteUserRequest -> List ( String, String )
 deleteUserRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
 
 
 deleteVirtualMFADeviceRequestEncoder : DeleteVirtualMFADeviceRequest -> List ( String, String )
 deleteVirtualMFADeviceRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SerialNumber" data.serialNumber
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SerialNumber" data.serialNumber
 
 
 deletionTaskFailureReasonTypeEncoder : DeletionTaskFailureReasonType -> List ( String, String )
@@ -12937,7 +12937,7 @@ deletionTaskFailureReasonTypeEncoder data =
     []
         |> (case data.reason of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Reason" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Reason" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12954,31 +12954,31 @@ deletionTaskFailureReasonTypeEncoder data =
 detachGroupPolicyRequestEncoder : DetachGroupPolicyRequest -> List ( String, String )
 detachGroupPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
 
 
 detachRolePolicyRequestEncoder : DetachRolePolicyRequest -> List ( String, String )
 detachRolePolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
 
 
 detachUserPolicyRequestEncoder : DetachUserPolicyRequest -> List ( String, String )
 detachUserPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
 
 
 enableMFADeviceRequestEncoder : EnableMFADeviceRequest -> List ( String, String )
 enableMFADeviceRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SerialNumber" data.serialNumber
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AuthenticationCode1" data.authenticationCode1
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AuthenticationCode2" data.authenticationCode2
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SerialNumber" data.serialNumber
+        |> AWS.Core.Encode.addOneToQueryArgs identity "AuthenticationCode1" data.authenticationCode1
+        |> AWS.Core.Encode.addOneToQueryArgs identity "AuthenticationCode2" data.authenticationCode2
 
 
 entityDetailsEncoder : EntityDetails -> List ( String, String )
@@ -12997,13 +12997,13 @@ entityDetailsEncoder data =
 entityInfoEncoder : EntityInfo -> List ( String, String )
 entityInfoEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Name" data.name
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Arn" data.arn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Name" data.name
         |> AWS.Core.Encode.addOneToQueryArgs policyOwnerEntityTypeToString "Type" data.type_
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Id" data.id
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Id" data.id
         |> (case data.path of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Path" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13013,17 +13013,17 @@ entityInfoEncoder data =
 errorDetailsEncoder : ErrorDetails -> List ( String, String )
 errorDetailsEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Message" data.message
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Code" data.code
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Message" data.message
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Code" data.code
 
 
 evaluationResultEncoder : EvaluationResult -> List ( String, String )
 evaluationResultEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "EvalActionName" data.evalActionName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "EvalActionName" data.evalActionName
         |> (case data.evalResourceName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "EvalResourceName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "EvalResourceName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13038,7 +13038,7 @@ evaluationResultEncoder data =
            )
         |> (case data.missingContextValues of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "MissingContextValues" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "MissingContextValues" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13052,7 +13052,7 @@ evaluationResultEncoder data =
            )
         |> (case data.evalDecisionDetails of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs policyEvaluationDecisionTypeToString "EvalDecisionDetails" value
+                    AWS.Core.Encode.addOneToQueryArgs problem policyEvaluationDecisionTypeToString "EvalDecisionDetails" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13078,7 +13078,7 @@ generateCredentialReportResponseEncoder data =
            )
         |> (case data.description of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Description" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Description" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13088,10 +13088,10 @@ generateCredentialReportResponseEncoder data =
 generateOrganizationsAccessReportRequestEncoder : GenerateOrganizationsAccessReportRequest -> List ( String, String )
 generateOrganizationsAccessReportRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "EntityPath" data.entityPath
+        |> AWS.Core.Encode.addOneToQueryArgs identity "EntityPath" data.entityPath
         |> (case data.organizationsPolicyId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "OrganizationsPolicyId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "OrganizationsPolicyId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13103,7 +13103,7 @@ generateOrganizationsAccessReportResponseEncoder data =
     []
         |> (case data.jobId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "JobId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "JobId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13113,7 +13113,7 @@ generateOrganizationsAccessReportResponseEncoder data =
 generateServiceLastAccessedDetailsRequestEncoder : GenerateServiceLastAccessedDetailsRequest -> List ( String, String )
 generateServiceLastAccessedDetailsRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Arn" data.arn
 
 
 generateServiceLastAccessedDetailsResponseEncoder : GenerateServiceLastAccessedDetailsResponse -> List ( String, String )
@@ -13121,7 +13121,7 @@ generateServiceLastAccessedDetailsResponseEncoder data =
     []
         |> (case data.jobId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "JobId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "JobId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13131,7 +13131,7 @@ generateServiceLastAccessedDetailsResponseEncoder data =
 getAccessKeyLastUsedRequestEncoder : GetAccessKeyLastUsedRequest -> List ( String, String )
 getAccessKeyLastUsedRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AccessKeyId" data.accessKeyId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "AccessKeyId" data.accessKeyId
 
 
 getAccessKeyLastUsedResponseEncoder : GetAccessKeyLastUsedResponse -> List ( String, String )
@@ -13139,7 +13139,7 @@ getAccessKeyLastUsedResponseEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13172,7 +13172,7 @@ getAccountAuthorizationDetailsRequestEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13219,7 +13219,7 @@ getAccountAuthorizationDetailsResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13237,7 +13237,7 @@ getAccountSummaryResponseEncoder data =
     []
         |> (case data.summaryMap of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs String.fromInt "SummaryMap" value
+                    AWS.Core.Encode.addOneToQueryArgs problem String.fromInt "SummaryMap" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13247,7 +13247,7 @@ getAccountSummaryResponseEncoder data =
 getContextKeysForCustomPolicyRequestEncoder : GetContextKeysForCustomPolicyRequest -> List ( String, String )
 getContextKeysForCustomPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "PolicyInputList" data.policyInputList
+        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "PolicyInputList" data.policyInputList
 
 
 getContextKeysForPolicyResponseEncoder : GetContextKeysForPolicyResponse -> List ( String, String )
@@ -13255,7 +13255,7 @@ getContextKeysForPolicyResponseEncoder data =
     []
         |> (case data.contextKeyNames of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "ContextKeyNames" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "ContextKeyNames" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13265,10 +13265,10 @@ getContextKeysForPolicyResponseEncoder data =
 getContextKeysForPrincipalPolicyRequestEncoder : GetContextKeysForPrincipalPolicyRequest -> List ( String, String )
 getContextKeysForPrincipalPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicySourceArn" data.policySourceArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicySourceArn" data.policySourceArn
         |> (case data.policyInputList of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "PolicyInputList" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "PolicyInputList" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13280,7 +13280,7 @@ getCredentialReportResponseEncoder data =
     []
         |> (case data.content of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Content" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Content" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13304,25 +13304,25 @@ getCredentialReportResponseEncoder data =
 getGroupPolicyRequestEncoder : GetGroupPolicyRequest -> List ( String, String )
 getGroupPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
 
 
 getGroupPolicyResponseEncoder : GetGroupPolicyResponse -> List ( String, String )
 getGroupPolicyResponseEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyDocument" data.policyDocument
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyDocument" data.policyDocument
 
 
 getGroupRequestEncoder : GetGroupRequest -> List ( String, String )
 getGroupRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13350,7 +13350,7 @@ getGroupResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13360,7 +13360,7 @@ getGroupResponseEncoder data =
 getInstanceProfileRequestEncoder : GetInstanceProfileRequest -> List ( String, String )
 getInstanceProfileRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "InstanceProfileName" data.instanceProfileName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "InstanceProfileName" data.instanceProfileName
 
 
 getInstanceProfileResponseEncoder : GetInstanceProfileResponse -> List ( String, String )
@@ -13372,7 +13372,7 @@ getInstanceProfileResponseEncoder data =
 getLoginProfileRequestEncoder : GetLoginProfileRequest -> List ( String, String )
 getLoginProfileRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
 
 
 getLoginProfileResponseEncoder : GetLoginProfileResponse -> List ( String, String )
@@ -13384,7 +13384,7 @@ getLoginProfileResponseEncoder data =
 getOpenIDConnectProviderRequestEncoder : GetOpenIDConnectProviderRequest -> List ( String, String )
 getOpenIDConnectProviderRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "OpenIDConnectProviderArn" data.openIDConnectProviderArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "OpenIDConnectProviderArn" data.openIDConnectProviderArn
 
 
 getOpenIDConnectProviderResponseEncoder : GetOpenIDConnectProviderResponse -> List ( String, String )
@@ -13392,21 +13392,21 @@ getOpenIDConnectProviderResponseEncoder data =
     []
         |> (case data.url of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Url" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Url" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.clientIDList of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "ClientIDList" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "ClientIDList" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.thumbprintList of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "ThumbprintList" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "ThumbprintList" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13423,7 +13423,7 @@ getOpenIDConnectProviderResponseEncoder data =
 getOrganizationsAccessReportRequestEncoder : GetOrganizationsAccessReportRequest -> List ( String, String )
 getOrganizationsAccessReportRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "JobId" data.jobId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "JobId" data.jobId
         |> (case data.maxItems of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
@@ -13433,7 +13433,7 @@ getOrganizationsAccessReportRequestEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13489,7 +13489,7 @@ getOrganizationsAccessReportResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13506,7 +13506,7 @@ getOrganizationsAccessReportResponseEncoder data =
 getPolicyRequestEncoder : GetPolicyRequest -> List ( String, String )
 getPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
 
 
 getPolicyResponseEncoder : GetPolicyResponse -> List ( String, String )
@@ -13524,8 +13524,8 @@ getPolicyResponseEncoder data =
 getPolicyVersionRequestEncoder : GetPolicyVersionRequest -> List ( String, String )
 getPolicyVersionRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "VersionId" data.versionId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "VersionId" data.versionId
 
 
 getPolicyVersionResponseEncoder : GetPolicyVersionResponse -> List ( String, String )
@@ -13543,22 +13543,22 @@ getPolicyVersionResponseEncoder data =
 getRolePolicyRequestEncoder : GetRolePolicyRequest -> List ( String, String )
 getRolePolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
 
 
 getRolePolicyResponseEncoder : GetRolePolicyResponse -> List ( String, String )
 getRolePolicyResponseEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyDocument" data.policyDocument
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyDocument" data.policyDocument
 
 
 getRoleRequestEncoder : GetRoleRequest -> List ( String, String )
 getRoleRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
 
 
 getRoleResponseEncoder : GetRoleResponse -> List ( String, String )
@@ -13570,7 +13570,7 @@ getRoleResponseEncoder data =
 getSAMLProviderRequestEncoder : GetSAMLProviderRequest -> List ( String, String )
 getSAMLProviderRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SAMLProviderArn" data.sAMLProviderArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SAMLProviderArn" data.sAMLProviderArn
 
 
 getSAMLProviderResponseEncoder : GetSAMLProviderResponse -> List ( String, String )
@@ -13578,7 +13578,7 @@ getSAMLProviderResponseEncoder data =
     []
         |> (case data.sAMLMetadataDocument of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SAMLMetadataDocument" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "SAMLMetadataDocument" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13602,8 +13602,8 @@ getSAMLProviderResponseEncoder data =
 getSSHPublicKeyRequestEncoder : GetSSHPublicKeyRequest -> List ( String, String )
 getSSHPublicKeyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SSHPublicKeyId" data.sSHPublicKeyId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SSHPublicKeyId" data.sSHPublicKeyId
         |> AWS.Core.Encode.addOneToQueryArgs encodingTypeToString "Encoding" data.encoding
 
 
@@ -13622,7 +13622,7 @@ getSSHPublicKeyResponseEncoder data =
 getServerCertificateRequestEncoder : GetServerCertificateRequest -> List ( String, String )
 getServerCertificateRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServerCertificateName" data.serverCertificateName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServerCertificateName" data.serverCertificateName
 
 
 getServerCertificateResponseEncoder : GetServerCertificateResponse -> List ( String, String )
@@ -13634,7 +13634,7 @@ getServerCertificateResponseEncoder data =
 getServiceLastAccessedDetailsRequestEncoder : GetServiceLastAccessedDetailsRequest -> List ( String, String )
 getServiceLastAccessedDetailsRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "JobId" data.jobId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "JobId" data.jobId
         |> (case data.maxItems of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
@@ -13644,7 +13644,7 @@ getServiceLastAccessedDetailsRequestEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13667,7 +13667,7 @@ getServiceLastAccessedDetailsResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13684,8 +13684,8 @@ getServiceLastAccessedDetailsResponseEncoder data =
 getServiceLastAccessedDetailsWithEntitiesRequestEncoder : GetServiceLastAccessedDetailsWithEntitiesRequest -> List ( String, String )
 getServiceLastAccessedDetailsWithEntitiesRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "JobId" data.jobId
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceNamespace" data.serviceNamespace
+        |> AWS.Core.Encode.addOneToQueryArgs identity "JobId" data.jobId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceNamespace" data.serviceNamespace
         |> (case data.maxItems of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs String.fromInt "MaxItems" value
@@ -13695,7 +13695,7 @@ getServiceLastAccessedDetailsWithEntitiesRequestEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13718,7 +13718,7 @@ getServiceLastAccessedDetailsWithEntitiesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13735,7 +13735,7 @@ getServiceLastAccessedDetailsWithEntitiesResponseEncoder data =
 getServiceLinkedRoleDeletionStatusRequestEncoder : GetServiceLinkedRoleDeletionStatusRequest -> List ( String, String )
 getServiceLinkedRoleDeletionStatusRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "DeletionTaskId" data.deletionTaskId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "DeletionTaskId" data.deletionTaskId
 
 
 getServiceLinkedRoleDeletionStatusResponseEncoder : GetServiceLinkedRoleDeletionStatusResponse -> List ( String, String )
@@ -13754,16 +13754,16 @@ getServiceLinkedRoleDeletionStatusResponseEncoder data =
 getUserPolicyRequestEncoder : GetUserPolicyRequest -> List ( String, String )
 getUserPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
 
 
 getUserPolicyResponseEncoder : GetUserPolicyResponse -> List ( String, String )
 getUserPolicyResponseEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyDocument" data.policyDocument
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyDocument" data.policyDocument
 
 
 getUserRequestEncoder : GetUserRequest -> List ( String, String )
@@ -13771,7 +13771,7 @@ getUserRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13787,10 +13787,10 @@ getUserResponseEncoder data =
 groupEncoder : Group -> List ( String, String )
 groupEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" data.path
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupId" data.groupId
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Path" data.path
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupId" data.groupId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Arn" data.arn
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
 
 
@@ -13799,28 +13799,28 @@ groupDetailEncoder data =
     []
         |> (case data.path of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Path" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.groupName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "GroupName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.groupId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "GroupId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.arn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Arn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13851,10 +13851,10 @@ groupDetailEncoder data =
 instanceProfileEncoder : InstanceProfile -> List ( String, String )
 instanceProfileEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" data.path
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "InstanceProfileName" data.instanceProfileName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "InstanceProfileId" data.instanceProfileId
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Path" data.path
+        |> AWS.Core.Encode.addOneToQueryArgs identity "InstanceProfileName" data.instanceProfileName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "InstanceProfileId" data.instanceProfileId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Arn" data.arn
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
         |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addRecordToQueryArgs roleEncoder "") "Roles" data.roles
 
@@ -13864,14 +13864,14 @@ listAccessKeysRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13898,7 +13898,7 @@ listAccessKeysResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13910,7 +13910,7 @@ listAccountAliasesRequestEncoder data =
     []
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13927,7 +13927,7 @@ listAccountAliasesRequestEncoder data =
 listAccountAliasesResponseEncoder : ListAccountAliasesResponse -> List ( String, String )
 listAccountAliasesResponseEncoder data =
     []
-        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "AccountAliases" data.accountAliases
+        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "AccountAliases" data.accountAliases
         |> (case data.isTruncated of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs AWS.Core.Encode.bool "IsTruncated" value
@@ -13937,7 +13937,7 @@ listAccountAliasesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13947,17 +13947,17 @@ listAccountAliasesResponseEncoder data =
 listAttachedGroupPoliciesRequestEncoder : ListAttachedGroupPoliciesRequest -> List ( String, String )
 listAttachedGroupPoliciesRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
         |> (case data.pathPrefix of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PathPrefix" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PathPrefix" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13990,7 +13990,7 @@ listAttachedGroupPoliciesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14000,17 +14000,17 @@ listAttachedGroupPoliciesResponseEncoder data =
 listAttachedRolePoliciesRequestEncoder : ListAttachedRolePoliciesRequest -> List ( String, String )
 listAttachedRolePoliciesRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
         |> (case data.pathPrefix of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PathPrefix" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PathPrefix" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14043,7 +14043,7 @@ listAttachedRolePoliciesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14053,17 +14053,17 @@ listAttachedRolePoliciesResponseEncoder data =
 listAttachedUserPoliciesRequestEncoder : ListAttachedUserPoliciesRequest -> List ( String, String )
 listAttachedUserPoliciesRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
         |> (case data.pathPrefix of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PathPrefix" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PathPrefix" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14096,7 +14096,7 @@ listAttachedUserPoliciesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14106,7 +14106,7 @@ listAttachedUserPoliciesResponseEncoder data =
 listEntitiesForPolicyRequestEncoder : ListEntitiesForPolicyRequest -> List ( String, String )
 listEntitiesForPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
         |> (case data.entityFilter of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs entityTypeToString "EntityFilter" value
@@ -14116,7 +14116,7 @@ listEntitiesForPolicyRequestEncoder data =
            )
         |> (case data.pathPrefix of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PathPrefix" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PathPrefix" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14130,7 +14130,7 @@ listEntitiesForPolicyRequestEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14177,7 +14177,7 @@ listEntitiesForPolicyResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14187,10 +14187,10 @@ listEntitiesForPolicyResponseEncoder data =
 listGroupPoliciesRequestEncoder : ListGroupPoliciesRequest -> List ( String, String )
 listGroupPoliciesRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14207,7 +14207,7 @@ listGroupPoliciesRequestEncoder data =
 listGroupPoliciesResponseEncoder : ListGroupPoliciesResponse -> List ( String, String )
 listGroupPoliciesResponseEncoder data =
     []
-        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "PolicyNames" data.policyNames
+        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "PolicyNames" data.policyNames
         |> (case data.isTruncated of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs AWS.Core.Encode.bool "IsTruncated" value
@@ -14217,7 +14217,7 @@ listGroupPoliciesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14227,10 +14227,10 @@ listGroupPoliciesResponseEncoder data =
 listGroupsForUserRequestEncoder : ListGroupsForUserRequest -> List ( String, String )
 listGroupsForUserRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14257,7 +14257,7 @@ listGroupsForUserResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14269,14 +14269,14 @@ listGroupsRequestEncoder data =
     []
         |> (case data.pathPrefix of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PathPrefix" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PathPrefix" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14303,7 +14303,7 @@ listGroupsResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14313,10 +14313,10 @@ listGroupsResponseEncoder data =
 listInstanceProfilesForRoleRequestEncoder : ListInstanceProfilesForRoleRequest -> List ( String, String )
 listInstanceProfilesForRoleRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14343,7 +14343,7 @@ listInstanceProfilesForRoleResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14355,14 +14355,14 @@ listInstanceProfilesRequestEncoder data =
     []
         |> (case data.pathPrefix of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PathPrefix" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PathPrefix" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14389,7 +14389,7 @@ listInstanceProfilesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14401,14 +14401,14 @@ listMFADevicesRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14435,7 +14435,7 @@ listMFADevicesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14464,7 +14464,7 @@ listPoliciesGrantingServiceAccessEntryEncoder data =
     []
         |> (case data.serviceNamespace of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceNamespace" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "ServiceNamespace" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14483,13 +14483,13 @@ listPoliciesGrantingServiceAccessRequestEncoder data =
     []
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
-        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "ServiceNamespaces" data.serviceNamespaces
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Arn" data.arn
+        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "ServiceNamespaces" data.serviceNamespaces
 
 
 listPoliciesGrantingServiceAccessResponseEncoder : ListPoliciesGrantingServiceAccessResponse -> List ( String, String )
@@ -14505,7 +14505,7 @@ listPoliciesGrantingServiceAccessResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14531,7 +14531,7 @@ listPoliciesRequestEncoder data =
            )
         |> (case data.pathPrefix of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PathPrefix" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PathPrefix" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14545,7 +14545,7 @@ listPoliciesRequestEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14578,7 +14578,7 @@ listPoliciesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14588,10 +14588,10 @@ listPoliciesResponseEncoder data =
 listPolicyVersionsRequestEncoder : ListPolicyVersionsRequest -> List ( String, String )
 listPolicyVersionsRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14624,7 +14624,7 @@ listPolicyVersionsResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14634,10 +14634,10 @@ listPolicyVersionsResponseEncoder data =
 listRolePoliciesRequestEncoder : ListRolePoliciesRequest -> List ( String, String )
 listRolePoliciesRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14654,7 +14654,7 @@ listRolePoliciesRequestEncoder data =
 listRolePoliciesResponseEncoder : ListRolePoliciesResponse -> List ( String, String )
 listRolePoliciesResponseEncoder data =
     []
-        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "PolicyNames" data.policyNames
+        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "PolicyNames" data.policyNames
         |> (case data.isTruncated of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs AWS.Core.Encode.bool "IsTruncated" value
@@ -14664,7 +14664,7 @@ listRolePoliciesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14674,10 +14674,10 @@ listRolePoliciesResponseEncoder data =
 listRoleTagsRequestEncoder : ListRoleTagsRequest -> List ( String, String )
 listRoleTagsRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14704,7 +14704,7 @@ listRoleTagsResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14716,14 +14716,14 @@ listRolesRequestEncoder data =
     []
         |> (case data.pathPrefix of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PathPrefix" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PathPrefix" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14750,7 +14750,7 @@ listRolesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14779,14 +14779,14 @@ listSSHPublicKeysRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14819,7 +14819,7 @@ listSSHPublicKeysResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14831,14 +14831,14 @@ listServerCertificatesRequestEncoder data =
     []
         |> (case data.pathPrefix of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PathPrefix" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PathPrefix" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14865,7 +14865,7 @@ listServerCertificatesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14877,14 +14877,14 @@ listServiceSpecificCredentialsRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.serviceName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "ServiceName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14908,14 +14908,14 @@ listSigningCertificatesRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14942,7 +14942,7 @@ listSigningCertificatesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14952,10 +14952,10 @@ listSigningCertificatesResponseEncoder data =
 listUserPoliciesRequestEncoder : ListUserPoliciesRequest -> List ( String, String )
 listUserPoliciesRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14972,7 +14972,7 @@ listUserPoliciesRequestEncoder data =
 listUserPoliciesResponseEncoder : ListUserPoliciesResponse -> List ( String, String )
 listUserPoliciesResponseEncoder data =
     []
-        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "PolicyNames" data.policyNames
+        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "PolicyNames" data.policyNames
         |> (case data.isTruncated of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs AWS.Core.Encode.bool "IsTruncated" value
@@ -14982,7 +14982,7 @@ listUserPoliciesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14992,10 +14992,10 @@ listUserPoliciesResponseEncoder data =
 listUserTagsRequestEncoder : ListUserTagsRequest -> List ( String, String )
 listUserTagsRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15022,7 +15022,7 @@ listUserTagsResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15034,14 +15034,14 @@ listUsersRequestEncoder data =
     []
         |> (case data.pathPrefix of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PathPrefix" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PathPrefix" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15068,7 +15068,7 @@ listUsersResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15087,7 +15087,7 @@ listVirtualMFADevicesRequestEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15114,7 +15114,7 @@ listVirtualMFADevicesResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15124,7 +15124,7 @@ listVirtualMFADevicesResponseEncoder data =
 loginProfileEncoder : LoginProfile -> List ( String, String )
 loginProfileEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
         |> (case data.passwordResetRequired of
                 Just value ->
@@ -15138,8 +15138,8 @@ loginProfileEncoder data =
 mFADeviceEncoder : MFADevice -> List ( String, String )
 mFADeviceEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SerialNumber" data.serialNumber
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SerialNumber" data.serialNumber
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "EnableDate" data.enableDate
 
 
@@ -15148,35 +15148,35 @@ managedPolicyDetailEncoder data =
     []
         |> (case data.policyName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.policyId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PolicyId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.arn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Arn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.path of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Path" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.defaultVersionId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "DefaultVersionId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "DefaultVersionId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15204,7 +15204,7 @@ managedPolicyDetailEncoder data =
            )
         |> (case data.description of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Description" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Description" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15237,7 +15237,7 @@ openIDConnectProviderListEntryEncoder data =
     []
         |> (case data.arn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Arn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15336,35 +15336,35 @@ policyEncoder data =
     []
         |> (case data.policyName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.policyId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PolicyId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.arn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Arn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.path of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Path" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.defaultVersionId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "DefaultVersionId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "DefaultVersionId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15392,7 +15392,7 @@ policyEncoder data =
            )
         |> (case data.description of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Description" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Description" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15418,14 +15418,14 @@ policyDetailEncoder data =
     []
         |> (case data.policyName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.policyDocument of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyDocument" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PolicyDocument" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15435,11 +15435,11 @@ policyDetailEncoder data =
 policyGrantingServiceAccessEncoder : PolicyGrantingServiceAccess -> List ( String, String )
 policyGrantingServiceAccessEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
         |> AWS.Core.Encode.addOneToQueryArgs policyTypeToString "PolicyType" data.policyType
         |> (case data.policyArn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15453,7 +15453,7 @@ policyGrantingServiceAccessEncoder data =
            )
         |> (case data.entityName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "EntityName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "EntityName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15465,14 +15465,14 @@ policyGroupEncoder data =
     []
         |> (case data.groupName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "GroupName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.groupId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "GroupId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15484,14 +15484,14 @@ policyRoleEncoder data =
     []
         |> (case data.roleName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "RoleName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.roleId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "RoleId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15503,14 +15503,14 @@ policyUserEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.userId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15522,14 +15522,14 @@ policyVersionEncoder data =
     []
         |> (case data.document of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Document" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Document" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.versionId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "VersionId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "VersionId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15572,60 +15572,60 @@ positionEncoder data =
 putGroupPolicyRequestEncoder : PutGroupPolicyRequest -> List ( String, String )
 putGroupPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyDocument" data.policyDocument
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyDocument" data.policyDocument
 
 
 putRolePermissionsBoundaryRequestEncoder : PutRolePermissionsBoundaryRequest -> List ( String, String )
 putRolePermissionsBoundaryRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PermissionsBoundary" data.permissionsBoundary
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PermissionsBoundary" data.permissionsBoundary
 
 
 putRolePolicyRequestEncoder : PutRolePolicyRequest -> List ( String, String )
 putRolePolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyDocument" data.policyDocument
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyDocument" data.policyDocument
 
 
 putUserPermissionsBoundaryRequestEncoder : PutUserPermissionsBoundaryRequest -> List ( String, String )
 putUserPermissionsBoundaryRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PermissionsBoundary" data.permissionsBoundary
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PermissionsBoundary" data.permissionsBoundary
 
 
 putUserPolicyRequestEncoder : PutUserPolicyRequest -> List ( String, String )
 putUserPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyName" data.policyName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyDocument" data.policyDocument
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyName" data.policyName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyDocument" data.policyDocument
 
 
 removeClientIDFromOpenIDConnectProviderRequestEncoder : RemoveClientIDFromOpenIDConnectProviderRequest -> List ( String, String )
 removeClientIDFromOpenIDConnectProviderRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "OpenIDConnectProviderArn" data.openIDConnectProviderArn
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ClientID" data.clientID
+        |> AWS.Core.Encode.addOneToQueryArgs identity "OpenIDConnectProviderArn" data.openIDConnectProviderArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ClientID" data.clientID
 
 
 removeRoleFromInstanceProfileRequestEncoder : RemoveRoleFromInstanceProfileRequest -> List ( String, String )
 removeRoleFromInstanceProfileRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "InstanceProfileName" data.instanceProfileName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "InstanceProfileName" data.instanceProfileName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
 
 
 removeUserFromGroupRequestEncoder : RemoveUserFromGroupRequest -> List ( String, String )
 removeUserFromGroupRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
 
 
 resetServiceSpecificCredentialRequestEncoder : ResetServiceSpecificCredentialRequest -> List ( String, String )
@@ -15633,12 +15633,12 @@ resetServiceSpecificCredentialRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
 
 
 resetServiceSpecificCredentialResponseEncoder : ResetServiceSpecificCredentialResponse -> List ( String, String )
@@ -15656,7 +15656,7 @@ resetServiceSpecificCredentialResponseEncoder data =
 resourceSpecificResultEncoder : ResourceSpecificResult -> List ( String, String )
 resourceSpecificResultEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "EvalResourceName" data.evalResourceName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "EvalResourceName" data.evalResourceName
         |> AWS.Core.Encode.addOneToQueryArgs policyEvaluationDecisionTypeToString "EvalResourceDecision" data.evalResourceDecision
         |> (case data.matchedStatements of
                 Just value ->
@@ -15667,14 +15667,14 @@ resourceSpecificResultEncoder data =
            )
         |> (case data.missingContextValues of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "MissingContextValues" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "MissingContextValues" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.evalDecisionDetails of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs policyEvaluationDecisionTypeToString "EvalDecisionDetails" value
+                    AWS.Core.Encode.addOneToQueryArgs problem policyEvaluationDecisionTypeToString "EvalDecisionDetails" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15684,30 +15684,30 @@ resourceSpecificResultEncoder data =
 resyncMFADeviceRequestEncoder : ResyncMFADeviceRequest -> List ( String, String )
 resyncMFADeviceRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SerialNumber" data.serialNumber
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AuthenticationCode1" data.authenticationCode1
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AuthenticationCode2" data.authenticationCode2
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SerialNumber" data.serialNumber
+        |> AWS.Core.Encode.addOneToQueryArgs identity "AuthenticationCode1" data.authenticationCode1
+        |> AWS.Core.Encode.addOneToQueryArgs identity "AuthenticationCode2" data.authenticationCode2
 
 
 roleEncoder : Role -> List ( String, String )
 roleEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" data.path
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleId" data.roleId
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Path" data.path
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleId" data.roleId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Arn" data.arn
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
         |> (case data.assumeRolePolicyDocument of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AssumeRolePolicyDocument" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "AssumeRolePolicyDocument" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.description of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Description" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Description" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15740,28 +15740,28 @@ roleDetailEncoder data =
     []
         |> (case data.path of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Path" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.roleName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "RoleName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.roleId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "RoleId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.arn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Arn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15775,7 +15775,7 @@ roleDetailEncoder data =
            )
         |> (case data.assumeRolePolicyDocument of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AssumeRolePolicyDocument" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "AssumeRolePolicyDocument" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15822,14 +15822,14 @@ roleUsageTypeEncoder data =
     []
         |> (case data.region of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Region" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Region" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.resources of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "Resources" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "Resources" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15841,7 +15841,7 @@ sAMLProviderListEntryEncoder data =
     []
         |> (case data.arn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Arn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15865,10 +15865,10 @@ sAMLProviderListEntryEncoder data =
 sSHPublicKeyEncoder : SSHPublicKey -> List ( String, String )
 sSHPublicKeyEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SSHPublicKeyId" data.sSHPublicKeyId
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Fingerprint" data.fingerprint
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SSHPublicKeyBody" data.sSHPublicKeyBody
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SSHPublicKeyId" data.sSHPublicKeyId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Fingerprint" data.fingerprint
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SSHPublicKeyBody" data.sSHPublicKeyBody
         |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
         |> (case data.uploadDate of
                 Just value ->
@@ -15882,8 +15882,8 @@ sSHPublicKeyEncoder data =
 sSHPublicKeyMetadataEncoder : SSHPublicKeyMetadata -> List ( String, String )
 sSHPublicKeyMetadataEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SSHPublicKeyId" data.sSHPublicKeyId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SSHPublicKeyId" data.sSHPublicKeyId
         |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "UploadDate" data.uploadDate
 
@@ -15892,10 +15892,10 @@ serverCertificateEncoder : ServerCertificate -> List ( String, String )
 serverCertificateEncoder data =
     []
         |> AWS.Core.Encode.addRecordToQueryArgs serverCertificateMetadataEncoder "ServerCertificateMetadata" data.serverCertificateMetadata
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CertificateBody" data.certificateBody
+        |> AWS.Core.Encode.addOneToQueryArgs identity "CertificateBody" data.certificateBody
         |> (case data.certificateChain of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CertificateChain" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "CertificateChain" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15905,10 +15905,10 @@ serverCertificateEncoder data =
 serverCertificateMetadataEncoder : ServerCertificateMetadata -> List ( String, String )
 serverCertificateMetadataEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" data.path
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServerCertificateName" data.serverCertificateName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServerCertificateId" data.serverCertificateId
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Path" data.path
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServerCertificateName" data.serverCertificateName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServerCertificateId" data.serverCertificateId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Arn" data.arn
         |> (case data.uploadDate of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "UploadDate" value
@@ -15928,7 +15928,7 @@ serverCertificateMetadataEncoder data =
 serviceLastAccessedEncoder : ServiceLastAccessed -> List ( String, String )
 serviceLastAccessedEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceName" data.serviceName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceName" data.serviceName
         |> (case data.lastAuthenticated of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "LastAuthenticated" value
@@ -15936,10 +15936,10 @@ serviceLastAccessedEncoder data =
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceNamespace" data.serviceNamespace
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceNamespace" data.serviceNamespace
         |> (case data.lastAuthenticatedEntity of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "LastAuthenticatedEntity" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "LastAuthenticatedEntity" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15957,30 +15957,30 @@ serviceSpecificCredentialEncoder : ServiceSpecificCredential -> List ( String, S
 serviceSpecificCredentialEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceName" data.serviceName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceUserName" data.serviceUserName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServicePassword" data.servicePassword
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceName" data.serviceName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceUserName" data.serviceUserName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServicePassword" data.servicePassword
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
         |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
 
 
 serviceSpecificCredentialMetadataEncoder : ServiceSpecificCredentialMetadata -> List ( String, String )
 serviceSpecificCredentialMetadataEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
         |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceUserName" data.serviceUserName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceUserName" data.serviceUserName
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceName" data.serviceName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceName" data.serviceName
 
 
 setDefaultPolicyVersionRequestEncoder : SetDefaultPolicyVersionRequest -> List ( String, String )
 setDefaultPolicyVersionRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyArn" data.policyArn
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "VersionId" data.versionId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyArn" data.policyArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "VersionId" data.versionId
 
 
 setSecurityTokenServicePreferencesRequestEncoder : SetSecurityTokenServicePreferencesRequest -> List ( String, String )
@@ -15992,9 +15992,9 @@ setSecurityTokenServicePreferencesRequestEncoder data =
 signingCertificateEncoder : SigningCertificate -> List ( String, String )
 signingCertificateEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CertificateId" data.certificateId
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CertificateBody" data.certificateBody
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "CertificateId" data.certificateId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "CertificateBody" data.certificateBody
         |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
         |> (case data.uploadDate of
                 Just value ->
@@ -16008,32 +16008,32 @@ signingCertificateEncoder data =
 simulateCustomPolicyRequestEncoder : SimulateCustomPolicyRequest -> List ( String, String )
 simulateCustomPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "PolicyInputList" data.policyInputList
-        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "ActionNames" data.actionNames
+        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "PolicyInputList" data.policyInputList
+        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "ActionNames" data.actionNames
         |> (case data.resourceArns of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "ResourceArns" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "ResourceArns" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.resourcePolicy of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ResourcePolicy" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "ResourcePolicy" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.resourceOwner of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ResourceOwner" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "ResourceOwner" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.callerArn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CallerArn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "CallerArn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16047,7 +16047,7 @@ simulateCustomPolicyRequestEncoder data =
            )
         |> (case data.resourceHandlingOption of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ResourceHandlingOption" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "ResourceHandlingOption" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16061,7 +16061,7 @@ simulateCustomPolicyRequestEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16087,7 +16087,7 @@ simulatePolicyResponseEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16097,39 +16097,39 @@ simulatePolicyResponseEncoder data =
 simulatePrincipalPolicyRequestEncoder : SimulatePrincipalPolicyRequest -> List ( String, String )
 simulatePrincipalPolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicySourceArn" data.policySourceArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicySourceArn" data.policySourceArn
         |> (case data.policyInputList of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "PolicyInputList" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "PolicyInputList" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "ActionNames" data.actionNames
+        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "ActionNames" data.actionNames
         |> (case data.resourceArns of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "ResourceArns" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "ResourceArns" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.resourcePolicy of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ResourcePolicy" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "ResourcePolicy" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.resourceOwner of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ResourceOwner" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "ResourceOwner" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.callerArn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CallerArn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "CallerArn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16143,7 +16143,7 @@ simulatePrincipalPolicyRequestEncoder data =
            )
         |> (case data.resourceHandlingOption of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ResourceHandlingOption" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "ResourceHandlingOption" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16157,7 +16157,7 @@ simulatePrincipalPolicyRequestEncoder data =
            )
         |> (case data.marker of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Marker" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Marker" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16169,7 +16169,7 @@ statementEncoder data =
     []
         |> (case data.sourcePolicyId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SourcePolicyId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "SourcePolicyId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16200,36 +16200,36 @@ statementEncoder data =
 tagEncoder : Tag -> List ( String, String )
 tagEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Key" data.key
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Value" data.value
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Key" data.key
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Value" data.value
 
 
 tagRoleRequestEncoder : TagRoleRequest -> List ( String, String )
 tagRoleRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
         |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addRecordToQueryArgs tagEncoder "") "Tags" data.tags
 
 
 tagUserRequestEncoder : TagUserRequest -> List ( String, String )
 tagUserRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
         |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addRecordToQueryArgs tagEncoder "") "Tags" data.tags
 
 
 untagRoleRequestEncoder : UntagRoleRequest -> List ( String, String )
 untagRoleRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
-        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "TagKeys" data.tagKeys
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
+        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "TagKeys" data.tagKeys
 
 
 untagUserRequestEncoder : UntagUserRequest -> List ( String, String )
 untagUserRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "TagKeys" data.tagKeys
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "TagKeys" data.tagKeys
 
 
 updateAccessKeyRequestEncoder : UpdateAccessKeyRequest -> List ( String, String )
@@ -16237,12 +16237,12 @@ updateAccessKeyRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AccessKeyId" data.accessKeyId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "AccessKeyId" data.accessKeyId
         |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
 
 
@@ -16317,24 +16317,24 @@ updateAccountPasswordPolicyRequestEncoder data =
 updateAssumeRolePolicyRequestEncoder : UpdateAssumeRolePolicyRequest -> List ( String, String )
 updateAssumeRolePolicyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PolicyDocument" data.policyDocument
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PolicyDocument" data.policyDocument
 
 
 updateGroupRequestEncoder : UpdateGroupRequest -> List ( String, String )
 updateGroupRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "GroupName" data.groupName
         |> (case data.newPath of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "NewPath" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "NewPath" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.newGroupName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "NewGroupName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "NewGroupName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16344,10 +16344,10 @@ updateGroupRequestEncoder data =
 updateLoginProfileRequestEncoder : UpdateLoginProfileRequest -> List ( String, String )
 updateLoginProfileRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
         |> (case data.password of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Password" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Password" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16364,15 +16364,15 @@ updateLoginProfileRequestEncoder data =
 updateOpenIDConnectProviderThumbprintRequestEncoder : UpdateOpenIDConnectProviderThumbprintRequest -> List ( String, String )
 updateOpenIDConnectProviderThumbprintRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "OpenIDConnectProviderArn" data.openIDConnectProviderArn
-        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "ThumbprintList" data.thumbprintList
+        |> AWS.Core.Encode.addOneToQueryArgs identity "OpenIDConnectProviderArn" data.openIDConnectProviderArn
+        |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "ThumbprintList" data.thumbprintList
 
 
 updateRoleDescriptionRequestEncoder : UpdateRoleDescriptionRequest -> List ( String, String )
 updateRoleDescriptionRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Description" data.description
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Description" data.description
 
 
 updateRoleDescriptionResponseEncoder : UpdateRoleDescriptionResponse -> List ( String, String )
@@ -16390,10 +16390,10 @@ updateRoleDescriptionResponseEncoder data =
 updateRoleRequestEncoder : UpdateRoleRequest -> List ( String, String )
 updateRoleRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "RoleName" data.roleName
         |> (case data.description of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Description" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Description" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16415,8 +16415,8 @@ updateRoleResponseEncoder data =
 updateSAMLProviderRequestEncoder : UpdateSAMLProviderRequest -> List ( String, String )
 updateSAMLProviderRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SAMLMetadataDocument" data.sAMLMetadataDocument
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SAMLProviderArn" data.sAMLProviderArn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SAMLMetadataDocument" data.sAMLMetadataDocument
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SAMLProviderArn" data.sAMLProviderArn
 
 
 updateSAMLProviderResponseEncoder : UpdateSAMLProviderResponse -> List ( String, String )
@@ -16424,7 +16424,7 @@ updateSAMLProviderResponseEncoder data =
     []
         |> (case data.sAMLProviderArn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SAMLProviderArn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "SAMLProviderArn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16434,25 +16434,25 @@ updateSAMLProviderResponseEncoder data =
 updateSSHPublicKeyRequestEncoder : UpdateSSHPublicKeyRequest -> List ( String, String )
 updateSSHPublicKeyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SSHPublicKeyId" data.sSHPublicKeyId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SSHPublicKeyId" data.sSHPublicKeyId
         |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
 
 
 updateServerCertificateRequestEncoder : UpdateServerCertificateRequest -> List ( String, String )
 updateServerCertificateRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServerCertificateName" data.serverCertificateName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServerCertificateName" data.serverCertificateName
         |> (case data.newPath of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "NewPath" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "NewPath" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.newServerCertificateName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "NewServerCertificateName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "NewServerCertificateName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16464,12 +16464,12 @@ updateServiceSpecificCredentialRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
         |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
 
 
@@ -16478,29 +16478,29 @@ updateSigningCertificateRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CertificateId" data.certificateId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "CertificateId" data.certificateId
         |> AWS.Core.Encode.addOneToQueryArgs statusTypeToString "Status" data.status
 
 
 updateUserRequestEncoder : UpdateUserRequest -> List ( String, String )
 updateUserRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
         |> (case data.newPath of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "NewPath" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "NewPath" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.newUserName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "NewUserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "NewUserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16510,8 +16510,8 @@ updateUserRequestEncoder data =
 uploadSSHPublicKeyRequestEncoder : UploadSSHPublicKeyRequest -> List ( String, String )
 uploadSSHPublicKeyRequestEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SSHPublicKeyBody" data.sSHPublicKeyBody
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SSHPublicKeyBody" data.sSHPublicKeyBody
 
 
 uploadSSHPublicKeyResponseEncoder : UploadSSHPublicKeyResponse -> List ( String, String )
@@ -16531,17 +16531,17 @@ uploadServerCertificateRequestEncoder data =
     []
         |> (case data.path of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Path" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServerCertificateName" data.serverCertificateName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CertificateBody" data.certificateBody
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "PrivateKey" data.privateKey
+        |> AWS.Core.Encode.addOneToQueryArgs identity "ServerCertificateName" data.serverCertificateName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "CertificateBody" data.certificateBody
+        |> AWS.Core.Encode.addOneToQueryArgs identity "PrivateKey" data.privateKey
         |> (case data.certificateChain of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CertificateChain" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "CertificateChain" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16565,12 +16565,12 @@ uploadSigningCertificateRequestEncoder data =
     []
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "CertificateBody" data.certificateBody
+        |> AWS.Core.Encode.addOneToQueryArgs identity "CertificateBody" data.certificateBody
 
 
 uploadSigningCertificateResponseEncoder : UploadSigningCertificateResponse -> List ( String, String )
@@ -16582,10 +16582,10 @@ uploadSigningCertificateResponseEncoder data =
 userEncoder : User -> List ( String, String )
 userEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" data.path
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserId" data.userId
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Path" data.path
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserName" data.userName
+        |> AWS.Core.Encode.addOneToQueryArgs identity "UserId" data.userId
+        |> AWS.Core.Encode.addOneToQueryArgs identity "Arn" data.arn
         |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
         |> (case data.passwordLastUsed of
                 Just value ->
@@ -16615,28 +16615,28 @@ userDetailEncoder data =
     []
         |> (case data.path of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Path" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Path" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.userName of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserName" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.userId of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserId" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "UserId" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.arn of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Arn" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16657,7 +16657,7 @@ userDetailEncoder data =
            )
         |> (case data.groupList of
                 Just value ->
-                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs (\x -> x) "") "GroupList" value
+                    AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addOneToQueryArgs identity "") "GroupList" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16688,17 +16688,17 @@ userDetailEncoder data =
 virtualMFADeviceEncoder : VirtualMFADevice -> List ( String, String )
 virtualMFADeviceEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SerialNumber" data.serialNumber
+        |> AWS.Core.Encode.addOneToQueryArgs identity "SerialNumber" data.serialNumber
         |> (case data.base32StringSeed of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Base32StringSeed" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "Base32StringSeed" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.qRCodePNG of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs (\x -> x) "QRCodePNG" value
+                    AWS.Core.Encode.addOneToQueryArgs identity "QRCodePNG" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
