@@ -89,7 +89,6 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
         queryEncoderType,
         queryEncoder,
         extraImports: [
-          'import AWS.Core.Enum',
           'import Dict exposing (Dict)',
           'import Json.Decode.Extra as JDX',
         ],
@@ -101,7 +100,6 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
         queryEncoderType,
         queryEncoder,
         extraImports: [
-          'import AWS.Core.Enum',
           'import Dict exposing (Dict)',
         ],
       });
@@ -120,11 +118,11 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
   resolve.blob = resolve.string; // TODO:
 
   resolve.timestamp = () => render.nothing({
-    type: 'Date',
-    decoder: 'JDX.date',
-    jsonEncoder: `Date.Extra.toUtcIsoString >> ${jsonEncode}.string`,
-    queryEncoderType: 'Date.Extra.toUtcIsoString',
-    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "${base}"`,
+    type: 'Posix',
+    decoder: 'JDX.datetime',
+    jsonEncoder: `Iso8601.fromTime >> ${jsonEncode}.string`,
+    queryEncoderType: 'Iso8601.fromTime',
+    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "${base}"`,
     extraImports: [
       'import Time exposing (Posix)',
       'import Iso8601',
@@ -139,7 +137,6 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
     queryEncoderType: 'AWS.Core.Enum.toString >> Result.withDefault ""',
     queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "${base}"`,
     extraImports: [
-      'import AWS.Core.Enum',
     ],
     enum: sh.enum.map(safeIdentifier),
     doc: render.enumDoc(sh),

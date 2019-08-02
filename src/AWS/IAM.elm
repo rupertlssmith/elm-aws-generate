@@ -392,7 +392,6 @@ module AWS.IAM exposing
 
 import AWS.Core.Decode
 import AWS.Core.Encode
-import AWS.Core.Enum
 import AWS.Core.Http
 import AWS.Core.Service
 import Dict exposing (Dict)
@@ -5759,7 +5758,7 @@ type alias AccessDetail =
     , serviceNamespace : String
     , region : Maybe String
     , entityPath : Maybe String
-    , lastAuthenticatedTime : Maybe Date
+    , lastAuthenticatedTime : Maybe Posix
     , totalAuthenticatedEntities : Maybe Int
     }
 
@@ -5790,7 +5789,7 @@ accessDetailDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "LastAuthenticatedTime", "lastAuthenticatedTime" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
@@ -5809,7 +5808,7 @@ type alias AccessKey =
     , accessKeyId : String
     , status : StatusType
     , secretAccessKey : String
-    , createDate : Maybe Date
+    , createDate : Maybe Posix
     }
 
 
@@ -5839,7 +5838,7 @@ accessKeyDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -5849,7 +5848,7 @@ accessKeyDecoder =
 
 -}
 type alias AccessKeyLastUsed =
-    { lastUsedDate : Date
+    { lastUsedDate : Posix
     , serviceName : String
     , region : String
     }
@@ -5861,7 +5860,7 @@ accessKeyLastUsedDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "LastUsedDate", "lastUsedDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.required
@@ -5884,7 +5883,7 @@ type alias AccessKeyMetadata =
     { userName : Maybe String
     , accessKeyId : Maybe String
     , status : Maybe StatusType
-    , createDate : Maybe Date
+    , createDate : Maybe Posix
     }
 
 
@@ -5909,7 +5908,7 @@ accessKeyMetadataDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -6384,7 +6383,7 @@ deletionTaskStatusTypeDecoder =
 -}
 type alias EntityDetails =
     { entityInfo : EntityInfo
-    , lastAuthenticated : Maybe Date
+    , lastAuthenticated : Maybe Posix
     }
 
 
@@ -6399,7 +6398,7 @@ entityDetailsDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "LastAuthenticated", "lastAuthenticated" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -6761,7 +6760,7 @@ getContextKeysForPolicyResponseDecoder =
 type alias GetCredentialReportResponse =
     { content : Maybe String
     , reportFormat : Maybe ReportFormatType
-    , generatedTime : Maybe Date
+    , generatedTime : Maybe Posix
     }
 
 
@@ -6781,7 +6780,7 @@ getCredentialReportResponseDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "GeneratedTime", "generatedTime" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -6889,7 +6888,7 @@ type alias GetOpenIDConnectProviderResponse =
     { url : Maybe String
     , clientIDList : Maybe (List String)
     , thumbprintList : Maybe (List String)
-    , createDate : Maybe Date
+    , createDate : Maybe Posix
     }
 
 
@@ -6914,7 +6913,7 @@ getOpenIDConnectProviderResponseDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -6922,8 +6921,8 @@ getOpenIDConnectProviderResponseDecoder =
 -}
 type alias GetOrganizationsAccessReportResponse =
     { jobStatus : JobStatusType
-    , jobCreationDate : Date
-    , jobCompletionDate : Maybe Date
+    , jobCreationDate : Posix
+    , jobCompletionDate : Maybe Posix
     , numberOfServicesAccessible : Maybe Int
     , numberOfServicesNotAccessed : Maybe Int
     , accessDetails : Maybe (List AccessDetail)
@@ -6944,12 +6943,12 @@ getOrganizationsAccessReportResponseDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "JobCreationDate", "jobCreationDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "JobCompletionDate", "jobCompletionDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
@@ -7067,8 +7066,8 @@ getRoleResponseDecoder =
 -}
 type alias GetSAMLProviderResponse =
     { sAMLMetadataDocument : Maybe String
-    , createDate : Maybe Date
-    , validUntil : Maybe Date
+    , createDate : Maybe Posix
+    , validUntil : Maybe Posix
     }
 
 
@@ -7083,12 +7082,12 @@ getSAMLProviderResponseDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "ValidUntil", "validUntil" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -7130,9 +7129,9 @@ getServerCertificateResponseDecoder =
 -}
 type alias GetServiceLastAccessedDetailsResponse =
     { jobStatus : JobStatusType
-    , jobCreationDate : Date
+    , jobCreationDate : Posix
     , servicesLastAccessed : List ServiceLastAccessed
-    , jobCompletionDate : Date
+    , jobCompletionDate : Posix
     , isTruncated : Maybe Bool
     , marker : Maybe String
     , error : Maybe ErrorDetails
@@ -7150,7 +7149,7 @@ getServiceLastAccessedDetailsResponseDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "JobCreationDate", "jobCreationDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.required
@@ -7160,7 +7159,7 @@ getServiceLastAccessedDetailsResponseDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "JobCompletionDate", "jobCompletionDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
@@ -7183,8 +7182,8 @@ getServiceLastAccessedDetailsResponseDecoder =
 -}
 type alias GetServiceLastAccessedDetailsWithEntitiesResponse =
     { jobStatus : JobStatusType
-    , jobCreationDate : Date
-    , jobCompletionDate : Date
+    , jobCreationDate : Posix
+    , jobCompletionDate : Posix
     , entityDetailsList : List EntityDetails
     , isTruncated : Maybe Bool
     , marker : Maybe String
@@ -7203,12 +7202,12 @@ getServiceLastAccessedDetailsWithEntitiesResponseDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "JobCreationDate", "jobCreationDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "JobCompletionDate", "jobCompletionDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.required
@@ -7311,7 +7310,7 @@ type alias Group =
     , groupName : String
     , groupId : String
     , arn : String
-    , createDate : Date
+    , createDate : Posix
     }
 
 
@@ -7341,7 +7340,7 @@ groupDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -7355,7 +7354,7 @@ type alias GroupDetail =
     , groupName : Maybe String
     , groupId : Maybe String
     , arn : Maybe String
-    , createDate : Maybe Date
+    , createDate : Maybe Posix
     , groupPolicyList : Maybe (List PolicyDetail)
     , attachedManagedPolicies : Maybe (List AttachedPolicy)
     }
@@ -7387,7 +7386,7 @@ groupDetailDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
@@ -7411,7 +7410,7 @@ type alias InstanceProfile =
     , instanceProfileName : String
     , instanceProfileId : String
     , arn : String
-    , createDate : Date
+    , createDate : Posix
     , roles : List Role
     }
 
@@ -7442,7 +7441,7 @@ instanceProfileDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.required
@@ -8272,7 +8271,7 @@ listVirtualMFADevicesResponseDecoder =
 -}
 type alias LoginProfile =
     { userName : String
-    , createDate : Date
+    , createDate : Posix
     , passwordResetRequired : Maybe Bool
     }
 
@@ -8288,7 +8287,7 @@ loginProfileDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
@@ -8305,7 +8304,7 @@ loginProfileDecoder =
 type alias MFADevice =
     { userName : String
     , serialNumber : String
-    , enableDate : Date
+    , enableDate : Posix
     }
 
 
@@ -8325,7 +8324,7 @@ mFADeviceDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "EnableDate", "enableDate" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -8344,8 +8343,8 @@ type alias ManagedPolicyDetail =
     , permissionsBoundaryUsageCount : Maybe Int
     , isAttachable : Maybe Bool
     , description : Maybe String
-    , createDate : Maybe Date
-    , updateDate : Maybe Date
+    , createDate : Maybe Posix
+    , updateDate : Maybe Posix
     , policyVersionList : Maybe (List PolicyVersion)
     }
 
@@ -8401,12 +8400,12 @@ managedPolicyDetailDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "UpdateDate", "updateDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
@@ -8567,8 +8566,8 @@ type alias Policy =
     , permissionsBoundaryUsageCount : Maybe Int
     , isAttachable : Maybe Bool
     , description : Maybe String
-    , createDate : Maybe Date
-    , updateDate : Maybe Date
+    , createDate : Maybe Posix
+    , updateDate : Maybe Posix
     }
 
 
@@ -8623,12 +8622,12 @@ policyDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "UpdateDate", "updateDate" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -8903,7 +8902,7 @@ type alias PolicyVersion =
     { document : Maybe String
     , versionId : Maybe String
     , isDefaultVersion : Maybe Bool
-    , createDate : Maybe Date
+    , createDate : Maybe Posix
     }
 
 
@@ -8928,7 +8927,7 @@ policyVersionDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -9085,7 +9084,7 @@ type alias Role =
     , roleName : String
     , roleId : String
     , arn : String
-    , createDate : Date
+    , createDate : Posix
     , assumeRolePolicyDocument : Maybe String
     , description : Maybe String
     , maxSessionDuration : Maybe Int
@@ -9120,7 +9119,7 @@ roleDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
@@ -9159,7 +9158,7 @@ type alias RoleDetail =
     , roleName : Maybe String
     , roleId : Maybe String
     , arn : Maybe String
-    , createDate : Maybe Date
+    , createDate : Maybe Posix
     , assumeRolePolicyDocument : Maybe String
     , instanceProfileList : Maybe (List InstanceProfile)
     , rolePolicyList : Maybe (List PolicyDetail)
@@ -9195,7 +9194,7 @@ roleDetailDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
@@ -9262,8 +9261,8 @@ roleUsageTypeDecoder =
 -}
 type alias SAMLProviderListEntry =
     { arn : Maybe String
-    , validUntil : Maybe Date
-    , createDate : Maybe Date
+    , validUntil : Maybe Posix
+    , createDate : Maybe Posix
     }
 
 
@@ -9278,12 +9277,12 @@ sAMLProviderListEntryDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "ValidUntil", "validUntil" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -9298,7 +9297,7 @@ type alias SSHPublicKey =
     , fingerprint : String
     , sSHPublicKeyBody : String
     , status : StatusType
-    , uploadDate : Maybe Date
+    , uploadDate : Maybe Posix
     }
 
 
@@ -9333,7 +9332,7 @@ sSHPublicKeyDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "UploadDate", "uploadDate" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -9346,7 +9345,7 @@ type alias SSHPublicKeyMetadata =
     { userName : String
     , sSHPublicKeyId : String
     , status : StatusType
-    , uploadDate : Date
+    , uploadDate : Posix
     }
 
 
@@ -9371,7 +9370,7 @@ sSHPublicKeyMetadataDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "UploadDate", "uploadDate" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -9417,8 +9416,8 @@ type alias ServerCertificateMetadata =
     , serverCertificateName : String
     , serverCertificateId : String
     , arn : String
-    , uploadDate : Maybe Date
-    , expiration : Maybe Date
+    , uploadDate : Maybe Posix
+    , expiration : Maybe Posix
     }
 
 
@@ -9448,12 +9447,12 @@ serverCertificateMetadataDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "UploadDate", "uploadDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "Expiration", "expiration" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -9464,7 +9463,7 @@ serverCertificateMetadataDecoder =
 -}
 type alias ServiceLastAccessed =
     { serviceName : String
-    , lastAuthenticated : Maybe Date
+    , lastAuthenticated : Maybe Posix
     , serviceNamespace : String
     , lastAuthenticatedEntity : Maybe String
     , totalAuthenticatedEntities : Maybe Int
@@ -9482,7 +9481,7 @@ serviceLastAccessedDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "LastAuthenticated", "lastAuthenticated" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.required
@@ -9507,7 +9506,7 @@ serviceLastAccessedDecoder =
 
 -}
 type alias ServiceSpecificCredential =
-    { createDate : Date
+    { createDate : Posix
     , serviceName : String
     , serviceUserName : String
     , servicePassword : String
@@ -9523,7 +9522,7 @@ serviceSpecificCredentialDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.required
@@ -9566,7 +9565,7 @@ type alias ServiceSpecificCredentialMetadata =
     { userName : String
     , status : StatusType
     , serviceUserName : String
-    , createDate : Date
+    , createDate : Posix
     , serviceSpecificCredentialId : String
     , serviceName : String
     }
@@ -9593,7 +9592,7 @@ serviceSpecificCredentialMetadataDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.required
@@ -9617,7 +9616,7 @@ type alias SigningCertificate =
     , certificateId : String
     , certificateBody : String
     , status : StatusType
-    , uploadDate : Maybe Date
+    , uploadDate : Maybe Posix
     }
 
 
@@ -9647,7 +9646,7 @@ signingCertificateDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "UploadDate", "uploadDate" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -9850,8 +9849,8 @@ type alias User =
     , userName : String
     , userId : String
     , arn : String
-    , createDate : Date
-    , passwordLastUsed : Maybe Date
+    , createDate : Posix
+    , passwordLastUsed : Maybe Posix
     , permissionsBoundary : Maybe AttachedPermissionsBoundary
     , tags : Maybe (List Tag)
     }
@@ -9883,12 +9882,12 @@ userDecoder =
         |> JDP.custom
             (AWS.Core.Decode.required
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "PasswordLastUsed", "passwordLastUsed" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
@@ -9912,7 +9911,7 @@ type alias UserDetail =
     , userName : Maybe String
     , userId : Maybe String
     , arn : Maybe String
-    , createDate : Maybe Date
+    , createDate : Maybe Posix
     , userPolicyList : Maybe (List PolicyDetail)
     , groupList : Maybe (List String)
     , attachedManagedPolicies : Maybe (List AttachedPolicy)
@@ -9947,7 +9946,7 @@ userDetailDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CreateDate", "createDate" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
@@ -9986,7 +9985,7 @@ type alias VirtualMFADevice =
     , base32StringSeed : Maybe String
     , qRCodePNG : Maybe String
     , user : Maybe User
-    , enableDate : Maybe Date
+    , enableDate : Maybe Posix
     }
 
 
@@ -10016,7 +10015,7 @@ virtualMFADeviceDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "EnableDate", "enableDate" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -11615,7 +11614,7 @@ accessDetailEncoder data =
            )
         |> (case data.lastAuthenticatedTime of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "LastAuthenticatedTime" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "LastAuthenticatedTime" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -11638,7 +11637,7 @@ accessKeyEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SecretAccessKey" data.secretAccessKey
         |> (case data.createDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -11648,7 +11647,7 @@ accessKeyEncoder data =
 accessKeyLastUsedEncoder : AccessKeyLastUsed -> List ( String, String )
 accessKeyLastUsedEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "LastUsedDate" data.lastUsedDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "LastUsedDate" data.lastUsedDate
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceName" data.serviceName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Region" data.region
 
@@ -11679,7 +11678,7 @@ accessKeyMetadataEncoder data =
            )
         |> (case data.createDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12368,7 +12367,7 @@ entityDetailsEncoder data =
         |> AWS.Core.Encode.addRecordToQueryArgs entityInfoEncoder "EntityInfo" data.entityInfo
         |> (case data.lastAuthenticated of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "LastAuthenticated" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "LastAuthenticated" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12675,7 +12674,7 @@ getCredentialReportResponseEncoder data =
            )
         |> (case data.generatedTime of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "GeneratedTime" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "GeneratedTime" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12794,7 +12793,7 @@ getOpenIDConnectProviderResponseEncoder data =
            )
         |> (case data.createDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12832,10 +12831,10 @@ getOrganizationsAccessReportResponseEncoder : GetOrganizationsAccessReportRespon
 getOrganizationsAccessReportResponseEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "JobStatus" data.jobStatus
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "JobCreationDate" data.jobCreationDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "JobCreationDate" data.jobCreationDate
         |> (case data.jobCompletionDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "JobCompletionDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "JobCompletionDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -12966,14 +12965,14 @@ getSAMLProviderResponseEncoder data =
            )
         |> (case data.createDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.validUntil of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "ValidUntil" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "ValidUntil" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13036,9 +13035,9 @@ getServiceLastAccessedDetailsResponseEncoder : GetServiceLastAccessedDetailsResp
 getServiceLastAccessedDetailsResponseEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "JobStatus" data.jobStatus
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "JobCreationDate" data.jobCreationDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "JobCreationDate" data.jobCreationDate
         |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addRecordToQueryArgs serviceLastAccessedEncoder "") "ServicesLastAccessed" data.servicesLastAccessed
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "JobCompletionDate" data.jobCompletionDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "JobCompletionDate" data.jobCompletionDate
         |> (case data.isTruncated of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs AWS.Core.Encode.bool "IsTruncated" value
@@ -13087,8 +13086,8 @@ getServiceLastAccessedDetailsWithEntitiesResponseEncoder : GetServiceLastAccesse
 getServiceLastAccessedDetailsWithEntitiesResponseEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "JobStatus" data.jobStatus
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "JobCreationDate" data.jobCreationDate
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "JobCompletionDate" data.jobCompletionDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "JobCreationDate" data.jobCreationDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "JobCompletionDate" data.jobCompletionDate
         |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addRecordToQueryArgs entityDetailsEncoder "") "EntityDetailsList" data.entityDetailsList
         |> (case data.isTruncated of
                 Just value ->
@@ -13172,7 +13171,7 @@ groupEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupName" data.groupName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "GroupId" data.groupId
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" data.createDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
 
 
 groupDetailEncoder : GroupDetail -> List ( String, String )
@@ -13208,7 +13207,7 @@ groupDetailEncoder data =
            )
         |> (case data.createDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13236,7 +13235,7 @@ instanceProfileEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "InstanceProfileName" data.instanceProfileName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "InstanceProfileId" data.instanceProfileId
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" data.createDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
         |> AWS.Core.Encode.addListToQueryArgs False (AWS.Core.Encode.addRecordToQueryArgs roleEncoder "") "Roles" data.roles
 
 
@@ -14506,7 +14505,7 @@ loginProfileEncoder : LoginProfile -> List ( String, String )
 loginProfileEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" data.createDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
         |> (case data.passwordResetRequired of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs AWS.Core.Encode.bool "PasswordResetRequired" value
@@ -14521,7 +14520,7 @@ mFADeviceEncoder data =
     []
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SerialNumber" data.serialNumber
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "EnableDate" data.enableDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "EnableDate" data.enableDate
 
 
 managedPolicyDetailEncoder : ManagedPolicyDetail -> List ( String, String )
@@ -14592,14 +14591,14 @@ managedPolicyDetailEncoder data =
            )
         |> (case data.createDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.updateDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "UpdateDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "UpdateDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14780,14 +14779,14 @@ policyEncoder data =
            )
         |> (case data.createDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.updateDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "UpdateDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "UpdateDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -14924,7 +14923,7 @@ policyVersionEncoder data =
            )
         |> (case data.createDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15078,7 +15077,7 @@ roleEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleName" data.roleName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "RoleId" data.roleId
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" data.createDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
         |> (case data.assumeRolePolicyDocument of
                 Just value ->
                     AWS.Core.Encode.addOneToQueryArgs (\x -> x) "AssumeRolePolicyDocument" value
@@ -15149,7 +15148,7 @@ roleDetailEncoder data =
            )
         |> (case data.createDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15229,14 +15228,14 @@ sAMLProviderListEntryEncoder data =
            )
         |> (case data.validUntil of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "ValidUntil" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "ValidUntil" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.createDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15253,7 +15252,7 @@ sSHPublicKeyEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
         |> (case data.uploadDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "UploadDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "UploadDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15266,7 +15265,7 @@ sSHPublicKeyMetadataEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "SSHPublicKeyId" data.sSHPublicKeyId
         |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "UploadDate" data.uploadDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "UploadDate" data.uploadDate
 
 
 serverCertificateEncoder : ServerCertificate -> List ( String, String )
@@ -15292,14 +15291,14 @@ serverCertificateMetadataEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
         |> (case data.uploadDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "UploadDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "UploadDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
            )
         |> (case data.expiration of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "Expiration" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "Expiration" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15312,7 +15311,7 @@ serviceLastAccessedEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceName" data.serviceName
         |> (case data.lastAuthenticated of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "LastAuthenticated" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "LastAuthenticated" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15337,7 +15336,7 @@ serviceLastAccessedEncoder data =
 serviceSpecificCredentialEncoder : ServiceSpecificCredential -> List ( String, String )
 serviceSpecificCredentialEncoder data =
     []
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" data.createDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceName" data.serviceName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceUserName" data.serviceUserName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServicePassword" data.servicePassword
@@ -15352,7 +15351,7 @@ serviceSpecificCredentialMetadataEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
         |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceUserName" data.serviceUserName
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" data.createDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceSpecificCredentialId" data.serviceSpecificCredentialId
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "ServiceName" data.serviceName
 
@@ -15379,7 +15378,7 @@ signingCertificateEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "Status" data.status
         |> (case data.uploadDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "UploadDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "UploadDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15967,10 +15966,10 @@ userEncoder data =
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserName" data.userName
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "UserId" data.userId
         |> AWS.Core.Encode.addOneToQueryArgs (\x -> x) "Arn" data.arn
-        |> AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" data.createDate
+        |> AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" data.createDate
         |> (case data.passwordLastUsed of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "PasswordLastUsed" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "PasswordLastUsed" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16024,7 +16023,7 @@ userDetailEncoder data =
            )
         |> (case data.createDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "CreateDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "CreateDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -16093,7 +16092,7 @@ virtualMFADeviceEncoder data =
            )
         |> (case data.enableDate of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "EnableDate" value
+                    AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "EnableDate" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs

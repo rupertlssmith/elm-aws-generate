@@ -121,7 +121,6 @@ module AWS.Athena exposing
 
 import AWS.Core.Decode
 import AWS.Core.Encode
-import AWS.Core.Enum
 import AWS.Core.Http
 import AWS.Core.Service
 import Iso8601
@@ -1571,8 +1570,8 @@ queryExecutionStatisticsDecoder =
 type alias QueryExecutionStatus =
     { state : Maybe QueryExecutionState
     , stateChangeReason : Maybe String
-    , submissionDateTime : Maybe Date
-    , completionDateTime : Maybe Date
+    , submissionDateTime : Maybe Posix
+    , completionDateTime : Maybe Posix
     }
 
 
@@ -1592,12 +1591,12 @@ queryExecutionStatusDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "SubmissionDateTime", "submissionDateTime" ]
-                JDX.date
+                JDX.datetime
             )
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CompletionDateTime", "completionDateTime" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -1925,7 +1924,7 @@ type alias WorkGroup =
     , state : Maybe WorkGroupState
     , configuration : Maybe WorkGroupConfiguration
     , description : Maybe String
-    , creationTime : Maybe Date
+    , creationTime : Maybe Posix
     }
 
 
@@ -1955,7 +1954,7 @@ workGroupDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CreationTime", "creationTime" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -2078,7 +2077,7 @@ type alias WorkGroupSummary =
     { name : Maybe String
     , state : Maybe WorkGroupState
     , description : Maybe String
-    , creationTime : Maybe Date
+    , creationTime : Maybe Posix
     }
 
 
@@ -2103,7 +2102,7 @@ workGroupSummaryDecoder =
         |> JDP.custom
             (AWS.Core.Decode.optional
                 [ "CreationTime", "creationTime" ]
-                JDX.date
+                JDX.datetime
             )
 
 
@@ -2692,10 +2691,10 @@ queryExecutionStatusEncoder data =
             JE.string
             ( "StateChangeReason", data.stateChangeReason )
         |> AWS.Core.Encode.optionalMember
-            (Date.Extra.toUtcIsoString >> JE.string)
+            (Iso8601.fromTime >> JE.string)
             ( "SubmissionDateTime", data.submissionDateTime )
         |> AWS.Core.Encode.optionalMember
-            (Date.Extra.toUtcIsoString >> JE.string)
+            (Iso8601.fromTime >> JE.string)
             ( "CompletionDateTime", data.completionDateTime )
         |> JE.object
 
@@ -2907,7 +2906,7 @@ workGroupEncoder data =
             JE.string
             ( "Description", data.description )
         |> AWS.Core.Encode.optionalMember
-            (Date.Extra.toUtcIsoString >> JE.string)
+            (Iso8601.fromTime >> JE.string)
             ( "CreationTime", data.creationTime )
         |> JE.object
 
@@ -2964,6 +2963,6 @@ workGroupSummaryEncoder data =
             JE.string
             ( "Description", data.description )
         |> AWS.Core.Encode.optionalMember
-            (Date.Extra.toUtcIsoString >> JE.string)
+            (Iso8601.fromTime >> JE.string)
             ( "CreationTime", data.creationTime )
         |> JE.object
