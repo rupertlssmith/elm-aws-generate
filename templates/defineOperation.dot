@@ -14,7 +14,7 @@ __Required Parameters__
   {{? it.optionalParams.length }}
     ( {{= it.optionsName }} -> {{= it.optionsName }} ) ->
   {{?}}
-    AWS.Core.Http.Request (AWS.Core.Decode.Response {{= it.output.type }})
+    AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper {{= it.output.type }})
 
 {{= it.name }} {{~ it.requiredParams :p }}{{= p.key }} {{~}}{{? it.optionalParams.length }}setOptions {{?}}=
     {{? it.input }}
@@ -33,13 +33,13 @@ __Required Parameters__
             {{= it.requestPath }}
 
             {{? it.protocol === 'query' }}
-            ([("Action", "{{= it.actionName }}")]
-            {{? it.input }}
-                |> {{= it.input.queryEncoder("") }} requestInput
-            {{?}}
-            )
+            -- ([("Action", "{{= it.actionName }}")]
+            -- {{? it.input }}
+            --     |> {{= it.input.queryEncoder("") }} requestInput
+            -- {{?}}
+            -- )
             {{?? true }}
-            []
+            -- []
             {{?}}
 
             {{? it.protocol === 'json' && it.input }}

@@ -158,7 +158,7 @@ service =
 -}
 batchGetNamedQuery :
     List String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response BatchGetNamedQueryOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper BatchGetNamedQueryOutput)
 batchGetNamedQuery namedQueryIds =
     let
         requestInput =
@@ -168,7 +168,7 @@ batchGetNamedQuery namedQueryIds =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> batchGetNamedQueryInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -190,7 +190,7 @@ batchGetNamedQuery namedQueryIds =
 -}
 batchGetQueryExecution :
     List String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response BatchGetQueryExecutionOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper BatchGetQueryExecutionOutput)
 batchGetQueryExecution queryExecutionIds =
     let
         requestInput =
@@ -200,7 +200,7 @@ batchGetQueryExecution queryExecutionIds =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> batchGetQueryExecutionInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -227,7 +227,7 @@ createNamedQuery :
     -> String
     -> String
     -> (CreateNamedQueryOptions -> CreateNamedQueryOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateNamedQueryOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreateNamedQueryOutput)
 createNamedQuery name database queryString setOptions =
     let
         requestInput =
@@ -245,7 +245,7 @@ createNamedQuery name database queryString setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> createNamedQueryInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -277,7 +277,7 @@ type alias CreateNamedQueryOptions =
 createWorkGroup :
     String
     -> (CreateWorkGroupOptions -> CreateWorkGroupOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateWorkGroupOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreateWorkGroupOutput)
 createWorkGroup name setOptions =
     let
         requestInput =
@@ -293,7 +293,7 @@ createWorkGroup name setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> createWorkGroupInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -324,7 +324,7 @@ type alias CreateWorkGroupOptions =
 -}
 deleteNamedQuery :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response DeleteNamedQueryOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper DeleteNamedQueryOutput)
 deleteNamedQuery namedQueryId =
     let
         requestInput =
@@ -334,7 +334,7 @@ deleteNamedQuery namedQueryId =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> deleteNamedQueryInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -357,7 +357,7 @@ deleteNamedQuery namedQueryId =
 deleteWorkGroup :
     String
     -> (DeleteWorkGroupOptions -> DeleteWorkGroupOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response DeleteWorkGroupOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper DeleteWorkGroupOutput)
 deleteWorkGroup workGroup setOptions =
     let
         requestInput =
@@ -371,7 +371,7 @@ deleteWorkGroup workGroup setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> deleteWorkGroupInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -400,7 +400,7 @@ type alias DeleteWorkGroupOptions =
 -}
 getNamedQuery :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetNamedQueryOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetNamedQueryOutput)
 getNamedQuery namedQueryId =
     let
         requestInput =
@@ -410,7 +410,7 @@ getNamedQuery namedQueryId =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> getNamedQueryInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -432,7 +432,7 @@ getNamedQuery namedQueryId =
 -}
 getQueryExecution :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetQueryExecutionOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetQueryExecutionOutput)
 getQueryExecution queryExecutionId =
     let
         requestInput =
@@ -442,7 +442,7 @@ getQueryExecution queryExecutionId =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> getQueryExecutionInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -465,7 +465,7 @@ getQueryExecution queryExecutionId =
 getQueryResults :
     String
     -> (GetQueryResultsOptions -> GetQueryResultsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetQueryResultsOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetQueryResultsOutput)
 getQueryResults queryExecutionId setOptions =
     let
         requestInput =
@@ -480,7 +480,7 @@ getQueryResults queryExecutionId setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> getQueryResultsInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -510,7 +510,7 @@ type alias GetQueryResultsOptions =
 -}
 getWorkGroup :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetWorkGroupOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetWorkGroupOutput)
 getWorkGroup workGroup =
     let
         requestInput =
@@ -520,7 +520,7 @@ getWorkGroup workGroup =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> getWorkGroupInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -540,7 +540,7 @@ getWorkGroup workGroup =
 -}
 listNamedQueries :
     (ListNamedQueriesOptions -> ListNamedQueriesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListNamedQueriesOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListNamedQueriesOutput)
 listNamedQueries setOptions =
     let
         requestInput =
@@ -555,7 +555,7 @@ listNamedQueries setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> listNamedQueriesInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -584,7 +584,7 @@ type alias ListNamedQueriesOptions =
 -}
 listQueryExecutions :
     (ListQueryExecutionsOptions -> ListQueryExecutionsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListQueryExecutionsOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListQueryExecutionsOutput)
 listQueryExecutions setOptions =
     let
         requestInput =
@@ -599,7 +599,7 @@ listQueryExecutions setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> listQueryExecutionsInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -631,7 +631,7 @@ type alias ListQueryExecutionsOptions =
 listTagsForResource :
     String
     -> (ListTagsForResourceOptions -> ListTagsForResourceOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListTagsForResourceOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListTagsForResourceOutput)
 listTagsForResource resourceARN setOptions =
     let
         requestInput =
@@ -646,7 +646,7 @@ listTagsForResource resourceARN setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> listTagsForResourceInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -674,7 +674,7 @@ type alias ListTagsForResourceOptions =
 -}
 listWorkGroups :
     (ListWorkGroupsOptions -> ListWorkGroupsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListWorkGroupsOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListWorkGroupsOutput)
 listWorkGroups setOptions =
     let
         requestInput =
@@ -688,7 +688,7 @@ listWorkGroups setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> listWorkGroupsInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -719,7 +719,7 @@ type alias ListWorkGroupsOptions =
 startQueryExecution :
     String
     -> (StartQueryExecutionOptions -> StartQueryExecutionOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response StartQueryExecutionOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper StartQueryExecutionOutput)
 startQueryExecution queryString setOptions =
     let
         requestInput =
@@ -736,7 +736,7 @@ startQueryExecution queryString setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> startQueryExecutionInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -768,7 +768,7 @@ type alias StartQueryExecutionOptions =
 -}
 stopQueryExecution :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response StopQueryExecutionOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper StopQueryExecutionOutput)
 stopQueryExecution queryExecutionId =
     let
         requestInput =
@@ -778,7 +778,7 @@ stopQueryExecution queryExecutionId =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> stopQueryExecutionInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -802,7 +802,7 @@ stopQueryExecution queryExecutionId =
 tagResource :
     String
     -> List Tag
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response TagResourceOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper TagResourceOutput)
 tagResource resourceARN tags =
     let
         requestInput =
@@ -813,7 +813,7 @@ tagResource resourceARN tags =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> tagResourceInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -837,7 +837,7 @@ tagResource resourceARN tags =
 untagResource :
     String
     -> List String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UntagResourceOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper UntagResourceOutput)
 untagResource resourceARN tagKeys =
     let
         requestInput =
@@ -848,7 +848,7 @@ untagResource resourceARN tagKeys =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> untagResourceInputEncoder
             |> AWS.Core.Http.jsonBody
@@ -871,7 +871,7 @@ untagResource resourceARN tagKeys =
 updateWorkGroup :
     String
     -> (UpdateWorkGroupOptions -> UpdateWorkGroupOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UpdateWorkGroupOutput)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper UpdateWorkGroupOutput)
 updateWorkGroup workGroup setOptions =
     let
         requestInput =
@@ -887,7 +887,7 @@ updateWorkGroup workGroup setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        []
+        -- []
         (requestInput
             |> updateWorkGroupInputEncoder
             |> AWS.Core.Http.jsonBody

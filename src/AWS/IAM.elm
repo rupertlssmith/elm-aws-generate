@@ -431,7 +431,7 @@ service =
 addClientIDToOpenIDConnectProvider :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 addClientIDToOpenIDConnectProvider openIDConnectProviderArn clientID =
     let
         requestInput =
@@ -442,9 +442,11 @@ addClientIDToOpenIDConnectProvider openIDConnectProviderArn clientID =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "AddClientIDToOpenIDConnectProvider" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs addClientIDToOpenIDConnectProviderRequestEncoder "" requestInput
-        )
+        -- ([("Action", "AddClientIDToOpenIDConnectProvider")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs addClientIDToOpenIDConnectProviderRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "AddClientIDToOpenIDConnectProvider"
@@ -465,7 +467,7 @@ addClientIDToOpenIDConnectProvider openIDConnectProviderArn clientID =
 addRoleToInstanceProfile :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 addRoleToInstanceProfile instanceProfileName roleName =
     let
         requestInput =
@@ -476,9 +478,11 @@ addRoleToInstanceProfile instanceProfileName roleName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "AddRoleToInstanceProfile" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs addRoleToInstanceProfileRequestEncoder "" requestInput
-        )
+        -- ([("Action", "AddRoleToInstanceProfile")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs addRoleToInstanceProfileRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "AddRoleToInstanceProfile"
@@ -499,7 +503,7 @@ addRoleToInstanceProfile instanceProfileName roleName =
 addUserToGroup :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 addUserToGroup groupName userName =
     let
         requestInput =
@@ -510,9 +514,11 @@ addUserToGroup groupName userName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "AddUserToGroup" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs addUserToGroupRequestEncoder "" requestInput
-        )
+        -- ([("Action", "AddUserToGroup")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs addUserToGroupRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "AddUserToGroup"
@@ -533,7 +539,7 @@ addUserToGroup groupName userName =
 attachGroupPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 attachGroupPolicy groupName policyArn =
     let
         requestInput =
@@ -544,9 +550,11 @@ attachGroupPolicy groupName policyArn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "AttachGroupPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs attachGroupPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "AttachGroupPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs attachGroupPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "AttachGroupPolicy"
@@ -567,7 +575,7 @@ attachGroupPolicy groupName policyArn =
 attachRolePolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 attachRolePolicy roleName policyArn =
     let
         requestInput =
@@ -578,9 +586,11 @@ attachRolePolicy roleName policyArn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "AttachRolePolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs attachRolePolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "AttachRolePolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs attachRolePolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "AttachRolePolicy"
@@ -601,7 +611,7 @@ attachRolePolicy roleName policyArn =
 attachUserPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 attachUserPolicy userName policyArn =
     let
         requestInput =
@@ -612,9 +622,11 @@ attachUserPolicy userName policyArn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "AttachUserPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs attachUserPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "AttachUserPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs attachUserPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "AttachUserPolicy"
@@ -635,7 +647,7 @@ attachUserPolicy userName policyArn =
 changePassword :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 changePassword oldPassword newPassword =
     let
         requestInput =
@@ -646,9 +658,11 @@ changePassword oldPassword newPassword =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ChangePassword" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs changePasswordRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ChangePassword")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs changePasswordRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ChangePassword"
@@ -665,7 +679,7 @@ changePassword oldPassword newPassword =
 -}
 createAccessKey :
     (CreateAccessKeyOptions -> CreateAccessKeyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateAccessKeyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreateAccessKeyResponse)
 createAccessKey setOptions =
     let
         requestInput =
@@ -678,9 +692,11 @@ createAccessKey setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreateAccessKey" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createAccessKeyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreateAccessKey")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createAccessKeyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreateAccessKey"
@@ -706,7 +722,7 @@ type alias CreateAccessKeyOptions =
 -}
 createAccountAlias :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 createAccountAlias accountAlias =
     let
         requestInput =
@@ -716,9 +732,11 @@ createAccountAlias accountAlias =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreateAccountAlias" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createAccountAliasRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreateAccountAlias")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createAccountAliasRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreateAccountAlias"
@@ -738,7 +756,7 @@ createAccountAlias accountAlias =
 createGroup :
     String
     -> (CreateGroupOptions -> CreateGroupOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateGroupResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreateGroupResponse)
 createGroup groupName setOptions =
     let
         requestInput =
@@ -752,9 +770,11 @@ createGroup groupName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreateGroup" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createGroupRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreateGroup")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createGroupRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreateGroup"
@@ -781,7 +801,7 @@ type alias CreateGroupOptions =
 createInstanceProfile :
     String
     -> (CreateInstanceProfileOptions -> CreateInstanceProfileOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateInstanceProfileResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreateInstanceProfileResponse)
 createInstanceProfile instanceProfileName setOptions =
     let
         requestInput =
@@ -795,9 +815,11 @@ createInstanceProfile instanceProfileName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreateInstanceProfile" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createInstanceProfileRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreateInstanceProfile")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createInstanceProfileRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreateInstanceProfile"
@@ -826,7 +848,7 @@ createLoginProfile :
     String
     -> String
     -> (CreateLoginProfileOptions -> CreateLoginProfileOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateLoginProfileResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreateLoginProfileResponse)
 createLoginProfile userName password setOptions =
     let
         requestInput =
@@ -841,9 +863,11 @@ createLoginProfile userName password setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreateLoginProfile" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createLoginProfileRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreateLoginProfile")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createLoginProfileRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreateLoginProfile"
@@ -872,7 +896,7 @@ createOpenIDConnectProvider :
     String
     -> List String
     -> (CreateOpenIDConnectProviderOptions -> CreateOpenIDConnectProviderOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateOpenIDConnectProviderResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreateOpenIDConnectProviderResponse)
 createOpenIDConnectProvider url thumbprintList setOptions =
     let
         requestInput =
@@ -887,9 +911,11 @@ createOpenIDConnectProvider url thumbprintList setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreateOpenIDConnectProvider" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createOpenIDConnectProviderRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreateOpenIDConnectProvider")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createOpenIDConnectProviderRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreateOpenIDConnectProvider"
@@ -918,7 +944,7 @@ createPolicy :
     String
     -> String
     -> (CreatePolicyOptions -> CreatePolicyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreatePolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreatePolicyResponse)
 createPolicy policyName policyDocument setOptions =
     let
         requestInput =
@@ -934,9 +960,11 @@ createPolicy policyName policyDocument setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreatePolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreatePolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreatePolicy"
@@ -966,7 +994,7 @@ createPolicyVersion :
     String
     -> String
     -> (CreatePolicyVersionOptions -> CreatePolicyVersionOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreatePolicyVersionResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreatePolicyVersionResponse)
 createPolicyVersion policyArn policyDocument setOptions =
     let
         requestInput =
@@ -981,9 +1009,11 @@ createPolicyVersion policyArn policyDocument setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreatePolicyVersion" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createPolicyVersionRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreatePolicyVersion")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createPolicyVersionRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreatePolicyVersion"
@@ -1012,7 +1042,7 @@ createRole :
     String
     -> String
     -> (CreateRoleOptions -> CreateRoleOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateRoleResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreateRoleResponse)
 createRole roleName assumeRolePolicyDocument setOptions =
     let
         requestInput =
@@ -1031,9 +1061,11 @@ createRole roleName assumeRolePolicyDocument setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreateRole" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createRoleRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreateRole")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createRoleRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreateRole"
@@ -1065,7 +1097,7 @@ type alias CreateRoleOptions =
 createSAMLProvider :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateSAMLProviderResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreateSAMLProviderResponse)
 createSAMLProvider sAMLMetadataDocument name =
     let
         requestInput =
@@ -1076,9 +1108,11 @@ createSAMLProvider sAMLMetadataDocument name =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreateSAMLProvider" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createSAMLProviderRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreateSAMLProvider")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createSAMLProviderRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreateSAMLProvider"
@@ -1098,7 +1132,7 @@ createSAMLProvider sAMLMetadataDocument name =
 createServiceLinkedRole :
     String
     -> (CreateServiceLinkedRoleOptions -> CreateServiceLinkedRoleOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateServiceLinkedRoleResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreateServiceLinkedRoleResponse)
 createServiceLinkedRole aWSServiceName setOptions =
     let
         requestInput =
@@ -1113,9 +1147,11 @@ createServiceLinkedRole aWSServiceName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreateServiceLinkedRole" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createServiceLinkedRoleRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreateServiceLinkedRole")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createServiceLinkedRoleRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreateServiceLinkedRole"
@@ -1144,7 +1180,7 @@ type alias CreateServiceLinkedRoleOptions =
 createServiceSpecificCredential :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateServiceSpecificCredentialResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreateServiceSpecificCredentialResponse)
 createServiceSpecificCredential userName serviceName =
     let
         requestInput =
@@ -1155,9 +1191,11 @@ createServiceSpecificCredential userName serviceName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreateServiceSpecificCredential" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createServiceSpecificCredentialRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreateServiceSpecificCredential")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createServiceSpecificCredentialRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreateServiceSpecificCredential"
@@ -1177,7 +1215,7 @@ createServiceSpecificCredential userName serviceName =
 createUser :
     String
     -> (CreateUserOptions -> CreateUserOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateUserResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreateUserResponse)
 createUser userName setOptions =
     let
         requestInput =
@@ -1193,9 +1231,11 @@ createUser userName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreateUser" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createUserRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreateUser")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createUserRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreateUser"
@@ -1224,7 +1264,7 @@ type alias CreateUserOptions =
 createVirtualMFADevice :
     String
     -> (CreateVirtualMFADeviceOptions -> CreateVirtualMFADeviceOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response CreateVirtualMFADeviceResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper CreateVirtualMFADeviceResponse)
 createVirtualMFADevice virtualMFADeviceName setOptions =
     let
         requestInput =
@@ -1238,9 +1278,11 @@ createVirtualMFADevice virtualMFADeviceName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "CreateVirtualMFADevice" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs createVirtualMFADeviceRequestEncoder "" requestInput
-        )
+        -- ([("Action", "CreateVirtualMFADevice")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs createVirtualMFADeviceRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "CreateVirtualMFADevice"
@@ -1268,7 +1310,7 @@ type alias CreateVirtualMFADeviceOptions =
 deactivateMFADevice :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deactivateMFADevice userName serialNumber =
     let
         requestInput =
@@ -1279,9 +1321,11 @@ deactivateMFADevice userName serialNumber =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeactivateMFADevice" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deactivateMFADeviceRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeactivateMFADevice")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deactivateMFADeviceRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeactivateMFADevice"
@@ -1301,7 +1345,7 @@ deactivateMFADevice userName serialNumber =
 deleteAccessKey :
     String
     -> (DeleteAccessKeyOptions -> DeleteAccessKeyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteAccessKey accessKeyId setOptions =
     let
         requestInput =
@@ -1315,9 +1359,11 @@ deleteAccessKey accessKeyId setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteAccessKey" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteAccessKeyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteAccessKey")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteAccessKeyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteAccessKey"
@@ -1343,7 +1389,7 @@ type alias DeleteAccessKeyOptions =
 -}
 deleteAccountAlias :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteAccountAlias accountAlias =
     let
         requestInput =
@@ -1353,9 +1399,11 @@ deleteAccountAlias accountAlias =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteAccountAlias" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteAccountAliasRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteAccountAlias")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteAccountAliasRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteAccountAlias"
@@ -1370,12 +1418,14 @@ deleteAccountAlias accountAlias =
 **Required Parameters**
 
 -}
-deleteAccountPasswordPolicy : AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+deleteAccountPasswordPolicy : AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteAccountPasswordPolicy =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        [ ( "Action", "DeleteAccountPasswordPolicy" ) ]
+        -- ([("Action", "DeleteAccountPasswordPolicy")]
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteAccountPasswordPolicy"
@@ -1394,7 +1444,7 @@ deleteAccountPasswordPolicy =
 -}
 deleteGroup :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteGroup groupName =
     let
         requestInput =
@@ -1404,9 +1454,11 @@ deleteGroup groupName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteGroup" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteGroupRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteGroup")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteGroupRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteGroup"
@@ -1427,7 +1479,7 @@ deleteGroup groupName =
 deleteGroupPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteGroupPolicy groupName policyName =
     let
         requestInput =
@@ -1438,9 +1490,11 @@ deleteGroupPolicy groupName policyName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteGroupPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteGroupPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteGroupPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteGroupPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteGroupPolicy"
@@ -1459,7 +1513,7 @@ deleteGroupPolicy groupName policyName =
 -}
 deleteInstanceProfile :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteInstanceProfile instanceProfileName =
     let
         requestInput =
@@ -1469,9 +1523,11 @@ deleteInstanceProfile instanceProfileName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteInstanceProfile" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteInstanceProfileRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteInstanceProfile")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteInstanceProfileRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteInstanceProfile"
@@ -1490,7 +1546,7 @@ deleteInstanceProfile instanceProfileName =
 -}
 deleteLoginProfile :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteLoginProfile userName =
     let
         requestInput =
@@ -1500,9 +1556,11 @@ deleteLoginProfile userName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteLoginProfile" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteLoginProfileRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteLoginProfile")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteLoginProfileRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteLoginProfile"
@@ -1521,7 +1579,7 @@ deleteLoginProfile userName =
 -}
 deleteOpenIDConnectProvider :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteOpenIDConnectProvider openIDConnectProviderArn =
     let
         requestInput =
@@ -1531,9 +1589,11 @@ deleteOpenIDConnectProvider openIDConnectProviderArn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteOpenIDConnectProvider" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteOpenIDConnectProviderRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteOpenIDConnectProvider")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteOpenIDConnectProviderRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteOpenIDConnectProvider"
@@ -1552,7 +1612,7 @@ deleteOpenIDConnectProvider openIDConnectProviderArn =
 -}
 deletePolicy :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deletePolicy policyArn =
     let
         requestInput =
@@ -1562,9 +1622,11 @@ deletePolicy policyArn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeletePolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deletePolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeletePolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deletePolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeletePolicy"
@@ -1585,7 +1647,7 @@ deletePolicy policyArn =
 deletePolicyVersion :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deletePolicyVersion policyArn versionId =
     let
         requestInput =
@@ -1596,9 +1658,11 @@ deletePolicyVersion policyArn versionId =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeletePolicyVersion" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deletePolicyVersionRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeletePolicyVersion")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deletePolicyVersionRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeletePolicyVersion"
@@ -1617,7 +1681,7 @@ deletePolicyVersion policyArn versionId =
 -}
 deleteRole :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteRole roleName =
     let
         requestInput =
@@ -1627,9 +1691,11 @@ deleteRole roleName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteRole" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteRoleRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteRole")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteRoleRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteRole"
@@ -1648,7 +1714,7 @@ deleteRole roleName =
 -}
 deleteRolePermissionsBoundary :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteRolePermissionsBoundary roleName =
     let
         requestInput =
@@ -1658,9 +1724,11 @@ deleteRolePermissionsBoundary roleName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteRolePermissionsBoundary" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteRolePermissionsBoundaryRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteRolePermissionsBoundary")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteRolePermissionsBoundaryRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteRolePermissionsBoundary"
@@ -1681,7 +1749,7 @@ deleteRolePermissionsBoundary roleName =
 deleteRolePolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteRolePolicy roleName policyName =
     let
         requestInput =
@@ -1692,9 +1760,11 @@ deleteRolePolicy roleName policyName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteRolePolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteRolePolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteRolePolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteRolePolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteRolePolicy"
@@ -1713,7 +1783,7 @@ deleteRolePolicy roleName policyName =
 -}
 deleteSAMLProvider :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteSAMLProvider sAMLProviderArn =
     let
         requestInput =
@@ -1723,9 +1793,11 @@ deleteSAMLProvider sAMLProviderArn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteSAMLProvider" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteSAMLProviderRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteSAMLProvider")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteSAMLProviderRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteSAMLProvider"
@@ -1746,7 +1818,7 @@ deleteSAMLProvider sAMLProviderArn =
 deleteSSHPublicKey :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteSSHPublicKey userName sSHPublicKeyId =
     let
         requestInput =
@@ -1757,9 +1829,11 @@ deleteSSHPublicKey userName sSHPublicKeyId =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteSSHPublicKey" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteSSHPublicKeyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteSSHPublicKey")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteSSHPublicKeyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteSSHPublicKey"
@@ -1778,7 +1852,7 @@ deleteSSHPublicKey userName sSHPublicKeyId =
 -}
 deleteServerCertificate :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteServerCertificate serverCertificateName =
     let
         requestInput =
@@ -1788,9 +1862,11 @@ deleteServerCertificate serverCertificateName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteServerCertificate" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteServerCertificateRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteServerCertificate")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteServerCertificateRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteServerCertificate"
@@ -1809,7 +1885,7 @@ deleteServerCertificate serverCertificateName =
 -}
 deleteServiceLinkedRole :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response DeleteServiceLinkedRoleResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper DeleteServiceLinkedRoleResponse)
 deleteServiceLinkedRole roleName =
     let
         requestInput =
@@ -1819,9 +1895,11 @@ deleteServiceLinkedRole roleName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteServiceLinkedRole" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteServiceLinkedRoleRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteServiceLinkedRole")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteServiceLinkedRoleRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteServiceLinkedRole"
@@ -1841,7 +1919,7 @@ deleteServiceLinkedRole roleName =
 deleteServiceSpecificCredential :
     String
     -> (DeleteServiceSpecificCredentialOptions -> DeleteServiceSpecificCredentialOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteServiceSpecificCredential serviceSpecificCredentialId setOptions =
     let
         requestInput =
@@ -1855,9 +1933,11 @@ deleteServiceSpecificCredential serviceSpecificCredentialId setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteServiceSpecificCredential" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteServiceSpecificCredentialRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteServiceSpecificCredential")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteServiceSpecificCredentialRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteServiceSpecificCredential"
@@ -1884,7 +1964,7 @@ type alias DeleteServiceSpecificCredentialOptions =
 deleteSigningCertificate :
     String
     -> (DeleteSigningCertificateOptions -> DeleteSigningCertificateOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteSigningCertificate certificateId setOptions =
     let
         requestInput =
@@ -1898,9 +1978,11 @@ deleteSigningCertificate certificateId setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteSigningCertificate" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteSigningCertificateRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteSigningCertificate")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteSigningCertificateRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteSigningCertificate"
@@ -1926,7 +2008,7 @@ type alias DeleteSigningCertificateOptions =
 -}
 deleteUser :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteUser userName =
     let
         requestInput =
@@ -1936,9 +2018,11 @@ deleteUser userName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteUser" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteUserRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteUser")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteUserRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteUser"
@@ -1957,7 +2041,7 @@ deleteUser userName =
 -}
 deleteUserPermissionsBoundary :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteUserPermissionsBoundary userName =
     let
         requestInput =
@@ -1967,9 +2051,11 @@ deleteUserPermissionsBoundary userName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteUserPermissionsBoundary" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteUserPermissionsBoundaryRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteUserPermissionsBoundary")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteUserPermissionsBoundaryRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteUserPermissionsBoundary"
@@ -1990,7 +2076,7 @@ deleteUserPermissionsBoundary userName =
 deleteUserPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteUserPolicy userName policyName =
     let
         requestInput =
@@ -2001,9 +2087,11 @@ deleteUserPolicy userName policyName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteUserPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteUserPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteUserPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteUserPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteUserPolicy"
@@ -2022,7 +2110,7 @@ deleteUserPolicy userName policyName =
 -}
 deleteVirtualMFADevice :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 deleteVirtualMFADevice serialNumber =
     let
         requestInput =
@@ -2032,9 +2120,11 @@ deleteVirtualMFADevice serialNumber =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DeleteVirtualMFADevice" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs deleteVirtualMFADeviceRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DeleteVirtualMFADevice")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs deleteVirtualMFADeviceRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DeleteVirtualMFADevice"
@@ -2055,7 +2145,7 @@ deleteVirtualMFADevice serialNumber =
 detachGroupPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 detachGroupPolicy groupName policyArn =
     let
         requestInput =
@@ -2066,9 +2156,11 @@ detachGroupPolicy groupName policyArn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DetachGroupPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs detachGroupPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DetachGroupPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs detachGroupPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DetachGroupPolicy"
@@ -2089,7 +2181,7 @@ detachGroupPolicy groupName policyArn =
 detachRolePolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 detachRolePolicy roleName policyArn =
     let
         requestInput =
@@ -2100,9 +2192,11 @@ detachRolePolicy roleName policyArn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DetachRolePolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs detachRolePolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DetachRolePolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs detachRolePolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DetachRolePolicy"
@@ -2123,7 +2217,7 @@ detachRolePolicy roleName policyArn =
 detachUserPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 detachUserPolicy userName policyArn =
     let
         requestInput =
@@ -2134,9 +2228,11 @@ detachUserPolicy userName policyArn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "DetachUserPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs detachUserPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "DetachUserPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs detachUserPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "DetachUserPolicy"
@@ -2161,7 +2257,7 @@ enableMFADevice :
     -> String
     -> String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 enableMFADevice userName serialNumber authenticationCode1 authenticationCode2 =
     let
         requestInput =
@@ -2174,9 +2270,11 @@ enableMFADevice userName serialNumber authenticationCode1 authenticationCode2 =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "EnableMFADevice" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs enableMFADeviceRequestEncoder "" requestInput
-        )
+        -- ([("Action", "EnableMFADevice")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs enableMFADeviceRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "EnableMFADevice"
@@ -2191,12 +2289,14 @@ enableMFADevice userName serialNumber authenticationCode1 authenticationCode2 =
 **Required Parameters**
 
 -}
-generateCredentialReport : AWS.Core.Http.Request (AWS.Core.Decode.Response GenerateCredentialReportResponse)
+generateCredentialReport : AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GenerateCredentialReportResponse)
 generateCredentialReport =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        [ ( "Action", "GenerateCredentialReport" ) ]
+        -- ([("Action", "GenerateCredentialReport")]
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GenerateCredentialReport"
@@ -2216,7 +2316,7 @@ generateCredentialReport =
 generateOrganizationsAccessReport :
     String
     -> (GenerateOrganizationsAccessReportOptions -> GenerateOrganizationsAccessReportOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GenerateOrganizationsAccessReportResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GenerateOrganizationsAccessReportResponse)
 generateOrganizationsAccessReport entityPath setOptions =
     let
         requestInput =
@@ -2230,9 +2330,11 @@ generateOrganizationsAccessReport entityPath setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GenerateOrganizationsAccessReport" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs generateOrganizationsAccessReportRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GenerateOrganizationsAccessReport")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs generateOrganizationsAccessReportRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GenerateOrganizationsAccessReport"
@@ -2258,7 +2360,7 @@ type alias GenerateOrganizationsAccessReportOptions =
 -}
 generateServiceLastAccessedDetails :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GenerateServiceLastAccessedDetailsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GenerateServiceLastAccessedDetailsResponse)
 generateServiceLastAccessedDetails arn =
     let
         requestInput =
@@ -2268,9 +2370,11 @@ generateServiceLastAccessedDetails arn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GenerateServiceLastAccessedDetails" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs generateServiceLastAccessedDetailsRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GenerateServiceLastAccessedDetails")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs generateServiceLastAccessedDetailsRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GenerateServiceLastAccessedDetails"
@@ -2289,7 +2393,7 @@ generateServiceLastAccessedDetails arn =
 -}
 getAccessKeyLastUsed :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetAccessKeyLastUsedResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetAccessKeyLastUsedResponse)
 getAccessKeyLastUsed accessKeyId =
     let
         requestInput =
@@ -2299,9 +2403,11 @@ getAccessKeyLastUsed accessKeyId =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetAccessKeyLastUsed" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getAccessKeyLastUsedRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetAccessKeyLastUsed")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getAccessKeyLastUsedRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetAccessKeyLastUsed"
@@ -2318,7 +2424,7 @@ getAccessKeyLastUsed accessKeyId =
 -}
 getAccountAuthorizationDetails :
     (GetAccountAuthorizationDetailsOptions -> GetAccountAuthorizationDetailsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetAccountAuthorizationDetailsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetAccountAuthorizationDetailsResponse)
 getAccountAuthorizationDetails setOptions =
     let
         requestInput =
@@ -2333,9 +2439,11 @@ getAccountAuthorizationDetails setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetAccountAuthorizationDetails" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getAccountAuthorizationDetailsRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetAccountAuthorizationDetails")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getAccountAuthorizationDetailsRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetAccountAuthorizationDetails"
@@ -2359,12 +2467,14 @@ type alias GetAccountAuthorizationDetailsOptions =
 **Required Parameters**
 
 -}
-getAccountPasswordPolicy : AWS.Core.Http.Request (AWS.Core.Decode.Response GetAccountPasswordPolicyResponse)
+getAccountPasswordPolicy : AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetAccountPasswordPolicyResponse)
 getAccountPasswordPolicy =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        [ ( "Action", "GetAccountPasswordPolicy" ) ]
+        -- ([("Action", "GetAccountPasswordPolicy")]
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetAccountPasswordPolicy"
@@ -2379,12 +2489,14 @@ getAccountPasswordPolicy =
 **Required Parameters**
 
 -}
-getAccountSummary : AWS.Core.Http.Request (AWS.Core.Decode.Response GetAccountSummaryResponse)
+getAccountSummary : AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetAccountSummaryResponse)
 getAccountSummary =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        [ ( "Action", "GetAccountSummary" ) ]
+        -- ([("Action", "GetAccountSummary")]
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetAccountSummary"
@@ -2403,7 +2515,7 @@ getAccountSummary =
 -}
 getContextKeysForCustomPolicy :
     List String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetContextKeysForPolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetContextKeysForPolicyResponse)
 getContextKeysForCustomPolicy policyInputList =
     let
         requestInput =
@@ -2413,9 +2525,11 @@ getContextKeysForCustomPolicy policyInputList =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetContextKeysForCustomPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getContextKeysForCustomPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetContextKeysForCustomPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getContextKeysForCustomPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetContextKeysForCustomPolicy"
@@ -2435,7 +2549,7 @@ getContextKeysForCustomPolicy policyInputList =
 getContextKeysForPrincipalPolicy :
     String
     -> (GetContextKeysForPrincipalPolicyOptions -> GetContextKeysForPrincipalPolicyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetContextKeysForPolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetContextKeysForPolicyResponse)
 getContextKeysForPrincipalPolicy policySourceArn setOptions =
     let
         requestInput =
@@ -2449,9 +2563,11 @@ getContextKeysForPrincipalPolicy policySourceArn setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetContextKeysForPrincipalPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getContextKeysForPrincipalPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetContextKeysForPrincipalPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getContextKeysForPrincipalPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetContextKeysForPrincipalPolicy"
@@ -2473,12 +2589,14 @@ type alias GetContextKeysForPrincipalPolicyOptions =
 **Required Parameters**
 
 -}
-getCredentialReport : AWS.Core.Http.Request (AWS.Core.Decode.Response GetCredentialReportResponse)
+getCredentialReport : AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetCredentialReportResponse)
 getCredentialReport =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        [ ( "Action", "GetCredentialReport" ) ]
+        -- ([("Action", "GetCredentialReport")]
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetCredentialReport"
@@ -2498,7 +2616,7 @@ getCredentialReport =
 getGroup :
     String
     -> (GetGroupOptions -> GetGroupOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetGroupResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetGroupResponse)
 getGroup groupName setOptions =
     let
         requestInput =
@@ -2513,9 +2631,11 @@ getGroup groupName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetGroup" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getGroupRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetGroup")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getGroupRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetGroup"
@@ -2544,7 +2664,7 @@ type alias GetGroupOptions =
 getGroupPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetGroupPolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetGroupPolicyResponse)
 getGroupPolicy groupName policyName =
     let
         requestInput =
@@ -2555,9 +2675,11 @@ getGroupPolicy groupName policyName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetGroupPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getGroupPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetGroupPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getGroupPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetGroupPolicy"
@@ -2576,7 +2698,7 @@ getGroupPolicy groupName policyName =
 -}
 getInstanceProfile :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetInstanceProfileResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetInstanceProfileResponse)
 getInstanceProfile instanceProfileName =
     let
         requestInput =
@@ -2586,9 +2708,11 @@ getInstanceProfile instanceProfileName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetInstanceProfile" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getInstanceProfileRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetInstanceProfile")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getInstanceProfileRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetInstanceProfile"
@@ -2607,7 +2731,7 @@ getInstanceProfile instanceProfileName =
 -}
 getLoginProfile :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetLoginProfileResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetLoginProfileResponse)
 getLoginProfile userName =
     let
         requestInput =
@@ -2617,9 +2741,11 @@ getLoginProfile userName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetLoginProfile" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getLoginProfileRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetLoginProfile")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getLoginProfileRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetLoginProfile"
@@ -2638,7 +2764,7 @@ getLoginProfile userName =
 -}
 getOpenIDConnectProvider :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetOpenIDConnectProviderResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetOpenIDConnectProviderResponse)
 getOpenIDConnectProvider openIDConnectProviderArn =
     let
         requestInput =
@@ -2648,9 +2774,11 @@ getOpenIDConnectProvider openIDConnectProviderArn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetOpenIDConnectProvider" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getOpenIDConnectProviderRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetOpenIDConnectProvider")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getOpenIDConnectProviderRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetOpenIDConnectProvider"
@@ -2670,7 +2798,7 @@ getOpenIDConnectProvider openIDConnectProviderArn =
 getOrganizationsAccessReport :
     String
     -> (GetOrganizationsAccessReportOptions -> GetOrganizationsAccessReportOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetOrganizationsAccessReportResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetOrganizationsAccessReportResponse)
 getOrganizationsAccessReport jobId setOptions =
     let
         requestInput =
@@ -2686,9 +2814,11 @@ getOrganizationsAccessReport jobId setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetOrganizationsAccessReport" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getOrganizationsAccessReportRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetOrganizationsAccessReport")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getOrganizationsAccessReportRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetOrganizationsAccessReport"
@@ -2716,7 +2846,7 @@ type alias GetOrganizationsAccessReportOptions =
 -}
 getPolicy :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetPolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetPolicyResponse)
 getPolicy policyArn =
     let
         requestInput =
@@ -2726,9 +2856,11 @@ getPolicy policyArn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetPolicy"
@@ -2749,7 +2881,7 @@ getPolicy policyArn =
 getPolicyVersion :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetPolicyVersionResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetPolicyVersionResponse)
 getPolicyVersion policyArn versionId =
     let
         requestInput =
@@ -2760,9 +2892,11 @@ getPolicyVersion policyArn versionId =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetPolicyVersion" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getPolicyVersionRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetPolicyVersion")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getPolicyVersionRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetPolicyVersion"
@@ -2781,7 +2915,7 @@ getPolicyVersion policyArn versionId =
 -}
 getRole :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetRoleResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetRoleResponse)
 getRole roleName =
     let
         requestInput =
@@ -2791,9 +2925,11 @@ getRole roleName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetRole" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getRoleRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetRole")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getRoleRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetRole"
@@ -2814,7 +2950,7 @@ getRole roleName =
 getRolePolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetRolePolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetRolePolicyResponse)
 getRolePolicy roleName policyName =
     let
         requestInput =
@@ -2825,9 +2961,11 @@ getRolePolicy roleName policyName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetRolePolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getRolePolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetRolePolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getRolePolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetRolePolicy"
@@ -2846,7 +2984,7 @@ getRolePolicy roleName policyName =
 -}
 getSAMLProvider :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetSAMLProviderResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetSAMLProviderResponse)
 getSAMLProvider sAMLProviderArn =
     let
         requestInput =
@@ -2856,9 +2994,11 @@ getSAMLProvider sAMLProviderArn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetSAMLProvider" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getSAMLProviderRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetSAMLProvider")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getSAMLProviderRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetSAMLProvider"
@@ -2881,7 +3021,7 @@ getSSHPublicKey :
     String
     -> String
     -> EncodingType
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetSSHPublicKeyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetSSHPublicKeyResponse)
 getSSHPublicKey userName sSHPublicKeyId encoding =
     let
         requestInput =
@@ -2893,9 +3033,11 @@ getSSHPublicKey userName sSHPublicKeyId encoding =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetSSHPublicKey" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getSSHPublicKeyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetSSHPublicKey")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getSSHPublicKeyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetSSHPublicKey"
@@ -2914,7 +3056,7 @@ getSSHPublicKey userName sSHPublicKeyId encoding =
 -}
 getServerCertificate :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetServerCertificateResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetServerCertificateResponse)
 getServerCertificate serverCertificateName =
     let
         requestInput =
@@ -2924,9 +3066,11 @@ getServerCertificate serverCertificateName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetServerCertificate" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getServerCertificateRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetServerCertificate")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getServerCertificateRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetServerCertificate"
@@ -2946,7 +3090,7 @@ getServerCertificate serverCertificateName =
 getServiceLastAccessedDetails :
     String
     -> (GetServiceLastAccessedDetailsOptions -> GetServiceLastAccessedDetailsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetServiceLastAccessedDetailsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetServiceLastAccessedDetailsResponse)
 getServiceLastAccessedDetails jobId setOptions =
     let
         requestInput =
@@ -2961,9 +3105,11 @@ getServiceLastAccessedDetails jobId setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetServiceLastAccessedDetails" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getServiceLastAccessedDetailsRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetServiceLastAccessedDetails")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getServiceLastAccessedDetailsRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetServiceLastAccessedDetails"
@@ -2993,7 +3139,7 @@ getServiceLastAccessedDetailsWithEntities :
     String
     -> String
     -> (GetServiceLastAccessedDetailsWithEntitiesOptions -> GetServiceLastAccessedDetailsWithEntitiesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetServiceLastAccessedDetailsWithEntitiesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetServiceLastAccessedDetailsWithEntitiesResponse)
 getServiceLastAccessedDetailsWithEntities jobId serviceNamespace setOptions =
     let
         requestInput =
@@ -3009,9 +3155,11 @@ getServiceLastAccessedDetailsWithEntities jobId serviceNamespace setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetServiceLastAccessedDetailsWithEntities" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getServiceLastAccessedDetailsWithEntitiesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetServiceLastAccessedDetailsWithEntities")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getServiceLastAccessedDetailsWithEntitiesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetServiceLastAccessedDetailsWithEntities"
@@ -3038,7 +3186,7 @@ type alias GetServiceLastAccessedDetailsWithEntitiesOptions =
 -}
 getServiceLinkedRoleDeletionStatus :
     String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetServiceLinkedRoleDeletionStatusResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetServiceLinkedRoleDeletionStatusResponse)
 getServiceLinkedRoleDeletionStatus deletionTaskId =
     let
         requestInput =
@@ -3048,9 +3196,11 @@ getServiceLinkedRoleDeletionStatus deletionTaskId =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetServiceLinkedRoleDeletionStatus" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getServiceLinkedRoleDeletionStatusRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetServiceLinkedRoleDeletionStatus")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getServiceLinkedRoleDeletionStatusRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetServiceLinkedRoleDeletionStatus"
@@ -3067,7 +3217,7 @@ getServiceLinkedRoleDeletionStatus deletionTaskId =
 -}
 getUser :
     (GetUserOptions -> GetUserOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetUserResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetUserResponse)
 getUser setOptions =
     let
         requestInput =
@@ -3080,9 +3230,11 @@ getUser setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetUser" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getUserRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetUser")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getUserRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetUser"
@@ -3110,7 +3262,7 @@ type alias GetUserOptions =
 getUserPolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response GetUserPolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper GetUserPolicyResponse)
 getUserPolicy userName policyName =
     let
         requestInput =
@@ -3121,9 +3273,11 @@ getUserPolicy userName policyName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "GetUserPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs getUserPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "GetUserPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs getUserPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "GetUserPolicy"
@@ -3140,7 +3294,7 @@ getUserPolicy userName policyName =
 -}
 listAccessKeys :
     (ListAccessKeysOptions -> ListAccessKeysOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListAccessKeysResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListAccessKeysResponse)
 listAccessKeys setOptions =
     let
         requestInput =
@@ -3155,9 +3309,11 @@ listAccessKeys setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListAccessKeys" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listAccessKeysRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListAccessKeys")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listAccessKeysRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListAccessKeys"
@@ -3183,7 +3339,7 @@ type alias ListAccessKeysOptions =
 -}
 listAccountAliases :
     (ListAccountAliasesOptions -> ListAccountAliasesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListAccountAliasesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListAccountAliasesResponse)
 listAccountAliases setOptions =
     let
         requestInput =
@@ -3197,9 +3353,11 @@ listAccountAliases setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListAccountAliases" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listAccountAliasesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListAccountAliases")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listAccountAliasesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListAccountAliases"
@@ -3227,7 +3385,7 @@ type alias ListAccountAliasesOptions =
 listAttachedGroupPolicies :
     String
     -> (ListAttachedGroupPoliciesOptions -> ListAttachedGroupPoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListAttachedGroupPoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListAttachedGroupPoliciesResponse)
 listAttachedGroupPolicies groupName setOptions =
     let
         requestInput =
@@ -3243,9 +3401,11 @@ listAttachedGroupPolicies groupName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListAttachedGroupPolicies" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listAttachedGroupPoliciesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListAttachedGroupPolicies")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listAttachedGroupPoliciesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListAttachedGroupPolicies"
@@ -3274,7 +3434,7 @@ type alias ListAttachedGroupPoliciesOptions =
 listAttachedRolePolicies :
     String
     -> (ListAttachedRolePoliciesOptions -> ListAttachedRolePoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListAttachedRolePoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListAttachedRolePoliciesResponse)
 listAttachedRolePolicies roleName setOptions =
     let
         requestInput =
@@ -3290,9 +3450,11 @@ listAttachedRolePolicies roleName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListAttachedRolePolicies" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listAttachedRolePoliciesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListAttachedRolePolicies")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listAttachedRolePoliciesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListAttachedRolePolicies"
@@ -3321,7 +3483,7 @@ type alias ListAttachedRolePoliciesOptions =
 listAttachedUserPolicies :
     String
     -> (ListAttachedUserPoliciesOptions -> ListAttachedUserPoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListAttachedUserPoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListAttachedUserPoliciesResponse)
 listAttachedUserPolicies userName setOptions =
     let
         requestInput =
@@ -3337,9 +3499,11 @@ listAttachedUserPolicies userName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListAttachedUserPolicies" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listAttachedUserPoliciesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListAttachedUserPolicies")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listAttachedUserPoliciesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListAttachedUserPolicies"
@@ -3368,7 +3532,7 @@ type alias ListAttachedUserPoliciesOptions =
 listEntitiesForPolicy :
     String
     -> (ListEntitiesForPolicyOptions -> ListEntitiesForPolicyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListEntitiesForPolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListEntitiesForPolicyResponse)
 listEntitiesForPolicy policyArn setOptions =
     let
         requestInput =
@@ -3386,9 +3550,11 @@ listEntitiesForPolicy policyArn setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListEntitiesForPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listEntitiesForPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListEntitiesForPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listEntitiesForPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListEntitiesForPolicy"
@@ -3419,7 +3585,7 @@ type alias ListEntitiesForPolicyOptions =
 listGroupPolicies :
     String
     -> (ListGroupPoliciesOptions -> ListGroupPoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListGroupPoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListGroupPoliciesResponse)
 listGroupPolicies groupName setOptions =
     let
         requestInput =
@@ -3434,9 +3600,11 @@ listGroupPolicies groupName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListGroupPolicies" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listGroupPoliciesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListGroupPolicies")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listGroupPoliciesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListGroupPolicies"
@@ -3461,7 +3629,7 @@ type alias ListGroupPoliciesOptions =
 -}
 listGroups :
     (ListGroupsOptions -> ListGroupsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListGroupsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListGroupsResponse)
 listGroups setOptions =
     let
         requestInput =
@@ -3476,9 +3644,11 @@ listGroups setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListGroups" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listGroupsRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListGroups")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listGroupsRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListGroups"
@@ -3507,7 +3677,7 @@ type alias ListGroupsOptions =
 listGroupsForUser :
     String
     -> (ListGroupsForUserOptions -> ListGroupsForUserOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListGroupsForUserResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListGroupsForUserResponse)
 listGroupsForUser userName setOptions =
     let
         requestInput =
@@ -3522,9 +3692,11 @@ listGroupsForUser userName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListGroupsForUser" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listGroupsForUserRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListGroupsForUser")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listGroupsForUserRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListGroupsForUser"
@@ -3549,7 +3721,7 @@ type alias ListGroupsForUserOptions =
 -}
 listInstanceProfiles :
     (ListInstanceProfilesOptions -> ListInstanceProfilesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListInstanceProfilesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListInstanceProfilesResponse)
 listInstanceProfiles setOptions =
     let
         requestInput =
@@ -3564,9 +3736,11 @@ listInstanceProfiles setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListInstanceProfiles" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listInstanceProfilesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListInstanceProfiles")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listInstanceProfilesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListInstanceProfiles"
@@ -3595,7 +3769,7 @@ type alias ListInstanceProfilesOptions =
 listInstanceProfilesForRole :
     String
     -> (ListInstanceProfilesForRoleOptions -> ListInstanceProfilesForRoleOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListInstanceProfilesForRoleResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListInstanceProfilesForRoleResponse)
 listInstanceProfilesForRole roleName setOptions =
     let
         requestInput =
@@ -3610,9 +3784,11 @@ listInstanceProfilesForRole roleName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListInstanceProfilesForRole" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listInstanceProfilesForRoleRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListInstanceProfilesForRole")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listInstanceProfilesForRoleRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListInstanceProfilesForRole"
@@ -3637,7 +3813,7 @@ type alias ListInstanceProfilesForRoleOptions =
 -}
 listMFADevices :
     (ListMFADevicesOptions -> ListMFADevicesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListMFADevicesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListMFADevicesResponse)
 listMFADevices setOptions =
     let
         requestInput =
@@ -3652,9 +3828,11 @@ listMFADevices setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListMFADevices" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listMFADevicesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListMFADevices")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listMFADevicesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListMFADevices"
@@ -3678,7 +3856,7 @@ type alias ListMFADevicesOptions =
 **Required Parameters**
 
 -}
-listOpenIDConnectProviders : AWS.Core.Http.Request (AWS.Core.Decode.Response ListOpenIDConnectProvidersResponse)
+listOpenIDConnectProviders : AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListOpenIDConnectProvidersResponse)
 listOpenIDConnectProviders =
     let
         requestInput =
@@ -3687,9 +3865,11 @@ listOpenIDConnectProviders =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListOpenIDConnectProviders" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listOpenIDConnectProvidersRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListOpenIDConnectProviders")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listOpenIDConnectProvidersRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListOpenIDConnectProviders"
@@ -3706,7 +3886,7 @@ listOpenIDConnectProviders =
 -}
 listPolicies :
     (ListPoliciesOptions -> ListPoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListPoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListPoliciesResponse)
 listPolicies setOptions =
     let
         requestInput =
@@ -3724,9 +3904,11 @@ listPolicies setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListPolicies" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listPoliciesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListPolicies")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listPoliciesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListPolicies"
@@ -3760,7 +3942,7 @@ listPoliciesGrantingServiceAccess :
     String
     -> List String
     -> (ListPoliciesGrantingServiceAccessOptions -> ListPoliciesGrantingServiceAccessOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListPoliciesGrantingServiceAccessResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListPoliciesGrantingServiceAccessResponse)
 listPoliciesGrantingServiceAccess arn serviceNamespaces setOptions =
     let
         requestInput =
@@ -3775,9 +3957,11 @@ listPoliciesGrantingServiceAccess arn serviceNamespaces setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListPoliciesGrantingServiceAccess" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listPoliciesGrantingServiceAccessRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListPoliciesGrantingServiceAccess")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listPoliciesGrantingServiceAccessRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListPoliciesGrantingServiceAccess"
@@ -3804,7 +3988,7 @@ type alias ListPoliciesGrantingServiceAccessOptions =
 listPolicyVersions :
     String
     -> (ListPolicyVersionsOptions -> ListPolicyVersionsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListPolicyVersionsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListPolicyVersionsResponse)
 listPolicyVersions policyArn setOptions =
     let
         requestInput =
@@ -3819,9 +4003,11 @@ listPolicyVersions policyArn setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListPolicyVersions" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listPolicyVersionsRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListPolicyVersions")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listPolicyVersionsRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListPolicyVersions"
@@ -3849,7 +4035,7 @@ type alias ListPolicyVersionsOptions =
 listRolePolicies :
     String
     -> (ListRolePoliciesOptions -> ListRolePoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListRolePoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListRolePoliciesResponse)
 listRolePolicies roleName setOptions =
     let
         requestInput =
@@ -3864,9 +4050,11 @@ listRolePolicies roleName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListRolePolicies" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listRolePoliciesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListRolePolicies")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listRolePoliciesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListRolePolicies"
@@ -3894,7 +4082,7 @@ type alias ListRolePoliciesOptions =
 listRoleTags :
     String
     -> (ListRoleTagsOptions -> ListRoleTagsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListRoleTagsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListRoleTagsResponse)
 listRoleTags roleName setOptions =
     let
         requestInput =
@@ -3909,9 +4097,11 @@ listRoleTags roleName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListRoleTags" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listRoleTagsRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListRoleTags")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listRoleTagsRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListRoleTags"
@@ -3936,7 +4126,7 @@ type alias ListRoleTagsOptions =
 -}
 listRoles :
     (ListRolesOptions -> ListRolesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListRolesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListRolesResponse)
 listRoles setOptions =
     let
         requestInput =
@@ -3951,9 +4141,11 @@ listRoles setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListRoles" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listRolesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListRoles")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listRolesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListRoles"
@@ -3977,7 +4169,7 @@ type alias ListRolesOptions =
 **Required Parameters**
 
 -}
-listSAMLProviders : AWS.Core.Http.Request (AWS.Core.Decode.Response ListSAMLProvidersResponse)
+listSAMLProviders : AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListSAMLProvidersResponse)
 listSAMLProviders =
     let
         requestInput =
@@ -3986,9 +4178,11 @@ listSAMLProviders =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListSAMLProviders" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listSAMLProvidersRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListSAMLProviders")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listSAMLProvidersRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListSAMLProviders"
@@ -4005,7 +4199,7 @@ listSAMLProviders =
 -}
 listSSHPublicKeys :
     (ListSSHPublicKeysOptions -> ListSSHPublicKeysOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListSSHPublicKeysResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListSSHPublicKeysResponse)
 listSSHPublicKeys setOptions =
     let
         requestInput =
@@ -4020,9 +4214,11 @@ listSSHPublicKeys setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListSSHPublicKeys" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listSSHPublicKeysRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListSSHPublicKeys")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listSSHPublicKeysRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListSSHPublicKeys"
@@ -4048,7 +4244,7 @@ type alias ListSSHPublicKeysOptions =
 -}
 listServerCertificates :
     (ListServerCertificatesOptions -> ListServerCertificatesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListServerCertificatesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListServerCertificatesResponse)
 listServerCertificates setOptions =
     let
         requestInput =
@@ -4063,9 +4259,11 @@ listServerCertificates setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListServerCertificates" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listServerCertificatesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListServerCertificates")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listServerCertificatesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListServerCertificates"
@@ -4091,7 +4289,7 @@ type alias ListServerCertificatesOptions =
 -}
 listServiceSpecificCredentials :
     (ListServiceSpecificCredentialsOptions -> ListServiceSpecificCredentialsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListServiceSpecificCredentialsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListServiceSpecificCredentialsResponse)
 listServiceSpecificCredentials setOptions =
     let
         requestInput =
@@ -4105,9 +4303,11 @@ listServiceSpecificCredentials setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListServiceSpecificCredentials" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listServiceSpecificCredentialsRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListServiceSpecificCredentials")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listServiceSpecificCredentialsRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListServiceSpecificCredentials"
@@ -4132,7 +4332,7 @@ type alias ListServiceSpecificCredentialsOptions =
 -}
 listSigningCertificates :
     (ListSigningCertificatesOptions -> ListSigningCertificatesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListSigningCertificatesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListSigningCertificatesResponse)
 listSigningCertificates setOptions =
     let
         requestInput =
@@ -4147,9 +4347,11 @@ listSigningCertificates setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListSigningCertificates" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listSigningCertificatesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListSigningCertificates")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listSigningCertificatesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListSigningCertificates"
@@ -4178,7 +4380,7 @@ type alias ListSigningCertificatesOptions =
 listUserPolicies :
     String
     -> (ListUserPoliciesOptions -> ListUserPoliciesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListUserPoliciesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListUserPoliciesResponse)
 listUserPolicies userName setOptions =
     let
         requestInput =
@@ -4193,9 +4395,11 @@ listUserPolicies userName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListUserPolicies" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listUserPoliciesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListUserPolicies")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listUserPoliciesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListUserPolicies"
@@ -4223,7 +4427,7 @@ type alias ListUserPoliciesOptions =
 listUserTags :
     String
     -> (ListUserTagsOptions -> ListUserTagsOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListUserTagsResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListUserTagsResponse)
 listUserTags userName setOptions =
     let
         requestInput =
@@ -4238,9 +4442,11 @@ listUserTags userName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListUserTags" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listUserTagsRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListUserTags")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listUserTagsRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListUserTags"
@@ -4265,7 +4471,7 @@ type alias ListUserTagsOptions =
 -}
 listUsers :
     (ListUsersOptions -> ListUsersOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListUsersResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListUsersResponse)
 listUsers setOptions =
     let
         requestInput =
@@ -4280,9 +4486,11 @@ listUsers setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListUsers" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listUsersRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListUsers")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listUsersRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListUsers"
@@ -4308,7 +4516,7 @@ type alias ListUsersOptions =
 -}
 listVirtualMFADevices :
     (ListVirtualMFADevicesOptions -> ListVirtualMFADevicesOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ListVirtualMFADevicesResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ListVirtualMFADevicesResponse)
 listVirtualMFADevices setOptions =
     let
         requestInput =
@@ -4323,9 +4531,11 @@ listVirtualMFADevices setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ListVirtualMFADevices" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs listVirtualMFADevicesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ListVirtualMFADevices")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs listVirtualMFADevicesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ListVirtualMFADevices"
@@ -4357,7 +4567,7 @@ putGroupPolicy :
     String
     -> String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 putGroupPolicy groupName policyName policyDocument =
     let
         requestInput =
@@ -4369,9 +4579,11 @@ putGroupPolicy groupName policyName policyDocument =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "PutGroupPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs putGroupPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "PutGroupPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs putGroupPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "PutGroupPolicy"
@@ -4392,7 +4604,7 @@ putGroupPolicy groupName policyName policyDocument =
 putRolePermissionsBoundary :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 putRolePermissionsBoundary roleName permissionsBoundary =
     let
         requestInput =
@@ -4403,9 +4615,11 @@ putRolePermissionsBoundary roleName permissionsBoundary =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "PutRolePermissionsBoundary" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs putRolePermissionsBoundaryRequestEncoder "" requestInput
-        )
+        -- ([("Action", "PutRolePermissionsBoundary")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs putRolePermissionsBoundaryRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "PutRolePermissionsBoundary"
@@ -4428,7 +4642,7 @@ putRolePolicy :
     String
     -> String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 putRolePolicy roleName policyName policyDocument =
     let
         requestInput =
@@ -4440,9 +4654,11 @@ putRolePolicy roleName policyName policyDocument =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "PutRolePolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs putRolePolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "PutRolePolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs putRolePolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "PutRolePolicy"
@@ -4463,7 +4679,7 @@ putRolePolicy roleName policyName policyDocument =
 putUserPermissionsBoundary :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 putUserPermissionsBoundary userName permissionsBoundary =
     let
         requestInput =
@@ -4474,9 +4690,11 @@ putUserPermissionsBoundary userName permissionsBoundary =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "PutUserPermissionsBoundary" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs putUserPermissionsBoundaryRequestEncoder "" requestInput
-        )
+        -- ([("Action", "PutUserPermissionsBoundary")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs putUserPermissionsBoundaryRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "PutUserPermissionsBoundary"
@@ -4499,7 +4717,7 @@ putUserPolicy :
     String
     -> String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 putUserPolicy userName policyName policyDocument =
     let
         requestInput =
@@ -4511,9 +4729,11 @@ putUserPolicy userName policyName policyDocument =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "PutUserPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs putUserPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "PutUserPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs putUserPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "PutUserPolicy"
@@ -4534,7 +4754,7 @@ putUserPolicy userName policyName policyDocument =
 removeClientIDFromOpenIDConnectProvider :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 removeClientIDFromOpenIDConnectProvider openIDConnectProviderArn clientID =
     let
         requestInput =
@@ -4545,9 +4765,11 @@ removeClientIDFromOpenIDConnectProvider openIDConnectProviderArn clientID =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "RemoveClientIDFromOpenIDConnectProvider" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs removeClientIDFromOpenIDConnectProviderRequestEncoder "" requestInput
-        )
+        -- ([("Action", "RemoveClientIDFromOpenIDConnectProvider")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs removeClientIDFromOpenIDConnectProviderRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "RemoveClientIDFromOpenIDConnectProvider"
@@ -4568,7 +4790,7 @@ removeClientIDFromOpenIDConnectProvider openIDConnectProviderArn clientID =
 removeRoleFromInstanceProfile :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 removeRoleFromInstanceProfile instanceProfileName roleName =
     let
         requestInput =
@@ -4579,9 +4801,11 @@ removeRoleFromInstanceProfile instanceProfileName roleName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "RemoveRoleFromInstanceProfile" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs removeRoleFromInstanceProfileRequestEncoder "" requestInput
-        )
+        -- ([("Action", "RemoveRoleFromInstanceProfile")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs removeRoleFromInstanceProfileRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "RemoveRoleFromInstanceProfile"
@@ -4602,7 +4826,7 @@ removeRoleFromInstanceProfile instanceProfileName roleName =
 removeUserFromGroup :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 removeUserFromGroup groupName userName =
     let
         requestInput =
@@ -4613,9 +4837,11 @@ removeUserFromGroup groupName userName =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "RemoveUserFromGroup" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs removeUserFromGroupRequestEncoder "" requestInput
-        )
+        -- ([("Action", "RemoveUserFromGroup")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs removeUserFromGroupRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "RemoveUserFromGroup"
@@ -4635,7 +4861,7 @@ removeUserFromGroup groupName userName =
 resetServiceSpecificCredential :
     String
     -> (ResetServiceSpecificCredentialOptions -> ResetServiceSpecificCredentialOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ResetServiceSpecificCredentialResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ResetServiceSpecificCredentialResponse)
 resetServiceSpecificCredential serviceSpecificCredentialId setOptions =
     let
         requestInput =
@@ -4649,9 +4875,11 @@ resetServiceSpecificCredential serviceSpecificCredentialId setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ResetServiceSpecificCredential" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs resetServiceSpecificCredentialRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ResetServiceSpecificCredential")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs resetServiceSpecificCredentialRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ResetServiceSpecificCredential"
@@ -4683,7 +4911,7 @@ resyncMFADevice :
     -> String
     -> String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 resyncMFADevice userName serialNumber authenticationCode1 authenticationCode2 =
     let
         requestInput =
@@ -4696,9 +4924,11 @@ resyncMFADevice userName serialNumber authenticationCode1 authenticationCode2 =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "ResyncMFADevice" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs resyncMFADeviceRequestEncoder "" requestInput
-        )
+        -- ([("Action", "ResyncMFADevice")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs resyncMFADeviceRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "ResyncMFADevice"
@@ -4719,7 +4949,7 @@ resyncMFADevice userName serialNumber authenticationCode1 authenticationCode2 =
 setDefaultPolicyVersion :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 setDefaultPolicyVersion policyArn versionId =
     let
         requestInput =
@@ -4730,9 +4960,11 @@ setDefaultPolicyVersion policyArn versionId =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "SetDefaultPolicyVersion" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs setDefaultPolicyVersionRequestEncoder "" requestInput
-        )
+        -- ([("Action", "SetDefaultPolicyVersion")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs setDefaultPolicyVersionRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "SetDefaultPolicyVersion"
@@ -4751,7 +4983,7 @@ setDefaultPolicyVersion policyArn versionId =
 -}
 setSecurityTokenServicePreferences :
     GlobalEndpointTokenVersion
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 setSecurityTokenServicePreferences globalEndpointTokenVersion =
     let
         requestInput =
@@ -4761,9 +4993,11 @@ setSecurityTokenServicePreferences globalEndpointTokenVersion =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "SetSecurityTokenServicePreferences" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs setSecurityTokenServicePreferencesRequestEncoder "" requestInput
-        )
+        -- ([("Action", "SetSecurityTokenServicePreferences")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs setSecurityTokenServicePreferencesRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "SetSecurityTokenServicePreferences"
@@ -4785,7 +5019,7 @@ simulateCustomPolicy :
     List String
     -> List String
     -> (SimulateCustomPolicyOptions -> SimulateCustomPolicyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response SimulatePolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper SimulatePolicyResponse)
 simulateCustomPolicy policyInputList actionNames setOptions =
     let
         requestInput =
@@ -4807,9 +5041,11 @@ simulateCustomPolicy policyInputList actionNames setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "SimulateCustomPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs simulateCustomPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "SimulateCustomPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs simulateCustomPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "SimulateCustomPolicy"
@@ -4845,7 +5081,7 @@ simulatePrincipalPolicy :
     String
     -> List String
     -> (SimulatePrincipalPolicyOptions -> SimulatePrincipalPolicyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response SimulatePolicyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper SimulatePolicyResponse)
 simulatePrincipalPolicy policySourceArn actionNames setOptions =
     let
         requestInput =
@@ -4868,9 +5104,11 @@ simulatePrincipalPolicy policySourceArn actionNames setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "SimulatePrincipalPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs simulatePrincipalPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "SimulatePrincipalPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs simulatePrincipalPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "SimulatePrincipalPolicy"
@@ -4906,7 +5144,7 @@ type alias SimulatePrincipalPolicyOptions =
 tagRole :
     String
     -> List Tag
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 tagRole roleName tags =
     let
         requestInput =
@@ -4917,9 +5155,11 @@ tagRole roleName tags =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "TagRole" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs tagRoleRequestEncoder "" requestInput
-        )
+        -- ([("Action", "TagRole")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs tagRoleRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "TagRole"
@@ -4940,7 +5180,7 @@ tagRole roleName tags =
 tagUser :
     String
     -> List Tag
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 tagUser userName tags =
     let
         requestInput =
@@ -4951,9 +5191,11 @@ tagUser userName tags =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "TagUser" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs tagUserRequestEncoder "" requestInput
-        )
+        -- ([("Action", "TagUser")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs tagUserRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "TagUser"
@@ -4974,7 +5216,7 @@ tagUser userName tags =
 untagRole :
     String
     -> List String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 untagRole roleName tagKeys =
     let
         requestInput =
@@ -4985,9 +5227,11 @@ untagRole roleName tagKeys =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UntagRole" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs untagRoleRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UntagRole")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs untagRoleRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UntagRole"
@@ -5008,7 +5252,7 @@ untagRole roleName tagKeys =
 untagUser :
     String
     -> List String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 untagUser userName tagKeys =
     let
         requestInput =
@@ -5019,9 +5263,11 @@ untagUser userName tagKeys =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UntagUser" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs untagUserRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UntagUser")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs untagUserRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UntagUser"
@@ -5043,7 +5289,7 @@ updateAccessKey :
     String
     -> StatusType
     -> (UpdateAccessKeyOptions -> UpdateAccessKeyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 updateAccessKey accessKeyId status setOptions =
     let
         requestInput =
@@ -5058,9 +5304,11 @@ updateAccessKey accessKeyId status setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateAccessKey" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateAccessKeyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateAccessKey")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateAccessKeyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateAccessKey"
@@ -5084,7 +5332,7 @@ type alias UpdateAccessKeyOptions =
 -}
 updateAccountPasswordPolicy :
     (UpdateAccountPasswordPolicyOptions -> UpdateAccountPasswordPolicyOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 updateAccountPasswordPolicy setOptions =
     let
         requestInput =
@@ -5105,9 +5353,11 @@ updateAccountPasswordPolicy setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateAccountPasswordPolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateAccountPasswordPolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateAccountPasswordPolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateAccountPasswordPolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateAccountPasswordPolicy"
@@ -5143,7 +5393,7 @@ type alias UpdateAccountPasswordPolicyOptions =
 updateAssumeRolePolicy :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 updateAssumeRolePolicy roleName policyDocument =
     let
         requestInput =
@@ -5154,9 +5404,11 @@ updateAssumeRolePolicy roleName policyDocument =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateAssumeRolePolicy" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateAssumeRolePolicyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateAssumeRolePolicy")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateAssumeRolePolicyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateAssumeRolePolicy"
@@ -5176,7 +5428,7 @@ updateAssumeRolePolicy roleName policyDocument =
 updateGroup :
     String
     -> (UpdateGroupOptions -> UpdateGroupOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 updateGroup groupName setOptions =
     let
         requestInput =
@@ -5191,9 +5443,11 @@ updateGroup groupName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateGroup" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateGroupRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateGroup")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateGroupRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateGroup"
@@ -5221,7 +5475,7 @@ type alias UpdateGroupOptions =
 updateLoginProfile :
     String
     -> (UpdateLoginProfileOptions -> UpdateLoginProfileOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 updateLoginProfile userName setOptions =
     let
         requestInput =
@@ -5236,9 +5490,11 @@ updateLoginProfile userName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateLoginProfile" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateLoginProfileRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateLoginProfile")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateLoginProfileRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateLoginProfile"
@@ -5267,7 +5523,7 @@ type alias UpdateLoginProfileOptions =
 updateOpenIDConnectProviderThumbprint :
     String
     -> List String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 updateOpenIDConnectProviderThumbprint openIDConnectProviderArn thumbprintList =
     let
         requestInput =
@@ -5278,9 +5534,11 @@ updateOpenIDConnectProviderThumbprint openIDConnectProviderArn thumbprintList =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateOpenIDConnectProviderThumbprint" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateOpenIDConnectProviderThumbprintRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateOpenIDConnectProviderThumbprint")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateOpenIDConnectProviderThumbprintRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateOpenIDConnectProviderThumbprint"
@@ -5300,7 +5558,7 @@ updateOpenIDConnectProviderThumbprint openIDConnectProviderArn thumbprintList =
 updateRole :
     String
     -> (UpdateRoleOptions -> UpdateRoleOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UpdateRoleResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper UpdateRoleResponse)
 updateRole roleName setOptions =
     let
         requestInput =
@@ -5315,9 +5573,11 @@ updateRole roleName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateRole" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateRoleRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateRole")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateRoleRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateRole"
@@ -5346,7 +5606,7 @@ type alias UpdateRoleOptions =
 updateRoleDescription :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UpdateRoleDescriptionResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper UpdateRoleDescriptionResponse)
 updateRoleDescription roleName description =
     let
         requestInput =
@@ -5357,9 +5617,11 @@ updateRoleDescription roleName description =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateRoleDescription" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateRoleDescriptionRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateRoleDescription")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateRoleDescriptionRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateRoleDescription"
@@ -5380,7 +5642,7 @@ updateRoleDescription roleName description =
 updateSAMLProvider :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UpdateSAMLProviderResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper UpdateSAMLProviderResponse)
 updateSAMLProvider sAMLMetadataDocument sAMLProviderArn =
     let
         requestInput =
@@ -5391,9 +5653,11 @@ updateSAMLProvider sAMLMetadataDocument sAMLProviderArn =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateSAMLProvider" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateSAMLProviderRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateSAMLProvider")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateSAMLProviderRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateSAMLProvider"
@@ -5416,7 +5680,7 @@ updateSSHPublicKey :
     String
     -> String
     -> StatusType
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 updateSSHPublicKey userName sSHPublicKeyId status =
     let
         requestInput =
@@ -5428,9 +5692,11 @@ updateSSHPublicKey userName sSHPublicKeyId status =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateSSHPublicKey" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateSSHPublicKeyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateSSHPublicKey")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateSSHPublicKeyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateSSHPublicKey"
@@ -5450,7 +5716,7 @@ updateSSHPublicKey userName sSHPublicKeyId status =
 updateServerCertificate :
     String
     -> (UpdateServerCertificateOptions -> UpdateServerCertificateOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 updateServerCertificate serverCertificateName setOptions =
     let
         requestInput =
@@ -5465,9 +5731,11 @@ updateServerCertificate serverCertificateName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateServerCertificate" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateServerCertificateRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateServerCertificate")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateServerCertificateRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateServerCertificate"
@@ -5497,7 +5765,7 @@ updateServiceSpecificCredential :
     String
     -> StatusType
     -> (UpdateServiceSpecificCredentialOptions -> UpdateServiceSpecificCredentialOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 updateServiceSpecificCredential serviceSpecificCredentialId status setOptions =
     let
         requestInput =
@@ -5512,9 +5780,11 @@ updateServiceSpecificCredential serviceSpecificCredentialId status setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateServiceSpecificCredential" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateServiceSpecificCredentialRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateServiceSpecificCredential")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateServiceSpecificCredentialRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateServiceSpecificCredential"
@@ -5543,7 +5813,7 @@ updateSigningCertificate :
     String
     -> StatusType
     -> (UpdateSigningCertificateOptions -> UpdateSigningCertificateOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 updateSigningCertificate certificateId status setOptions =
     let
         requestInput =
@@ -5558,9 +5828,11 @@ updateSigningCertificate certificateId status setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateSigningCertificate" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateSigningCertificateRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateSigningCertificate")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateSigningCertificateRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateSigningCertificate"
@@ -5587,7 +5859,7 @@ type alias UpdateSigningCertificateOptions =
 updateUser :
     String
     -> (UpdateUserOptions -> UpdateUserOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response ())
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper ())
 updateUser userName setOptions =
     let
         requestInput =
@@ -5602,9 +5874,11 @@ updateUser userName setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UpdateUser" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs updateUserRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UpdateUser")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs updateUserRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UpdateUser"
@@ -5633,7 +5907,7 @@ type alias UpdateUserOptions =
 uploadSSHPublicKey :
     String
     -> String
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UploadSSHPublicKeyResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper UploadSSHPublicKeyResponse)
 uploadSSHPublicKey userName sSHPublicKeyBody =
     let
         requestInput =
@@ -5644,9 +5918,11 @@ uploadSSHPublicKey userName sSHPublicKeyBody =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UploadSSHPublicKey" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs uploadSSHPublicKeyRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UploadSSHPublicKey")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs uploadSSHPublicKeyRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UploadSSHPublicKey"
@@ -5670,7 +5946,7 @@ uploadServerCertificate :
     -> String
     -> String
     -> (UploadServerCertificateOptions -> UploadServerCertificateOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UploadServerCertificateResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper UploadServerCertificateResponse)
 uploadServerCertificate serverCertificateName certificateBody privateKey setOptions =
     let
         requestInput =
@@ -5687,9 +5963,11 @@ uploadServerCertificate serverCertificateName certificateBody privateKey setOpti
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UploadServerCertificate" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs uploadServerCertificateRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UploadServerCertificate")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs uploadServerCertificateRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UploadServerCertificate"
@@ -5717,7 +5995,7 @@ type alias UploadServerCertificateOptions =
 uploadSigningCertificate :
     String
     -> (UploadSigningCertificateOptions -> UploadSigningCertificateOptions)
-    -> AWS.Core.Http.Request (AWS.Core.Decode.Response UploadSigningCertificateResponse)
+    -> AWS.Core.Http.Request (AWS.Core.Decode.ResponseWrapper UploadSigningCertificateResponse)
 uploadSigningCertificate certificateBody setOptions =
     let
         requestInput =
@@ -5731,9 +6009,11 @@ uploadSigningCertificate certificateBody setOptions =
     AWS.Core.Http.request
         AWS.Core.Http.POST
         "/"
-        ([ ( "Action", "UploadSigningCertificate" ) ]
-            |> AWS.Core.Encode.addRecordToQueryArgs uploadSigningCertificateRequestEncoder "" requestInput
-        )
+        -- ([("Action", "UploadSigningCertificate")]
+        --
+        --     |> AWS.Core.Encode.addRecordToQueryArgs uploadSigningCertificateRequestEncoder "" requestInput
+        --
+        -- )
         AWS.Core.Http.emptyBody
         (AWS.Core.Decode.responseWrapperDecoder
             "UploadSigningCertificate"
