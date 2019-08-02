@@ -140,6 +140,7 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
     ],
     enum: sh.enum.map(safeIdentifier),
     doc: render.enumDoc(sh),
+    toStringFn : `${lowCam(sh.name)}ToString`,
     category: 'union',
   });
 

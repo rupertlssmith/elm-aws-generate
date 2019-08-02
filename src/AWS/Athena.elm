@@ -1060,6 +1060,19 @@ columnNullableDecoder =
             )
 
 
+columnNullableToString : ColumnNullable -> String
+columnNullableToString val =
+    case val of
+        ColumnNullable_NOT_NULL ->
+            "NOT_NULL"
+
+        ColumnNullable_NULLABLE ->
+            "NULLABLE"
+
+        ColumnNullable_UNKNOWN ->
+            "UNKNOWN"
+
+
 {-| Type of HTTP response from createNamedQue
 -}
 type alias CreateNamedQueryOutput =
@@ -1187,6 +1200,19 @@ encryptionOptionDecoder =
                     _ ->
                         JD.fail "bad thing"
             )
+
+
+encryptionOptionToString : EncryptionOption -> String
+encryptionOptionToString val =
+    case val of
+        EncryptionOption_SSE_S3 ->
+            "SSE_S3"
+
+        EncryptionOption_SSE_KMS ->
+            "SSE_KMS"
+
+        EncryptionOption_CSE_KMS ->
+            "CSE_KMS"
 
 
 {-| Type of HTTP response from getNamedQue
@@ -1536,6 +1562,25 @@ queryExecutionStateDecoder =
             )
 
 
+queryExecutionStateToString : QueryExecutionState -> String
+queryExecutionStateToString val =
+    case val of
+        QueryExecutionState_QUEUED ->
+            "QUEUED"
+
+        QueryExecutionState_RUNNING ->
+            "RUNNING"
+
+        QueryExecutionState_SUCCEEDED ->
+            "SUCCEEDED"
+
+        QueryExecutionState_FAILED ->
+            "FAILED"
+
+        QueryExecutionState_CANCELLED ->
+            "CANCELLED"
+
+
 {-|
 
 <p>The amount of data scanned during the query execution and the amount of time that it took to execute, and the type of statement that was run.</p>
@@ -1778,6 +1823,19 @@ statementTypeDecoder =
                     _ ->
                         JD.fail "bad thing"
             )
+
+
+statementTypeToString : StatementType -> String
+statementTypeToString val =
+    case val of
+        StatementType_DDL ->
+            "DDL"
+
+        StatementType_DML ->
+            "DML"
+
+        StatementType_UTILITY ->
+            "UTILITY"
 
 
 {-| Type of HTTP response from stopQueryExecuti
@@ -2066,6 +2124,16 @@ workGroupStateDecoder =
                     _ ->
                         JD.fail "bad thing"
             )
+
+
+workGroupStateToString : WorkGroupState -> String
+workGroupStateToString val =
+    case val of
+        WorkGroupState_ENABLED ->
+            "ENABLED"
+
+        WorkGroupState_DISABLED ->
+            "DISABLED"
 
 
 {-|

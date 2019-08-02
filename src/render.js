@@ -10,6 +10,7 @@ render.enum = sh => Object.assign({
   exposeAs: `${sh.type}(..)`,
   typeDef: dots.defineUnionType(sh),
   decoderDef: dots.defineUnionDecoder(sh),
+  toStringDef: dots.defineUnionToString(sh)
 }, sh);
 
 render.enumDoc = dots.defineUnionDoc;

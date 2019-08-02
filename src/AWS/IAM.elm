@@ -6074,6 +6074,46 @@ contextKeyTypeEnumDecoder =
             )
 
 
+contextKeyTypeEnumToString : ContextKeyTypeEnum -> String
+contextKeyTypeEnumToString val =
+    case val of
+        ContextKeyTypeEnum_string ->
+            "string"
+
+        ContextKeyTypeEnum_stringList ->
+            "stringList"
+
+        ContextKeyTypeEnum_numeric ->
+            "numeric"
+
+        ContextKeyTypeEnum_numericList ->
+            "numericList"
+
+        ContextKeyTypeEnum_boolean ->
+            "boolean"
+
+        ContextKeyTypeEnum_booleanList ->
+            "booleanList"
+
+        ContextKeyTypeEnum_ip ->
+            "ip"
+
+        ContextKeyTypeEnum_ipList ->
+            "ipList"
+
+        ContextKeyTypeEnum_binary ->
+            "binary"
+
+        ContextKeyTypeEnum_binaryList ->
+            "binaryList"
+
+        ContextKeyTypeEnum_date ->
+            "date"
+
+        ContextKeyTypeEnum_dateList ->
+            "dateList"
+
+
 {-| Type of HTTP response from createAccessKey
 -}
 type alias CreateAccessKeyResponse =
@@ -6376,6 +6416,22 @@ deletionTaskStatusTypeDecoder =
             )
 
 
+deletionTaskStatusTypeToString : DeletionTaskStatusType -> String
+deletionTaskStatusTypeToString val =
+    case val of
+        DeletionTaskStatusType_SUCCEEDED ->
+            "SUCCEEDED"
+
+        DeletionTaskStatusType_IN_PROGRESS ->
+            "IN_PROGRESS"
+
+        DeletionTaskStatusType_FAILED ->
+            "FAILED"
+
+        DeletionTaskStatusType_NOT_STARTED ->
+            "NOT_STARTED"
+
+
 {-|
 
 <p>An object that contains details about when the IAM entities (users or roles) were last used in an attempt to access the specified AWS service.</p> <p>This data type is a response element in the <a>GetServiceLastAccessedDetailsWithEntities</a> operation.</p>
@@ -6487,6 +6543,25 @@ entityTypeDecoder =
                     _ ->
                         JD.fail "bad thing"
             )
+
+
+entityTypeToString : EntityType -> String
+entityTypeToString val =
+    case val of
+        EntityType_User ->
+            "User"
+
+        EntityType_Role ->
+            "Role"
+
+        EntityType_Group ->
+            "Group"
+
+        EntityType_LocalManagedPolicy ->
+            "LocalManagedPolicy"
+
+        EntityType_AWSManagedPolicy ->
+            "AWSManagedPolicy"
 
 
 {-|
@@ -8551,6 +8626,13 @@ permissionsBoundaryAttachmentTypeDecoder =
             )
 
 
+permissionsBoundaryAttachmentTypeToString : PermissionsBoundaryAttachmentType -> String
+permissionsBoundaryAttachmentTypeToString val =
+    case val of
+        PermissionsBoundaryAttachmentType_PermissionsBoundaryPolicy ->
+            "PermissionsBoundaryPolicy"
+
+
 {-|
 
 <p>Contains information about a managed policy.</p> <p>This data type is used as a response element in the <a>CreatePolicy</a>, <a>GetPolicy</a>, and <a>ListPolicies</a> operations. </p> <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>
@@ -8688,6 +8770,19 @@ policyEvaluationDecisionTypeDecoder =
                     _ ->
                         JD.fail "bad thing"
             )
+
+
+policyEvaluationDecisionTypeToString : PolicyEvaluationDecisionType -> String
+policyEvaluationDecisionTypeToString val =
+    case val of
+        PolicyEvaluationDecisionType_allowed ->
+            "allowed"
+
+        PolicyEvaluationDecisionType_explicitDeny ->
+            "explicitDeny"
+
+        PolicyEvaluationDecisionType_implicitDeny ->
+            "implicitDeny"
 
 
 {-|
@@ -8839,6 +8934,31 @@ policySourceTypeDecoder =
             )
 
 
+policySourceTypeToString : PolicySourceType -> String
+policySourceTypeToString val =
+    case val of
+        PolicySourceType_user ->
+            "user"
+
+        PolicySourceType_group ->
+            "group"
+
+        PolicySourceType_role ->
+            "role"
+
+        PolicySourceType_aws_managed ->
+            "aws_managed"
+
+        PolicySourceType_user_managed ->
+            "user_managed"
+
+        PolicySourceType_resource ->
+            "resource"
+
+        PolicySourceType_none ->
+            "none"
+
+
 {-| One of
 
   - `PolicyUsageType_PermissionsPolicy`
@@ -8865,6 +8985,16 @@ policyUsageTypeDecoder =
                     _ ->
                         JD.fail "bad thing"
             )
+
+
+policyUsageTypeToString : PolicyUsageType -> String
+policyUsageTypeToString val =
+    case val of
+        PolicyUsageType_PermissionsPolicy ->
+            "PermissionsPolicy"
+
+        PolicyUsageType_PermissionsBoundary ->
+            "PermissionsBoundary"
 
 
 {-|
@@ -8980,6 +9110,13 @@ reportFormatTypeDecoder =
             )
 
 
+reportFormatTypeToString : ReportFormatType -> String
+reportFormatTypeToString val =
+    case val of
+        ReportFormatType_text_csv ->
+            "text_csv"
+
+
 {-| One of
 
   - `ReportStateType_STARTED`
@@ -9011,6 +9148,19 @@ reportStateTypeDecoder =
                     _ ->
                         JD.fail "bad thing"
             )
+
+
+reportStateTypeToString : ReportStateType -> String
+reportStateTypeToString val =
+    case val of
+        ReportStateType_STARTED ->
+            "STARTED"
+
+        ReportStateType_INPROGRESS ->
+            "INPROGRESS"
+
+        ReportStateType_COMPLETE ->
+            "COMPLETE"
 
 
 {-| Type of HTTP response from resetServiceSpecificCredential
@@ -10052,6 +10202,19 @@ assignmentStatusTypeDecoder =
             )
 
 
+assignmentStatusTypeToString : AssignmentStatusType -> String
+assignmentStatusTypeToString val =
+    case val of
+        AssignmentStatusType_Assigned ->
+            "Assigned"
+
+        AssignmentStatusType_Unassigned ->
+            "Unassigned"
+
+        AssignmentStatusType_Any ->
+            "Any"
+
+
 {-| One of
 
   - `EncodingType_SSH`
@@ -10080,6 +10243,16 @@ encodingTypeDecoder =
             )
 
 
+encodingTypeToString : EncodingType -> String
+encodingTypeToString val =
+    case val of
+        EncodingType_SSH ->
+            "SSH"
+
+        EncodingType_PEM ->
+            "PEM"
+
+
 {-| One of
 
   - `GlobalEndpointTokenVersion_v1Token`
@@ -10106,6 +10279,16 @@ globalEndpointTokenVersionDecoder =
                     _ ->
                         JD.fail "bad thing"
             )
+
+
+globalEndpointTokenVersionToString : GlobalEndpointTokenVersion -> String
+globalEndpointTokenVersionToString val =
+    case val of
+        GlobalEndpointTokenVersion_v1Token ->
+            "v1Token"
+
+        GlobalEndpointTokenVersion_v2Token ->
+            "v2Token"
 
 
 {-| One of
@@ -10141,6 +10324,19 @@ jobStatusTypeDecoder =
             )
 
 
+jobStatusTypeToString : JobStatusType -> String
+jobStatusTypeToString val =
+    case val of
+        JobStatusType_IN_PROGRESS ->
+            "IN_PROGRESS"
+
+        JobStatusType_COMPLETED ->
+            "COMPLETED"
+
+        JobStatusType_FAILED ->
+            "FAILED"
+
+
 {-| One of
 
   - `PolicyOwnerEntityType_USER`
@@ -10172,6 +10368,19 @@ policyOwnerEntityTypeDecoder =
                     _ ->
                         JD.fail "bad thing"
             )
+
+
+policyOwnerEntityTypeToString : PolicyOwnerEntityType -> String
+policyOwnerEntityTypeToString val =
+    case val of
+        PolicyOwnerEntityType_USER ->
+            "USER"
+
+        PolicyOwnerEntityType_ROLE ->
+            "ROLE"
+
+        PolicyOwnerEntityType_GROUP ->
+            "GROUP"
 
 
 {-| One of
@@ -10207,6 +10416,19 @@ policyScopeTypeDecoder =
             )
 
 
+policyScopeTypeToString : PolicyScopeType -> String
+policyScopeTypeToString val =
+    case val of
+        PolicyScopeType_All ->
+            "All"
+
+        PolicyScopeType_AWS ->
+            "AWS"
+
+        PolicyScopeType_Local ->
+            "Local"
+
+
 {-| One of
 
   - `PolicyType_INLINE`
@@ -10233,6 +10455,16 @@ policyTypeDecoder =
                     _ ->
                         JD.fail "bad thing"
             )
+
+
+policyTypeToString : PolicyType -> String
+policyTypeToString val =
+    case val of
+        PolicyType_INLINE ->
+            "INLINE"
+
+        PolicyType_MANAGED ->
+            "MANAGED"
 
 
 {-| One of
@@ -10273,6 +10505,22 @@ sortKeyTypeDecoder =
             )
 
 
+sortKeyTypeToString : SortKeyType -> String
+sortKeyTypeToString val =
+    case val of
+        SortKeyType_SERVICE_NAMESPACE_ASCENDING ->
+            "SERVICE_NAMESPACE_ASCENDING"
+
+        SortKeyType_SERVICE_NAMESPACE_DESCENDING ->
+            "SERVICE_NAMESPACE_DESCENDING"
+
+        SortKeyType_LAST_AUTHENTICATED_TIME_ASCENDING ->
+            "LAST_AUTHENTICATED_TIME_ASCENDING"
+
+        SortKeyType_LAST_AUTHENTICATED_TIME_DESCENDING ->
+            "LAST_AUTHENTICATED_TIME_DESCENDING"
+
+
 {-| One of
 
   - `StatusType_Active`
@@ -10299,6 +10547,16 @@ statusTypeDecoder =
                     _ ->
                         JD.fail "bad thing"
             )
+
+
+statusTypeToString : StatusType -> String
+statusTypeToString val =
+    case val of
+        StatusType_Active ->
+            "Active"
+
+        StatusType_Inactive ->
+            "Inactive"
 
 
 {-| One of
@@ -10447,6 +10705,88 @@ summaryKeyTypeDecoder =
                     _ ->
                         JD.fail "bad thing"
             )
+
+
+summaryKeyTypeToString : SummaryKeyType -> String
+summaryKeyTypeToString val =
+    case val of
+        SummaryKeyType_Users ->
+            "Users"
+
+        SummaryKeyType_UsersQuota ->
+            "UsersQuota"
+
+        SummaryKeyType_Groups ->
+            "Groups"
+
+        SummaryKeyType_GroupsQuota ->
+            "GroupsQuota"
+
+        SummaryKeyType_ServerCertificates ->
+            "ServerCertificates"
+
+        SummaryKeyType_ServerCertificatesQuota ->
+            "ServerCertificatesQuota"
+
+        SummaryKeyType_UserPolicySizeQuota ->
+            "UserPolicySizeQuota"
+
+        SummaryKeyType_GroupPolicySizeQuota ->
+            "GroupPolicySizeQuota"
+
+        SummaryKeyType_GroupsPerUserQuota ->
+            "GroupsPerUserQuota"
+
+        SummaryKeyType_SigningCertificatesPerUserQuota ->
+            "SigningCertificatesPerUserQuota"
+
+        SummaryKeyType_AccessKeysPerUserQuota ->
+            "AccessKeysPerUserQuota"
+
+        SummaryKeyType_MFADevices ->
+            "MFADevices"
+
+        SummaryKeyType_MFADevicesInUse ->
+            "MFADevicesInUse"
+
+        SummaryKeyType_AccountMFAEnabled ->
+            "AccountMFAEnabled"
+
+        SummaryKeyType_AccountAccessKeysPresent ->
+            "AccountAccessKeysPresent"
+
+        SummaryKeyType_AccountSigningCertificatesPresent ->
+            "AccountSigningCertificatesPresent"
+
+        SummaryKeyType_AttachedPoliciesPerGroupQuota ->
+            "AttachedPoliciesPerGroupQuota"
+
+        SummaryKeyType_AttachedPoliciesPerRoleQuota ->
+            "AttachedPoliciesPerRoleQuota"
+
+        SummaryKeyType_AttachedPoliciesPerUserQuota ->
+            "AttachedPoliciesPerUserQuota"
+
+        SummaryKeyType_Policies ->
+            "Policies"
+
+        SummaryKeyType_PoliciesQuota ->
+            "PoliciesQuota"
+
+        SummaryKeyType_PolicySizeQuota ->
+            "PolicySizeQuota"
+
+        SummaryKeyType_PolicyVersionsInUse ->
+            "PolicyVersionsInUse"
+
+        SummaryKeyType_PolicyVersionsInUseQuota ->
+            "PolicyVersionsInUseQuota"
+
+        SummaryKeyType_VersionsPerPolicyQuota ->
+            "VersionsPerPolicyQuota"
+
+        SummaryKeyType_GlobalEndpointTokenVersion ->
+            "GlobalEndpointTokenVersion"
 
 
 {-| undefined

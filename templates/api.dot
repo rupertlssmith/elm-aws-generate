@@ -54,6 +54,10 @@ import Json.Decode.Pipeline as JDP
 {{? t.decoderDef }}
 {{= t.decoderDef }}
 {{?}}
+
+{{? t.toStringDef }}
+{{= t.toStringDef }}
+{{?}}
 {{~}}
 
 
