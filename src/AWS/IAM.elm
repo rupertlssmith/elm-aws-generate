@@ -13052,7 +13052,7 @@ evaluationResultEncoder data =
            )
         |> (case data.evalDecisionDetails of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs problem policyEvaluationDecisionTypeToString "EvalDecisionDetails" value
+                    AWS.Core.Encode.addDictToQueryArgs policyEvaluationDecisionTypeToString "EvalDecisionDetails" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -13237,7 +13237,7 @@ getAccountSummaryResponseEncoder data =
     []
         |> (case data.summaryMap of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs problem String.fromInt "SummaryMap" value
+                    AWS.Core.Encode.addDictToQueryArgs String.fromInt "SummaryMap" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
@@ -15674,7 +15674,7 @@ resourceSpecificResultEncoder data =
            )
         |> (case data.evalDecisionDetails of
                 Just value ->
-                    AWS.Core.Encode.addOneToQueryArgs problem policyEvaluationDecisionTypeToString "EvalDecisionDetails" value
+                    AWS.Core.Encode.addDictToQueryArgs policyEvaluationDecisionTypeToString "EvalDecisionDetails" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
