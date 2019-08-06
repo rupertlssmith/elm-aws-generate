@@ -14,12 +14,12 @@ GEN="./bin/elm-aws-generate.js --name"
 # $GEN redshift
 # $GEN sts
 # $GEN elasticloadbalancingv2
+# $GEN email
+# $GEN monitoring
+# $GEN sns
+# $GEN sqs
 
 # Compilation error
-$GEN email
-$GEN monitoring
-$GEN sns
-$GEN sqs
 
 # Harder problems
 # $GEN importexport # signatureVersion=v2
@@ -50,16 +50,16 @@ $GEN sqs
 # $GEN appstream
 
 # Compilation errors
-# $GEN budgets
-# $GEN cloudhsmv2
-# $GEN codebuild
-# $GEN codecommit
-# $GEN codedeploy
-# $GEN codepipeline
-# $GEN codestar
-# $GEN cognito-identity
-# $GEN cognito-idp
-# $GEN config
+$GEN budgets
+$GEN cloudhsmv2
+$GEN codebuild
+$GEN codecommit
+$GEN codedeploy
+$GEN codepipeline
+$GEN codestar
+$GEN cognito-identity
+$GEN cognito-idp
+$GEN config
 # $GEN cur
 # $GEN datapipeline
 # $GEN devicefarm

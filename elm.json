@@ -5,10 +5,16 @@
   "license": "Apache-2.0",
   "version": "1.0.0",
   "exposed-modules": [
-    "AWS.SES",
-    "AWS.CloudWatch",
-    "AWS.SQS",
-    "AWS.SNS"
+    "AWS.Budgets",
+    "AWS.CloudHSMV2",
+    "AWS.CodeBuild",
+    "AWS.CodeCommit",
+    "AWS.CodeDeploy",
+    "AWS.CodePipeline",
+    "AWS.CodeStar",
+    "AWS.CognitoIdentity",
+    "AWS.CognitoIdentityProvider",
+    "AWS.ConfigService"
   ],
   "elm-version": "0.19.0 <= v < 0.20.0",
   "dependencies": {
