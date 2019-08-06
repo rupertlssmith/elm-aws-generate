@@ -3324,7 +3324,7 @@ datapointEncoder data =
            )
         |> (case data.extendedStatistics of
                 Just value ->
-                    AWS.Core.Encode.addDictToQueryArgs floatToString "ExtendedStatistics" value
+                    AWS.Core.Encode.addDictToQueryArgs String.fromFloat "ExtendedStatistics" value
 
                 Nothing ->
                     AWS.Core.Encode.unchangedQueryArgs
