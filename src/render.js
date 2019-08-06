@@ -27,6 +27,7 @@ render.structure = sh => Object.assign({
   decoderDef: dots.defineRecordDecoder(sh),
   jsonEncoderDef: dots.defineRecordJsonEncoder(sh),
   queryEncoderDef: dots.defineRecordQueryEncoder(sh),
+  toStringDef: dots.defineRecordToString(sh)
 }, sh);
 
 module.exports = render;

@@ -1240,6 +1240,32 @@ alarmHistoryItemDecoder =
             )
 
 
+alarmHistoryItemToString : AlarmHistoryItem -> List ( String, String )
+alarmHistoryItemToString val =
+    Dict.empty
+        |> Dict.insert
+            "alarmName"
+            ""
+        -- val.alarmName
+        |> Dict.insert
+            "timestamp"
+            ""
+        -- val.timestamp
+        |> Dict.insert
+            "historyItemType"
+            ""
+        -- val.historyItemType
+        |> Dict.insert
+            "historySummary"
+            ""
+        -- val.historySummary
+        |> Dict.insert
+            "historyData"
+            ""
+        -- val.historyData
+        |> Dict.toList
+
+
 {-|
 
 <p>An anomaly detection model associated with a particular CloudWatch metric athresnd statistic. You can use the model to display a band of expected normal values when the metric is graphed.</p>
@@ -1284,6 +1310,32 @@ anomalyDetectorDecoder =
             )
 
 
+anomalyDetectorToString : AnomalyDetector -> List ( String, String )
+anomalyDetectorToString val =
+    Dict.empty
+        |> Dict.insert
+            "namespace"
+            ""
+        -- val.namespace
+        |> Dict.insert
+            "metricName"
+            ""
+        -- val.metricName
+        |> Dict.insert
+            "dimensions"
+            ""
+        -- val.dimensions
+        |> Dict.insert
+            "stat"
+            ""
+        -- val.stat
+        |> Dict.insert
+            "configuration"
+            ""
+        -- val.configuration
+        |> Dict.toList
+
+
 {-|
 
 <p>The configuration specifies details about how the anomaly detection model is to be trained, including time ranges to exclude from use for training the model and the time zone to use for the metric.</p>
@@ -1308,6 +1360,20 @@ anomalyDetectorConfigurationDecoder =
                 [ "MetricTimezone", "metricTimezone" ]
                 JD.string
             )
+
+
+anomalyDetectorConfigurationToString : AnomalyDetectorConfiguration -> List ( String, String )
+anomalyDetectorConfigurationToString val =
+    Dict.empty
+        |> Dict.insert
+            "excludedTimeRanges"
+            ""
+        -- val.excludedTimeRanges
+        |> Dict.insert
+            "metricTimezone"
+            ""
+        -- val.metricTimezone
+        |> Dict.toList
 
 
 {-| One of
@@ -1426,6 +1492,28 @@ dashboardEntryDecoder =
             )
 
 
+dashboardEntryToString : DashboardEntry -> List ( String, String )
+dashboardEntryToString val =
+    Dict.empty
+        |> Dict.insert
+            "dashboardName"
+            ""
+        -- val.dashboardName
+        |> Dict.insert
+            "dashboardArn"
+            ""
+        -- val.dashboardArn
+        |> Dict.insert
+            "lastModified"
+            ""
+        -- val.lastModified
+        |> Dict.insert
+            "size"
+            ""
+        -- val.size
+        |> Dict.toList
+
+
 {-|
 
 <p>An error or warning for the operation.</p>
@@ -1450,6 +1538,20 @@ dashboardValidationMessageDecoder =
                 [ "Message", "message" ]
                 JD.string
             )
+
+
+dashboardValidationMessageToString : DashboardValidationMessage -> List ( String, String )
+dashboardValidationMessageToString val =
+    Dict.empty
+        |> Dict.insert
+            "dataPath"
+            ""
+        -- val.dataPath
+        |> Dict.insert
+            "message"
+            ""
+        -- val.message
+        |> Dict.toList
 
 
 {-|
@@ -1514,6 +1616,44 @@ datapointDecoder =
             )
 
 
+datapointToString : Datapoint -> List ( String, String )
+datapointToString val =
+    Dict.empty
+        |> Dict.insert
+            "timestamp"
+            ""
+        -- val.timestamp
+        |> Dict.insert
+            "sampleCount"
+            ""
+        -- val.sampleCount
+        |> Dict.insert
+            "average"
+            ""
+        -- val.average
+        |> Dict.insert
+            "sum"
+            ""
+        -- val.sum
+        |> Dict.insert
+            "minimum"
+            ""
+        -- val.minimum
+        |> Dict.insert
+            "maximum"
+            ""
+        -- val.maximum
+        |> Dict.insert
+            "unit"
+            ""
+        -- val.unit
+        |> Dict.insert
+            "extendedStatistics"
+            ""
+        -- val.extendedStatistics
+        |> Dict.toList
+
+
 {-| Type of HTTP response from deleteAnomalyDetect
 -}
 type alias DeleteAnomalyDetectorOutput =
@@ -1525,6 +1665,12 @@ deleteAnomalyDetectorOutputDecoder =
     JD.succeed DeleteAnomalyDetectorOutput
 
 
+deleteAnomalyDetectorOutputToString : DeleteAnomalyDetectorOutput -> List ( String, String )
+deleteAnomalyDetectorOutputToString val =
+    Dict.empty
+        |> Dict.toList
+
+
 {-| Type of HTTP response from deleteDashboar
 -}
 type alias DeleteDashboardsOutput =
@@ -1534,6 +1680,12 @@ type alias DeleteDashboardsOutput =
 deleteDashboardsOutputDecoder : JD.Decoder DeleteDashboardsOutput
 deleteDashboardsOutputDecoder =
     JD.succeed DeleteDashboardsOutput
+
+
+deleteDashboardsOutputToString : DeleteDashboardsOutput -> List ( String, String )
+deleteDashboardsOutputToString val =
+    Dict.empty
+        |> Dict.toList
 
 
 {-| Type of HTTP response from describeAlarmHisto
@@ -1559,6 +1711,20 @@ describeAlarmHistoryOutputDecoder =
             )
 
 
+describeAlarmHistoryOutputToString : DescribeAlarmHistoryOutput -> List ( String, String )
+describeAlarmHistoryOutputToString val =
+    Dict.empty
+        |> Dict.insert
+            "alarmHistoryItems"
+            ""
+        -- val.alarmHistoryItems
+        |> Dict.insert
+            "nextToken"
+            ""
+        -- val.nextToken
+        |> Dict.toList
+
+
 {-| Type of HTTP response from describeAlarmsForMetr
 -}
 type alias DescribeAlarmsForMetricOutput =
@@ -1574,6 +1740,16 @@ describeAlarmsForMetricOutputDecoder =
                 [ "MetricAlarms", "metricAlarms" ]
                 (JD.list metricAlarmDecoder)
             )
+
+
+describeAlarmsForMetricOutputToString : DescribeAlarmsForMetricOutput -> List ( String, String )
+describeAlarmsForMetricOutputToString val =
+    Dict.empty
+        |> Dict.insert
+            "metricAlarms"
+            ""
+        -- val.metricAlarms
+        |> Dict.toList
 
 
 {-| Type of HTTP response from describeAlar
@@ -1599,6 +1775,20 @@ describeAlarmsOutputDecoder =
             )
 
 
+describeAlarmsOutputToString : DescribeAlarmsOutput -> List ( String, String )
+describeAlarmsOutputToString val =
+    Dict.empty
+        |> Dict.insert
+            "metricAlarms"
+            ""
+        -- val.metricAlarms
+        |> Dict.insert
+            "nextToken"
+            ""
+        -- val.nextToken
+        |> Dict.toList
+
+
 {-| Type of HTTP response from describeAnomalyDetecto
 -}
 type alias DescribeAnomalyDetectorsOutput =
@@ -1620,6 +1810,20 @@ describeAnomalyDetectorsOutputDecoder =
                 [ "NextToken", "nextToken" ]
                 JD.string
             )
+
+
+describeAnomalyDetectorsOutputToString : DescribeAnomalyDetectorsOutput -> List ( String, String )
+describeAnomalyDetectorsOutputToString val =
+    Dict.empty
+        |> Dict.insert
+            "anomalyDetectors"
+            ""
+        -- val.anomalyDetectors
+        |> Dict.insert
+            "nextToken"
+            ""
+        -- val.nextToken
+        |> Dict.toList
 
 
 {-|
@@ -1648,6 +1852,20 @@ dimensionDecoder =
             )
 
 
+dimensionToString : Dimension -> List ( String, String )
+dimensionToString val =
+    Dict.empty
+        |> Dict.insert
+            "name"
+            ""
+        -- val.name
+        |> Dict.insert
+            "value"
+            ""
+        -- val.value
+        |> Dict.toList
+
+
 {-|
 
 <p>Represents filters for a dimension.</p>
@@ -1672,6 +1890,20 @@ dimensionFilterDecoder =
                 [ "Value", "value" ]
                 JD.string
             )
+
+
+dimensionFilterToString : DimensionFilter -> List ( String, String )
+dimensionFilterToString val =
+    Dict.empty
+        |> Dict.insert
+            "name"
+            ""
+        -- val.name
+        |> Dict.insert
+            "value"
+            ""
+        -- val.value
+        |> Dict.toList
 
 
 {-| Type of HTTP response from getDashboa
@@ -1703,6 +1935,24 @@ getDashboardOutputDecoder =
             )
 
 
+getDashboardOutputToString : GetDashboardOutput -> List ( String, String )
+getDashboardOutputToString val =
+    Dict.empty
+        |> Dict.insert
+            "dashboardArn"
+            ""
+        -- val.dashboardArn
+        |> Dict.insert
+            "dashboardBody"
+            ""
+        -- val.dashboardBody
+        |> Dict.insert
+            "dashboardName"
+            ""
+        -- val.dashboardName
+        |> Dict.toList
+
+
 {-| Type of HTTP response from getMetricDa
 -}
 type alias GetMetricDataOutput =
@@ -1732,6 +1982,24 @@ getMetricDataOutputDecoder =
             )
 
 
+getMetricDataOutputToString : GetMetricDataOutput -> List ( String, String )
+getMetricDataOutputToString val =
+    Dict.empty
+        |> Dict.insert
+            "metricDataResults"
+            ""
+        -- val.metricDataResults
+        |> Dict.insert
+            "nextToken"
+            ""
+        -- val.nextToken
+        |> Dict.insert
+            "messages"
+            ""
+        -- val.messages
+        |> Dict.toList
+
+
 {-| Type of HTTP response from getMetricStatisti
 -}
 type alias GetMetricStatisticsOutput =
@@ -1755,6 +2023,20 @@ getMetricStatisticsOutputDecoder =
             )
 
 
+getMetricStatisticsOutputToString : GetMetricStatisticsOutput -> List ( String, String )
+getMetricStatisticsOutputToString val =
+    Dict.empty
+        |> Dict.insert
+            "label"
+            ""
+        -- val.label
+        |> Dict.insert
+            "datapoints"
+            ""
+        -- val.datapoints
+        |> Dict.toList
+
+
 {-| Type of HTTP response from getMetricWidgetIma
 -}
 type alias GetMetricWidgetImageOutput =
@@ -1770,6 +2052,16 @@ getMetricWidgetImageOutputDecoder =
                 [ "MetricWidgetImage", "metricWidgetImage" ]
                 JD.string
             )
+
+
+getMetricWidgetImageOutputToString : GetMetricWidgetImageOutput -> List ( String, String )
+getMetricWidgetImageOutputToString val =
+    Dict.empty
+        |> Dict.insert
+            "metricWidgetImage"
+            ""
+        -- val.metricWidgetImage
+        |> Dict.toList
 
 
 {-| One of
@@ -1841,6 +2133,20 @@ listDashboardsOutputDecoder =
             )
 
 
+listDashboardsOutputToString : ListDashboardsOutput -> List ( String, String )
+listDashboardsOutputToString val =
+    Dict.empty
+        |> Dict.insert
+            "dashboardEntries"
+            ""
+        -- val.dashboardEntries
+        |> Dict.insert
+            "nextToken"
+            ""
+        -- val.nextToken
+        |> Dict.toList
+
+
 {-| Type of HTTP response from listMetri
 -}
 type alias ListMetricsOutput =
@@ -1864,6 +2170,20 @@ listMetricsOutputDecoder =
             )
 
 
+listMetricsOutputToString : ListMetricsOutput -> List ( String, String )
+listMetricsOutputToString val =
+    Dict.empty
+        |> Dict.insert
+            "metrics"
+            ""
+        -- val.metrics
+        |> Dict.insert
+            "nextToken"
+            ""
+        -- val.nextToken
+        |> Dict.toList
+
+
 {-| Type of HTTP response from listTagsForResour
 -}
 type alias ListTagsForResourceOutput =
@@ -1879,6 +2199,16 @@ listTagsForResourceOutputDecoder =
                 [ "Tags", "tags" ]
                 (JD.list tagDecoder)
             )
+
+
+listTagsForResourceOutputToString : ListTagsForResourceOutput -> List ( String, String )
+listTagsForResourceOutputToString val =
+    Dict.empty
+        |> Dict.insert
+            "tags"
+            ""
+        -- val.tags
+        |> Dict.toList
 
 
 {-|
@@ -1905,6 +2235,20 @@ messageDataDecoder =
                 [ "Value", "value" ]
                 JD.string
             )
+
+
+messageDataToString : MessageData -> List ( String, String )
+messageDataToString val =
+    Dict.empty
+        |> Dict.insert
+            "code"
+            ""
+        -- val.code
+        |> Dict.insert
+            "value"
+            ""
+        -- val.value
+        |> Dict.toList
 
 
 {-|
@@ -1937,6 +2281,24 @@ metricDecoder =
                 [ "Dimensions", "dimensions" ]
                 (JD.list dimensionDecoder)
             )
+
+
+metricToString : Metric -> List ( String, String )
+metricToString val =
+    Dict.empty
+        |> Dict.insert
+            "namespace"
+            ""
+        -- val.namespace
+        |> Dict.insert
+            "metricName"
+            ""
+        -- val.metricName
+        |> Dict.insert
+            "dimensions"
+            ""
+        -- val.dimensions
+        |> Dict.toList
 
 
 {-|
@@ -2115,6 +2477,120 @@ metricAlarmDecoder =
             )
 
 
+metricAlarmToString : MetricAlarm -> List ( String, String )
+metricAlarmToString val =
+    Dict.empty
+        |> Dict.insert
+            "alarmName"
+            ""
+        -- val.alarmName
+        |> Dict.insert
+            "alarmArn"
+            ""
+        -- val.alarmArn
+        |> Dict.insert
+            "alarmDescription"
+            ""
+        -- val.alarmDescription
+        |> Dict.insert
+            "alarmConfigurationUpdatedTimestamp"
+            ""
+        -- val.alarmConfigurationUpdatedTimestamp
+        |> Dict.insert
+            "actionsEnabled"
+            ""
+        -- val.actionsEnabled
+        |> Dict.insert
+            "oKActions"
+            ""
+        -- val.oKActions
+        |> Dict.insert
+            "alarmActions"
+            ""
+        -- val.alarmActions
+        |> Dict.insert
+            "insufficientDataActions"
+            ""
+        -- val.insufficientDataActions
+        |> Dict.insert
+            "stateValue"
+            ""
+        -- val.stateValue
+        |> Dict.insert
+            "stateReason"
+            ""
+        -- val.stateReason
+        |> Dict.insert
+            "stateReasonData"
+            ""
+        -- val.stateReasonData
+        |> Dict.insert
+            "stateUpdatedTimestamp"
+            ""
+        -- val.stateUpdatedTimestamp
+        |> Dict.insert
+            "metricName"
+            ""
+        -- val.metricName
+        |> Dict.insert
+            "namespace"
+            ""
+        -- val.namespace
+        |> Dict.insert
+            "statistic"
+            ""
+        -- val.statistic
+        |> Dict.insert
+            "extendedStatistic"
+            ""
+        -- val.extendedStatistic
+        |> Dict.insert
+            "dimensions"
+            ""
+        -- val.dimensions
+        |> Dict.insert
+            "period"
+            ""
+        -- val.period
+        |> Dict.insert
+            "unit"
+            ""
+        -- val.unit
+        |> Dict.insert
+            "evaluationPeriods"
+            ""
+        -- val.evaluationPeriods
+        |> Dict.insert
+            "datapointsToAlarm"
+            ""
+        -- val.datapointsToAlarm
+        |> Dict.insert
+            "threshold"
+            ""
+        -- val.threshold
+        |> Dict.insert
+            "comparisonOperator"
+            ""
+        -- val.comparisonOperator
+        |> Dict.insert
+            "treatMissingData"
+            ""
+        -- val.treatMissingData
+        |> Dict.insert
+            "evaluateLowSampleCountPercentile"
+            ""
+        -- val.evaluateLowSampleCountPercentile
+        |> Dict.insert
+            "metrics"
+            ""
+        -- val.metrics
+        |> Dict.insert
+            "thresholdMetricId"
+            ""
+        -- val.thresholdMetricId
+        |> Dict.toList
+
+
 {-|
 
 <p>This structure is used in both <code>GetMetricData</code> and <code>PutMetricAlarm</code>. The supported use of this structure is different for those two operations.</p> <p>When used in <code>GetMetricData</code>, it indicates the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data. A single <code>GetMetricData</code> call can include up to 100 <code>MetricDataQuery</code> structures.</p> <p>When used in <code>PutMetricAlarm</code>, it enables you to create an alarm based on a metric math expression. Each <code>MetricDataQuery</code> in the array specifies either a metric to retrieve, or a math expression to be performed on retrieved metrics. A single <code>PutMetricAlarm</code> call can include up to 20 <code>MetricDataQuery</code> structures in the array. The 20 structures can include as many as 10 structures that contain a <code>MetricStat</code> parameter to retrieve a metric, and as many as 10 structures that contain the <code>Expression</code> parameter to perform a math expression. Of those <code>Expression</code> structures, one must have <code>True</code> as the value for <code>ReturnData</code>. The result of this expression is the value the alarm watches.</p> <p>Any expression used in a <code>PutMetricAlarm</code> operation must return a single time series. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the <i>Amazon CloudWatch User Guide</i>.</p> <p>Some of the parameters of this structure also have different uses whether you are using this structure in a <code>GetMetricData</code> operation or a <code>PutMetricAlarm</code> operation. These differences are explained in the following parameter list.</p>
@@ -2157,6 +2633,32 @@ metricDataQueryDecoder =
                 [ "ReturnData", "returnData" ]
                 JD.bool
             )
+
+
+metricDataQueryToString : MetricDataQuery -> List ( String, String )
+metricDataQueryToString val =
+    Dict.empty
+        |> Dict.insert
+            "id"
+            ""
+        -- val.id
+        |> Dict.insert
+            "metricStat"
+            ""
+        -- val.metricStat
+        |> Dict.insert
+            "expression"
+            ""
+        -- val.expression
+        |> Dict.insert
+            "label"
+            ""
+        -- val.label
+        |> Dict.insert
+            "returnData"
+            ""
+        -- val.returnData
+        |> Dict.toList
 
 
 {-|
@@ -2207,6 +2709,36 @@ metricDataResultDecoder =
                 [ "Messages", "messages" ]
                 (JD.list messageDataDecoder)
             )
+
+
+metricDataResultToString : MetricDataResult -> List ( String, String )
+metricDataResultToString val =
+    Dict.empty
+        |> Dict.insert
+            "id"
+            ""
+        -- val.id
+        |> Dict.insert
+            "label"
+            ""
+        -- val.label
+        |> Dict.insert
+            "timestamps"
+            ""
+        -- val.timestamps
+        |> Dict.insert
+            "values"
+            ""
+        -- val.values
+        |> Dict.insert
+            "statusCode"
+            ""
+        -- val.statusCode
+        |> Dict.insert
+            "messages"
+            ""
+        -- val.messages
+        |> Dict.toList
 
 
 {-|
@@ -2277,6 +2809,48 @@ metricDatumDecoder =
             )
 
 
+metricDatumToString : MetricDatum -> List ( String, String )
+metricDatumToString val =
+    Dict.empty
+        |> Dict.insert
+            "metricName"
+            ""
+        -- val.metricName
+        |> Dict.insert
+            "dimensions"
+            ""
+        -- val.dimensions
+        |> Dict.insert
+            "timestamp"
+            ""
+        -- val.timestamp
+        |> Dict.insert
+            "value"
+            ""
+        -- val.value
+        |> Dict.insert
+            "statisticValues"
+            ""
+        -- val.statisticValues
+        |> Dict.insert
+            "values"
+            ""
+        -- val.values
+        |> Dict.insert
+            "counts"
+            ""
+        -- val.counts
+        |> Dict.insert
+            "unit"
+            ""
+        -- val.unit
+        |> Dict.insert
+            "storageResolution"
+            ""
+        -- val.storageResolution
+        |> Dict.toList
+
+
 {-|
 
 <p>This structure defines the metric to be returned, along with the statistics, period, and units.</p>
@@ -2315,6 +2889,28 @@ metricStatDecoder =
             )
 
 
+metricStatToString : MetricStat -> List ( String, String )
+metricStatToString val =
+    Dict.empty
+        |> Dict.insert
+            "metric"
+            ""
+        -- val.metric
+        |> Dict.insert
+            "period"
+            ""
+        -- val.period
+        |> Dict.insert
+            "stat"
+            ""
+        -- val.stat
+        |> Dict.insert
+            "unit"
+            ""
+        -- val.unit
+        |> Dict.toList
+
+
 {-| Type of HTTP response from putAnomalyDetect
 -}
 type alias PutAnomalyDetectorOutput =
@@ -2324,6 +2920,12 @@ type alias PutAnomalyDetectorOutput =
 putAnomalyDetectorOutputDecoder : JD.Decoder PutAnomalyDetectorOutput
 putAnomalyDetectorOutputDecoder =
     JD.succeed PutAnomalyDetectorOutput
+
+
+putAnomalyDetectorOutputToString : PutAnomalyDetectorOutput -> List ( String, String )
+putAnomalyDetectorOutputToString val =
+    Dict.empty
+        |> Dict.toList
 
 
 {-| Type of HTTP response from putDashboa
@@ -2341,6 +2943,16 @@ putDashboardOutputDecoder =
                 [ "DashboardValidationMessages", "dashboardValidationMessages" ]
                 (JD.list dashboardValidationMessageDecoder)
             )
+
+
+putDashboardOutputToString : PutDashboardOutput -> List ( String, String )
+putDashboardOutputToString val =
+    Dict.empty
+        |> Dict.insert
+            "dashboardValidationMessages"
+            ""
+        -- val.dashboardValidationMessages
+        |> Dict.toList
 
 
 {-|
@@ -2367,6 +2979,20 @@ rangeDecoder =
                 [ "EndTime", "endTime" ]
                 JDX.datetime
             )
+
+
+rangeToString : Range -> List ( String, String )
+rangeToString val =
+    Dict.empty
+        |> Dict.insert
+            "startTime"
+            ""
+        -- val.startTime
+        |> Dict.insert
+            "endTime"
+            ""
+        -- val.endTime
+        |> Dict.toList
 
 
 {-| One of
@@ -2791,6 +3417,28 @@ statisticSetDecoder =
             )
 
 
+statisticSetToString : StatisticSet -> List ( String, String )
+statisticSetToString val =
+    Dict.empty
+        |> Dict.insert
+            "sampleCount"
+            ""
+        -- val.sampleCount
+        |> Dict.insert
+            "sum"
+            ""
+        -- val.sum
+        |> Dict.insert
+            "minimum"
+            ""
+        -- val.minimum
+        |> Dict.insert
+            "maximum"
+            ""
+        -- val.maximum
+        |> Dict.toList
+
+
 {-| One of
 
   - `StatusCode_Complete`
@@ -2863,6 +3511,20 @@ tagDecoder =
             )
 
 
+tagToString : Tag -> List ( String, String )
+tagToString val =
+    Dict.empty
+        |> Dict.insert
+            "key"
+            ""
+        -- val.key
+        |> Dict.insert
+            "value"
+            ""
+        -- val.value
+        |> Dict.toList
+
+
 {-| Type of HTTP response from tagResour
 -}
 type alias TagResourceOutput =
@@ -2874,6 +3536,12 @@ tagResourceOutputDecoder =
     JD.succeed TagResourceOutput
 
 
+tagResourceOutputToString : TagResourceOutput -> List ( String, String )
+tagResourceOutputToString val =
+    Dict.empty
+        |> Dict.toList
+
+
 {-| Type of HTTP response from untagResour
 -}
 type alias UntagResourceOutput =
@@ -2883,6 +3551,12 @@ type alias UntagResourceOutput =
 untagResourceOutputDecoder : JD.Decoder UntagResourceOutput
 untagResourceOutputDecoder =
     JD.succeed UntagResourceOutput
+
+
+untagResourceOutputToString : UntagResourceOutput -> List ( String, String )
+untagResourceOutputToString val =
+    Dict.empty
+        |> Dict.toList
 
 
 {-| undefined

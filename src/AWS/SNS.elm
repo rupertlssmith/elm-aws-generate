@@ -1454,6 +1454,16 @@ checkIfPhoneNumberIsOptedOutResponseDecoder =
             )
 
 
+checkIfPhoneNumberIsOptedOutResponseToString : CheckIfPhoneNumberIsOptedOutResponse -> List ( String, String )
+checkIfPhoneNumberIsOptedOutResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "isOptedOut"
+            ""
+        -- val.isOptedOut
+        |> Dict.toList
+
+
 {-| Type of HTTP response from confirmSubscription
 -}
 type alias ConfirmSubscriptionResponse =
@@ -1469,6 +1479,16 @@ confirmSubscriptionResponseDecoder =
                 [ "SubscriptionArn", "subscriptionArn" ]
                 JD.string
             )
+
+
+confirmSubscriptionResponseToString : ConfirmSubscriptionResponse -> List ( String, String )
+confirmSubscriptionResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "subscriptionArn"
+            ""
+        -- val.subscriptionArn
+        |> Dict.toList
 
 
 {-| Type of HTTP response from createEndpoint
@@ -1488,6 +1508,16 @@ createEndpointResponseDecoder =
             )
 
 
+createEndpointResponseToString : CreateEndpointResponse -> List ( String, String )
+createEndpointResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "endpointArn"
+            ""
+        -- val.endpointArn
+        |> Dict.toList
+
+
 {-| Type of HTTP response from createPlatformApplication
 -}
 type alias CreatePlatformApplicationResponse =
@@ -1505,6 +1535,16 @@ createPlatformApplicationResponseDecoder =
             )
 
 
+createPlatformApplicationResponseToString : CreatePlatformApplicationResponse -> List ( String, String )
+createPlatformApplicationResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "platformApplicationArn"
+            ""
+        -- val.platformApplicationArn
+        |> Dict.toList
+
+
 {-| Type of HTTP response from createTopic
 -}
 type alias CreateTopicResponse =
@@ -1520,6 +1560,16 @@ createTopicResponseDecoder =
                 [ "TopicArn", "topicArn" ]
                 JD.string
             )
+
+
+createTopicResponseToString : CreateTopicResponse -> List ( String, String )
+createTopicResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "topicArn"
+            ""
+        -- val.topicArn
+        |> Dict.toList
 
 
 {-|
@@ -1548,6 +1598,20 @@ endpointDecoder =
             )
 
 
+endpointToString : Endpoint -> List ( String, String )
+endpointToString val =
+    Dict.empty
+        |> Dict.insert
+            "endpointArn"
+            ""
+        -- val.endpointArn
+        |> Dict.insert
+            "attributes"
+            ""
+        -- val.attributes
+        |> Dict.toList
+
+
 {-| Type of HTTP response from getEndpointAttributes
 -}
 type alias GetEndpointAttributesResponse =
@@ -1563,6 +1627,16 @@ getEndpointAttributesResponseDecoder =
                 [ "Attributes", "attributes" ]
                 (AWS.Core.Decode.dict JD.string)
             )
+
+
+getEndpointAttributesResponseToString : GetEndpointAttributesResponse -> List ( String, String )
+getEndpointAttributesResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "attributes"
+            ""
+        -- val.attributes
+        |> Dict.toList
 
 
 {-| Type of HTTP response from getPlatformApplicationAttributes
@@ -1582,6 +1656,16 @@ getPlatformApplicationAttributesResponseDecoder =
             )
 
 
+getPlatformApplicationAttributesResponseToString : GetPlatformApplicationAttributesResponse -> List ( String, String )
+getPlatformApplicationAttributesResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "attributes"
+            ""
+        -- val.attributes
+        |> Dict.toList
+
+
 {-| Type of HTTP response from getSMSAttributes
 -}
 type alias GetSMSAttributesResponse =
@@ -1597,6 +1681,16 @@ getSMSAttributesResponseDecoder =
                 [ "attributes", "Attributes" ]
                 (AWS.Core.Decode.dict JD.string)
             )
+
+
+getSMSAttributesResponseToString : GetSMSAttributesResponse -> List ( String, String )
+getSMSAttributesResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "attributes"
+            ""
+        -- val.attributes
+        |> Dict.toList
 
 
 {-| Type of HTTP response from getSubscriptionAttributes
@@ -1616,6 +1710,16 @@ getSubscriptionAttributesResponseDecoder =
             )
 
 
+getSubscriptionAttributesResponseToString : GetSubscriptionAttributesResponse -> List ( String, String )
+getSubscriptionAttributesResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "attributes"
+            ""
+        -- val.attributes
+        |> Dict.toList
+
+
 {-| Type of HTTP response from getTopicAttributes
 -}
 type alias GetTopicAttributesResponse =
@@ -1631,6 +1735,16 @@ getTopicAttributesResponseDecoder =
                 [ "Attributes", "attributes" ]
                 (AWS.Core.Decode.dict JD.string)
             )
+
+
+getTopicAttributesResponseToString : GetTopicAttributesResponse -> List ( String, String )
+getTopicAttributesResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "attributes"
+            ""
+        -- val.attributes
+        |> Dict.toList
 
 
 {-| Type of HTTP response from listEndpointsByPlatformApplication
@@ -1656,6 +1770,20 @@ listEndpointsByPlatformApplicationResponseDecoder =
             )
 
 
+listEndpointsByPlatformApplicationResponseToString : ListEndpointsByPlatformApplicationResponse -> List ( String, String )
+listEndpointsByPlatformApplicationResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "endpoints"
+            ""
+        -- val.endpoints
+        |> Dict.insert
+            "nextToken"
+            ""
+        -- val.nextToken
+        |> Dict.toList
+
+
 {-| Type of HTTP response from listPhoneNumbersOptedOut
 -}
 type alias ListPhoneNumbersOptedOutResponse =
@@ -1677,6 +1805,20 @@ listPhoneNumbersOptedOutResponseDecoder =
                 [ "nextToken", "NextToken" ]
                 JD.string
             )
+
+
+listPhoneNumbersOptedOutResponseToString : ListPhoneNumbersOptedOutResponse -> List ( String, String )
+listPhoneNumbersOptedOutResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "phoneNumbers"
+            ""
+        -- val.phoneNumbers
+        |> Dict.insert
+            "nextToken"
+            ""
+        -- val.nextToken
+        |> Dict.toList
 
 
 {-| Type of HTTP response from listPlatformApplications
@@ -1702,6 +1844,20 @@ listPlatformApplicationsResponseDecoder =
             )
 
 
+listPlatformApplicationsResponseToString : ListPlatformApplicationsResponse -> List ( String, String )
+listPlatformApplicationsResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "platformApplications"
+            ""
+        -- val.platformApplications
+        |> Dict.insert
+            "nextToken"
+            ""
+        -- val.nextToken
+        |> Dict.toList
+
+
 {-| Type of HTTP response from listSubscriptionsByTopic
 -}
 type alias ListSubscriptionsByTopicResponse =
@@ -1723,6 +1879,20 @@ listSubscriptionsByTopicResponseDecoder =
                 [ "NextToken", "nextToken" ]
                 JD.string
             )
+
+
+listSubscriptionsByTopicResponseToString : ListSubscriptionsByTopicResponse -> List ( String, String )
+listSubscriptionsByTopicResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "subscriptions"
+            ""
+        -- val.subscriptions
+        |> Dict.insert
+            "nextToken"
+            ""
+        -- val.nextToken
+        |> Dict.toList
 
 
 {-| Type of HTTP response from listSubscriptions
@@ -1748,6 +1918,20 @@ listSubscriptionsResponseDecoder =
             )
 
 
+listSubscriptionsResponseToString : ListSubscriptionsResponse -> List ( String, String )
+listSubscriptionsResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "subscriptions"
+            ""
+        -- val.subscriptions
+        |> Dict.insert
+            "nextToken"
+            ""
+        -- val.nextToken
+        |> Dict.toList
+
+
 {-| Type of HTTP response from listTagsForResource
 -}
 type alias ListTagsForResourceResponse =
@@ -1763,6 +1947,16 @@ listTagsForResourceResponseDecoder =
                 [ "Tags", "tags" ]
                 (JD.list tagDecoder)
             )
+
+
+listTagsForResourceResponseToString : ListTagsForResourceResponse -> List ( String, String )
+listTagsForResourceResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "tags"
+            ""
+        -- val.tags
+        |> Dict.toList
 
 
 {-| Type of HTTP response from listTopics
@@ -1786,6 +1980,20 @@ listTopicsResponseDecoder =
                 [ "NextToken", "nextToken" ]
                 JD.string
             )
+
+
+listTopicsResponseToString : ListTopicsResponse -> List ( String, String )
+listTopicsResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "topics"
+            ""
+        -- val.topics
+        |> Dict.insert
+            "nextToken"
+            ""
+        -- val.nextToken
+        |> Dict.toList
 
 
 {-|
@@ -1820,6 +2028,24 @@ messageAttributeValueDecoder =
             )
 
 
+messageAttributeValueToString : MessageAttributeValue -> List ( String, String )
+messageAttributeValueToString val =
+    Dict.empty
+        |> Dict.insert
+            "dataType"
+            ""
+        -- val.dataType
+        |> Dict.insert
+            "stringValue"
+            ""
+        -- val.stringValue
+        |> Dict.insert
+            "binaryValue"
+            ""
+        -- val.binaryValue
+        |> Dict.toList
+
+
 {-| Type of HTTP response from optInPhoneNumber
 -}
 type alias OptInPhoneNumberResponse =
@@ -1829,6 +2055,12 @@ type alias OptInPhoneNumberResponse =
 optInPhoneNumberResponseDecoder : JD.Decoder OptInPhoneNumberResponse
 optInPhoneNumberResponseDecoder =
     JD.succeed OptInPhoneNumberResponse
+
+
+optInPhoneNumberResponseToString : OptInPhoneNumberResponse -> List ( String, String )
+optInPhoneNumberResponseToString val =
+    Dict.empty
+        |> Dict.toList
 
 
 {-|
@@ -1857,6 +2089,20 @@ platformApplicationDecoder =
             )
 
 
+platformApplicationToString : PlatformApplication -> List ( String, String )
+platformApplicationToString val =
+    Dict.empty
+        |> Dict.insert
+            "platformApplicationArn"
+            ""
+        -- val.platformApplicationArn
+        |> Dict.insert
+            "attributes"
+            ""
+        -- val.attributes
+        |> Dict.toList
+
+
 {-| Type of HTTP response from publish
 -}
 type alias PublishResponse =
@@ -1874,6 +2120,16 @@ publishResponseDecoder =
             )
 
 
+publishResponseToString : PublishResponse -> List ( String, String )
+publishResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "messageId"
+            ""
+        -- val.messageId
+        |> Dict.toList
+
+
 {-| Type of HTTP response from setSMSAttributes
 -}
 type alias SetSMSAttributesResponse =
@@ -1883,6 +2139,12 @@ type alias SetSMSAttributesResponse =
 setSMSAttributesResponseDecoder : JD.Decoder SetSMSAttributesResponse
 setSMSAttributesResponseDecoder =
     JD.succeed SetSMSAttributesResponse
+
+
+setSMSAttributesResponseToString : SetSMSAttributesResponse -> List ( String, String )
+setSMSAttributesResponseToString val =
+    Dict.empty
+        |> Dict.toList
 
 
 {-| Type of HTTP response from subscribe
@@ -1900,6 +2162,16 @@ subscribeResponseDecoder =
                 [ "SubscriptionArn", "subscriptionArn" ]
                 JD.string
             )
+
+
+subscribeResponseToString : SubscribeResponse -> List ( String, String )
+subscribeResponseToString val =
+    Dict.empty
+        |> Dict.insert
+            "subscriptionArn"
+            ""
+        -- val.subscriptionArn
+        |> Dict.toList
 
 
 {-|
@@ -1946,6 +2218,32 @@ subscriptionDecoder =
             )
 
 
+subscriptionToString : Subscription -> List ( String, String )
+subscriptionToString val =
+    Dict.empty
+        |> Dict.insert
+            "subscriptionArn"
+            ""
+        -- val.subscriptionArn
+        |> Dict.insert
+            "owner"
+            ""
+        -- val.owner
+        |> Dict.insert
+            "protocol"
+            ""
+        -- val.protocol
+        |> Dict.insert
+            "endpoint"
+            ""
+        -- val.endpoint
+        |> Dict.insert
+            "topicArn"
+            ""
+        -- val.topicArn
+        |> Dict.toList
+
+
 {-|
 
 <p>The list of tags to be added to the specified topic.</p>
@@ -1972,6 +2270,20 @@ tagDecoder =
             )
 
 
+tagToString : Tag -> List ( String, String )
+tagToString val =
+    Dict.empty
+        |> Dict.insert
+            "key"
+            ""
+        -- val.key
+        |> Dict.insert
+            "value"
+            ""
+        -- val.value
+        |> Dict.toList
+
+
 {-| Type of HTTP response from tagResource
 -}
 type alias TagResourceResponse =
@@ -1981,6 +2293,12 @@ type alias TagResourceResponse =
 tagResourceResponseDecoder : JD.Decoder TagResourceResponse
 tagResourceResponseDecoder =
     JD.succeed TagResourceResponse
+
+
+tagResourceResponseToString : TagResourceResponse -> List ( String, String )
+tagResourceResponseToString val =
+    Dict.empty
+        |> Dict.toList
 
 
 {-|
@@ -2003,6 +2321,16 @@ topicDecoder =
             )
 
 
+topicToString : Topic -> List ( String, String )
+topicToString val =
+    Dict.empty
+        |> Dict.insert
+            "topicArn"
+            ""
+        -- val.topicArn
+        |> Dict.toList
+
+
 {-| Type of HTTP response from untagResource
 -}
 type alias UntagResourceResponse =
@@ -2012,6 +2340,12 @@ type alias UntagResourceResponse =
 untagResourceResponseDecoder : JD.Decoder UntagResourceResponse
 untagResourceResponseDecoder =
     JD.succeed UntagResourceResponse
+
+
+untagResourceResponseToString : UntagResourceResponse -> List ( String, String )
+untagResourceResponseToString val =
+    Dict.empty
+        |> Dict.toList
 
 
 {-| undefined

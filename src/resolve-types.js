@@ -178,6 +178,7 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
       doc: category === 'response'
         ? `Type of HTTP response from ${lowCam(sh.name).slice(0, sh.name.length - 8)}`
         : sh.documentation,
+      toStringFn : `${lowCam(sh.name)}ToString`,
       category,
     });
   };

@@ -1,9 +1,8 @@
-{{= it.decoder }} : JD.Decoder {{= it.type }}
-{{= it.decoder }} =
-    JD.succeed {{= it.type }}
+{{= it.toStringFn }} : {{= it.type }} -> List (String, String)
+{{= it.toStringFn }} val =
+    Dict.empty
         {{~ it.members :m }}
-        |> JDP.custom (AWS.Core.Decode.{{= m.required ? 'required' : 'optional' }}
-            ["{{= m.decodeKeys.join('", "') }}"]
-            {{= m.value.decoder }}
-        )
+        |> Dict.insert
+            "{{= m.key }}" "" -- val.{{= m.key }}
         {{~}}
+        |> Dict.toList

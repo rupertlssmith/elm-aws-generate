@@ -943,6 +943,28 @@ batchResultErrorEntryDecoder =
             )
 
 
+batchResultErrorEntryToString : BatchResultErrorEntry -> List ( String, String )
+batchResultErrorEntryToString val =
+    Dict.empty
+        |> Dict.insert
+            "id"
+            ""
+        -- val.id
+        |> Dict.insert
+            "senderFault"
+            ""
+        -- val.senderFault
+        |> Dict.insert
+            "code"
+            ""
+        -- val.code
+        |> Dict.insert
+            "message"
+            ""
+        -- val.message
+        |> Dict.toList
+
+
 {-|
 
 <p>Encloses a receipt handle and an entry id for each message in <code> <a>ChangeMessageVisibilityBatch</a>.</code> </p> <important> <p>All of the following list parameters must be prefixed with <code>ChangeMessageVisibilityBatchRequestEntry.n</code>, where <code>n</code> is an integer value starting with <code>1</code>. For example, a parameter list for this action might look like this:</p> </important> <p> <code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2</code> </p> <p> <code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=your_receipt_handle</code> </p> <p> <code>&amp;ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45</code> </p>
@@ -975,6 +997,24 @@ changeMessageVisibilityBatchRequestEntryDecoder =
             )
 
 
+changeMessageVisibilityBatchRequestEntryToString : ChangeMessageVisibilityBatchRequestEntry -> List ( String, String )
+changeMessageVisibilityBatchRequestEntryToString val =
+    Dict.empty
+        |> Dict.insert
+            "id"
+            ""
+        -- val.id
+        |> Dict.insert
+            "receiptHandle"
+            ""
+        -- val.receiptHandle
+        |> Dict.insert
+            "visibilityTimeout"
+            ""
+        -- val.visibilityTimeout
+        |> Dict.toList
+
+
 {-| Type of HTTP response from changeMessageVisibilityBat
 -}
 type alias ChangeMessageVisibilityBatchResult =
@@ -998,6 +1038,20 @@ changeMessageVisibilityBatchResultDecoder =
             )
 
 
+changeMessageVisibilityBatchResultToString : ChangeMessageVisibilityBatchResult -> List ( String, String )
+changeMessageVisibilityBatchResultToString val =
+    Dict.empty
+        |> Dict.insert
+            "successful"
+            ""
+        -- val.successful
+        |> Dict.insert
+            "failed"
+            ""
+        -- val.failed
+        |> Dict.toList
+
+
 {-|
 
 <p>Encloses the <code>Id</code> of an entry in <code> <a>ChangeMessageVisibilityBatch</a>.</code> </p>
@@ -1018,6 +1072,16 @@ changeMessageVisibilityBatchResultEntryDecoder =
             )
 
 
+changeMessageVisibilityBatchResultEntryToString : ChangeMessageVisibilityBatchResultEntry -> List ( String, String )
+changeMessageVisibilityBatchResultEntryToString val =
+    Dict.empty
+        |> Dict.insert
+            "id"
+            ""
+        -- val.id
+        |> Dict.toList
+
+
 {-| Type of HTTP response from createQue
 -}
 type alias CreateQueueResult =
@@ -1033,6 +1097,16 @@ createQueueResultDecoder =
                 [ "QueueUrl", "queueUrl" ]
                 JD.string
             )
+
+
+createQueueResultToString : CreateQueueResult -> List ( String, String )
+createQueueResultToString val =
+    Dict.empty
+        |> Dict.insert
+            "queueUrl"
+            ""
+        -- val.queueUrl
+        |> Dict.toList
 
 
 {-|
@@ -1061,6 +1135,20 @@ deleteMessageBatchRequestEntryDecoder =
             )
 
 
+deleteMessageBatchRequestEntryToString : DeleteMessageBatchRequestEntry -> List ( String, String )
+deleteMessageBatchRequestEntryToString val =
+    Dict.empty
+        |> Dict.insert
+            "id"
+            ""
+        -- val.id
+        |> Dict.insert
+            "receiptHandle"
+            ""
+        -- val.receiptHandle
+        |> Dict.toList
+
+
 {-| Type of HTTP response from deleteMessageBat
 -}
 type alias DeleteMessageBatchResult =
@@ -1084,6 +1172,20 @@ deleteMessageBatchResultDecoder =
             )
 
 
+deleteMessageBatchResultToString : DeleteMessageBatchResult -> List ( String, String )
+deleteMessageBatchResultToString val =
+    Dict.empty
+        |> Dict.insert
+            "successful"
+            ""
+        -- val.successful
+        |> Dict.insert
+            "failed"
+            ""
+        -- val.failed
+        |> Dict.toList
+
+
 {-|
 
 <p>Encloses the <code>Id</code> of an entry in <code> <a>DeleteMessageBatch</a>.</code> </p>
@@ -1104,6 +1206,16 @@ deleteMessageBatchResultEntryDecoder =
             )
 
 
+deleteMessageBatchResultEntryToString : DeleteMessageBatchResultEntry -> List ( String, String )
+deleteMessageBatchResultEntryToString val =
+    Dict.empty
+        |> Dict.insert
+            "id"
+            ""
+        -- val.id
+        |> Dict.toList
+
+
 {-| Type of HTTP response from getQueueAttribut
 -}
 type alias GetQueueAttributesResult =
@@ -1119,6 +1231,16 @@ getQueueAttributesResultDecoder =
                 [ "Attributes", "attributes" ]
                 (AWS.Core.Decode.dict JD.string)
             )
+
+
+getQueueAttributesResultToString : GetQueueAttributesResult -> List ( String, String )
+getQueueAttributesResultToString val =
+    Dict.empty
+        |> Dict.insert
+            "attributes"
+            ""
+        -- val.attributes
+        |> Dict.toList
 
 
 {-| Type of HTTP response from getQueueU
@@ -1138,6 +1260,16 @@ getQueueUrlResultDecoder =
             )
 
 
+getQueueUrlResultToString : GetQueueUrlResult -> List ( String, String )
+getQueueUrlResultToString val =
+    Dict.empty
+        |> Dict.insert
+            "queueUrl"
+            ""
+        -- val.queueUrl
+        |> Dict.toList
+
+
 {-| Type of HTTP response from listDeadLetterSourceQueu
 -}
 type alias ListDeadLetterSourceQueuesResult =
@@ -1153,6 +1285,16 @@ listDeadLetterSourceQueuesResultDecoder =
                 [ "queueUrls", "QueueUrls" ]
                 (JD.list JD.string)
             )
+
+
+listDeadLetterSourceQueuesResultToString : ListDeadLetterSourceQueuesResult -> List ( String, String )
+listDeadLetterSourceQueuesResultToString val =
+    Dict.empty
+        |> Dict.insert
+            "queueUrls"
+            ""
+        -- val.queueUrls
+        |> Dict.toList
 
 
 {-| Type of HTTP response from listQueueTa
@@ -1172,6 +1314,16 @@ listQueueTagsResultDecoder =
             )
 
 
+listQueueTagsResultToString : ListQueueTagsResult -> List ( String, String )
+listQueueTagsResultToString val =
+    Dict.empty
+        |> Dict.insert
+            "tags"
+            ""
+        -- val.tags
+        |> Dict.toList
+
+
 {-| Type of HTTP response from listQueu
 -}
 type alias ListQueuesResult =
@@ -1187,6 +1339,16 @@ listQueuesResultDecoder =
                 [ "QueueUrls", "queueUrls" ]
                 (JD.list JD.string)
             )
+
+
+listQueuesResultToString : ListQueuesResult -> List ( String, String )
+listQueuesResultToString val =
+    Dict.empty
+        |> Dict.insert
+            "queueUrls"
+            ""
+        -- val.queueUrls
+        |> Dict.toList
 
 
 {-|
@@ -1245,6 +1407,40 @@ messageDecoder =
             )
 
 
+messageToString : Message -> List ( String, String )
+messageToString val =
+    Dict.empty
+        |> Dict.insert
+            "messageId"
+            ""
+        -- val.messageId
+        |> Dict.insert
+            "receiptHandle"
+            ""
+        -- val.receiptHandle
+        |> Dict.insert
+            "mD5OfBody"
+            ""
+        -- val.mD5OfBody
+        |> Dict.insert
+            "body"
+            ""
+        -- val.body
+        |> Dict.insert
+            "attributes"
+            ""
+        -- val.attributes
+        |> Dict.insert
+            "mD5OfMessageAttributes"
+            ""
+        -- val.mD5OfMessageAttributes
+        |> Dict.insert
+            "messageAttributes"
+            ""
+        -- val.messageAttributes
+        |> Dict.toList
+
+
 {-|
 
 <p>The user-specified message attribute value. For string data types, the <code>Value</code> attribute has the same restrictions on the content as the message body. For more information, see <code> <a>SendMessage</a>.</code> </p> <p> <code>Name</code>, <code>type</code>, <code>value</code> and the message body must not be empty or null. All parts of the message attribute, including <code>Name</code>, <code>Type</code>, and <code>Value</code>, are part of the message size restriction (256 KB or 262,144 bytes).</p>
@@ -1287,6 +1483,32 @@ messageAttributeValueDecoder =
                 [ "DataType", "dataType" ]
                 JD.string
             )
+
+
+messageAttributeValueToString : MessageAttributeValue -> List ( String, String )
+messageAttributeValueToString val =
+    Dict.empty
+        |> Dict.insert
+            "stringValue"
+            ""
+        -- val.stringValue
+        |> Dict.insert
+            "binaryValue"
+            ""
+        -- val.binaryValue
+        |> Dict.insert
+            "stringListValues"
+            ""
+        -- val.stringListValues
+        |> Dict.insert
+            "binaryListValues"
+            ""
+        -- val.binaryListValues
+        |> Dict.insert
+            "dataType"
+            ""
+        -- val.dataType
+        |> Dict.toList
 
 
 {-| One of
@@ -1550,6 +1772,16 @@ receiveMessageResultDecoder =
             )
 
 
+receiveMessageResultToString : ReceiveMessageResult -> List ( String, String )
+receiveMessageResultToString val =
+    Dict.empty
+        |> Dict.insert
+            "messages"
+            ""
+        -- val.messages
+        |> Dict.toList
+
+
 {-|
 
 <p>Contains the details of a single Amazon SQS message along with an <code>Id</code>.</p>
@@ -1600,6 +1832,36 @@ sendMessageBatchRequestEntryDecoder =
             )
 
 
+sendMessageBatchRequestEntryToString : SendMessageBatchRequestEntry -> List ( String, String )
+sendMessageBatchRequestEntryToString val =
+    Dict.empty
+        |> Dict.insert
+            "id"
+            ""
+        -- val.id
+        |> Dict.insert
+            "messageBody"
+            ""
+        -- val.messageBody
+        |> Dict.insert
+            "delaySeconds"
+            ""
+        -- val.delaySeconds
+        |> Dict.insert
+            "messageAttributes"
+            ""
+        -- val.messageAttributes
+        |> Dict.insert
+            "messageDeduplicationId"
+            ""
+        -- val.messageDeduplicationId
+        |> Dict.insert
+            "messageGroupId"
+            ""
+        -- val.messageGroupId
+        |> Dict.toList
+
+
 {-| Type of HTTP response from sendMessageBat
 -}
 type alias SendMessageBatchResult =
@@ -1621,6 +1883,20 @@ sendMessageBatchResultDecoder =
                 [ "Failed", "failed" ]
                 (JD.list batchResultErrorEntryDecoder)
             )
+
+
+sendMessageBatchResultToString : SendMessageBatchResult -> List ( String, String )
+sendMessageBatchResultToString val =
+    Dict.empty
+        |> Dict.insert
+            "successful"
+            ""
+        -- val.successful
+        |> Dict.insert
+            "failed"
+            ""
+        -- val.failed
+        |> Dict.toList
 
 
 {-|
@@ -1667,6 +1943,32 @@ sendMessageBatchResultEntryDecoder =
             )
 
 
+sendMessageBatchResultEntryToString : SendMessageBatchResultEntry -> List ( String, String )
+sendMessageBatchResultEntryToString val =
+    Dict.empty
+        |> Dict.insert
+            "id"
+            ""
+        -- val.id
+        |> Dict.insert
+            "messageId"
+            ""
+        -- val.messageId
+        |> Dict.insert
+            "mD5OfMessageBody"
+            ""
+        -- val.mD5OfMessageBody
+        |> Dict.insert
+            "mD5OfMessageAttributes"
+            ""
+        -- val.mD5OfMessageAttributes
+        |> Dict.insert
+            "sequenceNumber"
+            ""
+        -- val.sequenceNumber
+        |> Dict.toList
+
+
 {-| Type of HTTP response from sendMessa
 -}
 type alias SendMessageResult =
@@ -1700,6 +2002,28 @@ sendMessageResultDecoder =
                 [ "SequenceNumber", "sequenceNumber" ]
                 JD.string
             )
+
+
+sendMessageResultToString : SendMessageResult -> List ( String, String )
+sendMessageResultToString val =
+    Dict.empty
+        |> Dict.insert
+            "mD5OfMessageBody"
+            ""
+        -- val.mD5OfMessageBody
+        |> Dict.insert
+            "mD5OfMessageAttributes"
+            ""
+        -- val.mD5OfMessageAttributes
+        |> Dict.insert
+            "messageId"
+            ""
+        -- val.messageId
+        |> Dict.insert
+            "sequenceNumber"
+            ""
+        -- val.sequenceNumber
+        |> Dict.toList
 
 
 {-|
