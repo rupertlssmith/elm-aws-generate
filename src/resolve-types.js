@@ -99,7 +99,7 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
 
     const jsonEncoder = isEnumOfFloats(key)
       ? 'AWS.Core.Enum.toFloat >> Result.withDefault 0.0 >> String.fromFloat'
-      : `${jsonEncode}.dict identity ${value.type.encoder}`
+      : `${jsonEncode}.dict identity (${value.jsonEncoder})`
 
     return isEnumOfFloats(key) ?
       render.nothing({

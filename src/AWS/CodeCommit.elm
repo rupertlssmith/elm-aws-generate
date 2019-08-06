@@ -8504,7 +8504,7 @@ createRepositoryInputEncoder data =
             JE.string
             ( "repositoryDescription", data.repositoryDescription )
         |> AWS.Core.Encode.optionalMember
-            (JE.dict identity undefined)
+            (JE.dict identity JE.string)
             ( "tags", data.tags )
         |> JE.object
 
@@ -9284,7 +9284,7 @@ listTagsForResourceOutputEncoder : ListTagsForResourceOutput -> JE.Value
 listTagsForResourceOutputEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (JE.dict identity undefined)
+            (JE.dict identity JE.string)
             ( "tags", data.tags )
         |> AWS.Core.Encode.optionalMember
             JE.string
@@ -10074,7 +10074,7 @@ tagResourceInputEncoder : TagResourceInput -> JE.Value
 tagResourceInputEncoder data =
     []
         |> (::) ( "resourceArn", data.resourceArn |> JE.string )
-        |> (::) ( "tags", data.tags |> JE.dict identity undefined )
+        |> (::) ( "tags", data.tags |> JE.dict identity JE.string )
         |> JE.object
 
 

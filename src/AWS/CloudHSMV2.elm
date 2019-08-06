@@ -1913,7 +1913,7 @@ clusterEncoder data =
             JE.string
             ( "StateMessage", data.stateMessage )
         |> AWS.Core.Encode.optionalMember
-            (JE.dict identity undefined)
+            (JE.dict identity JE.string)
             ( "SubnetMapping", data.subnetMapping )
         |> AWS.Core.Encode.optionalMember
             JE.string
@@ -2048,7 +2048,7 @@ describeBackupsRequestEncoder data =
             JE.int
             ( "MaxResults", data.maxResults )
         |> AWS.Core.Encode.optionalMember
-            (JE.dict identity undefined)
+            (JE.dict identity (JE.list JE.string))
             ( "Filters", data.filters )
         |> AWS.Core.Encode.optionalMember
             JE.bool
@@ -2072,7 +2072,7 @@ describeClustersRequestEncoder : DescribeClustersRequest -> JE.Value
 describeClustersRequestEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (JE.dict identity undefined)
+            (JE.dict identity (JE.list JE.string))
             ( "Filters", data.filters )
         |> AWS.Core.Encode.optionalMember
             JE.string
