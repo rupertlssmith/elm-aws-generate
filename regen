@@ -55,11 +55,11 @@ $GEN cloudhsmv2
 $GEN codebuild
 $GEN codecommit
 $GEN codedeploy
-$GEN codepipeline
-$GEN codestar
-$GEN cognito-identity
-$GEN cognito-idp
-$GEN config
+# $GEN codepipeline
+# $GEN codestar
+# $GEN cognito-identity
+# $GEN cognito-idp
+# $GEN config
 # $GEN cur
 # $GEN datapipeline
 # $GEN devicefarm

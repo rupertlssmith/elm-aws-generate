@@ -2150,10 +2150,10 @@ budgetEncoder data =
             spendEncoder
             ( "BudgetLimit", data.budgetLimit )
         |> AWS.Core.Encode.optionalMember
-            spendEncoder
+            (JE.dict identity undefined)
             ( "PlannedBudgetLimits", data.plannedBudgetLimits )
         |> AWS.Core.Encode.optionalMember
-            (List String Encoder)
+            (JE.dict identity undefined)
             ( "CostFilters", data.costFilters )
         |> AWS.Core.Encode.optionalMember
             costTypesEncoder
@@ -2182,7 +2182,7 @@ budgetPerformanceHistoryEncoder data =
             (budgetTypeToString >> JE.string)
             ( "BudgetType", data.budgetType )
         |> AWS.Core.Encode.optionalMember
-            (List String Encoder)
+            (JE.dict identity undefined)
             ( "CostFilters", data.costFilters )
         |> AWS.Core.Encode.optionalMember
             costTypesEncoder

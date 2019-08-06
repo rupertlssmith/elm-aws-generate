@@ -9879,7 +9879,7 @@ listDeploymentTargetsInputEncoder data =
             JE.string
             ( "nextToken", data.nextToken )
         |> AWS.Core.Encode.optionalMember
-            (List String Encoder)
+            (JE.dict identity undefined)
             ( "targetFilters", data.targetFilters )
         |> JE.object
 
