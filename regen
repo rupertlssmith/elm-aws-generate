@@ -13,13 +13,13 @@ GEN="./bin/elm-aws-generate.js --name"
 # $GEN rds
 # $GEN redshift
 # $GEN sts
+# $GEN elasticloadbalancingv2
 
 # Compilation error
-$GEN elasticloadbalancingv2
-# $GEN email
-# $GEN monitoring
-# $GEN sns
-# $GEN sqs
+$GEN email
+$GEN monitoring
+$GEN sns
+$GEN sqs
 
 # Harder problems
 # $GEN importexport # signatureVersion=v2
@@ -47,9 +47,9 @@ $GEN elasticloadbalancingv2
 # $GEN waf
 # $GEN waf-regional
 # $GEN workspaces
+# $GEN appstream
 
 # Compilation errors
-$GEN appstream
 # $GEN budgets
 # $GEN cloudhsmv2
 # $GEN codebuild
