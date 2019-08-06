@@ -1,8 +1,9 @@
-{{= it.toStringFn }} : {{= it.type }} -> List (String, String)
+{{= it.toStringFn }} : {{= it.type }} -> String -- List (String, String)
 {{= it.toStringFn }} val =
-    Dict.empty
+    -- Dict.empty
         {{~ it.members :m }}
-        |> Dict.insert
-            "{{= m.key }}" "" -- val.{{= m.key }}
+    --     |> Dict.insert
+    --         "{{= m.key }}" "" -- val.{{= m.key }}
         {{~}}
-        |> Dict.toList
+    --     |> Dict.toList
+    ""

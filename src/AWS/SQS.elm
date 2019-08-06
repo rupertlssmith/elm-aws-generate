@@ -943,26 +943,21 @@ batchResultErrorEntryDecoder =
             )
 
 
-batchResultErrorEntryToString : BatchResultErrorEntry -> List ( String, String )
+batchResultErrorEntryToString :
+    BatchResultErrorEntry
+    -> String -- List (String, String)
 batchResultErrorEntryToString val =
-    Dict.empty
-        |> Dict.insert
-            "id"
-            ""
-        -- val.id
-        |> Dict.insert
-            "senderFault"
-            ""
-        -- val.senderFault
-        |> Dict.insert
-            "code"
-            ""
-        -- val.code
-        |> Dict.insert
-            "message"
-            ""
-        -- val.message
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "id" "" -- val.id
+    --     |> Dict.insert
+    --         "senderFault" "" -- val.senderFault
+    --     |> Dict.insert
+    --         "code" "" -- val.code
+    --     |> Dict.insert
+    --         "message" "" -- val.message
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -997,22 +992,19 @@ changeMessageVisibilityBatchRequestEntryDecoder =
             )
 
 
-changeMessageVisibilityBatchRequestEntryToString : ChangeMessageVisibilityBatchRequestEntry -> List ( String, String )
+changeMessageVisibilityBatchRequestEntryToString :
+    ChangeMessageVisibilityBatchRequestEntry
+    -> String -- List (String, String)
 changeMessageVisibilityBatchRequestEntryToString val =
-    Dict.empty
-        |> Dict.insert
-            "id"
-            ""
-        -- val.id
-        |> Dict.insert
-            "receiptHandle"
-            ""
-        -- val.receiptHandle
-        |> Dict.insert
-            "visibilityTimeout"
-            ""
-        -- val.visibilityTimeout
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "id" "" -- val.id
+    --     |> Dict.insert
+    --         "receiptHandle" "" -- val.receiptHandle
+    --     |> Dict.insert
+    --         "visibilityTimeout" "" -- val.visibilityTimeout
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from changeMessageVisibilityBat
@@ -1038,18 +1030,17 @@ changeMessageVisibilityBatchResultDecoder =
             )
 
 
-changeMessageVisibilityBatchResultToString : ChangeMessageVisibilityBatchResult -> List ( String, String )
+changeMessageVisibilityBatchResultToString :
+    ChangeMessageVisibilityBatchResult
+    -> String -- List (String, String)
 changeMessageVisibilityBatchResultToString val =
-    Dict.empty
-        |> Dict.insert
-            "successful"
-            ""
-        -- val.successful
-        |> Dict.insert
-            "failed"
-            ""
-        -- val.failed
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "successful" "" -- val.successful
+    --     |> Dict.insert
+    --         "failed" "" -- val.failed
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1072,14 +1063,15 @@ changeMessageVisibilityBatchResultEntryDecoder =
             )
 
 
-changeMessageVisibilityBatchResultEntryToString : ChangeMessageVisibilityBatchResultEntry -> List ( String, String )
+changeMessageVisibilityBatchResultEntryToString :
+    ChangeMessageVisibilityBatchResultEntry
+    -> String -- List (String, String)
 changeMessageVisibilityBatchResultEntryToString val =
-    Dict.empty
-        |> Dict.insert
-            "id"
-            ""
-        -- val.id
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "id" "" -- val.id
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from createQue
@@ -1099,14 +1091,15 @@ createQueueResultDecoder =
             )
 
 
-createQueueResultToString : CreateQueueResult -> List ( String, String )
+createQueueResultToString :
+    CreateQueueResult
+    -> String -- List (String, String)
 createQueueResultToString val =
-    Dict.empty
-        |> Dict.insert
-            "queueUrl"
-            ""
-        -- val.queueUrl
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "queueUrl" "" -- val.queueUrl
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1135,18 +1128,17 @@ deleteMessageBatchRequestEntryDecoder =
             )
 
 
-deleteMessageBatchRequestEntryToString : DeleteMessageBatchRequestEntry -> List ( String, String )
+deleteMessageBatchRequestEntryToString :
+    DeleteMessageBatchRequestEntry
+    -> String -- List (String, String)
 deleteMessageBatchRequestEntryToString val =
-    Dict.empty
-        |> Dict.insert
-            "id"
-            ""
-        -- val.id
-        |> Dict.insert
-            "receiptHandle"
-            ""
-        -- val.receiptHandle
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "id" "" -- val.id
+    --     |> Dict.insert
+    --         "receiptHandle" "" -- val.receiptHandle
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from deleteMessageBat
@@ -1172,18 +1164,17 @@ deleteMessageBatchResultDecoder =
             )
 
 
-deleteMessageBatchResultToString : DeleteMessageBatchResult -> List ( String, String )
+deleteMessageBatchResultToString :
+    DeleteMessageBatchResult
+    -> String -- List (String, String)
 deleteMessageBatchResultToString val =
-    Dict.empty
-        |> Dict.insert
-            "successful"
-            ""
-        -- val.successful
-        |> Dict.insert
-            "failed"
-            ""
-        -- val.failed
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "successful" "" -- val.successful
+    --     |> Dict.insert
+    --         "failed" "" -- val.failed
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1206,14 +1197,15 @@ deleteMessageBatchResultEntryDecoder =
             )
 
 
-deleteMessageBatchResultEntryToString : DeleteMessageBatchResultEntry -> List ( String, String )
+deleteMessageBatchResultEntryToString :
+    DeleteMessageBatchResultEntry
+    -> String -- List (String, String)
 deleteMessageBatchResultEntryToString val =
-    Dict.empty
-        |> Dict.insert
-            "id"
-            ""
-        -- val.id
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "id" "" -- val.id
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getQueueAttribut
@@ -1233,14 +1225,15 @@ getQueueAttributesResultDecoder =
             )
 
 
-getQueueAttributesResultToString : GetQueueAttributesResult -> List ( String, String )
+getQueueAttributesResultToString :
+    GetQueueAttributesResult
+    -> String -- List (String, String)
 getQueueAttributesResultToString val =
-    Dict.empty
-        |> Dict.insert
-            "attributes"
-            ""
-        -- val.attributes
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "attributes" "" -- val.attributes
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getQueueU
@@ -1260,14 +1253,15 @@ getQueueUrlResultDecoder =
             )
 
 
-getQueueUrlResultToString : GetQueueUrlResult -> List ( String, String )
+getQueueUrlResultToString :
+    GetQueueUrlResult
+    -> String -- List (String, String)
 getQueueUrlResultToString val =
-    Dict.empty
-        |> Dict.insert
-            "queueUrl"
-            ""
-        -- val.queueUrl
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "queueUrl" "" -- val.queueUrl
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listDeadLetterSourceQueu
@@ -1287,14 +1281,15 @@ listDeadLetterSourceQueuesResultDecoder =
             )
 
 
-listDeadLetterSourceQueuesResultToString : ListDeadLetterSourceQueuesResult -> List ( String, String )
+listDeadLetterSourceQueuesResultToString :
+    ListDeadLetterSourceQueuesResult
+    -> String -- List (String, String)
 listDeadLetterSourceQueuesResultToString val =
-    Dict.empty
-        |> Dict.insert
-            "queueUrls"
-            ""
-        -- val.queueUrls
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "queueUrls" "" -- val.queueUrls
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listQueueTa
@@ -1314,14 +1309,15 @@ listQueueTagsResultDecoder =
             )
 
 
-listQueueTagsResultToString : ListQueueTagsResult -> List ( String, String )
+listQueueTagsResultToString :
+    ListQueueTagsResult
+    -> String -- List (String, String)
 listQueueTagsResultToString val =
-    Dict.empty
-        |> Dict.insert
-            "tags"
-            ""
-        -- val.tags
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "tags" "" -- val.tags
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listQueu
@@ -1341,14 +1337,15 @@ listQueuesResultDecoder =
             )
 
 
-listQueuesResultToString : ListQueuesResult -> List ( String, String )
+listQueuesResultToString :
+    ListQueuesResult
+    -> String -- List (String, String)
 listQueuesResultToString val =
-    Dict.empty
-        |> Dict.insert
-            "queueUrls"
-            ""
-        -- val.queueUrls
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "queueUrls" "" -- val.queueUrls
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1407,38 +1404,27 @@ messageDecoder =
             )
 
 
-messageToString : Message -> List ( String, String )
+messageToString :
+    Message
+    -> String -- List (String, String)
 messageToString val =
-    Dict.empty
-        |> Dict.insert
-            "messageId"
-            ""
-        -- val.messageId
-        |> Dict.insert
-            "receiptHandle"
-            ""
-        -- val.receiptHandle
-        |> Dict.insert
-            "mD5OfBody"
-            ""
-        -- val.mD5OfBody
-        |> Dict.insert
-            "body"
-            ""
-        -- val.body
-        |> Dict.insert
-            "attributes"
-            ""
-        -- val.attributes
-        |> Dict.insert
-            "mD5OfMessageAttributes"
-            ""
-        -- val.mD5OfMessageAttributes
-        |> Dict.insert
-            "messageAttributes"
-            ""
-        -- val.messageAttributes
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "messageId" "" -- val.messageId
+    --     |> Dict.insert
+    --         "receiptHandle" "" -- val.receiptHandle
+    --     |> Dict.insert
+    --         "mD5OfBody" "" -- val.mD5OfBody
+    --     |> Dict.insert
+    --         "body" "" -- val.body
+    --     |> Dict.insert
+    --         "attributes" "" -- val.attributes
+    --     |> Dict.insert
+    --         "mD5OfMessageAttributes" "" -- val.mD5OfMessageAttributes
+    --     |> Dict.insert
+    --         "messageAttributes" "" -- val.messageAttributes
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1485,30 +1471,23 @@ messageAttributeValueDecoder =
             )
 
 
-messageAttributeValueToString : MessageAttributeValue -> List ( String, String )
+messageAttributeValueToString :
+    MessageAttributeValue
+    -> String -- List (String, String)
 messageAttributeValueToString val =
-    Dict.empty
-        |> Dict.insert
-            "stringValue"
-            ""
-        -- val.stringValue
-        |> Dict.insert
-            "binaryValue"
-            ""
-        -- val.binaryValue
-        |> Dict.insert
-            "stringListValues"
-            ""
-        -- val.stringListValues
-        |> Dict.insert
-            "binaryListValues"
-            ""
-        -- val.binaryListValues
-        |> Dict.insert
-            "dataType"
-            ""
-        -- val.dataType
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "stringValue" "" -- val.stringValue
+    --     |> Dict.insert
+    --         "binaryValue" "" -- val.binaryValue
+    --     |> Dict.insert
+    --         "stringListValues" "" -- val.stringListValues
+    --     |> Dict.insert
+    --         "binaryListValues" "" -- val.binaryListValues
+    --     |> Dict.insert
+    --         "dataType" "" -- val.dataType
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -1772,14 +1751,15 @@ receiveMessageResultDecoder =
             )
 
 
-receiveMessageResultToString : ReceiveMessageResult -> List ( String, String )
+receiveMessageResultToString :
+    ReceiveMessageResult
+    -> String -- List (String, String)
 receiveMessageResultToString val =
-    Dict.empty
-        |> Dict.insert
-            "messages"
-            ""
-        -- val.messages
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "messages" "" -- val.messages
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1832,34 +1812,25 @@ sendMessageBatchRequestEntryDecoder =
             )
 
 
-sendMessageBatchRequestEntryToString : SendMessageBatchRequestEntry -> List ( String, String )
+sendMessageBatchRequestEntryToString :
+    SendMessageBatchRequestEntry
+    -> String -- List (String, String)
 sendMessageBatchRequestEntryToString val =
-    Dict.empty
-        |> Dict.insert
-            "id"
-            ""
-        -- val.id
-        |> Dict.insert
-            "messageBody"
-            ""
-        -- val.messageBody
-        |> Dict.insert
-            "delaySeconds"
-            ""
-        -- val.delaySeconds
-        |> Dict.insert
-            "messageAttributes"
-            ""
-        -- val.messageAttributes
-        |> Dict.insert
-            "messageDeduplicationId"
-            ""
-        -- val.messageDeduplicationId
-        |> Dict.insert
-            "messageGroupId"
-            ""
-        -- val.messageGroupId
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "id" "" -- val.id
+    --     |> Dict.insert
+    --         "messageBody" "" -- val.messageBody
+    --     |> Dict.insert
+    --         "delaySeconds" "" -- val.delaySeconds
+    --     |> Dict.insert
+    --         "messageAttributes" "" -- val.messageAttributes
+    --     |> Dict.insert
+    --         "messageDeduplicationId" "" -- val.messageDeduplicationId
+    --     |> Dict.insert
+    --         "messageGroupId" "" -- val.messageGroupId
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from sendMessageBat
@@ -1885,18 +1856,17 @@ sendMessageBatchResultDecoder =
             )
 
 
-sendMessageBatchResultToString : SendMessageBatchResult -> List ( String, String )
+sendMessageBatchResultToString :
+    SendMessageBatchResult
+    -> String -- List (String, String)
 sendMessageBatchResultToString val =
-    Dict.empty
-        |> Dict.insert
-            "successful"
-            ""
-        -- val.successful
-        |> Dict.insert
-            "failed"
-            ""
-        -- val.failed
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "successful" "" -- val.successful
+    --     |> Dict.insert
+    --         "failed" "" -- val.failed
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1943,30 +1913,23 @@ sendMessageBatchResultEntryDecoder =
             )
 
 
-sendMessageBatchResultEntryToString : SendMessageBatchResultEntry -> List ( String, String )
+sendMessageBatchResultEntryToString :
+    SendMessageBatchResultEntry
+    -> String -- List (String, String)
 sendMessageBatchResultEntryToString val =
-    Dict.empty
-        |> Dict.insert
-            "id"
-            ""
-        -- val.id
-        |> Dict.insert
-            "messageId"
-            ""
-        -- val.messageId
-        |> Dict.insert
-            "mD5OfMessageBody"
-            ""
-        -- val.mD5OfMessageBody
-        |> Dict.insert
-            "mD5OfMessageAttributes"
-            ""
-        -- val.mD5OfMessageAttributes
-        |> Dict.insert
-            "sequenceNumber"
-            ""
-        -- val.sequenceNumber
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "id" "" -- val.id
+    --     |> Dict.insert
+    --         "messageId" "" -- val.messageId
+    --     |> Dict.insert
+    --         "mD5OfMessageBody" "" -- val.mD5OfMessageBody
+    --     |> Dict.insert
+    --         "mD5OfMessageAttributes" "" -- val.mD5OfMessageAttributes
+    --     |> Dict.insert
+    --         "sequenceNumber" "" -- val.sequenceNumber
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from sendMessa
@@ -2004,26 +1967,21 @@ sendMessageResultDecoder =
             )
 
 
-sendMessageResultToString : SendMessageResult -> List ( String, String )
+sendMessageResultToString :
+    SendMessageResult
+    -> String -- List (String, String)
 sendMessageResultToString val =
-    Dict.empty
-        |> Dict.insert
-            "mD5OfMessageBody"
-            ""
-        -- val.mD5OfMessageBody
-        |> Dict.insert
-            "mD5OfMessageAttributes"
-            ""
-        -- val.mD5OfMessageAttributes
-        |> Dict.insert
-            "messageId"
-            ""
-        -- val.messageId
-        |> Dict.insert
-            "sequenceNumber"
-            ""
-        -- val.sequenceNumber
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "mD5OfMessageBody" "" -- val.mD5OfMessageBody
+    --     |> Dict.insert
+    --         "mD5OfMessageAttributes" "" -- val.mD5OfMessageAttributes
+    --     |> Dict.insert
+    --         "messageId" "" -- val.messageId
+    --     |> Dict.insert
+    --         "sequenceNumber" "" -- val.sequenceNumber
+    --     |> Dict.toList
+    ""
 
 
 {-|

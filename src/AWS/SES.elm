@@ -2999,18 +2999,17 @@ addHeaderActionDecoder =
             )
 
 
-addHeaderActionToString : AddHeaderAction -> List ( String, String )
+addHeaderActionToString :
+    AddHeaderAction
+    -> String -- List (String, String)
 addHeaderActionToString val =
-    Dict.empty
-        |> Dict.insert
-            "headerName"
-            ""
-        -- val.headerName
-        |> Dict.insert
-            "headerValue"
-            ""
-        -- val.headerValue
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "headerName" "" -- val.headerName
+    --     |> Dict.insert
+    --         "headerValue" "" -- val.headerValue
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -3077,18 +3076,17 @@ bodyDecoder =
             )
 
 
-bodyToString : Body -> List ( String, String )
+bodyToString :
+    Body
+    -> String -- List (String, String)
 bodyToString val =
-    Dict.empty
-        |> Dict.insert
-            "text"
-            ""
-        -- val.text
-        |> Dict.insert
-            "html"
-            ""
-        -- val.html
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "text" "" -- val.text
+    --     |> Dict.insert
+    --         "html" "" -- val.html
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -3135,30 +3133,23 @@ bounceActionDecoder =
             )
 
 
-bounceActionToString : BounceAction -> List ( String, String )
+bounceActionToString :
+    BounceAction
+    -> String -- List (String, String)
 bounceActionToString val =
-    Dict.empty
-        |> Dict.insert
-            "topicArn"
-            ""
-        -- val.topicArn
-        |> Dict.insert
-            "smtpReplyCode"
-            ""
-        -- val.smtpReplyCode
-        |> Dict.insert
-            "statusCode"
-            ""
-        -- val.statusCode
-        |> Dict.insert
-            "message"
-            ""
-        -- val.message
-        |> Dict.insert
-            "sender"
-            ""
-        -- val.sender
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "topicArn" "" -- val.topicArn
+    --     |> Dict.insert
+    --         "smtpReplyCode" "" -- val.smtpReplyCode
+    --     |> Dict.insert
+    --         "statusCode" "" -- val.statusCode
+    --     |> Dict.insert
+    --         "message" "" -- val.message
+    --     |> Dict.insert
+    --         "sender" "" -- val.sender
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -3269,26 +3260,21 @@ bouncedRecipientInfoDecoder =
             )
 
 
-bouncedRecipientInfoToString : BouncedRecipientInfo -> List ( String, String )
+bouncedRecipientInfoToString :
+    BouncedRecipientInfo
+    -> String -- List (String, String)
 bouncedRecipientInfoToString val =
-    Dict.empty
-        |> Dict.insert
-            "recipient"
-            ""
-        -- val.recipient
-        |> Dict.insert
-            "recipientArn"
-            ""
-        -- val.recipientArn
-        |> Dict.insert
-            "bounceType"
-            ""
-        -- val.bounceType
-        |> Dict.insert
-            "recipientDsnFields"
-            ""
-        -- val.recipientDsnFields
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "recipient" "" -- val.recipient
+    --     |> Dict.insert
+    --         "recipientArn" "" -- val.recipientArn
+    --     |> Dict.insert
+    --         "bounceType" "" -- val.bounceType
+    --     |> Dict.insert
+    --         "recipientDsnFields" "" -- val.recipientDsnFields
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -3323,22 +3309,19 @@ bulkEmailDestinationDecoder =
             )
 
 
-bulkEmailDestinationToString : BulkEmailDestination -> List ( String, String )
+bulkEmailDestinationToString :
+    BulkEmailDestination
+    -> String -- List (String, String)
 bulkEmailDestinationToString val =
-    Dict.empty
-        |> Dict.insert
-            "destination"
-            ""
-        -- val.destination
-        |> Dict.insert
-            "replacementTags"
-            ""
-        -- val.replacementTags
-        |> Dict.insert
-            "replacementTemplateData"
-            ""
-        -- val.replacementTemplateData
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "destination" "" -- val.destination
+    --     |> Dict.insert
+    --         "replacementTags" "" -- val.replacementTags
+    --     |> Dict.insert
+    --         "replacementTemplateData" "" -- val.replacementTemplateData
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -3373,22 +3356,19 @@ bulkEmailDestinationStatusDecoder =
             )
 
 
-bulkEmailDestinationStatusToString : BulkEmailDestinationStatus -> List ( String, String )
+bulkEmailDestinationStatusToString :
+    BulkEmailDestinationStatus
+    -> String -- List (String, String)
 bulkEmailDestinationStatusToString val =
-    Dict.empty
-        |> Dict.insert
-            "status"
-            ""
-        -- val.status
-        |> Dict.insert
-            "error"
-            ""
-        -- val.error
-        |> Dict.insert
-            "messageId"
-            ""
-        -- val.messageId
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "status" "" -- val.status
+    --     |> Dict.insert
+    --         "error" "" -- val.error
+    --     |> Dict.insert
+    --         "messageId" "" -- val.messageId
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -3536,10 +3516,13 @@ cloneReceiptRuleSetResponseDecoder =
     JD.succeed CloneReceiptRuleSetResponse
 
 
-cloneReceiptRuleSetResponseToString : CloneReceiptRuleSetResponse -> List ( String, String )
+cloneReceiptRuleSetResponseToString :
+    CloneReceiptRuleSetResponse
+    -> String -- List (String, String)
 cloneReceiptRuleSetResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -3562,14 +3545,15 @@ cloudWatchDestinationDecoder =
             )
 
 
-cloudWatchDestinationToString : CloudWatchDestination -> List ( String, String )
+cloudWatchDestinationToString :
+    CloudWatchDestination
+    -> String -- List (String, String)
 cloudWatchDestinationToString val =
-    Dict.empty
-        |> Dict.insert
-            "dimensionConfigurations"
-            ""
-        -- val.dimensionConfigurations
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "dimensionConfigurations" "" -- val.dimensionConfigurations
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -3604,22 +3588,19 @@ cloudWatchDimensionConfigurationDecoder =
             )
 
 
-cloudWatchDimensionConfigurationToString : CloudWatchDimensionConfiguration -> List ( String, String )
+cloudWatchDimensionConfigurationToString :
+    CloudWatchDimensionConfiguration
+    -> String -- List (String, String)
 cloudWatchDimensionConfigurationToString val =
-    Dict.empty
-        |> Dict.insert
-            "dimensionName"
-            ""
-        -- val.dimensionName
-        |> Dict.insert
-            "dimensionValueSource"
-            ""
-        -- val.dimensionValueSource
-        |> Dict.insert
-            "defaultDimensionValue"
-            ""
-        -- val.defaultDimensionValue
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "dimensionName" "" -- val.dimensionName
+    --     |> Dict.insert
+    --         "dimensionValueSource" "" -- val.dimensionValueSource
+    --     |> Dict.insert
+    --         "defaultDimensionValue" "" -- val.defaultDimensionValue
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -3642,14 +3623,15 @@ configurationSetDecoder =
             )
 
 
-configurationSetToString : ConfigurationSet -> List ( String, String )
+configurationSetToString :
+    ConfigurationSet
+    -> String -- List (String, String)
 configurationSetToString val =
-    Dict.empty
-        |> Dict.insert
-            "name"
-            ""
-        -- val.name
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "name" "" -- val.name
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -3732,18 +3714,17 @@ contentDecoder =
             )
 
 
-contentToString : Content -> List ( String, String )
+contentToString :
+    Content
+    -> String -- List (String, String)
 contentToString val =
-    Dict.empty
-        |> Dict.insert
-            "data"
-            ""
-        -- val.data
-        |> Dict.insert
-            "charset"
-            ""
-        -- val.charset
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "data" "" -- val.data
+    --     |> Dict.insert
+    --         "charset" "" -- val.charset
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from createConfigurationSetEventDestination
@@ -3757,10 +3738,13 @@ createConfigurationSetEventDestinationResponseDecoder =
     JD.succeed CreateConfigurationSetEventDestinationResponse
 
 
-createConfigurationSetEventDestinationResponseToString : CreateConfigurationSetEventDestinationResponse -> List ( String, String )
+createConfigurationSetEventDestinationResponseToString :
+    CreateConfigurationSetEventDestinationResponse
+    -> String -- List (String, String)
 createConfigurationSetEventDestinationResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from createConfigurationSet
@@ -3774,10 +3758,13 @@ createConfigurationSetResponseDecoder =
     JD.succeed CreateConfigurationSetResponse
 
 
-createConfigurationSetResponseToString : CreateConfigurationSetResponse -> List ( String, String )
+createConfigurationSetResponseToString :
+    CreateConfigurationSetResponse
+    -> String -- List (String, String)
 createConfigurationSetResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from createConfigurationSetTrackingOptions
@@ -3791,10 +3778,13 @@ createConfigurationSetTrackingOptionsResponseDecoder =
     JD.succeed CreateConfigurationSetTrackingOptionsResponse
 
 
-createConfigurationSetTrackingOptionsResponseToString : CreateConfigurationSetTrackingOptionsResponse -> List ( String, String )
+createConfigurationSetTrackingOptionsResponseToString :
+    CreateConfigurationSetTrackingOptionsResponse
+    -> String -- List (String, String)
 createConfigurationSetTrackingOptionsResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from createReceiptFilter
@@ -3808,10 +3798,13 @@ createReceiptFilterResponseDecoder =
     JD.succeed CreateReceiptFilterResponse
 
 
-createReceiptFilterResponseToString : CreateReceiptFilterResponse -> List ( String, String )
+createReceiptFilterResponseToString :
+    CreateReceiptFilterResponse
+    -> String -- List (String, String)
 createReceiptFilterResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from createReceiptRule
@@ -3825,10 +3818,13 @@ createReceiptRuleResponseDecoder =
     JD.succeed CreateReceiptRuleResponse
 
 
-createReceiptRuleResponseToString : CreateReceiptRuleResponse -> List ( String, String )
+createReceiptRuleResponseToString :
+    CreateReceiptRuleResponse
+    -> String -- List (String, String)
 createReceiptRuleResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from createReceiptRuleSet
@@ -3842,10 +3838,13 @@ createReceiptRuleSetResponseDecoder =
     JD.succeed CreateReceiptRuleSetResponse
 
 
-createReceiptRuleSetResponseToString : CreateReceiptRuleSetResponse -> List ( String, String )
+createReceiptRuleSetResponseToString :
+    CreateReceiptRuleSetResponse
+    -> String -- List (String, String)
 createReceiptRuleSetResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from createTemplate
@@ -3859,10 +3858,13 @@ createTemplateResponseDecoder =
     JD.succeed CreateTemplateResponse
 
 
-createTemplateResponseToString : CreateTemplateResponse -> List ( String, String )
+createTemplateResponseToString :
+    CreateTemplateResponse
+    -> String -- List (String, String)
 createTemplateResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -3963,30 +3965,23 @@ customVerificationEmailTemplateDecoder =
             )
 
 
-customVerificationEmailTemplateToString : CustomVerificationEmailTemplate -> List ( String, String )
+customVerificationEmailTemplateToString :
+    CustomVerificationEmailTemplate
+    -> String -- List (String, String)
 customVerificationEmailTemplateToString val =
-    Dict.empty
-        |> Dict.insert
-            "templateName"
-            ""
-        -- val.templateName
-        |> Dict.insert
-            "fromEmailAddress"
-            ""
-        -- val.fromEmailAddress
-        |> Dict.insert
-            "templateSubject"
-            ""
-        -- val.templateSubject
-        |> Dict.insert
-            "successRedirectionURL"
-            ""
-        -- val.successRedirectionURL
-        |> Dict.insert
-            "failureRedirectionURL"
-            ""
-        -- val.failureRedirectionURL
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "templateName" "" -- val.templateName
+    --     |> Dict.insert
+    --         "fromEmailAddress" "" -- val.fromEmailAddress
+    --     |> Dict.insert
+    --         "templateSubject" "" -- val.templateSubject
+    --     |> Dict.insert
+    --         "successRedirectionURL" "" -- val.successRedirectionURL
+    --     |> Dict.insert
+    --         "failureRedirectionURL" "" -- val.failureRedirectionURL
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from deleteConfigurationSetEventDestination
@@ -4000,10 +3995,13 @@ deleteConfigurationSetEventDestinationResponseDecoder =
     JD.succeed DeleteConfigurationSetEventDestinationResponse
 
 
-deleteConfigurationSetEventDestinationResponseToString : DeleteConfigurationSetEventDestinationResponse -> List ( String, String )
+deleteConfigurationSetEventDestinationResponseToString :
+    DeleteConfigurationSetEventDestinationResponse
+    -> String -- List (String, String)
 deleteConfigurationSetEventDestinationResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from deleteConfigurationSet
@@ -4017,10 +4015,13 @@ deleteConfigurationSetResponseDecoder =
     JD.succeed DeleteConfigurationSetResponse
 
 
-deleteConfigurationSetResponseToString : DeleteConfigurationSetResponse -> List ( String, String )
+deleteConfigurationSetResponseToString :
+    DeleteConfigurationSetResponse
+    -> String -- List (String, String)
 deleteConfigurationSetResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from deleteConfigurationSetTrackingOptions
@@ -4034,10 +4035,13 @@ deleteConfigurationSetTrackingOptionsResponseDecoder =
     JD.succeed DeleteConfigurationSetTrackingOptionsResponse
 
 
-deleteConfigurationSetTrackingOptionsResponseToString : DeleteConfigurationSetTrackingOptionsResponse -> List ( String, String )
+deleteConfigurationSetTrackingOptionsResponseToString :
+    DeleteConfigurationSetTrackingOptionsResponse
+    -> String -- List (String, String)
 deleteConfigurationSetTrackingOptionsResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from deleteIdentityPolicy
@@ -4051,10 +4055,13 @@ deleteIdentityPolicyResponseDecoder =
     JD.succeed DeleteIdentityPolicyResponse
 
 
-deleteIdentityPolicyResponseToString : DeleteIdentityPolicyResponse -> List ( String, String )
+deleteIdentityPolicyResponseToString :
+    DeleteIdentityPolicyResponse
+    -> String -- List (String, String)
 deleteIdentityPolicyResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from deleteIdentity
@@ -4068,10 +4075,13 @@ deleteIdentityResponseDecoder =
     JD.succeed DeleteIdentityResponse
 
 
-deleteIdentityResponseToString : DeleteIdentityResponse -> List ( String, String )
+deleteIdentityResponseToString :
+    DeleteIdentityResponse
+    -> String -- List (String, String)
 deleteIdentityResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from deleteReceiptFilter
@@ -4085,10 +4095,13 @@ deleteReceiptFilterResponseDecoder =
     JD.succeed DeleteReceiptFilterResponse
 
 
-deleteReceiptFilterResponseToString : DeleteReceiptFilterResponse -> List ( String, String )
+deleteReceiptFilterResponseToString :
+    DeleteReceiptFilterResponse
+    -> String -- List (String, String)
 deleteReceiptFilterResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from deleteReceiptRule
@@ -4102,10 +4115,13 @@ deleteReceiptRuleResponseDecoder =
     JD.succeed DeleteReceiptRuleResponse
 
 
-deleteReceiptRuleResponseToString : DeleteReceiptRuleResponse -> List ( String, String )
+deleteReceiptRuleResponseToString :
+    DeleteReceiptRuleResponse
+    -> String -- List (String, String)
 deleteReceiptRuleResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from deleteReceiptRuleSet
@@ -4119,10 +4135,13 @@ deleteReceiptRuleSetResponseDecoder =
     JD.succeed DeleteReceiptRuleSetResponse
 
 
-deleteReceiptRuleSetResponseToString : DeleteReceiptRuleSetResponse -> List ( String, String )
+deleteReceiptRuleSetResponseToString :
+    DeleteReceiptRuleSetResponse
+    -> String -- List (String, String)
 deleteReceiptRuleSetResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from deleteTemplate
@@ -4136,10 +4155,13 @@ deleteTemplateResponseDecoder =
     JD.succeed DeleteTemplateResponse
 
 
-deleteTemplateResponseToString : DeleteTemplateResponse -> List ( String, String )
+deleteTemplateResponseToString :
+    DeleteTemplateResponse
+    -> String -- List (String, String)
 deleteTemplateResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -4162,14 +4184,15 @@ deliveryOptionsDecoder =
             )
 
 
-deliveryOptionsToString : DeliveryOptions -> List ( String, String )
+deliveryOptionsToString :
+    DeliveryOptions
+    -> String -- List (String, String)
 deliveryOptionsToString val =
-    Dict.empty
-        |> Dict.insert
-            "tlsPolicy"
-            ""
-        -- val.tlsPolicy
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "tlsPolicy" "" -- val.tlsPolicy
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from describeActiveReceiptRuleSet
@@ -4195,18 +4218,17 @@ describeActiveReceiptRuleSetResponseDecoder =
             )
 
 
-describeActiveReceiptRuleSetResponseToString : DescribeActiveReceiptRuleSetResponse -> List ( String, String )
+describeActiveReceiptRuleSetResponseToString :
+    DescribeActiveReceiptRuleSetResponse
+    -> String -- List (String, String)
 describeActiveReceiptRuleSetResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "metadata"
-            ""
-        -- val.metadata
-        |> Dict.insert
-            "rules"
-            ""
-        -- val.rules
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "metadata" "" -- val.metadata
+    --     |> Dict.insert
+    --         "rules" "" -- val.rules
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from describeConfigurationSet
@@ -4250,30 +4272,23 @@ describeConfigurationSetResponseDecoder =
             )
 
 
-describeConfigurationSetResponseToString : DescribeConfigurationSetResponse -> List ( String, String )
+describeConfigurationSetResponseToString :
+    DescribeConfigurationSetResponse
+    -> String -- List (String, String)
 describeConfigurationSetResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "configurationSet"
-            ""
-        -- val.configurationSet
-        |> Dict.insert
-            "eventDestinations"
-            ""
-        -- val.eventDestinations
-        |> Dict.insert
-            "trackingOptions"
-            ""
-        -- val.trackingOptions
-        |> Dict.insert
-            "deliveryOptions"
-            ""
-        -- val.deliveryOptions
-        |> Dict.insert
-            "reputationOptions"
-            ""
-        -- val.reputationOptions
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "configurationSet" "" -- val.configurationSet
+    --     |> Dict.insert
+    --         "eventDestinations" "" -- val.eventDestinations
+    --     |> Dict.insert
+    --         "trackingOptions" "" -- val.trackingOptions
+    --     |> Dict.insert
+    --         "deliveryOptions" "" -- val.deliveryOptions
+    --     |> Dict.insert
+    --         "reputationOptions" "" -- val.reputationOptions
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from describeReceiptRule
@@ -4293,14 +4308,15 @@ describeReceiptRuleResponseDecoder =
             )
 
 
-describeReceiptRuleResponseToString : DescribeReceiptRuleResponse -> List ( String, String )
+describeReceiptRuleResponseToString :
+    DescribeReceiptRuleResponse
+    -> String -- List (String, String)
 describeReceiptRuleResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "rule"
-            ""
-        -- val.rule
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "rule" "" -- val.rule
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from describeReceiptRuleSet
@@ -4326,18 +4342,17 @@ describeReceiptRuleSetResponseDecoder =
             )
 
 
-describeReceiptRuleSetResponseToString : DescribeReceiptRuleSetResponse -> List ( String, String )
+describeReceiptRuleSetResponseToString :
+    DescribeReceiptRuleSetResponse
+    -> String -- List (String, String)
 describeReceiptRuleSetResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "metadata"
-            ""
-        -- val.metadata
-        |> Dict.insert
-            "rules"
-            ""
-        -- val.rules
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "metadata" "" -- val.metadata
+    --     |> Dict.insert
+    --         "rules" "" -- val.rules
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -4372,22 +4387,19 @@ destinationDecoder =
             )
 
 
-destinationToString : Destination -> List ( String, String )
+destinationToString :
+    Destination
+    -> String -- List (String, String)
 destinationToString val =
-    Dict.empty
-        |> Dict.insert
-            "toAddresses"
-            ""
-        -- val.toAddresses
-        |> Dict.insert
-            "ccAddresses"
-            ""
-        -- val.ccAddresses
-        |> Dict.insert
-            "bccAddresses"
-            ""
-        -- val.bccAddresses
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "toAddresses" "" -- val.toAddresses
+    --     |> Dict.insert
+    --         "ccAddresses" "" -- val.ccAddresses
+    --     |> Dict.insert
+    --         "bccAddresses" "" -- val.bccAddresses
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -4548,34 +4560,25 @@ eventDestinationDecoder =
             )
 
 
-eventDestinationToString : EventDestination -> List ( String, String )
+eventDestinationToString :
+    EventDestination
+    -> String -- List (String, String)
 eventDestinationToString val =
-    Dict.empty
-        |> Dict.insert
-            "name"
-            ""
-        -- val.name
-        |> Dict.insert
-            "enabled"
-            ""
-        -- val.enabled
-        |> Dict.insert
-            "matchingEventTypes"
-            ""
-        -- val.matchingEventTypes
-        |> Dict.insert
-            "kinesisFirehoseDestination"
-            ""
-        -- val.kinesisFirehoseDestination
-        |> Dict.insert
-            "cloudWatchDestination"
-            ""
-        -- val.cloudWatchDestination
-        |> Dict.insert
-            "sNSDestination"
-            ""
-        -- val.sNSDestination
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "name" "" -- val.name
+    --     |> Dict.insert
+    --         "enabled" "" -- val.enabled
+    --     |> Dict.insert
+    --         "matchingEventTypes" "" -- val.matchingEventTypes
+    --     |> Dict.insert
+    --         "kinesisFirehoseDestination" "" -- val.kinesisFirehoseDestination
+    --     |> Dict.insert
+    --         "cloudWatchDestination" "" -- val.cloudWatchDestination
+    --     |> Dict.insert
+    --         "sNSDestination" "" -- val.sNSDestination
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -4690,18 +4693,17 @@ extensionFieldDecoder =
             )
 
 
-extensionFieldToString : ExtensionField -> List ( String, String )
+extensionFieldToString :
+    ExtensionField
+    -> String -- List (String, String)
 extensionFieldToString val =
-    Dict.empty
-        |> Dict.insert
-            "name"
-            ""
-        -- val.name
-        |> Dict.insert
-            "value"
-            ""
-        -- val.value
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "name" "" -- val.name
+    --     |> Dict.insert
+    --         "value" "" -- val.value
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getAccountSendingEnabled
@@ -4721,14 +4723,15 @@ getAccountSendingEnabledResponseDecoder =
             )
 
 
-getAccountSendingEnabledResponseToString : GetAccountSendingEnabledResponse -> List ( String, String )
+getAccountSendingEnabledResponseToString :
+    GetAccountSendingEnabledResponse
+    -> String -- List (String, String)
 getAccountSendingEnabledResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "enabled"
-            ""
-        -- val.enabled
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "enabled" "" -- val.enabled
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getCustomVerificationEmailTemplate
@@ -4778,34 +4781,25 @@ getCustomVerificationEmailTemplateResponseDecoder =
             )
 
 
-getCustomVerificationEmailTemplateResponseToString : GetCustomVerificationEmailTemplateResponse -> List ( String, String )
+getCustomVerificationEmailTemplateResponseToString :
+    GetCustomVerificationEmailTemplateResponse
+    -> String -- List (String, String)
 getCustomVerificationEmailTemplateResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "templateName"
-            ""
-        -- val.templateName
-        |> Dict.insert
-            "fromEmailAddress"
-            ""
-        -- val.fromEmailAddress
-        |> Dict.insert
-            "templateSubject"
-            ""
-        -- val.templateSubject
-        |> Dict.insert
-            "templateContent"
-            ""
-        -- val.templateContent
-        |> Dict.insert
-            "successRedirectionURL"
-            ""
-        -- val.successRedirectionURL
-        |> Dict.insert
-            "failureRedirectionURL"
-            ""
-        -- val.failureRedirectionURL
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "templateName" "" -- val.templateName
+    --     |> Dict.insert
+    --         "fromEmailAddress" "" -- val.fromEmailAddress
+    --     |> Dict.insert
+    --         "templateSubject" "" -- val.templateSubject
+    --     |> Dict.insert
+    --         "templateContent" "" -- val.templateContent
+    --     |> Dict.insert
+    --         "successRedirectionURL" "" -- val.successRedirectionURL
+    --     |> Dict.insert
+    --         "failureRedirectionURL" "" -- val.failureRedirectionURL
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getIdentityDkimAttributes
@@ -4825,14 +4819,15 @@ getIdentityDkimAttributesResponseDecoder =
             )
 
 
-getIdentityDkimAttributesResponseToString : GetIdentityDkimAttributesResponse -> List ( String, String )
+getIdentityDkimAttributesResponseToString :
+    GetIdentityDkimAttributesResponse
+    -> String -- List (String, String)
 getIdentityDkimAttributesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "dkimAttributes"
-            ""
-        -- val.dkimAttributes
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "dkimAttributes" "" -- val.dkimAttributes
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getIdentityMailFromDomainAttributes
@@ -4852,14 +4847,15 @@ getIdentityMailFromDomainAttributesResponseDecoder =
             )
 
 
-getIdentityMailFromDomainAttributesResponseToString : GetIdentityMailFromDomainAttributesResponse -> List ( String, String )
+getIdentityMailFromDomainAttributesResponseToString :
+    GetIdentityMailFromDomainAttributesResponse
+    -> String -- List (String, String)
 getIdentityMailFromDomainAttributesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "mailFromDomainAttributes"
-            ""
-        -- val.mailFromDomainAttributes
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "mailFromDomainAttributes" "" -- val.mailFromDomainAttributes
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getIdentityNotificationAttributes
@@ -4879,14 +4875,15 @@ getIdentityNotificationAttributesResponseDecoder =
             )
 
 
-getIdentityNotificationAttributesResponseToString : GetIdentityNotificationAttributesResponse -> List ( String, String )
+getIdentityNotificationAttributesResponseToString :
+    GetIdentityNotificationAttributesResponse
+    -> String -- List (String, String)
 getIdentityNotificationAttributesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "notificationAttributes"
-            ""
-        -- val.notificationAttributes
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "notificationAttributes" "" -- val.notificationAttributes
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getIdentityPolicies
@@ -4906,14 +4903,15 @@ getIdentityPoliciesResponseDecoder =
             )
 
 
-getIdentityPoliciesResponseToString : GetIdentityPoliciesResponse -> List ( String, String )
+getIdentityPoliciesResponseToString :
+    GetIdentityPoliciesResponse
+    -> String -- List (String, String)
 getIdentityPoliciesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "policies"
-            ""
-        -- val.policies
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "policies" "" -- val.policies
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getIdentityVerificationAttributes
@@ -4933,14 +4931,15 @@ getIdentityVerificationAttributesResponseDecoder =
             )
 
 
-getIdentityVerificationAttributesResponseToString : GetIdentityVerificationAttributesResponse -> List ( String, String )
+getIdentityVerificationAttributesResponseToString :
+    GetIdentityVerificationAttributesResponse
+    -> String -- List (String, String)
 getIdentityVerificationAttributesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "verificationAttributes"
-            ""
-        -- val.verificationAttributes
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "verificationAttributes" "" -- val.verificationAttributes
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getSendQuota
@@ -4972,22 +4971,19 @@ getSendQuotaResponseDecoder =
             )
 
 
-getSendQuotaResponseToString : GetSendQuotaResponse -> List ( String, String )
+getSendQuotaResponseToString :
+    GetSendQuotaResponse
+    -> String -- List (String, String)
 getSendQuotaResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "max24HourSend"
-            ""
-        -- val.max24HourSend
-        |> Dict.insert
-            "maxSendRate"
-            ""
-        -- val.maxSendRate
-        |> Dict.insert
-            "sentLast24Hours"
-            ""
-        -- val.sentLast24Hours
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "max24HourSend" "" -- val.max24HourSend
+    --     |> Dict.insert
+    --         "maxSendRate" "" -- val.maxSendRate
+    --     |> Dict.insert
+    --         "sentLast24Hours" "" -- val.sentLast24Hours
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getSendStatistics
@@ -5007,14 +5003,15 @@ getSendStatisticsResponseDecoder =
             )
 
 
-getSendStatisticsResponseToString : GetSendStatisticsResponse -> List ( String, String )
+getSendStatisticsResponseToString :
+    GetSendStatisticsResponse
+    -> String -- List (String, String)
 getSendStatisticsResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "sendDataPoints"
-            ""
-        -- val.sendDataPoints
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "sendDataPoints" "" -- val.sendDataPoints
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getTemplate
@@ -5034,14 +5031,15 @@ getTemplateResponseDecoder =
             )
 
 
-getTemplateResponseToString : GetTemplateResponse -> List ( String, String )
+getTemplateResponseToString :
+    GetTemplateResponse
+    -> String -- List (String, String)
 getTemplateResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "template"
-            ""
-        -- val.template
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "template" "" -- val.template
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -5076,22 +5074,19 @@ identityDkimAttributesDecoder =
             )
 
 
-identityDkimAttributesToString : IdentityDkimAttributes -> List ( String, String )
+identityDkimAttributesToString :
+    IdentityDkimAttributes
+    -> String -- List (String, String)
 identityDkimAttributesToString val =
-    Dict.empty
-        |> Dict.insert
-            "dkimEnabled"
-            ""
-        -- val.dkimEnabled
-        |> Dict.insert
-            "dkimVerificationStatus"
-            ""
-        -- val.dkimVerificationStatus
-        |> Dict.insert
-            "dkimTokens"
-            ""
-        -- val.dkimTokens
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "dkimEnabled" "" -- val.dkimEnabled
+    --     |> Dict.insert
+    --         "dkimVerificationStatus" "" -- val.dkimVerificationStatus
+    --     |> Dict.insert
+    --         "dkimTokens" "" -- val.dkimTokens
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -5126,22 +5121,19 @@ identityMailFromDomainAttributesDecoder =
             )
 
 
-identityMailFromDomainAttributesToString : IdentityMailFromDomainAttributes -> List ( String, String )
+identityMailFromDomainAttributesToString :
+    IdentityMailFromDomainAttributes
+    -> String -- List (String, String)
 identityMailFromDomainAttributesToString val =
-    Dict.empty
-        |> Dict.insert
-            "mailFromDomain"
-            ""
-        -- val.mailFromDomain
-        |> Dict.insert
-            "mailFromDomainStatus"
-            ""
-        -- val.mailFromDomainStatus
-        |> Dict.insert
-            "behaviorOnMXFailure"
-            ""
-        -- val.behaviorOnMXFailure
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "mailFromDomain" "" -- val.mailFromDomain
+    --     |> Dict.insert
+    --         "mailFromDomainStatus" "" -- val.mailFromDomainStatus
+    --     |> Dict.insert
+    --         "behaviorOnMXFailure" "" -- val.behaviorOnMXFailure
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -5200,38 +5192,27 @@ identityNotificationAttributesDecoder =
             )
 
 
-identityNotificationAttributesToString : IdentityNotificationAttributes -> List ( String, String )
+identityNotificationAttributesToString :
+    IdentityNotificationAttributes
+    -> String -- List (String, String)
 identityNotificationAttributesToString val =
-    Dict.empty
-        |> Dict.insert
-            "bounceTopic"
-            ""
-        -- val.bounceTopic
-        |> Dict.insert
-            "complaintTopic"
-            ""
-        -- val.complaintTopic
-        |> Dict.insert
-            "deliveryTopic"
-            ""
-        -- val.deliveryTopic
-        |> Dict.insert
-            "forwardingEnabled"
-            ""
-        -- val.forwardingEnabled
-        |> Dict.insert
-            "headersInBounceNotificationsEnabled"
-            ""
-        -- val.headersInBounceNotificationsEnabled
-        |> Dict.insert
-            "headersInComplaintNotificationsEnabled"
-            ""
-        -- val.headersInComplaintNotificationsEnabled
-        |> Dict.insert
-            "headersInDeliveryNotificationsEnabled"
-            ""
-        -- val.headersInDeliveryNotificationsEnabled
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "bounceTopic" "" -- val.bounceTopic
+    --     |> Dict.insert
+    --         "complaintTopic" "" -- val.complaintTopic
+    --     |> Dict.insert
+    --         "deliveryTopic" "" -- val.deliveryTopic
+    --     |> Dict.insert
+    --         "forwardingEnabled" "" -- val.forwardingEnabled
+    --     |> Dict.insert
+    --         "headersInBounceNotificationsEnabled" "" -- val.headersInBounceNotificationsEnabled
+    --     |> Dict.insert
+    --         "headersInComplaintNotificationsEnabled" "" -- val.headersInComplaintNotificationsEnabled
+    --     |> Dict.insert
+    --         "headersInDeliveryNotificationsEnabled" "" -- val.headersInDeliveryNotificationsEnabled
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -5298,18 +5279,17 @@ identityVerificationAttributesDecoder =
             )
 
 
-identityVerificationAttributesToString : IdentityVerificationAttributes -> List ( String, String )
+identityVerificationAttributesToString :
+    IdentityVerificationAttributes
+    -> String -- List (String, String)
 identityVerificationAttributesToString val =
-    Dict.empty
-        |> Dict.insert
-            "verificationStatus"
-            ""
-        -- val.verificationStatus
-        |> Dict.insert
-            "verificationToken"
-            ""
-        -- val.verificationToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "verificationStatus" "" -- val.verificationStatus
+    --     |> Dict.insert
+    --         "verificationToken" "" -- val.verificationToken
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -5376,18 +5356,17 @@ kinesisFirehoseDestinationDecoder =
             )
 
 
-kinesisFirehoseDestinationToString : KinesisFirehoseDestination -> List ( String, String )
+kinesisFirehoseDestinationToString :
+    KinesisFirehoseDestination
+    -> String -- List (String, String)
 kinesisFirehoseDestinationToString val =
-    Dict.empty
-        |> Dict.insert
-            "iAMRoleARN"
-            ""
-        -- val.iAMRoleARN
-        |> Dict.insert
-            "deliveryStreamARN"
-            ""
-        -- val.deliveryStreamARN
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "iAMRoleARN" "" -- val.iAMRoleARN
+    --     |> Dict.insert
+    --         "deliveryStreamARN" "" -- val.deliveryStreamARN
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -5422,22 +5401,19 @@ lambdaActionDecoder =
             )
 
 
-lambdaActionToString : LambdaAction -> List ( String, String )
+lambdaActionToString :
+    LambdaAction
+    -> String -- List (String, String)
 lambdaActionToString val =
-    Dict.empty
-        |> Dict.insert
-            "topicArn"
-            ""
-        -- val.topicArn
-        |> Dict.insert
-            "functionArn"
-            ""
-        -- val.functionArn
-        |> Dict.insert
-            "invocationType"
-            ""
-        -- val.invocationType
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "topicArn" "" -- val.topicArn
+    --     |> Dict.insert
+    --         "functionArn" "" -- val.functionArn
+    --     |> Dict.insert
+    --         "invocationType" "" -- val.invocationType
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listConfigurationSets
@@ -5463,18 +5439,17 @@ listConfigurationSetsResponseDecoder =
             )
 
 
-listConfigurationSetsResponseToString : ListConfigurationSetsResponse -> List ( String, String )
+listConfigurationSetsResponseToString :
+    ListConfigurationSetsResponse
+    -> String -- List (String, String)
 listConfigurationSetsResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "configurationSets"
-            ""
-        -- val.configurationSets
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "configurationSets" "" -- val.configurationSets
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listCustomVerificationEmailTemplates
@@ -5500,18 +5475,17 @@ listCustomVerificationEmailTemplatesResponseDecoder =
             )
 
 
-listCustomVerificationEmailTemplatesResponseToString : ListCustomVerificationEmailTemplatesResponse -> List ( String, String )
+listCustomVerificationEmailTemplatesResponseToString :
+    ListCustomVerificationEmailTemplatesResponse
+    -> String -- List (String, String)
 listCustomVerificationEmailTemplatesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "customVerificationEmailTemplates"
-            ""
-        -- val.customVerificationEmailTemplates
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "customVerificationEmailTemplates" "" -- val.customVerificationEmailTemplates
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listIdentities
@@ -5537,18 +5511,17 @@ listIdentitiesResponseDecoder =
             )
 
 
-listIdentitiesResponseToString : ListIdentitiesResponse -> List ( String, String )
+listIdentitiesResponseToString :
+    ListIdentitiesResponse
+    -> String -- List (String, String)
 listIdentitiesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "identities"
-            ""
-        -- val.identities
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "identities" "" -- val.identities
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listIdentityPolicies
@@ -5568,14 +5541,15 @@ listIdentityPoliciesResponseDecoder =
             )
 
 
-listIdentityPoliciesResponseToString : ListIdentityPoliciesResponse -> List ( String, String )
+listIdentityPoliciesResponseToString :
+    ListIdentityPoliciesResponse
+    -> String -- List (String, String)
 listIdentityPoliciesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "policyNames"
-            ""
-        -- val.policyNames
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "policyNames" "" -- val.policyNames
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listReceiptFilters
@@ -5595,14 +5569,15 @@ listReceiptFiltersResponseDecoder =
             )
 
 
-listReceiptFiltersResponseToString : ListReceiptFiltersResponse -> List ( String, String )
+listReceiptFiltersResponseToString :
+    ListReceiptFiltersResponse
+    -> String -- List (String, String)
 listReceiptFiltersResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "filters"
-            ""
-        -- val.filters
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "filters" "" -- val.filters
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listReceiptRuleSets
@@ -5628,18 +5603,17 @@ listReceiptRuleSetsResponseDecoder =
             )
 
 
-listReceiptRuleSetsResponseToString : ListReceiptRuleSetsResponse -> List ( String, String )
+listReceiptRuleSetsResponseToString :
+    ListReceiptRuleSetsResponse
+    -> String -- List (String, String)
 listReceiptRuleSetsResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "ruleSets"
-            ""
-        -- val.ruleSets
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "ruleSets" "" -- val.ruleSets
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listTemplates
@@ -5665,18 +5639,17 @@ listTemplatesResponseDecoder =
             )
 
 
-listTemplatesResponseToString : ListTemplatesResponse -> List ( String, String )
+listTemplatesResponseToString :
+    ListTemplatesResponse
+    -> String -- List (String, String)
 listTemplatesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "templatesMetadata"
-            ""
-        -- val.templatesMetadata
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "templatesMetadata" "" -- val.templatesMetadata
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listVerifiedEmailAddresses
@@ -5696,14 +5669,15 @@ listVerifiedEmailAddressesResponseDecoder =
             )
 
 
-listVerifiedEmailAddressesResponseToString : ListVerifiedEmailAddressesResponse -> List ( String, String )
+listVerifiedEmailAddressesResponseToString :
+    ListVerifiedEmailAddressesResponse
+    -> String -- List (String, String)
 listVerifiedEmailAddressesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "verifiedEmailAddresses"
-            ""
-        -- val.verifiedEmailAddresses
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "verifiedEmailAddresses" "" -- val.verifiedEmailAddresses
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -5732,18 +5706,17 @@ messageDecoder =
             )
 
 
-messageToString : Message -> List ( String, String )
+messageToString :
+    Message
+    -> String -- List (String, String)
 messageToString val =
-    Dict.empty
-        |> Dict.insert
-            "subject"
-            ""
-        -- val.subject
-        |> Dict.insert
-            "body"
-            ""
-        -- val.body
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "subject" "" -- val.subject
+    --     |> Dict.insert
+    --         "body" "" -- val.body
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -5778,22 +5751,19 @@ messageDsnDecoder =
             )
 
 
-messageDsnToString : MessageDsn -> List ( String, String )
+messageDsnToString :
+    MessageDsn
+    -> String -- List (String, String)
 messageDsnToString val =
-    Dict.empty
-        |> Dict.insert
-            "reportingMta"
-            ""
-        -- val.reportingMta
-        |> Dict.insert
-            "arrivalDate"
-            ""
-        -- val.arrivalDate
-        |> Dict.insert
-            "extensionFields"
-            ""
-        -- val.extensionFields
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "reportingMta" "" -- val.reportingMta
+    --     |> Dict.insert
+    --         "arrivalDate" "" -- val.arrivalDate
+    --     |> Dict.insert
+    --         "extensionFields" "" -- val.extensionFields
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -5822,18 +5792,17 @@ messageTagDecoder =
             )
 
 
-messageTagToString : MessageTag -> List ( String, String )
+messageTagToString :
+    MessageTag
+    -> String -- List (String, String)
 messageTagToString val =
-    Dict.empty
-        |> Dict.insert
-            "name"
-            ""
-        -- val.name
-        |> Dict.insert
-            "value"
-            ""
-        -- val.value
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "name" "" -- val.name
+    --     |> Dict.insert
+    --         "value" "" -- val.value
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -5893,10 +5862,13 @@ putConfigurationSetDeliveryOptionsResponseDecoder =
     JD.succeed PutConfigurationSetDeliveryOptionsResponse
 
 
-putConfigurationSetDeliveryOptionsResponseToString : PutConfigurationSetDeliveryOptionsResponse -> List ( String, String )
+putConfigurationSetDeliveryOptionsResponseToString :
+    PutConfigurationSetDeliveryOptionsResponse
+    -> String -- List (String, String)
 putConfigurationSetDeliveryOptionsResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from putIdentityPolicy
@@ -5910,10 +5882,13 @@ putIdentityPolicyResponseDecoder =
     JD.succeed PutIdentityPolicyResponse
 
 
-putIdentityPolicyResponseToString : PutIdentityPolicyResponse -> List ( String, String )
+putIdentityPolicyResponseToString :
+    PutIdentityPolicyResponse
+    -> String -- List (String, String)
 putIdentityPolicyResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -5936,14 +5911,15 @@ rawMessageDecoder =
             )
 
 
-rawMessageToString : RawMessage -> List ( String, String )
+rawMessageToString :
+    RawMessage
+    -> String -- List (String, String)
 rawMessageToString val =
-    Dict.empty
-        |> Dict.insert
-            "data"
-            ""
-        -- val.data
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "data" "" -- val.data
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -6002,38 +5978,27 @@ receiptActionDecoder =
             )
 
 
-receiptActionToString : ReceiptAction -> List ( String, String )
+receiptActionToString :
+    ReceiptAction
+    -> String -- List (String, String)
 receiptActionToString val =
-    Dict.empty
-        |> Dict.insert
-            "s3Action"
-            ""
-        -- val.s3Action
-        |> Dict.insert
-            "bounceAction"
-            ""
-        -- val.bounceAction
-        |> Dict.insert
-            "workmailAction"
-            ""
-        -- val.workmailAction
-        |> Dict.insert
-            "lambdaAction"
-            ""
-        -- val.lambdaAction
-        |> Dict.insert
-            "stopAction"
-            ""
-        -- val.stopAction
-        |> Dict.insert
-            "addHeaderAction"
-            ""
-        -- val.addHeaderAction
-        |> Dict.insert
-            "sNSAction"
-            ""
-        -- val.sNSAction
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "s3Action" "" -- val.s3Action
+    --     |> Dict.insert
+    --         "bounceAction" "" -- val.bounceAction
+    --     |> Dict.insert
+    --         "workmailAction" "" -- val.workmailAction
+    --     |> Dict.insert
+    --         "lambdaAction" "" -- val.lambdaAction
+    --     |> Dict.insert
+    --         "stopAction" "" -- val.stopAction
+    --     |> Dict.insert
+    --         "addHeaderAction" "" -- val.addHeaderAction
+    --     |> Dict.insert
+    --         "sNSAction" "" -- val.sNSAction
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -6062,18 +6027,17 @@ receiptFilterDecoder =
             )
 
 
-receiptFilterToString : ReceiptFilter -> List ( String, String )
+receiptFilterToString :
+    ReceiptFilter
+    -> String -- List (String, String)
 receiptFilterToString val =
-    Dict.empty
-        |> Dict.insert
-            "name"
-            ""
-        -- val.name
-        |> Dict.insert
-            "ipFilter"
-            ""
-        -- val.ipFilter
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "name" "" -- val.name
+    --     |> Dict.insert
+    --         "ipFilter" "" -- val.ipFilter
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -6140,18 +6104,17 @@ receiptIpFilterDecoder =
             )
 
 
-receiptIpFilterToString : ReceiptIpFilter -> List ( String, String )
+receiptIpFilterToString :
+    ReceiptIpFilter
+    -> String -- List (String, String)
 receiptIpFilterToString val =
-    Dict.empty
-        |> Dict.insert
-            "policy"
-            ""
-        -- val.policy
-        |> Dict.insert
-            "cidr"
-            ""
-        -- val.cidr
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "policy" "" -- val.policy
+    --     |> Dict.insert
+    --         "cidr" "" -- val.cidr
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -6204,34 +6167,25 @@ receiptRuleDecoder =
             )
 
 
-receiptRuleToString : ReceiptRule -> List ( String, String )
+receiptRuleToString :
+    ReceiptRule
+    -> String -- List (String, String)
 receiptRuleToString val =
-    Dict.empty
-        |> Dict.insert
-            "name"
-            ""
-        -- val.name
-        |> Dict.insert
-            "enabled"
-            ""
-        -- val.enabled
-        |> Dict.insert
-            "tlsPolicy"
-            ""
-        -- val.tlsPolicy
-        |> Dict.insert
-            "recipients"
-            ""
-        -- val.recipients
-        |> Dict.insert
-            "actions"
-            ""
-        -- val.actions
-        |> Dict.insert
-            "scanEnabled"
-            ""
-        -- val.scanEnabled
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "name" "" -- val.name
+    --     |> Dict.insert
+    --         "enabled" "" -- val.enabled
+    --     |> Dict.insert
+    --         "tlsPolicy" "" -- val.tlsPolicy
+    --     |> Dict.insert
+    --         "recipients" "" -- val.recipients
+    --     |> Dict.insert
+    --         "actions" "" -- val.actions
+    --     |> Dict.insert
+    --         "scanEnabled" "" -- val.scanEnabled
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -6260,18 +6214,17 @@ receiptRuleSetMetadataDecoder =
             )
 
 
-receiptRuleSetMetadataToString : ReceiptRuleSetMetadata -> List ( String, String )
+receiptRuleSetMetadataToString :
+    ReceiptRuleSetMetadata
+    -> String -- List (String, String)
 receiptRuleSetMetadataToString val =
-    Dict.empty
-        |> Dict.insert
-            "name"
-            ""
-        -- val.name
-        |> Dict.insert
-            "createdTimestamp"
-            ""
-        -- val.createdTimestamp
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "name" "" -- val.name
+    --     |> Dict.insert
+    --         "createdTimestamp" "" -- val.createdTimestamp
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -6330,38 +6283,27 @@ recipientDsnFieldsDecoder =
             )
 
 
-recipientDsnFieldsToString : RecipientDsnFields -> List ( String, String )
+recipientDsnFieldsToString :
+    RecipientDsnFields
+    -> String -- List (String, String)
 recipientDsnFieldsToString val =
-    Dict.empty
-        |> Dict.insert
-            "finalRecipient"
-            ""
-        -- val.finalRecipient
-        |> Dict.insert
-            "action"
-            ""
-        -- val.action
-        |> Dict.insert
-            "remoteMta"
-            ""
-        -- val.remoteMta
-        |> Dict.insert
-            "status"
-            ""
-        -- val.status
-        |> Dict.insert
-            "diagnosticCode"
-            ""
-        -- val.diagnosticCode
-        |> Dict.insert
-            "lastAttemptDate"
-            ""
-        -- val.lastAttemptDate
-        |> Dict.insert
-            "extensionFields"
-            ""
-        -- val.extensionFields
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "finalRecipient" "" -- val.finalRecipient
+    --     |> Dict.insert
+    --         "action" "" -- val.action
+    --     |> Dict.insert
+    --         "remoteMta" "" -- val.remoteMta
+    --     |> Dict.insert
+    --         "status" "" -- val.status
+    --     |> Dict.insert
+    --         "diagnosticCode" "" -- val.diagnosticCode
+    --     |> Dict.insert
+    --         "lastAttemptDate" "" -- val.lastAttemptDate
+    --     |> Dict.insert
+    --         "extensionFields" "" -- val.extensionFields
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from reorderReceiptRuleSet
@@ -6375,10 +6317,13 @@ reorderReceiptRuleSetResponseDecoder =
     JD.succeed ReorderReceiptRuleSetResponse
 
 
-reorderReceiptRuleSetResponseToString : ReorderReceiptRuleSetResponse -> List ( String, String )
+reorderReceiptRuleSetResponseToString :
+    ReorderReceiptRuleSetResponse
+    -> String -- List (String, String)
 reorderReceiptRuleSetResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -6413,22 +6358,19 @@ reputationOptionsDecoder =
             )
 
 
-reputationOptionsToString : ReputationOptions -> List ( String, String )
+reputationOptionsToString :
+    ReputationOptions
+    -> String -- List (String, String)
 reputationOptionsToString val =
-    Dict.empty
-        |> Dict.insert
-            "sendingEnabled"
-            ""
-        -- val.sendingEnabled
-        |> Dict.insert
-            "reputationMetricsEnabled"
-            ""
-        -- val.reputationMetricsEnabled
-        |> Dict.insert
-            "lastFreshStart"
-            ""
-        -- val.lastFreshStart
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "sendingEnabled" "" -- val.sendingEnabled
+    --     |> Dict.insert
+    --         "reputationMetricsEnabled" "" -- val.reputationMetricsEnabled
+    --     |> Dict.insert
+    --         "lastFreshStart" "" -- val.lastFreshStart
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -6469,26 +6411,21 @@ s3ActionDecoder =
             )
 
 
-s3ActionToString : S3Action -> List ( String, String )
+s3ActionToString :
+    S3Action
+    -> String -- List (String, String)
 s3ActionToString val =
-    Dict.empty
-        |> Dict.insert
-            "topicArn"
-            ""
-        -- val.topicArn
-        |> Dict.insert
-            "bucketName"
-            ""
-        -- val.bucketName
-        |> Dict.insert
-            "objectKeyPrefix"
-            ""
-        -- val.objectKeyPrefix
-        |> Dict.insert
-            "kmsKeyArn"
-            ""
-        -- val.kmsKeyArn
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "topicArn" "" -- val.topicArn
+    --     |> Dict.insert
+    --         "bucketName" "" -- val.bucketName
+    --     |> Dict.insert
+    --         "objectKeyPrefix" "" -- val.objectKeyPrefix
+    --     |> Dict.insert
+    --         "kmsKeyArn" "" -- val.kmsKeyArn
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -6517,18 +6454,17 @@ sNSActionDecoder =
             )
 
 
-sNSActionToString : SNSAction -> List ( String, String )
+sNSActionToString :
+    SNSAction
+    -> String -- List (String, String)
 sNSActionToString val =
-    Dict.empty
-        |> Dict.insert
-            "topicArn"
-            ""
-        -- val.topicArn
-        |> Dict.insert
-            "encoding"
-            ""
-        -- val.encoding
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "topicArn" "" -- val.topicArn
+    --     |> Dict.insert
+    --         "encoding" "" -- val.encoding
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -6589,14 +6525,15 @@ sNSDestinationDecoder =
             )
 
 
-sNSDestinationToString : SNSDestination -> List ( String, String )
+sNSDestinationToString :
+    SNSDestination
+    -> String -- List (String, String)
 sNSDestinationToString val =
-    Dict.empty
-        |> Dict.insert
-            "topicARN"
-            ""
-        -- val.topicARN
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "topicARN" "" -- val.topicARN
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from sendBounce
@@ -6616,14 +6553,15 @@ sendBounceResponseDecoder =
             )
 
 
-sendBounceResponseToString : SendBounceResponse -> List ( String, String )
+sendBounceResponseToString :
+    SendBounceResponse
+    -> String -- List (String, String)
 sendBounceResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "messageId"
-            ""
-        -- val.messageId
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "messageId" "" -- val.messageId
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from sendBulkTemplatedEmail
@@ -6643,14 +6581,15 @@ sendBulkTemplatedEmailResponseDecoder =
             )
 
 
-sendBulkTemplatedEmailResponseToString : SendBulkTemplatedEmailResponse -> List ( String, String )
+sendBulkTemplatedEmailResponseToString :
+    SendBulkTemplatedEmailResponse
+    -> String -- List (String, String)
 sendBulkTemplatedEmailResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "status"
-            ""
-        -- val.status
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "status" "" -- val.status
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from sendCustomVerificationEmail
@@ -6670,14 +6609,15 @@ sendCustomVerificationEmailResponseDecoder =
             )
 
 
-sendCustomVerificationEmailResponseToString : SendCustomVerificationEmailResponse -> List ( String, String )
+sendCustomVerificationEmailResponseToString :
+    SendCustomVerificationEmailResponse
+    -> String -- List (String, String)
 sendCustomVerificationEmailResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "messageId"
-            ""
-        -- val.messageId
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "messageId" "" -- val.messageId
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -6724,30 +6664,23 @@ sendDataPointDecoder =
             )
 
 
-sendDataPointToString : SendDataPoint -> List ( String, String )
+sendDataPointToString :
+    SendDataPoint
+    -> String -- List (String, String)
 sendDataPointToString val =
-    Dict.empty
-        |> Dict.insert
-            "timestamp"
-            ""
-        -- val.timestamp
-        |> Dict.insert
-            "deliveryAttempts"
-            ""
-        -- val.deliveryAttempts
-        |> Dict.insert
-            "bounces"
-            ""
-        -- val.bounces
-        |> Dict.insert
-            "complaints"
-            ""
-        -- val.complaints
-        |> Dict.insert
-            "rejects"
-            ""
-        -- val.rejects
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "timestamp" "" -- val.timestamp
+    --     |> Dict.insert
+    --         "deliveryAttempts" "" -- val.deliveryAttempts
+    --     |> Dict.insert
+    --         "bounces" "" -- val.bounces
+    --     |> Dict.insert
+    --         "complaints" "" -- val.complaints
+    --     |> Dict.insert
+    --         "rejects" "" -- val.rejects
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from sendEmail
@@ -6767,14 +6700,15 @@ sendEmailResponseDecoder =
             )
 
 
-sendEmailResponseToString : SendEmailResponse -> List ( String, String )
+sendEmailResponseToString :
+    SendEmailResponse
+    -> String -- List (String, String)
 sendEmailResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "messageId"
-            ""
-        -- val.messageId
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "messageId" "" -- val.messageId
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from sendRawEmail
@@ -6794,14 +6728,15 @@ sendRawEmailResponseDecoder =
             )
 
 
-sendRawEmailResponseToString : SendRawEmailResponse -> List ( String, String )
+sendRawEmailResponseToString :
+    SendRawEmailResponse
+    -> String -- List (String, String)
 sendRawEmailResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "messageId"
-            ""
-        -- val.messageId
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "messageId" "" -- val.messageId
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from sendTemplatedEmail
@@ -6821,14 +6756,15 @@ sendTemplatedEmailResponseDecoder =
             )
 
 
-sendTemplatedEmailResponseToString : SendTemplatedEmailResponse -> List ( String, String )
+sendTemplatedEmailResponseToString :
+    SendTemplatedEmailResponse
+    -> String -- List (String, String)
 sendTemplatedEmailResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "messageId"
-            ""
-        -- val.messageId
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "messageId" "" -- val.messageId
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from setActiveReceiptRuleSet
@@ -6842,10 +6778,13 @@ setActiveReceiptRuleSetResponseDecoder =
     JD.succeed SetActiveReceiptRuleSetResponse
 
 
-setActiveReceiptRuleSetResponseToString : SetActiveReceiptRuleSetResponse -> List ( String, String )
+setActiveReceiptRuleSetResponseToString :
+    SetActiveReceiptRuleSetResponse
+    -> String -- List (String, String)
 setActiveReceiptRuleSetResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from setIdentityDkimEnabled
@@ -6859,10 +6798,13 @@ setIdentityDkimEnabledResponseDecoder =
     JD.succeed SetIdentityDkimEnabledResponse
 
 
-setIdentityDkimEnabledResponseToString : SetIdentityDkimEnabledResponse -> List ( String, String )
+setIdentityDkimEnabledResponseToString :
+    SetIdentityDkimEnabledResponse
+    -> String -- List (String, String)
 setIdentityDkimEnabledResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from setIdentityFeedbackForwardingEnabled
@@ -6876,10 +6818,13 @@ setIdentityFeedbackForwardingEnabledResponseDecoder =
     JD.succeed SetIdentityFeedbackForwardingEnabledResponse
 
 
-setIdentityFeedbackForwardingEnabledResponseToString : SetIdentityFeedbackForwardingEnabledResponse -> List ( String, String )
+setIdentityFeedbackForwardingEnabledResponseToString :
+    SetIdentityFeedbackForwardingEnabledResponse
+    -> String -- List (String, String)
 setIdentityFeedbackForwardingEnabledResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from setIdentityHeadersInNotificationsEnabled
@@ -6893,10 +6838,13 @@ setIdentityHeadersInNotificationsEnabledResponseDecoder =
     JD.succeed SetIdentityHeadersInNotificationsEnabledResponse
 
 
-setIdentityHeadersInNotificationsEnabledResponseToString : SetIdentityHeadersInNotificationsEnabledResponse -> List ( String, String )
+setIdentityHeadersInNotificationsEnabledResponseToString :
+    SetIdentityHeadersInNotificationsEnabledResponse
+    -> String -- List (String, String)
 setIdentityHeadersInNotificationsEnabledResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from setIdentityMailFromDomain
@@ -6910,10 +6858,13 @@ setIdentityMailFromDomainResponseDecoder =
     JD.succeed SetIdentityMailFromDomainResponse
 
 
-setIdentityMailFromDomainResponseToString : SetIdentityMailFromDomainResponse -> List ( String, String )
+setIdentityMailFromDomainResponseToString :
+    SetIdentityMailFromDomainResponse
+    -> String -- List (String, String)
 setIdentityMailFromDomainResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from setIdentityNotificationTopic
@@ -6927,10 +6878,13 @@ setIdentityNotificationTopicResponseDecoder =
     JD.succeed SetIdentityNotificationTopicResponse
 
 
-setIdentityNotificationTopicResponseToString : SetIdentityNotificationTopicResponse -> List ( String, String )
+setIdentityNotificationTopicResponseToString :
+    SetIdentityNotificationTopicResponse
+    -> String -- List (String, String)
 setIdentityNotificationTopicResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from setReceiptRulePosition
@@ -6944,10 +6898,13 @@ setReceiptRulePositionResponseDecoder =
     JD.succeed SetReceiptRulePositionResponse
 
 
-setReceiptRulePositionResponseToString : SetReceiptRulePositionResponse -> List ( String, String )
+setReceiptRulePositionResponseToString :
+    SetReceiptRulePositionResponse
+    -> String -- List (String, String)
 setReceiptRulePositionResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -6976,18 +6933,17 @@ stopActionDecoder =
             )
 
 
-stopActionToString : StopAction -> List ( String, String )
+stopActionToString :
+    StopAction
+    -> String -- List (String, String)
 stopActionToString val =
-    Dict.empty
-        |> Dict.insert
-            "scope"
-            ""
-        -- val.scope
-        |> Dict.insert
-            "topicArn"
-            ""
-        -- val.topicArn
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "scope" "" -- val.scope
+    --     |> Dict.insert
+    --         "topicArn" "" -- val.topicArn
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -7058,26 +7014,21 @@ templateDecoder =
             )
 
 
-templateToString : Template -> List ( String, String )
+templateToString :
+    Template
+    -> String -- List (String, String)
 templateToString val =
-    Dict.empty
-        |> Dict.insert
-            "templateName"
-            ""
-        -- val.templateName
-        |> Dict.insert
-            "subjectPart"
-            ""
-        -- val.subjectPart
-        |> Dict.insert
-            "textPart"
-            ""
-        -- val.textPart
-        |> Dict.insert
-            "htmlPart"
-            ""
-        -- val.htmlPart
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "templateName" "" -- val.templateName
+    --     |> Dict.insert
+    --         "subjectPart" "" -- val.subjectPart
+    --     |> Dict.insert
+    --         "textPart" "" -- val.textPart
+    --     |> Dict.insert
+    --         "htmlPart" "" -- val.htmlPart
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -7106,18 +7057,17 @@ templateMetadataDecoder =
             )
 
 
-templateMetadataToString : TemplateMetadata -> List ( String, String )
+templateMetadataToString :
+    TemplateMetadata
+    -> String -- List (String, String)
 templateMetadataToString val =
-    Dict.empty
-        |> Dict.insert
-            "name"
-            ""
-        -- val.name
-        |> Dict.insert
-            "createdTimestamp"
-            ""
-        -- val.createdTimestamp
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "name" "" -- val.name
+    --     |> Dict.insert
+    --         "createdTimestamp" "" -- val.createdTimestamp
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from testRenderTemplate
@@ -7137,14 +7087,15 @@ testRenderTemplateResponseDecoder =
             )
 
 
-testRenderTemplateResponseToString : TestRenderTemplateResponse -> List ( String, String )
+testRenderTemplateResponseToString :
+    TestRenderTemplateResponse
+    -> String -- List (String, String)
 testRenderTemplateResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "renderedTemplate"
-            ""
-        -- val.renderedTemplate
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "renderedTemplate" "" -- val.renderedTemplate
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -7205,14 +7156,15 @@ trackingOptionsDecoder =
             )
 
 
-trackingOptionsToString : TrackingOptions -> List ( String, String )
+trackingOptionsToString :
+    TrackingOptions
+    -> String -- List (String, String)
 trackingOptionsToString val =
-    Dict.empty
-        |> Dict.insert
-            "customRedirectDomain"
-            ""
-        -- val.customRedirectDomain
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "customRedirectDomain" "" -- val.customRedirectDomain
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from updateConfigurationSetEventDestination
@@ -7226,10 +7178,13 @@ updateConfigurationSetEventDestinationResponseDecoder =
     JD.succeed UpdateConfigurationSetEventDestinationResponse
 
 
-updateConfigurationSetEventDestinationResponseToString : UpdateConfigurationSetEventDestinationResponse -> List ( String, String )
+updateConfigurationSetEventDestinationResponseToString :
+    UpdateConfigurationSetEventDestinationResponse
+    -> String -- List (String, String)
 updateConfigurationSetEventDestinationResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from updateConfigurationSetTrackingOptions
@@ -7243,10 +7198,13 @@ updateConfigurationSetTrackingOptionsResponseDecoder =
     JD.succeed UpdateConfigurationSetTrackingOptionsResponse
 
 
-updateConfigurationSetTrackingOptionsResponseToString : UpdateConfigurationSetTrackingOptionsResponse -> List ( String, String )
+updateConfigurationSetTrackingOptionsResponseToString :
+    UpdateConfigurationSetTrackingOptionsResponse
+    -> String -- List (String, String)
 updateConfigurationSetTrackingOptionsResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from updateReceiptRule
@@ -7260,10 +7218,13 @@ updateReceiptRuleResponseDecoder =
     JD.succeed UpdateReceiptRuleResponse
 
 
-updateReceiptRuleResponseToString : UpdateReceiptRuleResponse -> List ( String, String )
+updateReceiptRuleResponseToString :
+    UpdateReceiptRuleResponse
+    -> String -- List (String, String)
 updateReceiptRuleResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from updateTemplate
@@ -7277,10 +7238,13 @@ updateTemplateResponseDecoder =
     JD.succeed UpdateTemplateResponse
 
 
-updateTemplateResponseToString : UpdateTemplateResponse -> List ( String, String )
+updateTemplateResponseToString :
+    UpdateTemplateResponse
+    -> String -- List (String, String)
 updateTemplateResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -7362,14 +7326,15 @@ verifyDomainDkimResponseDecoder =
             )
 
 
-verifyDomainDkimResponseToString : VerifyDomainDkimResponse -> List ( String, String )
+verifyDomainDkimResponseToString :
+    VerifyDomainDkimResponse
+    -> String -- List (String, String)
 verifyDomainDkimResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "dkimTokens"
-            ""
-        -- val.dkimTokens
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "dkimTokens" "" -- val.dkimTokens
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from verifyDomainIdentity
@@ -7389,14 +7354,15 @@ verifyDomainIdentityResponseDecoder =
             )
 
 
-verifyDomainIdentityResponseToString : VerifyDomainIdentityResponse -> List ( String, String )
+verifyDomainIdentityResponseToString :
+    VerifyDomainIdentityResponse
+    -> String -- List (String, String)
 verifyDomainIdentityResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "verificationToken"
-            ""
-        -- val.verificationToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "verificationToken" "" -- val.verificationToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from verifyEmailIdentity
@@ -7410,10 +7376,13 @@ verifyEmailIdentityResponseDecoder =
     JD.succeed VerifyEmailIdentityResponse
 
 
-verifyEmailIdentityResponseToString : VerifyEmailIdentityResponse -> List ( String, String )
+verifyEmailIdentityResponseToString :
+    VerifyEmailIdentityResponse
+    -> String -- List (String, String)
 verifyEmailIdentityResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -7442,18 +7411,17 @@ workmailActionDecoder =
             )
 
 
-workmailActionToString : WorkmailAction -> List ( String, String )
+workmailActionToString :
+    WorkmailAction
+    -> String -- List (String, String)
 workmailActionToString val =
-    Dict.empty
-        |> Dict.insert
-            "topicArn"
-            ""
-        -- val.topicArn
-        |> Dict.insert
-            "organizationArn"
-            ""
-        -- val.organizationArn
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "topicArn" "" -- val.topicArn
+    --     |> Dict.insert
+    --         "organizationArn" "" -- val.organizationArn
+    --     |> Dict.toList
+    ""
 
 
 {-|

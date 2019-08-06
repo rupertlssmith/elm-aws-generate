@@ -1240,30 +1240,23 @@ alarmHistoryItemDecoder =
             )
 
 
-alarmHistoryItemToString : AlarmHistoryItem -> List ( String, String )
+alarmHistoryItemToString :
+    AlarmHistoryItem
+    -> String -- List (String, String)
 alarmHistoryItemToString val =
-    Dict.empty
-        |> Dict.insert
-            "alarmName"
-            ""
-        -- val.alarmName
-        |> Dict.insert
-            "timestamp"
-            ""
-        -- val.timestamp
-        |> Dict.insert
-            "historyItemType"
-            ""
-        -- val.historyItemType
-        |> Dict.insert
-            "historySummary"
-            ""
-        -- val.historySummary
-        |> Dict.insert
-            "historyData"
-            ""
-        -- val.historyData
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "alarmName" "" -- val.alarmName
+    --     |> Dict.insert
+    --         "timestamp" "" -- val.timestamp
+    --     |> Dict.insert
+    --         "historyItemType" "" -- val.historyItemType
+    --     |> Dict.insert
+    --         "historySummary" "" -- val.historySummary
+    --     |> Dict.insert
+    --         "historyData" "" -- val.historyData
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1310,30 +1303,23 @@ anomalyDetectorDecoder =
             )
 
 
-anomalyDetectorToString : AnomalyDetector -> List ( String, String )
+anomalyDetectorToString :
+    AnomalyDetector
+    -> String -- List (String, String)
 anomalyDetectorToString val =
-    Dict.empty
-        |> Dict.insert
-            "namespace"
-            ""
-        -- val.namespace
-        |> Dict.insert
-            "metricName"
-            ""
-        -- val.metricName
-        |> Dict.insert
-            "dimensions"
-            ""
-        -- val.dimensions
-        |> Dict.insert
-            "stat"
-            ""
-        -- val.stat
-        |> Dict.insert
-            "configuration"
-            ""
-        -- val.configuration
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "namespace" "" -- val.namespace
+    --     |> Dict.insert
+    --         "metricName" "" -- val.metricName
+    --     |> Dict.insert
+    --         "dimensions" "" -- val.dimensions
+    --     |> Dict.insert
+    --         "stat" "" -- val.stat
+    --     |> Dict.insert
+    --         "configuration" "" -- val.configuration
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1362,18 +1348,17 @@ anomalyDetectorConfigurationDecoder =
             )
 
 
-anomalyDetectorConfigurationToString : AnomalyDetectorConfiguration -> List ( String, String )
+anomalyDetectorConfigurationToString :
+    AnomalyDetectorConfiguration
+    -> String -- List (String, String)
 anomalyDetectorConfigurationToString val =
-    Dict.empty
-        |> Dict.insert
-            "excludedTimeRanges"
-            ""
-        -- val.excludedTimeRanges
-        |> Dict.insert
-            "metricTimezone"
-            ""
-        -- val.metricTimezone
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "excludedTimeRanges" "" -- val.excludedTimeRanges
+    --     |> Dict.insert
+    --         "metricTimezone" "" -- val.metricTimezone
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -1492,26 +1477,21 @@ dashboardEntryDecoder =
             )
 
 
-dashboardEntryToString : DashboardEntry -> List ( String, String )
+dashboardEntryToString :
+    DashboardEntry
+    -> String -- List (String, String)
 dashboardEntryToString val =
-    Dict.empty
-        |> Dict.insert
-            "dashboardName"
-            ""
-        -- val.dashboardName
-        |> Dict.insert
-            "dashboardArn"
-            ""
-        -- val.dashboardArn
-        |> Dict.insert
-            "lastModified"
-            ""
-        -- val.lastModified
-        |> Dict.insert
-            "size"
-            ""
-        -- val.size
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "dashboardName" "" -- val.dashboardName
+    --     |> Dict.insert
+    --         "dashboardArn" "" -- val.dashboardArn
+    --     |> Dict.insert
+    --         "lastModified" "" -- val.lastModified
+    --     |> Dict.insert
+    --         "size" "" -- val.size
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1540,18 +1520,17 @@ dashboardValidationMessageDecoder =
             )
 
 
-dashboardValidationMessageToString : DashboardValidationMessage -> List ( String, String )
+dashboardValidationMessageToString :
+    DashboardValidationMessage
+    -> String -- List (String, String)
 dashboardValidationMessageToString val =
-    Dict.empty
-        |> Dict.insert
-            "dataPath"
-            ""
-        -- val.dataPath
-        |> Dict.insert
-            "message"
-            ""
-        -- val.message
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "dataPath" "" -- val.dataPath
+    --     |> Dict.insert
+    --         "message" "" -- val.message
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1616,42 +1595,29 @@ datapointDecoder =
             )
 
 
-datapointToString : Datapoint -> List ( String, String )
+datapointToString :
+    Datapoint
+    -> String -- List (String, String)
 datapointToString val =
-    Dict.empty
-        |> Dict.insert
-            "timestamp"
-            ""
-        -- val.timestamp
-        |> Dict.insert
-            "sampleCount"
-            ""
-        -- val.sampleCount
-        |> Dict.insert
-            "average"
-            ""
-        -- val.average
-        |> Dict.insert
-            "sum"
-            ""
-        -- val.sum
-        |> Dict.insert
-            "minimum"
-            ""
-        -- val.minimum
-        |> Dict.insert
-            "maximum"
-            ""
-        -- val.maximum
-        |> Dict.insert
-            "unit"
-            ""
-        -- val.unit
-        |> Dict.insert
-            "extendedStatistics"
-            ""
-        -- val.extendedStatistics
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "timestamp" "" -- val.timestamp
+    --     |> Dict.insert
+    --         "sampleCount" "" -- val.sampleCount
+    --     |> Dict.insert
+    --         "average" "" -- val.average
+    --     |> Dict.insert
+    --         "sum" "" -- val.sum
+    --     |> Dict.insert
+    --         "minimum" "" -- val.minimum
+    --     |> Dict.insert
+    --         "maximum" "" -- val.maximum
+    --     |> Dict.insert
+    --         "unit" "" -- val.unit
+    --     |> Dict.insert
+    --         "extendedStatistics" "" -- val.extendedStatistics
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from deleteAnomalyDetect
@@ -1665,10 +1631,13 @@ deleteAnomalyDetectorOutputDecoder =
     JD.succeed DeleteAnomalyDetectorOutput
 
 
-deleteAnomalyDetectorOutputToString : DeleteAnomalyDetectorOutput -> List ( String, String )
+deleteAnomalyDetectorOutputToString :
+    DeleteAnomalyDetectorOutput
+    -> String -- List (String, String)
 deleteAnomalyDetectorOutputToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from deleteDashboar
@@ -1682,10 +1651,13 @@ deleteDashboardsOutputDecoder =
     JD.succeed DeleteDashboardsOutput
 
 
-deleteDashboardsOutputToString : DeleteDashboardsOutput -> List ( String, String )
+deleteDashboardsOutputToString :
+    DeleteDashboardsOutput
+    -> String -- List (String, String)
 deleteDashboardsOutputToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from describeAlarmHisto
@@ -1711,18 +1683,17 @@ describeAlarmHistoryOutputDecoder =
             )
 
 
-describeAlarmHistoryOutputToString : DescribeAlarmHistoryOutput -> List ( String, String )
+describeAlarmHistoryOutputToString :
+    DescribeAlarmHistoryOutput
+    -> String -- List (String, String)
 describeAlarmHistoryOutputToString val =
-    Dict.empty
-        |> Dict.insert
-            "alarmHistoryItems"
-            ""
-        -- val.alarmHistoryItems
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "alarmHistoryItems" "" -- val.alarmHistoryItems
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from describeAlarmsForMetr
@@ -1742,14 +1713,15 @@ describeAlarmsForMetricOutputDecoder =
             )
 
 
-describeAlarmsForMetricOutputToString : DescribeAlarmsForMetricOutput -> List ( String, String )
+describeAlarmsForMetricOutputToString :
+    DescribeAlarmsForMetricOutput
+    -> String -- List (String, String)
 describeAlarmsForMetricOutputToString val =
-    Dict.empty
-        |> Dict.insert
-            "metricAlarms"
-            ""
-        -- val.metricAlarms
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "metricAlarms" "" -- val.metricAlarms
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from describeAlar
@@ -1775,18 +1747,17 @@ describeAlarmsOutputDecoder =
             )
 
 
-describeAlarmsOutputToString : DescribeAlarmsOutput -> List ( String, String )
+describeAlarmsOutputToString :
+    DescribeAlarmsOutput
+    -> String -- List (String, String)
 describeAlarmsOutputToString val =
-    Dict.empty
-        |> Dict.insert
-            "metricAlarms"
-            ""
-        -- val.metricAlarms
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "metricAlarms" "" -- val.metricAlarms
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from describeAnomalyDetecto
@@ -1812,18 +1783,17 @@ describeAnomalyDetectorsOutputDecoder =
             )
 
 
-describeAnomalyDetectorsOutputToString : DescribeAnomalyDetectorsOutput -> List ( String, String )
+describeAnomalyDetectorsOutputToString :
+    DescribeAnomalyDetectorsOutput
+    -> String -- List (String, String)
 describeAnomalyDetectorsOutputToString val =
-    Dict.empty
-        |> Dict.insert
-            "anomalyDetectors"
-            ""
-        -- val.anomalyDetectors
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "anomalyDetectors" "" -- val.anomalyDetectors
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1852,18 +1822,17 @@ dimensionDecoder =
             )
 
 
-dimensionToString : Dimension -> List ( String, String )
+dimensionToString :
+    Dimension
+    -> String -- List (String, String)
 dimensionToString val =
-    Dict.empty
-        |> Dict.insert
-            "name"
-            ""
-        -- val.name
-        |> Dict.insert
-            "value"
-            ""
-        -- val.value
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "name" "" -- val.name
+    --     |> Dict.insert
+    --         "value" "" -- val.value
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1892,18 +1861,17 @@ dimensionFilterDecoder =
             )
 
 
-dimensionFilterToString : DimensionFilter -> List ( String, String )
+dimensionFilterToString :
+    DimensionFilter
+    -> String -- List (String, String)
 dimensionFilterToString val =
-    Dict.empty
-        |> Dict.insert
-            "name"
-            ""
-        -- val.name
-        |> Dict.insert
-            "value"
-            ""
-        -- val.value
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "name" "" -- val.name
+    --     |> Dict.insert
+    --         "value" "" -- val.value
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getDashboa
@@ -1935,22 +1903,19 @@ getDashboardOutputDecoder =
             )
 
 
-getDashboardOutputToString : GetDashboardOutput -> List ( String, String )
+getDashboardOutputToString :
+    GetDashboardOutput
+    -> String -- List (String, String)
 getDashboardOutputToString val =
-    Dict.empty
-        |> Dict.insert
-            "dashboardArn"
-            ""
-        -- val.dashboardArn
-        |> Dict.insert
-            "dashboardBody"
-            ""
-        -- val.dashboardBody
-        |> Dict.insert
-            "dashboardName"
-            ""
-        -- val.dashboardName
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "dashboardArn" "" -- val.dashboardArn
+    --     |> Dict.insert
+    --         "dashboardBody" "" -- val.dashboardBody
+    --     |> Dict.insert
+    --         "dashboardName" "" -- val.dashboardName
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getMetricDa
@@ -1982,22 +1947,19 @@ getMetricDataOutputDecoder =
             )
 
 
-getMetricDataOutputToString : GetMetricDataOutput -> List ( String, String )
+getMetricDataOutputToString :
+    GetMetricDataOutput
+    -> String -- List (String, String)
 getMetricDataOutputToString val =
-    Dict.empty
-        |> Dict.insert
-            "metricDataResults"
-            ""
-        -- val.metricDataResults
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.insert
-            "messages"
-            ""
-        -- val.messages
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "metricDataResults" "" -- val.metricDataResults
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.insert
+    --         "messages" "" -- val.messages
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getMetricStatisti
@@ -2023,18 +1985,17 @@ getMetricStatisticsOutputDecoder =
             )
 
 
-getMetricStatisticsOutputToString : GetMetricStatisticsOutput -> List ( String, String )
+getMetricStatisticsOutputToString :
+    GetMetricStatisticsOutput
+    -> String -- List (String, String)
 getMetricStatisticsOutputToString val =
-    Dict.empty
-        |> Dict.insert
-            "label"
-            ""
-        -- val.label
-        |> Dict.insert
-            "datapoints"
-            ""
-        -- val.datapoints
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "label" "" -- val.label
+    --     |> Dict.insert
+    --         "datapoints" "" -- val.datapoints
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getMetricWidgetIma
@@ -2054,14 +2015,15 @@ getMetricWidgetImageOutputDecoder =
             )
 
 
-getMetricWidgetImageOutputToString : GetMetricWidgetImageOutput -> List ( String, String )
+getMetricWidgetImageOutputToString :
+    GetMetricWidgetImageOutput
+    -> String -- List (String, String)
 getMetricWidgetImageOutputToString val =
-    Dict.empty
-        |> Dict.insert
-            "metricWidgetImage"
-            ""
-        -- val.metricWidgetImage
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "metricWidgetImage" "" -- val.metricWidgetImage
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -2133,18 +2095,17 @@ listDashboardsOutputDecoder =
             )
 
 
-listDashboardsOutputToString : ListDashboardsOutput -> List ( String, String )
+listDashboardsOutputToString :
+    ListDashboardsOutput
+    -> String -- List (String, String)
 listDashboardsOutputToString val =
-    Dict.empty
-        |> Dict.insert
-            "dashboardEntries"
-            ""
-        -- val.dashboardEntries
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "dashboardEntries" "" -- val.dashboardEntries
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listMetri
@@ -2170,18 +2131,17 @@ listMetricsOutputDecoder =
             )
 
 
-listMetricsOutputToString : ListMetricsOutput -> List ( String, String )
+listMetricsOutputToString :
+    ListMetricsOutput
+    -> String -- List (String, String)
 listMetricsOutputToString val =
-    Dict.empty
-        |> Dict.insert
-            "metrics"
-            ""
-        -- val.metrics
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "metrics" "" -- val.metrics
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listTagsForResour
@@ -2201,14 +2161,15 @@ listTagsForResourceOutputDecoder =
             )
 
 
-listTagsForResourceOutputToString : ListTagsForResourceOutput -> List ( String, String )
+listTagsForResourceOutputToString :
+    ListTagsForResourceOutput
+    -> String -- List (String, String)
 listTagsForResourceOutputToString val =
-    Dict.empty
-        |> Dict.insert
-            "tags"
-            ""
-        -- val.tags
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "tags" "" -- val.tags
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -2237,18 +2198,17 @@ messageDataDecoder =
             )
 
 
-messageDataToString : MessageData -> List ( String, String )
+messageDataToString :
+    MessageData
+    -> String -- List (String, String)
 messageDataToString val =
-    Dict.empty
-        |> Dict.insert
-            "code"
-            ""
-        -- val.code
-        |> Dict.insert
-            "value"
-            ""
-        -- val.value
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "code" "" -- val.code
+    --     |> Dict.insert
+    --         "value" "" -- val.value
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -2283,22 +2243,19 @@ metricDecoder =
             )
 
 
-metricToString : Metric -> List ( String, String )
+metricToString :
+    Metric
+    -> String -- List (String, String)
 metricToString val =
-    Dict.empty
-        |> Dict.insert
-            "namespace"
-            ""
-        -- val.namespace
-        |> Dict.insert
-            "metricName"
-            ""
-        -- val.metricName
-        |> Dict.insert
-            "dimensions"
-            ""
-        -- val.dimensions
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "namespace" "" -- val.namespace
+    --     |> Dict.insert
+    --         "metricName" "" -- val.metricName
+    --     |> Dict.insert
+    --         "dimensions" "" -- val.dimensions
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -2477,118 +2434,67 @@ metricAlarmDecoder =
             )
 
 
-metricAlarmToString : MetricAlarm -> List ( String, String )
+metricAlarmToString :
+    MetricAlarm
+    -> String -- List (String, String)
 metricAlarmToString val =
-    Dict.empty
-        |> Dict.insert
-            "alarmName"
-            ""
-        -- val.alarmName
-        |> Dict.insert
-            "alarmArn"
-            ""
-        -- val.alarmArn
-        |> Dict.insert
-            "alarmDescription"
-            ""
-        -- val.alarmDescription
-        |> Dict.insert
-            "alarmConfigurationUpdatedTimestamp"
-            ""
-        -- val.alarmConfigurationUpdatedTimestamp
-        |> Dict.insert
-            "actionsEnabled"
-            ""
-        -- val.actionsEnabled
-        |> Dict.insert
-            "oKActions"
-            ""
-        -- val.oKActions
-        |> Dict.insert
-            "alarmActions"
-            ""
-        -- val.alarmActions
-        |> Dict.insert
-            "insufficientDataActions"
-            ""
-        -- val.insufficientDataActions
-        |> Dict.insert
-            "stateValue"
-            ""
-        -- val.stateValue
-        |> Dict.insert
-            "stateReason"
-            ""
-        -- val.stateReason
-        |> Dict.insert
-            "stateReasonData"
-            ""
-        -- val.stateReasonData
-        |> Dict.insert
-            "stateUpdatedTimestamp"
-            ""
-        -- val.stateUpdatedTimestamp
-        |> Dict.insert
-            "metricName"
-            ""
-        -- val.metricName
-        |> Dict.insert
-            "namespace"
-            ""
-        -- val.namespace
-        |> Dict.insert
-            "statistic"
-            ""
-        -- val.statistic
-        |> Dict.insert
-            "extendedStatistic"
-            ""
-        -- val.extendedStatistic
-        |> Dict.insert
-            "dimensions"
-            ""
-        -- val.dimensions
-        |> Dict.insert
-            "period"
-            ""
-        -- val.period
-        |> Dict.insert
-            "unit"
-            ""
-        -- val.unit
-        |> Dict.insert
-            "evaluationPeriods"
-            ""
-        -- val.evaluationPeriods
-        |> Dict.insert
-            "datapointsToAlarm"
-            ""
-        -- val.datapointsToAlarm
-        |> Dict.insert
-            "threshold"
-            ""
-        -- val.threshold
-        |> Dict.insert
-            "comparisonOperator"
-            ""
-        -- val.comparisonOperator
-        |> Dict.insert
-            "treatMissingData"
-            ""
-        -- val.treatMissingData
-        |> Dict.insert
-            "evaluateLowSampleCountPercentile"
-            ""
-        -- val.evaluateLowSampleCountPercentile
-        |> Dict.insert
-            "metrics"
-            ""
-        -- val.metrics
-        |> Dict.insert
-            "thresholdMetricId"
-            ""
-        -- val.thresholdMetricId
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "alarmName" "" -- val.alarmName
+    --     |> Dict.insert
+    --         "alarmArn" "" -- val.alarmArn
+    --     |> Dict.insert
+    --         "alarmDescription" "" -- val.alarmDescription
+    --     |> Dict.insert
+    --         "alarmConfigurationUpdatedTimestamp" "" -- val.alarmConfigurationUpdatedTimestamp
+    --     |> Dict.insert
+    --         "actionsEnabled" "" -- val.actionsEnabled
+    --     |> Dict.insert
+    --         "oKActions" "" -- val.oKActions
+    --     |> Dict.insert
+    --         "alarmActions" "" -- val.alarmActions
+    --     |> Dict.insert
+    --         "insufficientDataActions" "" -- val.insufficientDataActions
+    --     |> Dict.insert
+    --         "stateValue" "" -- val.stateValue
+    --     |> Dict.insert
+    --         "stateReason" "" -- val.stateReason
+    --     |> Dict.insert
+    --         "stateReasonData" "" -- val.stateReasonData
+    --     |> Dict.insert
+    --         "stateUpdatedTimestamp" "" -- val.stateUpdatedTimestamp
+    --     |> Dict.insert
+    --         "metricName" "" -- val.metricName
+    --     |> Dict.insert
+    --         "namespace" "" -- val.namespace
+    --     |> Dict.insert
+    --         "statistic" "" -- val.statistic
+    --     |> Dict.insert
+    --         "extendedStatistic" "" -- val.extendedStatistic
+    --     |> Dict.insert
+    --         "dimensions" "" -- val.dimensions
+    --     |> Dict.insert
+    --         "period" "" -- val.period
+    --     |> Dict.insert
+    --         "unit" "" -- val.unit
+    --     |> Dict.insert
+    --         "evaluationPeriods" "" -- val.evaluationPeriods
+    --     |> Dict.insert
+    --         "datapointsToAlarm" "" -- val.datapointsToAlarm
+    --     |> Dict.insert
+    --         "threshold" "" -- val.threshold
+    --     |> Dict.insert
+    --         "comparisonOperator" "" -- val.comparisonOperator
+    --     |> Dict.insert
+    --         "treatMissingData" "" -- val.treatMissingData
+    --     |> Dict.insert
+    --         "evaluateLowSampleCountPercentile" "" -- val.evaluateLowSampleCountPercentile
+    --     |> Dict.insert
+    --         "metrics" "" -- val.metrics
+    --     |> Dict.insert
+    --         "thresholdMetricId" "" -- val.thresholdMetricId
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -2635,30 +2541,23 @@ metricDataQueryDecoder =
             )
 
 
-metricDataQueryToString : MetricDataQuery -> List ( String, String )
+metricDataQueryToString :
+    MetricDataQuery
+    -> String -- List (String, String)
 metricDataQueryToString val =
-    Dict.empty
-        |> Dict.insert
-            "id"
-            ""
-        -- val.id
-        |> Dict.insert
-            "metricStat"
-            ""
-        -- val.metricStat
-        |> Dict.insert
-            "expression"
-            ""
-        -- val.expression
-        |> Dict.insert
-            "label"
-            ""
-        -- val.label
-        |> Dict.insert
-            "returnData"
-            ""
-        -- val.returnData
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "id" "" -- val.id
+    --     |> Dict.insert
+    --         "metricStat" "" -- val.metricStat
+    --     |> Dict.insert
+    --         "expression" "" -- val.expression
+    --     |> Dict.insert
+    --         "label" "" -- val.label
+    --     |> Dict.insert
+    --         "returnData" "" -- val.returnData
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -2711,34 +2610,25 @@ metricDataResultDecoder =
             )
 
 
-metricDataResultToString : MetricDataResult -> List ( String, String )
+metricDataResultToString :
+    MetricDataResult
+    -> String -- List (String, String)
 metricDataResultToString val =
-    Dict.empty
-        |> Dict.insert
-            "id"
-            ""
-        -- val.id
-        |> Dict.insert
-            "label"
-            ""
-        -- val.label
-        |> Dict.insert
-            "timestamps"
-            ""
-        -- val.timestamps
-        |> Dict.insert
-            "values"
-            ""
-        -- val.values
-        |> Dict.insert
-            "statusCode"
-            ""
-        -- val.statusCode
-        |> Dict.insert
-            "messages"
-            ""
-        -- val.messages
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "id" "" -- val.id
+    --     |> Dict.insert
+    --         "label" "" -- val.label
+    --     |> Dict.insert
+    --         "timestamps" "" -- val.timestamps
+    --     |> Dict.insert
+    --         "values" "" -- val.values
+    --     |> Dict.insert
+    --         "statusCode" "" -- val.statusCode
+    --     |> Dict.insert
+    --         "messages" "" -- val.messages
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -2809,46 +2699,31 @@ metricDatumDecoder =
             )
 
 
-metricDatumToString : MetricDatum -> List ( String, String )
+metricDatumToString :
+    MetricDatum
+    -> String -- List (String, String)
 metricDatumToString val =
-    Dict.empty
-        |> Dict.insert
-            "metricName"
-            ""
-        -- val.metricName
-        |> Dict.insert
-            "dimensions"
-            ""
-        -- val.dimensions
-        |> Dict.insert
-            "timestamp"
-            ""
-        -- val.timestamp
-        |> Dict.insert
-            "value"
-            ""
-        -- val.value
-        |> Dict.insert
-            "statisticValues"
-            ""
-        -- val.statisticValues
-        |> Dict.insert
-            "values"
-            ""
-        -- val.values
-        |> Dict.insert
-            "counts"
-            ""
-        -- val.counts
-        |> Dict.insert
-            "unit"
-            ""
-        -- val.unit
-        |> Dict.insert
-            "storageResolution"
-            ""
-        -- val.storageResolution
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "metricName" "" -- val.metricName
+    --     |> Dict.insert
+    --         "dimensions" "" -- val.dimensions
+    --     |> Dict.insert
+    --         "timestamp" "" -- val.timestamp
+    --     |> Dict.insert
+    --         "value" "" -- val.value
+    --     |> Dict.insert
+    --         "statisticValues" "" -- val.statisticValues
+    --     |> Dict.insert
+    --         "values" "" -- val.values
+    --     |> Dict.insert
+    --         "counts" "" -- val.counts
+    --     |> Dict.insert
+    --         "unit" "" -- val.unit
+    --     |> Dict.insert
+    --         "storageResolution" "" -- val.storageResolution
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -2889,26 +2764,21 @@ metricStatDecoder =
             )
 
 
-metricStatToString : MetricStat -> List ( String, String )
+metricStatToString :
+    MetricStat
+    -> String -- List (String, String)
 metricStatToString val =
-    Dict.empty
-        |> Dict.insert
-            "metric"
-            ""
-        -- val.metric
-        |> Dict.insert
-            "period"
-            ""
-        -- val.period
-        |> Dict.insert
-            "stat"
-            ""
-        -- val.stat
-        |> Dict.insert
-            "unit"
-            ""
-        -- val.unit
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "metric" "" -- val.metric
+    --     |> Dict.insert
+    --         "period" "" -- val.period
+    --     |> Dict.insert
+    --         "stat" "" -- val.stat
+    --     |> Dict.insert
+    --         "unit" "" -- val.unit
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from putAnomalyDetect
@@ -2922,10 +2792,13 @@ putAnomalyDetectorOutputDecoder =
     JD.succeed PutAnomalyDetectorOutput
 
 
-putAnomalyDetectorOutputToString : PutAnomalyDetectorOutput -> List ( String, String )
+putAnomalyDetectorOutputToString :
+    PutAnomalyDetectorOutput
+    -> String -- List (String, String)
 putAnomalyDetectorOutputToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from putDashboa
@@ -2945,14 +2818,15 @@ putDashboardOutputDecoder =
             )
 
 
-putDashboardOutputToString : PutDashboardOutput -> List ( String, String )
+putDashboardOutputToString :
+    PutDashboardOutput
+    -> String -- List (String, String)
 putDashboardOutputToString val =
-    Dict.empty
-        |> Dict.insert
-            "dashboardValidationMessages"
-            ""
-        -- val.dashboardValidationMessages
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "dashboardValidationMessages" "" -- val.dashboardValidationMessages
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -2981,18 +2855,17 @@ rangeDecoder =
             )
 
 
-rangeToString : Range -> List ( String, String )
+rangeToString :
+    Range
+    -> String -- List (String, String)
 rangeToString val =
-    Dict.empty
-        |> Dict.insert
-            "startTime"
-            ""
-        -- val.startTime
-        |> Dict.insert
-            "endTime"
-            ""
-        -- val.endTime
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "startTime" "" -- val.startTime
+    --     |> Dict.insert
+    --         "endTime" "" -- val.endTime
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -3417,26 +3290,21 @@ statisticSetDecoder =
             )
 
 
-statisticSetToString : StatisticSet -> List ( String, String )
+statisticSetToString :
+    StatisticSet
+    -> String -- List (String, String)
 statisticSetToString val =
-    Dict.empty
-        |> Dict.insert
-            "sampleCount"
-            ""
-        -- val.sampleCount
-        |> Dict.insert
-            "sum"
-            ""
-        -- val.sum
-        |> Dict.insert
-            "minimum"
-            ""
-        -- val.minimum
-        |> Dict.insert
-            "maximum"
-            ""
-        -- val.maximum
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "sampleCount" "" -- val.sampleCount
+    --     |> Dict.insert
+    --         "sum" "" -- val.sum
+    --     |> Dict.insert
+    --         "minimum" "" -- val.minimum
+    --     |> Dict.insert
+    --         "maximum" "" -- val.maximum
+    --     |> Dict.toList
+    ""
 
 
 {-| One of
@@ -3511,18 +3379,17 @@ tagDecoder =
             )
 
 
-tagToString : Tag -> List ( String, String )
+tagToString :
+    Tag
+    -> String -- List (String, String)
 tagToString val =
-    Dict.empty
-        |> Dict.insert
-            "key"
-            ""
-        -- val.key
-        |> Dict.insert
-            "value"
-            ""
-        -- val.value
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "key" "" -- val.key
+    --     |> Dict.insert
+    --         "value" "" -- val.value
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from tagResour
@@ -3536,10 +3403,13 @@ tagResourceOutputDecoder =
     JD.succeed TagResourceOutput
 
 
-tagResourceOutputToString : TagResourceOutput -> List ( String, String )
+tagResourceOutputToString :
+    TagResourceOutput
+    -> String -- List (String, String)
 tagResourceOutputToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from untagResour
@@ -3553,10 +3423,13 @@ untagResourceOutputDecoder =
     JD.succeed UntagResourceOutput
 
 
-untagResourceOutputToString : UntagResourceOutput -> List ( String, String )
+untagResourceOutputToString :
+    UntagResourceOutput
+    -> String -- List (String, String)
 untagResourceOutputToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| undefined

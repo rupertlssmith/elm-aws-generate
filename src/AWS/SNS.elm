@@ -1454,14 +1454,15 @@ checkIfPhoneNumberIsOptedOutResponseDecoder =
             )
 
 
-checkIfPhoneNumberIsOptedOutResponseToString : CheckIfPhoneNumberIsOptedOutResponse -> List ( String, String )
+checkIfPhoneNumberIsOptedOutResponseToString :
+    CheckIfPhoneNumberIsOptedOutResponse
+    -> String -- List (String, String)
 checkIfPhoneNumberIsOptedOutResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "isOptedOut"
-            ""
-        -- val.isOptedOut
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "isOptedOut" "" -- val.isOptedOut
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from confirmSubscription
@@ -1481,14 +1482,15 @@ confirmSubscriptionResponseDecoder =
             )
 
 
-confirmSubscriptionResponseToString : ConfirmSubscriptionResponse -> List ( String, String )
+confirmSubscriptionResponseToString :
+    ConfirmSubscriptionResponse
+    -> String -- List (String, String)
 confirmSubscriptionResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "subscriptionArn"
-            ""
-        -- val.subscriptionArn
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "subscriptionArn" "" -- val.subscriptionArn
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from createEndpoint
@@ -1508,14 +1510,15 @@ createEndpointResponseDecoder =
             )
 
 
-createEndpointResponseToString : CreateEndpointResponse -> List ( String, String )
+createEndpointResponseToString :
+    CreateEndpointResponse
+    -> String -- List (String, String)
 createEndpointResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "endpointArn"
-            ""
-        -- val.endpointArn
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "endpointArn" "" -- val.endpointArn
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from createPlatformApplication
@@ -1535,14 +1538,15 @@ createPlatformApplicationResponseDecoder =
             )
 
 
-createPlatformApplicationResponseToString : CreatePlatformApplicationResponse -> List ( String, String )
+createPlatformApplicationResponseToString :
+    CreatePlatformApplicationResponse
+    -> String -- List (String, String)
 createPlatformApplicationResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "platformApplicationArn"
-            ""
-        -- val.platformApplicationArn
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "platformApplicationArn" "" -- val.platformApplicationArn
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from createTopic
@@ -1562,14 +1566,15 @@ createTopicResponseDecoder =
             )
 
 
-createTopicResponseToString : CreateTopicResponse -> List ( String, String )
+createTopicResponseToString :
+    CreateTopicResponse
+    -> String -- List (String, String)
 createTopicResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "topicArn"
-            ""
-        -- val.topicArn
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "topicArn" "" -- val.topicArn
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -1598,18 +1603,17 @@ endpointDecoder =
             )
 
 
-endpointToString : Endpoint -> List ( String, String )
+endpointToString :
+    Endpoint
+    -> String -- List (String, String)
 endpointToString val =
-    Dict.empty
-        |> Dict.insert
-            "endpointArn"
-            ""
-        -- val.endpointArn
-        |> Dict.insert
-            "attributes"
-            ""
-        -- val.attributes
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "endpointArn" "" -- val.endpointArn
+    --     |> Dict.insert
+    --         "attributes" "" -- val.attributes
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getEndpointAttributes
@@ -1629,14 +1633,15 @@ getEndpointAttributesResponseDecoder =
             )
 
 
-getEndpointAttributesResponseToString : GetEndpointAttributesResponse -> List ( String, String )
+getEndpointAttributesResponseToString :
+    GetEndpointAttributesResponse
+    -> String -- List (String, String)
 getEndpointAttributesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "attributes"
-            ""
-        -- val.attributes
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "attributes" "" -- val.attributes
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getPlatformApplicationAttributes
@@ -1656,14 +1661,15 @@ getPlatformApplicationAttributesResponseDecoder =
             )
 
 
-getPlatformApplicationAttributesResponseToString : GetPlatformApplicationAttributesResponse -> List ( String, String )
+getPlatformApplicationAttributesResponseToString :
+    GetPlatformApplicationAttributesResponse
+    -> String -- List (String, String)
 getPlatformApplicationAttributesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "attributes"
-            ""
-        -- val.attributes
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "attributes" "" -- val.attributes
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getSMSAttributes
@@ -1683,14 +1689,15 @@ getSMSAttributesResponseDecoder =
             )
 
 
-getSMSAttributesResponseToString : GetSMSAttributesResponse -> List ( String, String )
+getSMSAttributesResponseToString :
+    GetSMSAttributesResponse
+    -> String -- List (String, String)
 getSMSAttributesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "attributes"
-            ""
-        -- val.attributes
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "attributes" "" -- val.attributes
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getSubscriptionAttributes
@@ -1710,14 +1717,15 @@ getSubscriptionAttributesResponseDecoder =
             )
 
 
-getSubscriptionAttributesResponseToString : GetSubscriptionAttributesResponse -> List ( String, String )
+getSubscriptionAttributesResponseToString :
+    GetSubscriptionAttributesResponse
+    -> String -- List (String, String)
 getSubscriptionAttributesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "attributes"
-            ""
-        -- val.attributes
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "attributes" "" -- val.attributes
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from getTopicAttributes
@@ -1737,14 +1745,15 @@ getTopicAttributesResponseDecoder =
             )
 
 
-getTopicAttributesResponseToString : GetTopicAttributesResponse -> List ( String, String )
+getTopicAttributesResponseToString :
+    GetTopicAttributesResponse
+    -> String -- List (String, String)
 getTopicAttributesResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "attributes"
-            ""
-        -- val.attributes
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "attributes" "" -- val.attributes
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listEndpointsByPlatformApplication
@@ -1770,18 +1779,17 @@ listEndpointsByPlatformApplicationResponseDecoder =
             )
 
 
-listEndpointsByPlatformApplicationResponseToString : ListEndpointsByPlatformApplicationResponse -> List ( String, String )
+listEndpointsByPlatformApplicationResponseToString :
+    ListEndpointsByPlatformApplicationResponse
+    -> String -- List (String, String)
 listEndpointsByPlatformApplicationResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "endpoints"
-            ""
-        -- val.endpoints
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "endpoints" "" -- val.endpoints
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listPhoneNumbersOptedOut
@@ -1807,18 +1815,17 @@ listPhoneNumbersOptedOutResponseDecoder =
             )
 
 
-listPhoneNumbersOptedOutResponseToString : ListPhoneNumbersOptedOutResponse -> List ( String, String )
+listPhoneNumbersOptedOutResponseToString :
+    ListPhoneNumbersOptedOutResponse
+    -> String -- List (String, String)
 listPhoneNumbersOptedOutResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "phoneNumbers"
-            ""
-        -- val.phoneNumbers
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "phoneNumbers" "" -- val.phoneNumbers
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listPlatformApplications
@@ -1844,18 +1851,17 @@ listPlatformApplicationsResponseDecoder =
             )
 
 
-listPlatformApplicationsResponseToString : ListPlatformApplicationsResponse -> List ( String, String )
+listPlatformApplicationsResponseToString :
+    ListPlatformApplicationsResponse
+    -> String -- List (String, String)
 listPlatformApplicationsResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "platformApplications"
-            ""
-        -- val.platformApplications
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "platformApplications" "" -- val.platformApplications
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listSubscriptionsByTopic
@@ -1881,18 +1887,17 @@ listSubscriptionsByTopicResponseDecoder =
             )
 
 
-listSubscriptionsByTopicResponseToString : ListSubscriptionsByTopicResponse -> List ( String, String )
+listSubscriptionsByTopicResponseToString :
+    ListSubscriptionsByTopicResponse
+    -> String -- List (String, String)
 listSubscriptionsByTopicResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "subscriptions"
-            ""
-        -- val.subscriptions
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "subscriptions" "" -- val.subscriptions
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listSubscriptions
@@ -1918,18 +1923,17 @@ listSubscriptionsResponseDecoder =
             )
 
 
-listSubscriptionsResponseToString : ListSubscriptionsResponse -> List ( String, String )
+listSubscriptionsResponseToString :
+    ListSubscriptionsResponse
+    -> String -- List (String, String)
 listSubscriptionsResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "subscriptions"
-            ""
-        -- val.subscriptions
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "subscriptions" "" -- val.subscriptions
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listTagsForResource
@@ -1949,14 +1953,15 @@ listTagsForResourceResponseDecoder =
             )
 
 
-listTagsForResourceResponseToString : ListTagsForResourceResponse -> List ( String, String )
+listTagsForResourceResponseToString :
+    ListTagsForResourceResponse
+    -> String -- List (String, String)
 listTagsForResourceResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "tags"
-            ""
-        -- val.tags
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "tags" "" -- val.tags
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from listTopics
@@ -1982,18 +1987,17 @@ listTopicsResponseDecoder =
             )
 
 
-listTopicsResponseToString : ListTopicsResponse -> List ( String, String )
+listTopicsResponseToString :
+    ListTopicsResponse
+    -> String -- List (String, String)
 listTopicsResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "topics"
-            ""
-        -- val.topics
-        |> Dict.insert
-            "nextToken"
-            ""
-        -- val.nextToken
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "topics" "" -- val.topics
+    --     |> Dict.insert
+    --         "nextToken" "" -- val.nextToken
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -2028,22 +2032,19 @@ messageAttributeValueDecoder =
             )
 
 
-messageAttributeValueToString : MessageAttributeValue -> List ( String, String )
+messageAttributeValueToString :
+    MessageAttributeValue
+    -> String -- List (String, String)
 messageAttributeValueToString val =
-    Dict.empty
-        |> Dict.insert
-            "dataType"
-            ""
-        -- val.dataType
-        |> Dict.insert
-            "stringValue"
-            ""
-        -- val.stringValue
-        |> Dict.insert
-            "binaryValue"
-            ""
-        -- val.binaryValue
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "dataType" "" -- val.dataType
+    --     |> Dict.insert
+    --         "stringValue" "" -- val.stringValue
+    --     |> Dict.insert
+    --         "binaryValue" "" -- val.binaryValue
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from optInPhoneNumber
@@ -2057,10 +2058,13 @@ optInPhoneNumberResponseDecoder =
     JD.succeed OptInPhoneNumberResponse
 
 
-optInPhoneNumberResponseToString : OptInPhoneNumberResponse -> List ( String, String )
+optInPhoneNumberResponseToString :
+    OptInPhoneNumberResponse
+    -> String -- List (String, String)
 optInPhoneNumberResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -2089,18 +2093,17 @@ platformApplicationDecoder =
             )
 
 
-platformApplicationToString : PlatformApplication -> List ( String, String )
+platformApplicationToString :
+    PlatformApplication
+    -> String -- List (String, String)
 platformApplicationToString val =
-    Dict.empty
-        |> Dict.insert
-            "platformApplicationArn"
-            ""
-        -- val.platformApplicationArn
-        |> Dict.insert
-            "attributes"
-            ""
-        -- val.attributes
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "platformApplicationArn" "" -- val.platformApplicationArn
+    --     |> Dict.insert
+    --         "attributes" "" -- val.attributes
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from publish
@@ -2120,14 +2123,15 @@ publishResponseDecoder =
             )
 
 
-publishResponseToString : PublishResponse -> List ( String, String )
+publishResponseToString :
+    PublishResponse
+    -> String -- List (String, String)
 publishResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "messageId"
-            ""
-        -- val.messageId
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "messageId" "" -- val.messageId
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from setSMSAttributes
@@ -2141,10 +2145,13 @@ setSMSAttributesResponseDecoder =
     JD.succeed SetSMSAttributesResponse
 
 
-setSMSAttributesResponseToString : SetSMSAttributesResponse -> List ( String, String )
+setSMSAttributesResponseToString :
+    SetSMSAttributesResponse
+    -> String -- List (String, String)
 setSMSAttributesResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from subscribe
@@ -2164,14 +2171,15 @@ subscribeResponseDecoder =
             )
 
 
-subscribeResponseToString : SubscribeResponse -> List ( String, String )
+subscribeResponseToString :
+    SubscribeResponse
+    -> String -- List (String, String)
 subscribeResponseToString val =
-    Dict.empty
-        |> Dict.insert
-            "subscriptionArn"
-            ""
-        -- val.subscriptionArn
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "subscriptionArn" "" -- val.subscriptionArn
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -2218,30 +2226,23 @@ subscriptionDecoder =
             )
 
 
-subscriptionToString : Subscription -> List ( String, String )
+subscriptionToString :
+    Subscription
+    -> String -- List (String, String)
 subscriptionToString val =
-    Dict.empty
-        |> Dict.insert
-            "subscriptionArn"
-            ""
-        -- val.subscriptionArn
-        |> Dict.insert
-            "owner"
-            ""
-        -- val.owner
-        |> Dict.insert
-            "protocol"
-            ""
-        -- val.protocol
-        |> Dict.insert
-            "endpoint"
-            ""
-        -- val.endpoint
-        |> Dict.insert
-            "topicArn"
-            ""
-        -- val.topicArn
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "subscriptionArn" "" -- val.subscriptionArn
+    --     |> Dict.insert
+    --         "owner" "" -- val.owner
+    --     |> Dict.insert
+    --         "protocol" "" -- val.protocol
+    --     |> Dict.insert
+    --         "endpoint" "" -- val.endpoint
+    --     |> Dict.insert
+    --         "topicArn" "" -- val.topicArn
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -2270,18 +2271,17 @@ tagDecoder =
             )
 
 
-tagToString : Tag -> List ( String, String )
+tagToString :
+    Tag
+    -> String -- List (String, String)
 tagToString val =
-    Dict.empty
-        |> Dict.insert
-            "key"
-            ""
-        -- val.key
-        |> Dict.insert
-            "value"
-            ""
-        -- val.value
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "key" "" -- val.key
+    --     |> Dict.insert
+    --         "value" "" -- val.value
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from tagResource
@@ -2295,10 +2295,13 @@ tagResourceResponseDecoder =
     JD.succeed TagResourceResponse
 
 
-tagResourceResponseToString : TagResourceResponse -> List ( String, String )
+tagResourceResponseToString :
+    TagResourceResponse
+    -> String -- List (String, String)
 tagResourceResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-|
@@ -2321,14 +2324,15 @@ topicDecoder =
             )
 
 
-topicToString : Topic -> List ( String, String )
+topicToString :
+    Topic
+    -> String -- List (String, String)
 topicToString val =
-    Dict.empty
-        |> Dict.insert
-            "topicArn"
-            ""
-        -- val.topicArn
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.insert
+    --         "topicArn" "" -- val.topicArn
+    --     |> Dict.toList
+    ""
 
 
 {-| Type of HTTP response from untagResource
@@ -2342,10 +2346,13 @@ untagResourceResponseDecoder =
     JD.succeed UntagResourceResponse
 
 
-untagResourceResponseToString : UntagResourceResponse -> List ( String, String )
+untagResourceResponseToString :
+    UntagResourceResponse
+    -> String -- List (String, String)
 untagResourceResponseToString val =
-    Dict.empty
-        |> Dict.toList
+    -- Dict.empty
+    --     |> Dict.toList
+    ""
 
 
 {-| undefined
