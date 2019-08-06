@@ -5954,7 +5954,7 @@ applicationEncoder data =
             JE.bool
             ( "Enabled", data.enabled )
         |> AWS.Core.Encode.optionalMember
-            (metadataToString >> JE.string)
+            identity
             ( "Metadata", data.metadata )
         |> JE.object
 
@@ -6129,7 +6129,7 @@ createFleetRequestEncoder data =
             domainJoinInfoEncoder
             ( "DomainJoinInfo", data.domainJoinInfo )
         |> AWS.Core.Encode.optionalMember
-            (tagsToString >> JE.string)
+            identity
             ( "Tags", data.tags )
         |> AWS.Core.Encode.optionalMember
             JE.int
@@ -6176,7 +6176,7 @@ createImageBuilderRequestEncoder data =
             JE.string
             ( "AppstreamAgentVersion", data.appstreamAgentVersion )
         |> AWS.Core.Encode.optionalMember
-            (tagsToString >> JE.string)
+            identity
             ( "Tags", data.tags )
         |> JE.object
 
@@ -6238,7 +6238,7 @@ createStackRequestEncoder data =
             applicationSettingsEncoder
             ( "ApplicationSettings", data.applicationSettings )
         |> AWS.Core.Encode.optionalMember
-            (tagsToString >> JE.string)
+            identity
             ( "Tags", data.tags )
         |> JE.object
 
@@ -7066,7 +7066,7 @@ listTagsForResourceResponseEncoder : ListTagsForResourceResponse -> JE.Value
 listTagsForResourceResponseEncoder data =
     []
         |> AWS.Core.Encode.optionalMember
-            (tagsToString >> JE.string)
+            identity
             ( "Tags", data.tags )
         |> JE.object
 
@@ -7267,7 +7267,7 @@ tagResourceRequestEncoder : TagResourceRequest -> JE.Value
 tagResourceRequestEncoder data =
     []
         |> (::) ( "ResourceArn", data.resourceArn |> JE.string )
-        |> (::) ( "Tags", data.tags |> (tagsToString >> JE.string) )
+        |> (::) ( "Tags", data.tags |> identity )
         |> JE.object
 
 
