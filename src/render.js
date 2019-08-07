@@ -10,6 +10,7 @@ render.enum = sh => Object.assign({
   exposeAs: `${sh.type}(..)`,
   typeDef: dots.defineUnionType(sh),
   decoderDef: dots.defineUnionDecoder(sh),
+  toStringDef: dots.defineUnionToString(sh)
 }, sh);
 
 render.enumDoc = dots.defineUnionDoc;
@@ -26,6 +27,7 @@ render.structure = sh => Object.assign({
   decoderDef: dots.defineRecordDecoder(sh),
   jsonEncoderDef: dots.defineRecordJsonEncoder(sh),
   queryEncoderDef: dots.defineRecordQueryEncoder(sh),
+  toStringDef: dots.defineRecordToString(sh)
 }, sh);
 
 module.exports = render;

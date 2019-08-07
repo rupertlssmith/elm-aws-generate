@@ -36,8 +36,8 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
     type: 'Float',
     decoder: `${jsonDecode}.float`,
     jsonEncoder: `${jsonEncode}.float`,
-    queryEncoderType: 'toString',
-    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs toString "${base}"`,
+    queryEncoderType: 'String.fromFloat',
+    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs String.fromFloat "${base}"`,
   });
 
   resolve.double = resolve.float;
@@ -46,8 +46,8 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
     type: 'Int',
     decoder: `${jsonDecode}.int`,
     jsonEncoder: `${jsonEncode}.int`,
-    queryEncoderType: 'toString',
-    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs toString "${base}"`,
+    queryEncoderType: 'String.fromInt',
+    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs String.fromInt "${base}"`,
   });
 
   resolve.long = resolve.integer;
@@ -57,7 +57,7 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
     return render.nothing({
       type: `(List ${child.type})`,
       decoder: `(${jsonDecode}.list ${child.decoder})`,
-      jsonEncoder: `(List.map (${child.jsonEncoder})) >> ${jsonEncode}.list`,
+      jsonEncoder: `${jsonEncode}.list (${child.jsonEncoder})`,
       queryEncoderType: child.queryEncoderType,
       queryEncoder: base => `AWS.Core.Encode.addListToQueryArgs ${sh.flattened ? 'True' : 'False'} (${child.queryEncoder('')}) "${base}"`,
     });
@@ -77,9 +77,29 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
     }
     const value = resolve.shape(sh.value);
     const queryEncoderType = isEnumOfFloats(key)
-      ? 'AWS.Core.Enum.toFloat >> Result.withDefault 0.0 >> toString'
-      : 'AWS.Core.Enum.toString >> Result.withDefault ""';
-    const queryEncoder = base => `AWS.Core.Encode.addOneToQueryArgs (${queryEncoderType}) "${base}"`;
+      ? 'AWS.Core.Enum.toFloat >> Result.withDefault 0.0 >> String.fromFloat'
+      : (value.type == 'Int')
+        ? 'String.fromInt'
+        : (value.type == 'Float')
+          ? 'String.fromFloat'
+          : (value.type == 'String')
+            ? 'identity'
+            : `${lowCam(value.type)}ToString`;
+    const queryEncoder = base => `AWS.Core.Encode.addDictToQueryArgs (${queryEncoderType}) "${base}"`;
+
+    // const jsonEncoder = isEnumOfFloats(key)
+    //   ? 'AWS.Core.Enum.toFloat >> Result.withDefault 0.0 >> String.fromFloat'
+    //   : (value.type == 'Int')
+    //     ? `${jsonEncode}.dict identity ${jsonEncode}.int`
+    //     : (value.type == 'Float')
+    //       ? `${jsonEncode}.dict identity ${jsonEncode}.float`
+    //       : (value.type == 'String')
+    //         ? `${jsonEncode}.dict identity ${jsonEncode}.string`
+    //         : `${lowCam(value.type)}Encoder`;
+
+    const jsonEncoder = isEnumOfFloats(key)
+      ? 'AWS.Core.Enum.toFloat >> Result.withDefault 0.0 >> String.fromFloat'
+      : `${jsonEncode}.dict identity (${value.jsonEncoder})`
 
     return isEnumOfFloats(key) ?
       render.nothing({
@@ -89,7 +109,6 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
         queryEncoderType,
         queryEncoder,
         extraImports: [
-          'import AWS.Core.Enum',
           'import Dict exposing (Dict)',
           'import Json.Decode.Extra as JDX',
         ],
@@ -97,11 +116,10 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
       render.nothing({
         type: `(Dict String ${value.type})`,
         decoder: `(AWS.Core.Decode.dict ${value.decoder})`,
-        jsonEncoder: `AWS.Core.Enum.toString >> Result.withDefault "" >> ${jsonEncode}.string`,
+        jsonEncoder,
         queryEncoderType,
         queryEncoder,
         extraImports: [
-          'import AWS.Core.Enum',
           'import Dict exposing (Dict)',
         ],
       });
@@ -113,21 +131,21 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
       type: 'String',
       decoder: `${jsonDecode}.string`,
       jsonEncoder: `${jsonEncode}.string`,
-      queryEncoderType: '(\\x -> x)',
-      queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs (\\x -> x) "${base}"`,
+      queryEncoderType: 'identity',
+      queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs identity "${base}"`,
     }));
 
   resolve.blob = resolve.string; // TODO:
 
   resolve.timestamp = () => render.nothing({
-    type: 'Date',
-    decoder: 'JDX.date',
-    jsonEncoder: `Date.Extra.toUtcIsoString >> ${jsonEncode}.string`,
-    queryEncoderType: 'Date.Extra.toUtcIsoString',
-    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs Date.Extra.toUtcIsoString "${base}"`,
+    type: 'Posix',
+    decoder: 'JDX.datetime',
+    jsonEncoder: `Iso8601.fromTime >> ${jsonEncode}.string`,
+    queryEncoderType: 'Iso8601.fromTime',
+    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs Iso8601.fromTime "${base}"`,
     extraImports: [
-      'import Date exposing (Date)',
-      'import Date.Extra',
+      'import Time exposing (Posix)',
+      'import Iso8601',
       'import Json.Decode.Extra as JDX',
     ],
   });
@@ -135,14 +153,14 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
   resolve.enum = sh => render.enum({
     type: sh.name,
     decoder: `${lowCam(sh.name)}Decoder`,
-    jsonEncoder: `AWS.Core.Enum.toString >> Result.withDefault "" >> ${jsonEncode}.string`,
-    queryEncoderType: 'AWS.Core.Enum.toString >> Result.withDefault ""',
-    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs (AWS.Core.Enum.toString >> Result.withDefault "") "${base}"`,
+    jsonEncoder: `${lowCam(sh.name)}ToString >> ${jsonEncode}.string`,
+    queryEncoderType: '${lowCam(sh.name)}ToString',
+    queryEncoder: base => `AWS.Core.Encode.addOneToQueryArgs ${lowCam(sh.name)}ToString "${base}"`,
     extraImports: [
-      'import AWS.Core.Enum',
     ],
     enum: sh.enum.map(safeIdentifier),
     doc: render.enumDoc(sh),
+    toStringFn : `${lowCam(sh.name)}ToString`,
     category: 'union',
   });
 
@@ -164,6 +182,7 @@ module.exports = (shapesWithoutNames, { inputShapes, outputShapes }) => {
       doc: category === 'response'
         ? `Type of HTTP response from ${lowCam(sh.name).slice(0, sh.name.length - 8)}`
         : sh.documentation,
+      toStringFn : `${lowCam(sh.name)}ToString`,
       category,
     });
   };

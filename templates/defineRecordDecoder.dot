@@ -1,6 +1,6 @@
 {{= it.decoder }} : JD.Decoder {{= it.type }}
 {{= it.decoder }} =
-    JDP.decode {{= it.type }}
+    JD.succeed {{= it.type }}
         {{~ it.members :m }}
         |> JDP.custom (AWS.Core.Decode.{{= m.required ? 'required' : 'optional' }}
             ["{{= m.decodeKeys.join('", "') }}"]
